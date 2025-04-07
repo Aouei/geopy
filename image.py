@@ -11,8 +11,9 @@ import enums
 
 from rasterio.warp import reproject, Resampling, calculate_default_transform
 from rasterio.transform import from_origin
+from shapely.geometry import box
+from typing import Tuple, List
 from affine import Affine
-from typing import Tuple
 
 
 class Image(object):
@@ -38,6 +39,10 @@ class Image(object):
             for wavelenght in band.value:
                 self.replace(wavelenght, band.name)
 
+    @property
+    def band_names(self) -> List[str]:
+        return list(self.data.data_vars.keys())
+    
     @property
     def width(self) -> int:
         return len(self.data.x)
@@ -66,6 +71,17 @@ class Image(object):
     def coords(self) -> Tuple[np.ndarray, np.ndarray]:
         return np.meshgrid(self.data.x, self.data.y)
 
+    @property
+    def bbox(self) -> gpd.GeoDataFrame:
+        xmin, xmax, ymin, ymax = float(self.data.x.min()), float(self.data.x.max()), float(self.data.y.min()), float(self.data.y.max())   
+        xmin -= self.x_res / 2
+        xmax += self.x_res / 2
+        ymin -= self.y_res / 2
+        ymax += self.y_res / 2
+
+
+        return gpd.GeoDataFrame(geometry=[box(xmin, ymin, xmax, ymax)], crs=self.crs)
+    
 
     def reproject(self, new_crs: pyproj.CRS, interpolation : Resampling = Resampling.nearest) -> None:        
         # Obtener la información del CRS actual y el nuevo
