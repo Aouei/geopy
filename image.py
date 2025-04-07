@@ -220,8 +220,18 @@ class Image(object):
         self.data = self.data.where( xr.DataArray(data = mask, dims = ('y', 'x')) )
 
 
-    def select(self, bands):
-        return self.data[bands]
+    def select(self, bands : str | list, only_values : bool = True) -> np.ndarray | xr.DataArray:
+        result = None
+
+        if only_values:
+            if isinstance(bands, list):
+                result = [self.data[band].values for band in bands]
+            else:
+                result = self.data[bands].values
+        else:
+            result = self.data[bands]
+    
+        return result
     
     def add_band(self, band_name : str, data : np.ndarray | xr.DataArray):
         if isinstance(data, np.ndarray):

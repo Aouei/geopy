@@ -30,7 +30,7 @@ def plot_band(image, band : str, ax: Optional[mplaxes.Axes] = None, figsize: tup
     else:
         fig = ax.figure
 
-    data = image.select(band).values
+    data = image.select(band)
     mappable = ax.pcolormesh(*image.coords, data, cmap=cmap, **pcolormesh_kwargs)
     
     return fig, ax, mappable
