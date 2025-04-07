@@ -5,11 +5,8 @@ import scipy.stats
 from data_types import CalibrationSummary, ValidationSummary
 import scipy
 
-def pseudomodel_green(blue : np.ndarray, green : np.ndarray, n : float) -> np.ndarray:
-    return np.log(blue * n) / np.log(green * n)
-
-def pseudomodel_red(blue : np.ndarray, red : np.ndarray, n : float) -> np.ndarray:
-    return np.log(blue * n) / np.log(red * n)
+def stumpf_pseudomodel(blue : np.ndarray, other : np.ndarray, n : float = np.pi * 1_000):
+    return np.log(blue * n) / np.log(other * n)
 
 def get_stratified_depths(depths : np.ndarray, n_segments : int = 10, sample_size_per_depth : int = 5, min_depth = None, max_depth = None, random = None) -> np.ndarray:
     min_depth = np.nanmin(depths) if min_depth is None else min_depth
@@ -44,21 +41,21 @@ def validate(model : np.ndarray, in_situ : np.ndarray) -> ValidationSummary:
     
 
 def composite(green_pseudomodels : np.ndarray, red_pseudomodels : np.ndarray) -> np.ndarray:
-    return np.nanmax(green_pseudomodels, axis = 0), np.nanmax(red_pseudomodels, axis = 0), np.argmax(green_pseudomodels, axis = 0)
+    return np.nanmax(green_pseudomodels, axis = 0), np.nanmax(red_pseudomodels, axis = 0), \
+            np.argmax(green_pseudomodels, axis = 0)
 
 
 def switching_model(green_model : np.ndarray, red_model : np.ndarray, green_coef : float = 3.5, red_coef : float = 2) -> np.ndarray:
-    # Equations
     a = (green_coef - red_model) / (green_coef - red_coef)
     b = 1 - a
-    SDBw = a * red_model + b * green_model
+    switching_model = a * red_model + b * green_model
 
-    SDB = np.zeros(red_model.shape)
-    SDB[:,:] = np.nan
+    model = np.zeros(red_model.shape)
+    model[:] = np.nan
 
-    SDB = np.where(red_model < red_coef, red_model, SDB)
-    SDB = np.where((red_model > red_coef) & (green_model > green_coef), green_model, SDB)
-    SDB = np.where((red_model >= red_coef) & (green_model <= green_coef), SDBw, SDB)
-    SDB[SDB < 0] = np.nan
+    model = np.where(red_model < red_coef, red_model, model)
+    model = np.where((red_model > red_coef) & (green_model > green_coef), green_model, model)
+    model = np.where((red_model >= red_coef) & (green_model <= green_coef), switching_model, model)
+    model[model < 0] = np.nan
     
-    return SDB
+    return model
