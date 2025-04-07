@@ -300,8 +300,3 @@ class Image(object):
             for idx, (band_name, band_data) in enumerate(self.data.data_vars.items(), start=1):
                 dst.write(band_data.values, idx)
                 dst.set_band_description(idx, band_name)
-
-
-
-def open(path):
-    pass
