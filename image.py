@@ -84,6 +84,10 @@ class Image(object):
 
         return gpd.GeoDataFrame(geometry=[box(xmin, ymin, xmax, ymax)], crs=self.crs)
     
+    @property
+    def values(self) -> np.ndarray:
+        return np.array( [self.data[band].values.copy() for band in self.band_names] )
+
 
     def reproject(self, new_crs: pyproj.CRS, interpolation : Resampling = Resampling.nearest) -> None:        
         # Obtener la información del CRS actual y el nuevo
