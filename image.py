@@ -1,0 +1,332 @@
+from __future__ import annotations
+
+
+import geopandas as gpd
+import rasterio.features
+import xarray as xr
+import numpy as np
+import rasterio
+import pyproj
+import enums
+
+from rasterio.warp import reproject, Resampling, calculate_default_transform
+from rasterio.transform import from_origin
+from affine import Affine
+from typing import Tuple
+
+
+class Image(object):
+    grid_mapping : str = 'projection'
+
+    def __init__(self, filename : str) -> None:
+        self.crs : pyproj.CRS = None
+        self.data : xr.Dataset  = None
+
+        self.open(filename)
+
+
+    def open(self, filename : str) -> xr.Dataset:
+        if filename.split('.')[-1] in enums.FILE_EXTENTIONS.TIF.value:
+            self.__open_geotif(filename)
+        elif filename.split('.')[-1] in enums.FILE_EXTENTIONS.NETCDF.value:
+            self.__open_netcdf(filename)
+
+    def __open_netcdf(self, filename : str) -> xr.Dataset:
+        with xr.open_dataset(filename) as src:
+            if 'crs_wkt' in src.attrs:
+                self.crs = pyproj.CRS.from_wkt(src.attrs['crs_wkt'])
+            elif 'proj4_string' in src.attrs:
+                self.crs = pyproj.CRS.from_proj4(src.attrs['proj4_string'])
+
+            src.coords[self.grid_mapping] = xr.DataArray(0, attrs=self.crs.to_cf())
+
+            for var in src.data_vars:
+                src[var].attrs['grid_mapping'] = self.grid_mapping
+
+        self.data = src
+
+    def __open_geotif(self, filename : str) -> xr.Dataset:
+        with rasterio.open(filename) as src:
+            coords = self.__prepare_coords(src)
+            variables = self.__prepare_vars(src, coords)
+
+            self.data = xr.Dataset(data_vars = variables, coords = coords)
+
+    def __prepare_coords(self, src):
+        self.crs = pyproj.CRS.from_proj4(src.crs.to_proj4())
+
+        x_meta, y_meta = self.crs.cs_to_cf()
+        wkt_meta = self.crs.to_cf()
+            
+        x = np.array([src.xy(row, col)[0] for row, col in zip(np.zeros(src.width), np.arange(src.width))])
+        y = np.array([src.xy(row, col)[-1] for row, col in zip(np.arange(src.height), np.zeros(src.height))])
+        
+        coords = {
+                'x' : xr.DataArray(
+                        data = x,
+                        coords = {'x' : x},
+                        attrs = x_meta
+                    ),
+                'y' : xr.DataArray(
+                        data = y,
+                        coords = {'y' : y},
+                        attrs = y_meta
+                    ),
+                self.grid_mapping : xr.DataArray(
+                        data = 0,
+                        attrs = wkt_meta
+                )
+        }
+        
+        return coords
+
+    def __prepare_vars(self, src, coords):
+        band_names = src.descriptions if not None in src.descriptions else [f'Band {i}' for i in range(1, src.count + 1)]
+
+        return { band : xr.DataArray(data = src.read(idx),
+                                     dims = ('y', 'x'),
+                                     coords = {'y' : coords['y'], 'x' : coords['x']},
+                                     attrs = {'grid_mapping' : self.grid_mapping}
+                                     ) for idx, band in enumerate(band_names, start = 1) }
+
+
+    def replace(self, old : str, new : str) -> None:
+        new_names = {
+            var: var.replace(old, new) for var in self.data.data_vars if old in var
+        }
+
+        self.data = self.data.rename(new_names)
+
+    def rename(self, new_names):
+        self.data = self.data.rename(new_names)
+
+    @property
+    def width(self) -> int:
+        return len(self.data.x)
+    
+    @property
+    def height(self) -> int:
+        return len(self.data.y)
+    
+    @property
+    def count(self) -> int:
+        return len(self.data.data_vars)
+
+    @property
+    def x_res(self) -> float | int:
+        return float(self.data.x.max() - self.data.x.min()) / (self.width - 1)
+
+    @property
+    def y_res(self) -> float | int:
+        return float(self.data.y.max() - self.data.y.min()) / (self.height - 1)
+    
+    @property
+    def transform(self) -> Affine:
+        return from_origin(float(self.data.x.min()) - self.x_res / 2, float(self.data.y.max()) + self.y_res / 2, self.x_res, self.y_res)
+
+    @property
+    def coords(self) -> Tuple[np.ndarray, np.ndarray]:
+        return np.meshgrid(self.data.x, self.data.y)
+
+
+    def reproject(self, new_crs: pyproj.CRS, interpolation : Resampling = Resampling.nearest) -> None:        
+        # Obtener la información del CRS actual y el nuevo
+        src_crs = self.crs
+        dst_crs = new_crs
+        
+        # Obtener las dimensiones actuales
+        src_height, src_width = self.height, self.width
+        
+        # Calcular la transformación para la reproyección
+        dst_transform, dst_width, dst_height = calculate_default_transform(
+            src_crs, dst_crs, src_width, src_height,
+            left=float(self.data.x.min()), bottom=float(self.data.y.min()),
+            right=float(self.data.x.max()), top=float(self.data.y.max())
+        )
+        
+        dst_x, _ = rasterio.transform.xy(dst_transform, np.zeros(dst_width), np.arange(dst_width))
+        _, dst_y = rasterio.transform.xy(dst_transform, np.arange(dst_height), np.zeros(dst_height))
+
+        # Preparar los metadatos para las nuevas coordenadas
+        self.crs = dst_crs
+        x_meta, y_meta = self.crs.cs_to_cf()
+        
+        if x_meta['standard_name'] == 'latitude':
+            x_meta, y_meta = y_meta, x_meta
+        
+        wkt_meta = self.crs.to_cf()
+        
+        # Crear las nuevas coordenadas para el dataset
+        coords = {
+            'x': xr.DataArray(
+                data=dst_x,
+                coords={'x': dst_x},
+                attrs=x_meta
+            ),
+            'y': xr.DataArray(
+                data=dst_y,
+                coords={'y': dst_y},
+                attrs=y_meta
+            ),
+            self.grid_mapping: xr.DataArray(
+                data=0,
+                attrs=wkt_meta
+            )
+        }
+        
+        # Crear un nuevo dataset con las variables reproyectadas
+        new_data_vars = {}
+        
+        for var_name, var_data in self.data.data_vars.items():
+            # Preparar el array de destino
+            dst_array = np.zeros((dst_height, dst_width), dtype=np.float32)
+            dst_array[:] = np.nan
+
+            # Realizar la reproyección
+            dst_array, _ = reproject(
+                source=var_data.values,
+                destination=dst_array,
+                src_transform=self.transform,
+                src_crs=src_crs,
+                dst_transform=dst_transform,
+                dst_crs=dst_crs,
+                dst_nodata = np.nan,
+                resampling=interpolation
+            )
+            
+            # Agregar la variable reproyectada al nuevo dataset
+            new_data_vars[var_name] = xr.DataArray(
+                data=dst_array,
+                dims=('y', 'x'),
+                coords={'y': coords['y'], 'x': coords['x']},
+                attrs={'grid_mapping': self.grid_mapping}
+            )
+        
+        # Actualizar el dataset con las nuevas coordenadas y datos reproyectados
+        self.data = xr.Dataset(
+            data_vars=new_data_vars,
+            coords=coords,
+            attrs = self.data.attrs
+        )
+
+    def align(self, reference: Image, interpolation: Resampling = Resampling.nearest) -> None:
+        """
+        Alinea esta imagen con respecto a una imagen de referencia.
+        Adopta el CRS, resolución y extensión de la imagen de referencia.
+        
+        Args:
+            reference: Imagen que se usará como referencia para la alineación.
+            interpolation: Método de remuestreo a utilizar durante la alineación.
+        """
+        # Verificar si los CRS son diferentes y reproyectar si es necesario
+        if self.crs != reference.crs:
+            self.reproject(reference.crs, interpolation)
+        
+        # Obtener la transformación y dimensiones de la referencia
+        dst_transform = reference.transform
+        dst_width, dst_height = reference.width, reference.height
+        
+        # Crear un nuevo dataset con las variables alineadas
+        new_data_vars = {}
+        
+        for var_name, var_data in self.data.data_vars.items():
+            # Preparar el array de destino
+            dst_array = np.zeros((dst_height, dst_width), dtype=np.float32)
+            dst_array[:] = np.nan
+            
+            # Realizar la alineación (reproyección con el mismo CRS)
+            dst_array, _ = reproject(
+                source=var_data.values,
+                destination=dst_array,
+                src_transform=self.transform,
+                src_crs=self.crs,
+                dst_transform=dst_transform,
+                dst_crs=reference.crs,
+                dst_nodata=np.nan,
+                resampling=interpolation
+            )
+            
+            # Agregar la variable alineada al nuevo dataset
+            new_data_vars[var_name] = xr.DataArray(
+                data=dst_array,
+                dims=('y', 'x'),
+                coords={'y': reference.data.y, 'x': reference.data.x},
+                attrs={'grid_mapping': self.grid_mapping}
+            )
+        
+        # Actualizar el dataset con las nuevas coordenadas y datos alineados
+        self.data = xr.Dataset(
+            data_vars=new_data_vars,
+            coords={
+                'x': reference.data.x.copy(),
+                'y': reference.data.y.copy(),
+                self.grid_mapping: xr.DataArray(
+                    data=0,
+                    attrs=reference.crs.to_cf()
+                )
+            },
+            attrs=self.data.attrs
+        )
+        
+        # Actualizar el CRS y la transformación para que coincidan con la referencia
+        self.crs = reference.crs
+
+    def clip(self, geometries : gpd.GeoDataFrame):
+        mask = rasterio.features.geometry_mask(geometries = geometries, out_shape = (self.height, self.width), 
+                                               transform = self.transform, invert = True)
+        rows = np.where(mask.any(axis=1))[0]
+        cols = np.where(mask.any(axis=0))[0]
+        self.data = self.data.isel({'y' : rows, 'x' : cols})
+
+    def mask(self, mask):
+        self.data = self.data.where( xr.DataArray(data = mask, dims = ('y', 'x')) )
+
+
+    def select(self, bands):
+        return self.data[bands]
+    
+    def add_band(self, band, data):
+        self.data[band] = data
+
+    def drop_bands(self, bands):
+        self.data = self.data.drop_vars(bands)
+
+
+    def _repr_html_(self) -> str:
+        return self.data._repr_html_()
+
+
+    def to_netcdf(self, filename):
+        self.data.attrs['proj4_string'] = self.crs.to_proj4()
+        self.data.attrs['crs_wkt'] = self.crs.to_wkt()
+        
+        for var_name in self.data.data_vars:
+            self.data[var_name].attrs['grid_mapping'] = self.grid_mapping
+        
+        return self.data.to_netcdf(filename)
+    
+    def to_tif(self, filename):
+        height, width = self.height, self.width
+        count = self.count
+        
+        # Prepare the metadata for rasterio
+        meta = {
+            'driver': 'GTiff',
+            'height': height,
+            'width': width,
+            'count': count,
+            'dtype': next(iter(self.data.data_vars.values())).dtype,
+            'crs': self.crs,
+            'transform': self.transform
+        }
+        
+        with rasterio.open(filename, 'w', **meta) as dst:
+            # Write each band
+            for idx, (band_name, band_data) in enumerate(self.data.data_vars.items(), start=1):
+                dst.write(band_data.values, idx)
+                dst.set_band_description(idx, band_name)
+
+
+
+def open(path):
+    pass
