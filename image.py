@@ -33,6 +33,11 @@ class Image(object):
     def rename(self, new_names):
         self.data = self.data.rename(new_names)
 
+    def rename_by_enum(self, enum : enums.Enum) -> None:
+        for band in enum:
+            for wavelenght in band.value:
+                self.replace(wavelenght, band.name)
+
     @property
     def width(self) -> int:
         return len(self.data.x)
@@ -218,8 +223,8 @@ class Image(object):
     def select(self, bands):
         return self.data[bands]
     
-    def add_band(self, band, data):
-        self.data[band] = data
+    def add_band(self, band_name : str, data : np.ndarray):
+        self.data[band_name] = (('y', 'x'), data)
 
     def drop_bands(self, bands):
         self.data = self.data.drop_vars(bands)
