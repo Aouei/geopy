@@ -9,11 +9,13 @@ import rasterio
 import pyproj
 import enums
 
+
 from rasterio.warp import reproject, Resampling, calculate_default_transform
 from rasterio.transform import from_origin
 from shapely.geometry import box
 from typing import Tuple, List
 from affine import Affine
+from copy import deepcopy
 
 
 class Image(object):
@@ -241,11 +243,11 @@ class Image(object):
 
         if only_values:
             if isinstance(bands, list):
-                result = [self.data[band].values for band in bands]
+                result = np.array([self.data[band].values.copy() for band in bands])
             else:
-                result = self.data[bands].values
+                result = self.data[bands].values.copy()
         else:
-            result = self.data[bands]
+            result = deepcopy(self.data[bands])
     
         return result
     
