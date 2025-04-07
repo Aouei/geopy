@@ -223,8 +223,11 @@ class Image(object):
     def select(self, bands):
         return self.data[bands]
     
-    def add_band(self, band_name : str, data : np.ndarray):
-        self.data[band_name] = (('y', 'x'), data)
+    def add_band(self, band_name : str, data : np.ndarray | xr.DataArray):
+        if isinstance(data, np.ndarray):
+            self.data[band_name] = (('y', 'x'), data)
+        else:
+            self.data[band_name] = data
 
     def drop_bands(self, bands):
         self.data = self.data.drop_vars(bands)
