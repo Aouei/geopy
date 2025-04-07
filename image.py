@@ -18,76 +18,9 @@ from typing import Tuple
 class Image(object):
     grid_mapping : str = 'projection'
 
-    def __init__(self, filename : str) -> None:
-        self.crs : pyproj.CRS = None
-        self.data : xr.Dataset  = None
-
-        self.open(filename)
-
-
-    def open(self, filename : str) -> xr.Dataset:
-        if filename.split('.')[-1] in enums.FILE_EXTENTIONS.TIF.value:
-            self.__open_geotif(filename)
-        elif filename.split('.')[-1] in enums.FILE_EXTENTIONS.NETCDF.value:
-            self.__open_netcdf(filename)
-
-    def __open_netcdf(self, filename : str) -> xr.Dataset:
-        with xr.open_dataset(filename) as src:
-            if 'crs_wkt' in src.attrs:
-                self.crs = pyproj.CRS.from_wkt(src.attrs['crs_wkt'])
-            elif 'proj4_string' in src.attrs:
-                self.crs = pyproj.CRS.from_proj4(src.attrs['proj4_string'])
-
-            src.coords[self.grid_mapping] = xr.DataArray(0, attrs=self.crs.to_cf())
-
-            for var in src.data_vars:
-                src[var].attrs['grid_mapping'] = self.grid_mapping
-
-        self.data = src
-
-    def __open_geotif(self, filename : str) -> xr.Dataset:
-        with rasterio.open(filename) as src:
-            coords = self.__prepare_coords(src)
-            variables = self.__prepare_vars(src, coords)
-
-            self.data = xr.Dataset(data_vars = variables, coords = coords)
-
-    def __prepare_coords(self, src):
-        self.crs = pyproj.CRS.from_proj4(src.crs.to_proj4())
-
-        x_meta, y_meta = self.crs.cs_to_cf()
-        wkt_meta = self.crs.to_cf()
-            
-        x = np.array([src.xy(row, col)[0] for row, col in zip(np.zeros(src.width), np.arange(src.width))])
-        y = np.array([src.xy(row, col)[-1] for row, col in zip(np.arange(src.height), np.zeros(src.height))])
-        
-        coords = {
-                'x' : xr.DataArray(
-                        data = x,
-                        coords = {'x' : x},
-                        attrs = x_meta
-                    ),
-                'y' : xr.DataArray(
-                        data = y,
-                        coords = {'y' : y},
-                        attrs = y_meta
-                    ),
-                self.grid_mapping : xr.DataArray(
-                        data = 0,
-                        attrs = wkt_meta
-                )
-        }
-        
-        return coords
-
-    def __prepare_vars(self, src, coords):
-        band_names = src.descriptions if not None in src.descriptions else [f'Band {i}' for i in range(1, src.count + 1)]
-
-        return { band : xr.DataArray(data = src.read(idx),
-                                     dims = ('y', 'x'),
-                                     coords = {'y' : coords['y'], 'x' : coords['x']},
-                                     attrs = {'grid_mapping' : self.grid_mapping}
-                                     ) for idx, band in enumerate(band_names, start = 1) }
+    def __init__(self, data: xr.Dataset, crs: pyproj.CRS) -> None:
+        self.crs: pyproj.CRS = crs
+        self.data: xr.Dataset = data
 
 
     def replace(self, old : str, new : str) -> None:
@@ -292,16 +225,22 @@ class Image(object):
         self.data = self.data.drop_vars(bands)
 
 
+    def dropna(self):
+        mask = np.zeros((self.height, self.width))
+        for data in self.data.data_vars.values():
+            mask = np.logical_or(mask, ~np.isnan(data.values))
+            
+        rows = np.where(mask.any(axis=1))[0]
+        cols = np.where(mask.any(axis=0))[0]
+        self.data = self.data.isel({'y' : rows, 'x' : cols})
+
+
     def _repr_html_(self) -> str:
         return self.data._repr_html_()
-
 
     def to_netcdf(self, filename):
         self.data.attrs['proj4_string'] = self.crs.to_proj4()
         self.data.attrs['crs_wkt'] = self.crs.to_wkt()
-        
-        for var_name in self.data.data_vars:
-            self.data[var_name].attrs['grid_mapping'] = self.grid_mapping
         
         return self.data.to_netcdf(filename)
     
