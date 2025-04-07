@@ -1,9 +1,8 @@
-from typing import Tuple
 import numpy as np
-import scipy.linalg
-import scipy.stats
-from data_types import CalibrationSummary, ValidationSummary
 import scipy
+
+from data_types import CalibrationSummary, ValidationSummary
+
 
 def stumpf_pseudomodel(blue : np.ndarray, other : np.ndarray, n : float = np.pi * 1_000):
     return np.log(blue * n) / np.log(other * n)
