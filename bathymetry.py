@@ -1,6 +1,9 @@
 from typing import Tuple
 import numpy as np
+import scipy.linalg
+import scipy.stats
 from data_types import CalibrationSummary, ValidationSummary
+import scipy
 
 def pseudomodel_green(blue : np.ndarray, green : np.ndarray, n : float) -> np.ndarray:
     return np.log(blue * n) / np.log(green * n)
@@ -32,15 +35,8 @@ def get_stratified_depths(depths : np.ndarray, n_segments : int = 10, sample_siz
     return np.array(selected_indexes)
 
 def calibrate(pseudomodel : np.ndarray, in_situ : np.ndarray, lon : np.ndarray, lat : np.ndarray) -> CalibrationSummary:
-    r_square, m, n = do_linear_regression(pseudomodel, in_situ)
-    
-    return CalibrationSummary(pseudomodel, in_situ, lon, lat, r_square, m, n)
-
-def do_linear_regression(x : np.ndarray, y : np.ndarray) -> Tuple[float, float, float]:
-    m, n = np.polyfit(x, y, 1)
-    r_square = np.corrcoef(x, y)[0, 1] ** 2
-
-    return r_square, m, n
+    slope, intercept, r_value, *_ = scipy.stats.linregress(pseudomodel, in_situ)
+    return CalibrationSummary(pseudomodel, in_situ, lon, lat, r_value ** 2, slope, intercept)
 
 
 def validate(model : np.ndarray, in_situ : np.ndarray) -> ValidationSummary:
