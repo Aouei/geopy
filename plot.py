@@ -4,6 +4,12 @@ import cartopy.crs as ccrs
 from typing import List, Optional
 import matplotlib.axes as mplaxes
 
+import contextily as cx
+from contextily import providers
+import os
+import reader
+
+
 def get_projection(image):
     if hasattr(image.crs, 'to_dict') and 'proj' in image.crs.to_dict():
         proj_info = image.crs.to_dict()
@@ -34,3 +40,23 @@ def plot_band(image, band : str, ax: Optional[mplaxes.Axes] = None, figsize: tup
     mappable = ax.pcolormesh(*image.coords, data, cmap=cmap, **pcolormesh_kwargs)
     
     return fig, ax, mappable
+
+
+def add_basemap(ax, west, south, east, north, crs, source = providers.OpenStreetMap.Mapnik):
+    temp_file = '_temp.tif'
+
+    try:
+        cx.bounds2raster(west, south, east, north, path = temp_file, ll = True, source = source)
+        image = reader.open(temp_file)            
+        image.reproject(crs)
+
+        rgb = np.moveaxis(image.values, 0, -1)
+        rgb = np.clip(rgb, 0, 255).astype(np.float32) / 255
+        
+        ax.pcolormesh(*image.coords, rgb)
+
+    finally:
+        if os.path.exists(temp_file):
+            os.remove(temp_file)
+
+    return ax
