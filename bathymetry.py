@@ -8,8 +8,7 @@ def stumpf_pseudomodel(blue : np.ndarray, other : np.ndarray, n : float = np.pi 
     return np.log(blue * n) / np.log(other * n)
 
 def multi_image(p_greens : np.ndarray, p_reds : np.ndarray) -> np.ndarray:
-    return np.nanmax(p_greens, axis = 0), np.nanmax(p_reds, axis = 0), \
-            np.argmax(p_greens, axis = 0)
+    return np.nanmax(p_greens, axis = 0), np.nanmax(p_reds, axis = 0), np.argmax(p_greens, axis = 0)
 
 
 def calibrate(p_model : np.ndarray, in_situ : np.ndarray, lon : np.ndarray, lat : np.ndarray) -> CalibrationSummary:
