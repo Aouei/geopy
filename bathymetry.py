@@ -39,7 +39,7 @@ def validate(model : np.ndarray, in_situ : np.ndarray) -> ValidationSummary:
     return ValidationSummary(model, in_situ)
     
 
-def composite(green_pseudomodels : np.ndarray, red_pseudomodels : np.ndarray) -> np.ndarray:
+def multi_image(green_pseudomodels : np.ndarray, red_pseudomodels : np.ndarray) -> np.ndarray:
     return np.nanmax(green_pseudomodels, axis = 0), np.nanmax(red_pseudomodels, axis = 0), \
             np.argmax(green_pseudomodels, axis = 0)
 
