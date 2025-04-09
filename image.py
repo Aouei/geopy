@@ -14,6 +14,7 @@ from rasterio.warp import reproject, Resampling, calculate_default_transform
 from rasterio.transform import from_origin
 from shapely.geometry import box
 from typing import Tuple, List
+from geopandas import GeoSeries
 from affine import Affine
 from copy import deepcopy
 
@@ -231,15 +232,22 @@ class Image(object):
         # Actualizar el CRS y la transformación para que coincidan con la referencia
         self.crs = reference.crs
 
-    def clip(self, geometries : gpd.GeoDataFrame):
-        mask = rasterio.features.geometry_mask(geometries = geometries, out_shape = (self.height, self.width), 
-                                               transform = self.transform, invert = True)
-        rows = np.where(mask.any(axis=1))[0]
-        cols = np.where(mask.any(axis=0))[0]
+    def clip(self, geometries : gpd.GeoDataFrame, mask : bool = False):
+        inshape = rasterio.features.geometry_mask(geometries = geometries, out_shape = (self.height, self.width), 
+                                                  transform = self.transform, invert = True)
+        if mask:
+            self.mask(inshape)
+            
+        rows = np.where(inshape.any(axis=1))[0]
+        cols = np.where(inshape.any(axis=0))[0]
         self.data = self.data.isel({'y' : rows, 'x' : cols})
 
-    def mask(self, mask):
-        self.data = self.data.where( xr.DataArray(data = mask, dims = ('y', 'x')) )
+    def mask(self, condition : GeoSeries | np.ndarray):
+        if isinstance(condition, GeoSeries):
+            condition = rasterio.features.geometry_mask(geometries = condition, out_shape = (self.height, self.width), 
+                                                        transform = self.transform, invert = True)
+            
+        self.data = self.data.where( xr.DataArray(data = condition, dims = ('y', 'x')) )
 
 
     def select(self, bands : str | list, only_values : bool = True) -> np.ndarray | xr.DataArray:
@@ -273,6 +281,45 @@ class Image(object):
         rows = np.where(mask.any(axis=1))[0]
         cols = np.where(mask.any(axis=0))[0]
         self.data = self.data.isel({'y' : rows, 'x' : cols})
+
+
+    def extract_values(self, xs : np.ndarray, ys : np.ndarray, bands : List[str] = None) -> np.ndarray:
+        bands = self.band_names if bands is None else bands
+        filtered = self.data.sel({'x' : xs, 'y' : ys}, method = 'nearest')
+        values = np.array( [ filtered[band].values.copy() for band in bands ] )
+
+        if xs.ndim == ys.ndim and xs.ndim == 1:
+            values = values[:, np.arange(len(xs)), np.arange(len(xs))]
+            
+        return values
+
+    def choice(self, band, size, vmin = None, vmax = None):
+        if not isinstance(band, str):
+            raise ValueError('band argument must a string')
+
+        to_choice = self.select(band).ravel()
+
+        if vmin is None:
+            vmin = np.nanmin(to_choice)
+        if vmax is None:
+            vmax = np.nanmax(to_choice)
+
+        mask = (vmin <= to_choice) & (to_choice <= vmax)
+        return np.random.choice(to_choice[mask], size)
+
+    def argchoice(self, band, size, vmin = None, vmax = None):
+        if not isinstance(band, str):
+            raise ValueError('band argument must a string')
+
+        to_choice = self.select(band).ravel()
+
+        if vmin is None:
+            vmin = np.nanmin(to_choice)
+        if vmax is None:
+            vmax = np.nanmax(to_choice)
+
+        mask = (vmin <= to_choice) & (to_choice <= vmax)
+        return np.random.choice(np.arange(to_choice.size)[mask], size)
 
 
     def _repr_html_(self) -> str:
