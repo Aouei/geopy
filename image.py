@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 import geopandas as gpd
 import rasterio.features
 import xarray as xr
@@ -13,8 +12,9 @@ import enums
 from rasterio.warp import reproject, Resampling, calculate_default_transform
 from rasterio.transform import from_origin
 from shapely.geometry import box
-from typing import Tuple, List
 from geopandas import GeoSeries
+from itertools import pairwise
+from typing import Tuple, List
 from affine import Affine
 from copy import deepcopy
 
@@ -293,33 +293,26 @@ class Image(object):
             
         return values
 
-    def choice(self, band, size, vmin = None, vmax = None):
+    def choice(self, band, size, intervals = None, add_indexes = False):
         if not isinstance(band, str):
             raise ValueError('band argument must a string')
 
         to_choice = self.select(band).ravel()
+        indexes = np.arange(to_choice.size)
 
-        if vmin is None:
-            vmin = np.nanmin(to_choice)
-        if vmax is None:
-            vmax = np.nanmax(to_choice)
+        no_nan_mask = ~np.isnan(to_choice)
+        if intervals is not None:
+            limit_masks = [ (vmin <= to_choice) & (to_choice <= vmax) for vmin, vmax in pairwise(intervals) ]
+            selected_indexes = np.array([ np.random.choice(indexes[no_nan_mask & in_limits], size) for in_limits in limit_masks ]).ravel()
+        else:
+            selected_indexes = np.random.choice(indexes[no_nan_mask], size)
 
-        mask = (vmin <= to_choice) & (to_choice <= vmax)
-        return np.random.choice(to_choice[mask], size)
+        selected_values = to_choice[selected_indexes]
 
-    def argchoice(self, band, size, vmin = None, vmax = None):
-        if not isinstance(band, str):
-            raise ValueError('band argument must a string')
-
-        to_choice = self.select(band).ravel()
-
-        if vmin is None:
-            vmin = np.nanmin(to_choice)
-        if vmax is None:
-            vmax = np.nanmax(to_choice)
-
-        mask = (vmin <= to_choice) & (to_choice <= vmax)
-        return np.random.choice(np.arange(to_choice.size)[mask], size)
+        if add_indexes:
+            return selected_values, selected_indexes
+        else:
+            return selected_values
 
 
     def _repr_html_(self) -> str:
