@@ -242,12 +242,15 @@ class Image(object):
         cols = np.where(inshape.any(axis=0))[0]
         self.data = self.data.isel({'y' : rows, 'x' : cols})
 
-    def mask(self, condition : GeoSeries | np.ndarray):
+    def mask(self, condition : GeoSeries | np.ndarray, bands : str | List[str] = None):
         if isinstance(condition, GeoSeries):
             condition = rasterio.features.geometry_mask(geometries = condition, out_shape = (self.height, self.width), 
                                                         transform = self.transform, invert = True)
-            
-        self.data = self.data.where( xr.DataArray(data = condition, dims = ('y', 'x')) )
+        
+        if bands is not None:
+            self.data[bands] = self.data[bands].where( xr.DataArray(data = condition, dims = ('y', 'x')) )
+        else:
+            self.data = self.data.where( xr.DataArray(data = condition, dims = ('y', 'x')) )
 
 
     def select(self, bands : str | List[str], only_values : bool = True) -> np.ndarray | xr.DataArray:
