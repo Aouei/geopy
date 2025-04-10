@@ -11,12 +11,13 @@ import enums
 
 from rasterio.warp import reproject, Resampling, calculate_default_transform
 from rasterio.transform import from_origin
-from shapely.geometry import box
+from shapely.geometry import Polygon, box
 from geopandas import GeoSeries
 from itertools import pairwise
 from typing import Tuple, List
 from affine import Affine
 from copy import deepcopy
+
 
 
 class Image(object):
@@ -75,15 +76,24 @@ class Image(object):
         return np.meshgrid(self.data.x, self.data.y)
 
     @property
-    def bbox(self) -> gpd.GeoDataFrame:
-        xmin, xmax, ymin, ymax = float(self.data.x.min()), float(self.data.x.max()), float(self.data.y.min()), float(self.data.y.max())   
-        xmin -= self.x_res / 2
-        xmax += self.x_res / 2
-        ymin -= self.y_res / 2
-        ymax += self.y_res / 2
+    def left(self) -> float:
+        return float(self.data.x.min()) - self.x_res / 2
 
+    @property
+    def right(self) -> float:
+        return float(self.data.x.max()) + self.x_res / 2
 
-        return gpd.GeoDataFrame(geometry=[box(xmin, ymin, xmax, ymax)], crs=self.crs)
+    @property
+    def top(self) -> float:
+        return float(self.data.y.min()) - self.y_res / 2
+
+    @property
+    def bottom(self) -> float:
+        return float(self.data.y.max()) + self.y_res / 2
+
+    @property
+    def bbox(self) -> Polygon:
+        return box(self.left, self.bottom, self.right, self.top)
     
     @property
     def values(self) -> np.ndarray:
