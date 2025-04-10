@@ -315,6 +315,11 @@ class Image(object):
             return selected_values
 
 
+    def empty_like(self) -> Image:
+        result = Image(deepcopy(self.data), deepcopy(self.crs))
+        result.drop_bands(result.band_names)
+        return result
+    
     def _repr_html_(self) -> str:
         return self.data._repr_html_()
 
