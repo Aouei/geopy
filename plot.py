@@ -29,8 +29,10 @@ def get_geofigure(image, nrows, ncols, figsize = (12, 6), **kwargs) -> tuple:
 
 
 def plot_band(image, band : str, ax: Optional[mplaxes.Axes] = None, figsize: tuple = (12, 6), 
-              cmap: str = 'viridis', pcolormesh_kwargs) -> tuple:
-        
+              cmap: str = 'viridis', pcolormesh_kwargs = None) -> tuple:
+    
+    pcolormesh_kwargs = {} if pcolormesh_kwargs is None else pcolormesh_kwargs
+    
     if ax is None:
         fig, ax = get_geofigure(image, 1, 1, figsize)
     else:
