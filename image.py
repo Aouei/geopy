@@ -243,11 +243,9 @@ class Image(object):
         # Actualizar el CRS y la transformación para que coincidan con la referencia
         self.crs = reference.crs
 
-    def clip(self, geometries : List[BaseGeometry], mask : bool = False):
+    def clip(self, geometries : List[BaseGeometry]):
         inshape = rasterio.features.geometry_mask(geometries = geometries, out_shape = (self.height, self.width), 
                                                   transform = self.transform, invert = True)
-        if mask:
-            self.mask(inshape)
             
         rows = np.where(inshape.any(axis=1))[0]
         cols = np.where(inshape.any(axis=0))[0]
