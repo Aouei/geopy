@@ -72,7 +72,7 @@ class Image(object):
         return from_origin(float(self.data.x.min()) - self.x_res / 2, float(self.data.y.max()) + self.y_res / 2, self.x_res, self.y_res)
 
     @property
-    def coords(self) -> Tuple[np.ndarray, np.ndarray]:
+    def xs_ys(self) -> Tuple[np.ndarray, np.ndarray]:
         return np.meshgrid(self.data.x, self.data.y)
 
     @property

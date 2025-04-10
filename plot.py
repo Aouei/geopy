@@ -39,7 +39,7 @@ def plot_band(image, band : str, ax: Optional[mplaxes.Axes] = None, figsize: tup
         fig = ax.figure
 
     data = image.select(band)
-    mappable = ax.pcolormesh(*image.coords, data, cmap=cmap, **pcolormesh_kwargs)
+    mappable = ax.pcolormesh(*image.xs_ys, data, cmap=cmap, **pcolormesh_kwargs)
     
     return fig, ax, mappable
 
@@ -55,7 +55,7 @@ def add_basemap(ax, west, south, east, north, crs, source = providers.OpenStreet
         rgb = np.moveaxis(image.values, 0, -1)
         rgb = np.clip(rgb, 0, 255).astype(np.float32) / 255
         
-        ax.pcolormesh(*image.coords, rgb)
+        ax.pcolormesh(*image.xs_ys, rgb)
 
     finally:
         if os.path.exists(temp_file):
