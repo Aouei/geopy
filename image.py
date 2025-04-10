@@ -10,6 +10,7 @@ import enums
 
 
 from rasterio.warp import reproject, Resampling, calculate_default_transform
+from shapely.geometry.base import BaseGeometry
 from rasterio.transform import from_origin
 from shapely.geometry import Polygon, box
 from geopandas import GeoSeries
@@ -242,7 +243,7 @@ class Image(object):
         # Actualizar el CRS y la transformación para que coincidan con la referencia
         self.crs = reference.crs
 
-    def clip(self, geometries : gpd.GeoDataFrame, mask : bool = False):
+    def clip(self, geometries : List[BaseGeometry], mask : bool = False):
         inshape = rasterio.features.geometry_mask(geometries = geometries, out_shape = (self.height, self.width), 
                                                   transform = self.transform, invert = True)
         if mask:
@@ -252,8 +253,8 @@ class Image(object):
         cols = np.where(inshape.any(axis=0))[0]
         self.data = self.data.isel({'y' : rows, 'x' : cols})
 
-    def mask(self, condition : GeoSeries | np.ndarray, bands : str | List[str] = None):
-        if isinstance(condition, GeoSeries):
+    def mask(self, condition : List[BaseGeometry] | np.ndarray, bands : str | List[str] = None):
+        if not isinstance(condition, np.ndarray):
             condition = rasterio.features.geometry_mask(geometries = condition, out_shape = (self.height, self.width), 
                                                         transform = self.transform, invert = True)
         
