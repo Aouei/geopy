@@ -25,7 +25,7 @@ class Image(object):
     def __init__(self, data: xr.Dataset, crs: pyproj.CRS) -> None:
         self.crs: pyproj.CRS = crs
         self.data: xr.Dataset = data
-
+        self.name: str = ''
 
     def replace(self, old : str, new : str) -> None:
         new_names = {
@@ -283,12 +283,12 @@ class Image(object):
         self.data = self.data.isel({'y' : rows, 'x' : cols})
 
 
-    def extract_values(self, xs : np.ndarray, ys : np.ndarray, bands : List[str] = None) -> np.ndarray:
+    def extract_values(self, xs : np.ndarray, ys : np.ndarray, bands : List[str] = None, is_1D : bool = False) -> np.ndarray:
         bands = self.band_names if bands is None else bands
         filtered = self.data.sel({'x' : xs, 'y' : ys}, method = 'nearest')
         values = np.array( [ filtered[band].values.copy() for band in bands ] )
 
-        if xs.ndim == ys.ndim and xs.ndim == 1:
+        if xs.ndim == ys.ndim and is_1D:
             values = values[:, np.arange(len(xs)), np.arange(len(xs))]
             
         return values
