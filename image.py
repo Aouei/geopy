@@ -250,7 +250,7 @@ class Image(object):
         self.data = self.data.where( xr.DataArray(data = condition, dims = ('y', 'x')) )
 
 
-    def select(self, bands : str | list, only_values : bool = True) -> np.ndarray | xr.DataArray:
+    def select(self, bands : str | List[str], only_values : bool = True) -> np.ndarray | xr.DataArray:
         result = None
 
         if only_values:
