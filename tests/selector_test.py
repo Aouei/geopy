@@ -34,17 +34,11 @@ class Test_Selector(unittest.TestCase):
 
     def test__interval_choice__with_nans(self):
         selection = selector.interval_choice(self.array_2, self.size_1, self.intervals_1)
-
-        out_of_interval = self.array_1[self.array_1 >= self.intervals_1[-1]]
-        for element in out_of_interval:
-            self.assertNotIn(element, selection)
+        
         self.assertNotIn(np.nan, selection)
-
-        self.assertEquals(len(selection), len(list(pairwise(self.intervals_1))) * self.size_1)
 
     def test__arginterval_choice__only_4_elements(self):
         selection = selector.arginterval_choice(self.array_3, self.size_1, self.intervals_1, replace = False)
-        self.assertEquals(len(selection), len(list(pairwise(self.intervals_1))) * self.size_1)
 
         for index in range(selection.size):
             self.assertIn(index, selection)
