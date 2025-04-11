@@ -315,11 +315,12 @@ class Image(object):
             
         return values
 
-    def choice(self, band, size, intervals = None, replace : bool = True, add_indexes = False):
+    def interval_choice(self, band, size, intervals, replace : bool = True, add_indexes = False):
         if not isinstance(band, str):
             raise ValueError('band argument must a string')
 
-        array = self.select(band).ravel()
+
+        array = self.select(band).ravel()        
         selected_indexes = selector.arginterval_choice(array, size, intervals, replace)
         selected_values = array[selected_indexes]
 
