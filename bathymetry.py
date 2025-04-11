@@ -11,9 +11,9 @@ def multi_image(p_greens : np.ndarray, p_reds : np.ndarray) -> np.ndarray:
     return np.nanmax(p_greens, axis = 0), np.nanmax(p_reds, axis = 0), np.argmax(p_greens, axis = 0)
 
 
-def calibrate(p_model : np.ndarray, in_situ : np.ndarray, lon : np.ndarray, lat : np.ndarray) -> CalibrationSummary:
+def calibrate(p_model : np.ndarray, in_situ : np.ndarray,) -> CalibrationSummary:
     slope, intercept, r_value, *_ = scipy.stats.linregress(p_model, in_situ)
-    return CalibrationSummary(p_model, in_situ, lon, lat, r_value ** 2, slope, intercept)
+    return CalibrationSummary(p_model, in_situ, None, None, r_value ** 2, slope, intercept)
 
 def validate(model : np.ndarray, in_situ : np.ndarray) -> ValidationSummary:
     return ValidationSummary(model, in_situ)
