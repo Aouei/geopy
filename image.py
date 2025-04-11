@@ -5,6 +5,7 @@ import rasterio.features
 import xarray as xr
 import numpy as np
 import rasterio
+import selector
 import pyproj
 import enums
 
@@ -307,21 +308,13 @@ class Image(object):
             
         return values
 
-    def choice(self, band, size, intervals = None, add_indexes = False):
+    def choice(self, band, size, intervals = None, replace : bool = True, add_indexes = False):
         if not isinstance(band, str):
             raise ValueError('band argument must a string')
 
-        to_choice = self.select(band).ravel()
-        indexes = np.arange(to_choice.size)
-
-        no_nan_mask = ~np.isnan(to_choice)
-        if intervals is not None:
-            limit_masks = [ (vmin <= to_choice) & (to_choice <= vmax) for vmin, vmax in pairwise(intervals) ]
-            selected_indexes = np.array([ np.random.choice(indexes[no_nan_mask & in_limits], size) for in_limits in limit_masks ]).ravel()
-        else:
-            selected_indexes = np.random.choice(indexes[no_nan_mask], size)
-
-        selected_values = to_choice[selected_indexes]
+        array = self.select(band).ravel()
+        selected_indexes = selector.arginterval_choice(array, size, intervals, replace)
+        selected_values = array[selected_indexes]
 
         if add_indexes:
             return selected_values, selected_indexes
