@@ -63,15 +63,15 @@ class Image(object):
 
     @property
     def x_res(self) -> float | int:
-        return float(self.data.x.max() - self.data.x.min()) / (self.width - 1)
+        return float(abs(self.data.x[0] - self.data.x[1]))
 
     @property
     def y_res(self) -> float | int:
-        return float(self.data.y.max() - self.data.y.min()) / (self.height - 1)
+        return float(abs(self.data.y[0] - self.data.y[1]))
     
     @property
     def transform(self) -> Affine:
-        return from_origin(float(self.data.x.min()) - self.x_res / 2, float(self.data.y.max()) + self.y_res / 2, self.x_res, self.y_res)
+        return from_origin(self.left, self.top, self.x_res, self.y_res)
 
     @property
     def xs_ys(self) -> Tuple[np.ndarray, np.ndarray]:
@@ -79,24 +79,25 @@ class Image(object):
 
     @property
     def left(self) -> float:
-        return float(self.data.x.min()) - self.x_res / 2
-
+        return float(self.data.x.min()) - abs(self.x_res / 2
+)
     @property
     def right(self) -> float:
-        return float(self.data.x.max()) + self.x_res / 2
-
+        return float(self.data.x.max()) + abs(self.x_res / 2
+)
     @property
     def top(self) -> float:
-        return float(self.data.y.min()) - self.y_res / 2
+        return float(self.data.y.max()) + abs(self.y_res / 2)
 
     @property
     def bottom(self) -> float:
-        return float(self.data.y.max()) + self.y_res / 2
+        return float(self.data.y.min()) - abs(self.y_res / 2)
 
     @property
     def bbox(self) -> Polygon:
         return box(self.left, self.bottom, self.right, self.top)
-    
+
+
     @property
     def values(self) -> np.ndarray:
         return np.array( [self.data[band].values.copy() for band in self.band_names] )
@@ -248,8 +249,7 @@ class Image(object):
         inshape = rasterio.features.geometry_mask(geometries = geometries, out_shape = (self.height, self.width), 
                                                   transform = self.transform, invert = True)
             
-        rows = np.where(inshape.any(axis=1))[0]
-        cols = np.where(inshape.any(axis=0))[0]
+        rows, cols = self.__find_empty_borders(inshape)
         self.data = self.data.isel({'y' : rows, 'x' : cols})
 
     def mask(self, condition : np.ndarray, bands : str | List[str] = None):     
@@ -293,10 +293,17 @@ class Image(object):
         for data in self.data.data_vars.values():
             mask = np.logical_or(mask, ~np.isnan(data.values))
             
-        rows = np.where(mask.any(axis=1))[0]
-        cols = np.where(mask.any(axis=0))[0]
+        rows, cols = self.__find_empty_borders(mask)
         self.data = self.data.isel({'y' : rows, 'x' : cols})
 
+    def __find_empty_borders(self, array : np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+        rows = np.where(array.any(axis=1))[0]
+        rows = np.arange(rows.min(), rows.max() + 1)
+
+        cols = np.where(array.any(axis=0))[0]
+        cols = np.arange(cols.min(), cols.max() + 1)
+
+        return rows, cols
 
     def extract_values(self, xs : np.ndarray, ys : np.ndarray, bands : List[str] = None, is_1D : bool = False) -> np.ndarray:
         bands = self.band_names if bands is None else bands
