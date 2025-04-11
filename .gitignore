@@ -2,3 +2,7 @@
 *pycache*
 *usage*
 .vscode
+*pytest.ini*
+*.lcov*
+*.coverage*
+*htmlcov*
