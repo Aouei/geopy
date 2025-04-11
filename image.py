@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import geopandas as gpd
 import rasterio.features
 import xarray as xr
 import numpy as np
@@ -14,9 +13,7 @@ from rasterio.warp import reproject, Resampling, calculate_default_transform
 from shapely.geometry.base import BaseGeometry
 from rasterio.transform import from_origin
 from shapely.geometry import Polygon, box
-from geopandas import GeoSeries
-from itertools import pairwise
-from typing import Tuple, List
+from typing import Tuple, List, Iterable
 from affine import Affine
 from copy import deepcopy
 
@@ -315,19 +312,21 @@ class Image(object):
             
         return values
 
-    def interval_choice(self, band, size, intervals, replace : bool = True, add_indexes = False):
+    def interval_choice(self, band : str, size : int, intervals : Iterable, replace : bool = True) -> np.ndarray:
         if not isinstance(band, str):
             raise ValueError('band argument must a string')
 
 
         array = self.select(band).ravel()        
-        selected_indexes = selector.arginterval_choice(array, size, intervals, replace)
-        selected_values = array[selected_indexes]
+        return selector.interval_choice(array, size, intervals, replace)
 
-        if add_indexes:
-            return selected_values, selected_indexes
-        else:
-            return selected_values
+    def arginterval_choice(self, band : str, size : int, intervals : Iterable, replace : bool = True) -> np.ndarray:
+        if not isinstance(band, str):
+            raise ValueError('band argument must a string')
+
+
+        array = self.select(band).ravel()        
+        return selector.arginterval_choice(array, size, intervals, replace)
 
 
     def empty_like(self) -> Image:
