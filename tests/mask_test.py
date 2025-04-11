@@ -8,6 +8,6 @@ class Test_Masks(unittest.TestCase):
         super().__init__(methodName)
         self.array_with_nans = np.array([np.nan, 1, 2, 3])
 
-    def test_is_valid(self):
+    def test__is_valid(self):
         result = masks.is_valid(self.array_with_nans)
         self.assertEquals(np.count_nonzero(result), 3)
