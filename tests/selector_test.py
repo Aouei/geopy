@@ -24,7 +24,7 @@ class Test_Selector(unittest.TestCase):
         for element in out_of_interval:
             self.assertNotIn(element, selection)
 
-        self.assertEquals(len(selection), len(list(pairwise(self.intervals_1))) * self.size_1)
+        self.assertEqual(len(selection), len(list(pairwise(self.intervals_1))) * self.size_1)
 
     def test__interval_choice__no_replace(self):
         with self.assertRaises(ValueError) as error:

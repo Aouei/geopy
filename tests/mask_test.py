@@ -10,4 +10,4 @@ class Test_Masks(unittest.TestCase):
 
     def test__is_valid(self):
         result = masks.is_valid(self.array_with_nans)
-        self.assertEquals(np.count_nonzero(result), 3)
+        self.assertEqual(np.count_nonzero(result), 3)
