@@ -1,6 +1,7 @@
 import numpy as np
 import scipy
 
+from typing import Self
 from bathymetry.metrics import ValidationSummary
 
 
@@ -28,19 +29,9 @@ def switching_model(green_model : np.ndarray, red_model : np.ndarray, green_coef
 
 
 class LinearModel(object):
-    def __init__(self, name : str) -> None:
-        self.lon = None
-        self.lat = None
-        self.pseudomodel = None
-        self.in_situ = None
-        self.name = name
-
-    def fit(self, pseudomodel : np.ndarray, in_situ : np.ndarray, save : bool = False) -> None:
+    def fit(self, pseudomodel : np.ndarray, in_situ : np.ndarray) -> Self:
         self._set_linear_regression(pseudomodel, in_situ)
-
-        if save:
-            self.pseudomodel = pseudomodel
-            self.in_situ = in_situ
+        return self
 
     def _set_linear_regression(self, X : np.ndarray, y : np.ndarray) -> np.ndarray:
         slope, intercept, r_value, *_ = scipy.stats.linregress(X, y)
@@ -61,7 +52,7 @@ class LinearModel(object):
         pass
 
     def __str__(self) -> str:
-        return f'N: {len(self.in_situ)} | R: {self.r_square:.4f} | y = {self.slope:.3f}x{self.intercept:+.3f} | Name {self.name}'
+        return f'R: {self.r_square:.4f} | y = {self.slope:.3f}x{self.intercept:+.3f}'
     
     def __repr__(self) -> str:
         return str(self)
