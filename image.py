@@ -363,3 +363,9 @@ class Image(object):
             for idx, (band_name, band_data) in enumerate(self.data.data_vars.items(), start=1):
                 dst.write(band_data.values, idx)
                 dst.set_band_description(idx, band_name)
+
+    def __str__(self) -> str:
+        return f'Bands: {self.band_names} | Height: {self.height} | Width: {self.width}'
+    
+    def __repr__(self) -> str:
+        return str(self)
