@@ -42,3 +42,7 @@ class Test_Selector(unittest.TestCase):
 
         for index in range(selection.size):
             self.assertIn(index, selection)
+
+    
+if __name__ == '__main__':
+    unittest.main()

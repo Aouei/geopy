@@ -11,3 +11,7 @@ class Test_Masks(unittest.TestCase):
     def test__is_valid(self):
         result = masks.is_valid(self.array_with_nans)
         self.assertEqual(np.count_nonzero(result), 3)
+
+
+if __name__ == '__main__':
+    unittest.main()
