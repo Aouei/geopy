@@ -13,7 +13,7 @@ from rasterio.warp import reproject, Resampling, calculate_default_transform
 from shapely.geometry.base import BaseGeometry
 from rasterio.transform import from_origin
 from shapely.geometry import Polygon, box
-from typing import Tuple, List, Iterable
+from typing import Tuple, List, Iterable, Self
 from affine import Affine
 from copy import deepcopy
 
@@ -27,20 +27,24 @@ class Image(object):
         self.data: xr.Dataset = data
         self.name: str = ''
 
-    def replace(self, old : str, new : str) -> None:
+    def replace(self, old : str, new : str) -> Self:
         new_names = {
             var: var.replace(old, new) for var in self.data.data_vars if old in var
         }
 
         self.data = self.data.rename(new_names)
+        return self
 
-    def rename(self, new_names):
+    def rename(self, new_names) -> Self:
         self.data = self.data.rename(new_names)
-
-    def rename_by_enum(self, enum : enums.Enum) -> None:
+        return self
+    
+    def rename_by_enum(self, enum : enums.Enum) -> Self:
         for band in enum:
             for wavelenght in band.value:
                 self.replace(wavelenght, band.name)
+
+        return selector
 
     @property
     def band_names(self) -> List[str]:
@@ -100,7 +104,7 @@ class Image(object):
         return np.array( [self.data[band].values.copy() for band in self.band_names] )
 
 
-    def reproject(self, new_crs: pyproj.CRS, interpolation : Resampling = Resampling.nearest) -> None:        
+    def reproject(self, new_crs: pyproj.CRS, interpolation : Resampling = Resampling.nearest) -> Self:        
         # Obtener la información del CRS actual y el nuevo
         src_crs = self.crs
         dst_crs = new_crs
@@ -179,8 +183,9 @@ class Image(object):
             coords=coords,
             attrs = self.data.attrs
         )
-
-    def align(self, reference: Image, interpolation: Resampling = Resampling.nearest) -> None:
+        return self
+    
+    def align(self, reference: Image, interpolation: Resampling = Resampling.nearest) -> Self:
         """
         Alinea esta imagen con respecto a una imagen de referencia.
         Adopta el CRS, resolución y extensión de la imagen de referencia.
@@ -242,25 +247,29 @@ class Image(object):
         # Actualizar el CRS y la transformación para que coincidan con la referencia
         self.crs = reference.crs
 
-    def clip(self, geometries : List[BaseGeometry]):
+        return self
+    
+    def clip(self, geometries : List[BaseGeometry]) -> Self:
         inshape = rasterio.features.geometry_mask(geometries = geometries, out_shape = (self.height, self.width), 
                                                   transform = self.transform, invert = True)
             
         rows, cols = self.__find_empty_borders(inshape)
         self.data = self.data.isel({'y' : rows, 'x' : cols})
-
-    def mask(self, condition : np.ndarray, bands : str | List[str] = None):     
+        return self
+    
+    def mask(self, condition : np.ndarray, bands : str | List[str] = None) -> Self:     
         if bands is not None:
             self.data[bands] = self.data[bands].where( xr.DataArray(data = condition, dims = ('y', 'x')) )
         else:
             self.data = self.data.where( xr.DataArray(data = condition, dims = ('y', 'x')) )
-
-    def geometry_mask(self, geometries : List[BaseGeometry], mask_out : bool = True,  bands : str | List[str] = None):
+        return self
+    
+    def geometry_mask(self, geometries : List[BaseGeometry], mask_out : bool = True,  bands : str | List[str] = None) -> Self:
         condition = rasterio.features.geometry_mask(geometries = geometries, out_shape = (self.height, self.width), 
                                                     transform = self.transform, invert = mask_out)
             
         self.mask(condition, bands)
-
+        return self
 
     def select(self, bands : str | List[str], only_values : bool = True) -> np.ndarray | xr.DataArray:
         result = None
@@ -275,24 +284,26 @@ class Image(object):
     
         return result
     
-    def add_band(self, band_name : str, data : np.ndarray | xr.DataArray):
+    def add_band(self, band_name : str, data : np.ndarray | xr.DataArray) -> Self:
         if isinstance(data, np.ndarray):
             self.data[band_name] = (('y', 'x'), data)
         else:
             self.data[band_name] = data
-
-    def drop_bands(self, bands):
+        return self
+    
+    def drop_bands(self, bands) -> Self:
         self.data = self.data.drop_vars(bands)
+        return self
 
-
-    def dropna(self):
+    def dropna(self) -> Self:
         mask = np.zeros((self.height, self.width))
         for data in self.data.data_vars.values():
             mask = np.logical_or(mask, ~np.isnan(data.values))
             
         rows, cols = self.__find_empty_borders(mask)
         self.data = self.data.isel({'y' : rows, 'x' : cols})
-
+        return self
+    
     def __find_empty_borders(self, array : np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
         rows = np.where(array.any(axis=1))[0]
         rows = np.arange(rows.min(), rows.max() + 1)
