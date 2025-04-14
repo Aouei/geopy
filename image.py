@@ -286,7 +286,10 @@ class Image(object):
     
     def add_band(self, band_name : str, data : np.ndarray | xr.DataArray) -> Self:
         if isinstance(data, np.ndarray):
-            self.data[band_name] = (('y', 'x'), data)
+            if not band_name in self.band_names:
+                self.data[band_name] = (('y', 'x'), data)
+            else:
+                self.data[band_name].values = data
         else:
             self.data[band_name] = data
         return self
