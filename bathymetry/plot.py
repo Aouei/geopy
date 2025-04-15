@@ -2,7 +2,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from typing import Self, Tuple
+from typing import Self, Tuple, List
 from scipy.stats import gaussian_kde
 from matplotlib.colors import Normalize 
 from scipy.interpolate import interpn
@@ -12,7 +12,7 @@ from .metrics import ValidationSummary
 from .models import LinearModel
 
 
-class CalibrationPlot:
+class CalibrationPlot(object):
 
     def __init__(self, nrows : int, ncols : int, figsize : Tuple[int, int], **kwargs):
         self.fig, self.axs = plt.subplots(nrows=nrows, ncols=ncols, figsize=figsize, **kwargs)
@@ -42,74 +42,103 @@ class CalibrationPlot:
             item.set_visible(False)
         return self
     
-    def add_labels(self, ax, title : str = '', xlabel : str = '', ylabel : str = '') -> Self:
-        ax.set_title(title, fontdict={'size' : self.title_font_size, 'family' : self.font_family})
-        ax.set_xlabel(xlabel, fontdict={'size' : self.label_font_size, 'family' : self.font_family})
-        ax.set_ylabel(ylabel, fontdict={'size' : self.label_font_size, 'family' : self.font_family})
+    def add_labels(self, ax, title : str = None, xlabel : str = None, ylabel : str = None) -> Self:
+        if title is not None:
+            ax.set_title(title, fontdict={'size' : self.title_font_size, 'family' : self.font_family})
+        if xlabel is not None:
+            ax.set_xlabel(xlabel, fontdict={'size' : self.label_font_size, 'family' : self.font_family})
+        if ylabel is not None:
+            ax.set_ylabel(ylabel, fontdict={'size' : self.label_font_size, 'family' : self.font_family})
 
         return self
 
 
-def plot_validation(summary : ValidationSummary, scatter_ax, residuals_ax, density_method : None):
-    if density_method == DENSITY_METHODS.AUTO:
-        __density_scatter(scatter_ax, summary)
-    elif density_method == DENSITY_METHODS.PRECISE:
-        pass
-    elif density_method == DENSITY_METHODS.APPROXIMATE:
-        pass
+class ValidationPlot(object):
+    def __init__(self, nrows : int, ncols : int, figsize : Tuple[int, int], **kwargs):
+        self.fig, self.axs = plt.subplots(nrows=nrows, ncols=ncols, figsize=figsize, **kwargs)
+        self.legend_font_size = 20
+        self.label_font_size = 20
+        self.tick_font_size = 15
+        self.title_font_size = 30
+        self.font_family = 'Times New Roman'
 
-    sns.histplot(x = summary.error.flatten(), kde = True, ax = residuals_ax)
-    max_w = 5
-    residuals_ax.set_xlim(-max_w, max_w)
-    max_h = 100
-    residuals_ax.set_ylim(0, max_h)
+    def add_densed_scatter(self, summary : ValidationSummary, ax, s = 5, cmap = 'viridis_r', vmin = None, vmax = None, density = None):
+        x, y, z, norm = self.__select_density_method(summary, density)
+        
+        mappable = ax.scatter(x, y, c = z, s = s, cmap = cmap, vmin = vmin, vmax = vmax, norm = norm)
+        ax.plot([x.min(), x.max()], [x.min(), x.max()], '--k', alpha = 0.75, zorder = 9)
+        self.add_labels(ax, title = 'SDB vs In Situ', xlabel = 'In Situ (m)', ylabel = 'SDB (m)')
 
-    residuals_ax.tick_params(axis='both', which='major')
-    residuals_ax.tick_params(axis='both', which='minor')
+        colorbar = plt.colorbar(mappable, ax = ax)
+        colorbar.ax.tick_params(axis = 'both', which = 'major', labelsize = self.tick_font_size)
+        colorbar.ax.tick_params(axis = 'both', which = 'minor', labelsize = self.tick_font_size)
 
-    h_offset = 10
-    residuals_ax.set_xlabel("Residual error (m)")
-    residuals_ax.set_ylabel("")
-    residuals_ax.set_title("Error")
-    residuals_ax.text(-max_w + 2, max_h - h_offset * 1, f'MedAE = {summary.MedAE:.3f} (m)')
-    residuals_ax.text(-max_w + 2, max_h - h_offset * 2, f'Abs_std = {summary.Abs_std:.3f} (m)')
-    residuals_ax.text(-max_w + 2, max_h - h_offset * 3, f'MSD = {summary.MSD:.3f} (m)')
-    residuals_ax.text(-max_w + 2, max_h - h_offset * 4, f'N = {summary.N}')
+        ax.tick_params(axis='both', which='major', labelsize = self.tick_font_size)
+        ax.tick_params(axis='both', which='minor', labelsize = self.tick_font_size)
 
+        return ax, colorbar
 
-def __density_scatter(ax, summary : ValidationSummary , sort : bool = True, bins : int = 20, cmap = 'viridis_r', **kwargs):
-    label_font_size = 20
-    tick_font_size = 15
-    title_font_size = 30
-    font_family = 'Times New Roman'
-
+    def __select_density_method(self, summary, density):
+        if density is None:
+            x, y, z, norm = self.__get_precise_density(summary.in_situ, summary.model)
+        else:
+            if density['method'] == 'precise':
+                x, y, z, norm = self.__get_precise_density(summary.in_situ, summary.model)
+            elif density['method'] == 'approximate':
+                x, y, z, norm = self.__get_approximate_density(summary.in_situ, summary.model, bins = density.get('bins', 10))
+            else:
+                raise ValueError(f"Unknown density method: {density['method']}")
+        return x,y,z,norm
     
-    x = summary.in_situ
-    y = summary.model
+    def add_residuals(self, summary : ValidationSummary, ax, x_lim : int = 5, metrics : List[str] = None, **hist_kwargs):
+        if metrics is None:
+            metrics = []
 
-    data , x_e, y_e = np.histogram2d( x, y, bins = bins, density = True )
-    z = interpn( ( 0.5*(x_e[1:] + x_e[:-1]) , 0.5*(y_e[1:]+y_e[:-1]) ) , data , np.vstack([x,y]).T , method = "splinef2d", bounds_error = False)
+        ax = sns.histplot(summary.error, ax = ax, kde = True, color = 'skyblue', edgecolor = 'black', **hist_kwargs)
+        ax.set_xlim(-x_lim, x_lim)
 
-    #To be sure to plot all data
-    z[np.where(np.isnan(z))] = 0.0
-    z[z < 0] = 0.0
+        ax.tick_params(axis='both', which='major', labelsize = self.tick_font_size)
+        ax.tick_params(axis='both', which='minor', labelsize = self.tick_font_size)
 
-    # Sort the points by density, so that the densest points are plotted last
-    if sort :
-        idx = z.argsort()
-        x, y, z = x[idx], y[idx], z[idx]
+        self.add_labels(ax, title = 'In Situ - SDB',  xlabel = 'Residual error (m)')
 
-    norm = Normalize(vmin = np.min(z), vmax = np.max(z))
-    mappable = ax.scatter(x, y, c = z, s = 5, cmap = cmap, norm = norm)
+        legend = '\n'.join( [f'N = {summary.N}'] + [ f'{metric} = {summary[metric]:.3f} (m)' for metric in metrics ] )
+        background = { 'facecolor':'white', 'alpha':0.3, 'boxstyle':'round,pad=0.3' }
+        ax.text(0.1, 0.95, legend, fontsize = self.legend_font_size, transform = ax.transAxes, 
+                verticalalignment = 'top', bbox = background)
 
-    min_x_lim, max_x_lim = kwargs.get('min_x', 0), kwargs.get('max_x', 7)
-    min_y_lim, max_y_lim = kwargs.get('min_y', 0), kwargs.get('max_y', 7)
-    ax.set_xlim(min_x_lim, max_x_lim)
-    ax.set_ylim(min_y_lim, max_y_lim)
+        return ax
+    
+    def add_labels(self, ax, title : str = None, xlabel : str = None, ylabel : str = None) -> Self:
+        if title is not None:
+            ax.set_title(title, fontdict={'size' : self.title_font_size, 'family' : self.font_family})
+        if xlabel is not None:
+            ax.set_xlabel(xlabel, fontdict={'size' : self.label_font_size, 'family' : self.font_family})
+        if ylabel is not None:
+            ax.set_ylabel(ylabel, fontdict={'size' : self.label_font_size, 'family' : self.font_family})
 
-    ax.plot([min_x_lim, max_x_lim], [min_y_lim, max_y_lim], 'r-', alpha = 0.75, zorder = 0)
-    ax.set_xlabel(kwargs.get('xlabel', 'Depth (m)'), fontdict={'size' : label_font_size, 'family' : font_family})
-    ax.set_ylabel(kwargs.get('ylabel', 'pSDB Green'), fontdict={'size' : label_font_size, 'family' : font_family})
-    ax.set_title(kwargs.get('title', 'pSDB Green vs Prof'), fontdict={'size' : title_font_size, 'family' : font_family})
+        return self
 
-    return ax, mappable
+    def __get_precise_density(self, X, y):
+        xy = np.vstack([X, y])
+        density = gaussian_kde(xy)(xy)
+
+        idx = density.argsort()
+        X, y, density = X[idx], y[idx], density[idx]
+        norm = Normalize(vmin = np.min(density), vmax = np.max(density))
+
+        return X, y, density, norm
+
+
+    def __get_approximate_density(self, X, y, bins):
+        data , x_e, y_e = np.histogram2d(X, y, bins = bins, density = True )
+        density = interpn( ( 0.5*(x_e[1:] + x_e[:-1]) , 0.5*(y_e[1:]+y_e[:-1]) ) , data , np.vstack([X, y]).T , method = "splinef2d", bounds_error = False)
+
+        density[np.where(np.isnan(density))] = 0.0
+        density[density < 0] = 0.0
+        
+        idx = density.argsort()
+        X, y, density = X[idx], y[idx], density[idx]
+
+        norm = Normalize(vmin = np.min(density), vmax = np.max(density))
+        return X, y, density, norm
