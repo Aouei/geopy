@@ -14,13 +14,13 @@ from .models import LinearModel
 
 class CalibrationPlot(object):
 
-    def __init__(self, nrows : int, ncols : int, figsize : Tuple[int, int], **kwargs):
-        self.fig, self.axs = plt.subplots(nrows=nrows, ncols=ncols, figsize=figsize, **kwargs)
-        self.legend_font_size = 20
-        self.label_font_size = 20
-        self.tick_font_size = 15
-        self.title_font_size = 30
-        self.font_family = 'Times New Roman'
+    def __init__(self, title_font_size : int = 30, label_font_size : int = 20, tick_font_size : int = 15, 
+                 legend_font_size : int = 20, font_family : str = 'Times New Roman'):
+        self.legend_font_size = legend_font_size
+        self.label_font_size = label_font_size
+        self.tick_font_size = tick_font_size
+        self.title_font_size = title_font_size
+        self.font_family = font_family
         
     def add_calibration_scatter(self, model : LinearModel, x : np.ndarray, y : np.ndarray, ax, c : str = 'g', **kwargs) -> Self:
         ax.tick_params(axis='both', which='major', labelsize = self.tick_font_size)
@@ -54,13 +54,13 @@ class CalibrationPlot(object):
 
 
 class ValidationPlot(object):
-    def __init__(self, nrows : int, ncols : int, figsize : Tuple[int, int], **kwargs):
-        self.fig, self.axs = plt.subplots(nrows=nrows, ncols=ncols, figsize=figsize, **kwargs)
-        self.legend_font_size = 20
-        self.label_font_size = 20
-        self.tick_font_size = 15
-        self.title_font_size = 30
-        self.font_family = 'Times New Roman'
+    def __init__(self, title_font_size : int = 30, label_font_size : int = 20, tick_font_size : int = 15, 
+                 legend_font_size : int = 20, font_family : str = 'Times New Roman'):
+        self.legend_font_size = legend_font_size
+        self.label_font_size = label_font_size
+        self.tick_font_size = tick_font_size
+        self.title_font_size = title_font_size
+        self.font_family = font_family
 
     def add_densed_scatter(self, summary : ValidationSummary, ax, s = 5, cmap = 'viridis_r', vmin = None, vmax = None, density = None):
         x, y, z, norm = self.__select_density_method(summary, density)
