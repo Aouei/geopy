@@ -40,7 +40,10 @@ class ValidationSummary():
     @property
     def N(self) -> float:
         return len(self.error)
-    
+
+    def __getitem__(self, key):
+        return getattr(self, key)
+
     def __str__(self) -> str:
         return f"N: {self.N} | MSD: {self.MSD:.4f} | MedAE: {self.MedAE:.4f} | Abs_std: {self.Abs_std}"
     
