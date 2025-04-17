@@ -98,7 +98,6 @@ class Image(object):
     def bbox(self) -> Polygon:
         return box(self.left, self.bottom, self.right, self.top)
 
-
     @property
     def values(self) -> np.ndarray:
         return np.array( [self.data[band].values.copy() for band in self.band_names] )
@@ -249,6 +248,10 @@ class Image(object):
 
         return self
     
+    def resample(self, scale : float, interpolation : Resampling = Resampling.nearest, bands : List[str] = None) -> Self:
+        pass
+
+
     def clip(self, geometries : List[BaseGeometry]) -> Self:
         inshape = rasterio.features.geometry_mask(geometries = geometries, out_shape = (self.height, self.width), 
                                                   transform = self.transform, invert = True)
@@ -270,6 +273,25 @@ class Image(object):
             
         self.mask(condition, bands)
         return self
+
+    def dropna(self) -> Self:
+        mask = np.zeros((self.height, self.width))
+        for data in self.data.data_vars.values():
+            mask = np.logical_or(mask, ~np.isnan(data.values))
+            
+        rows, cols = self.__find_empty_borders(mask)
+        self.data = self.data.isel({'y' : rows, 'x' : cols})
+        return self
+    
+    def __find_empty_borders(self, array : np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+        rows = np.where(array.any(axis=1))[0]
+        rows = np.arange(rows.min(), rows.max() + 1)
+
+        cols = np.where(array.any(axis=0))[0]
+        cols = np.arange(cols.min(), cols.max() + 1)
+
+        return rows, cols
+    
 
     def select(self, bands : str | List[str], only_values : bool = True) -> np.ndarray | xr.DataArray:
         result = None
@@ -298,23 +320,6 @@ class Image(object):
         self.data = self.data.drop_vars(bands)
         return self
 
-    def dropna(self) -> Self:
-        mask = np.zeros((self.height, self.width))
-        for data in self.data.data_vars.values():
-            mask = np.logical_or(mask, ~np.isnan(data.values))
-            
-        rows, cols = self.__find_empty_borders(mask)
-        self.data = self.data.isel({'y' : rows, 'x' : cols})
-        return self
-    
-    def __find_empty_borders(self, array : np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-        rows = np.where(array.any(axis=1))[0]
-        rows = np.arange(rows.min(), rows.max() + 1)
-
-        cols = np.where(array.any(axis=0))[0]
-        cols = np.arange(cols.min(), cols.max() + 1)
-
-        return rows, cols
 
     def extract_values(self, xs : np.ndarray, ys : np.ndarray, bands : List[str] = None, is_1D : bool = False) -> np.ndarray:
         bands = self.band_names if bands is None else bands
@@ -348,8 +353,6 @@ class Image(object):
         result.drop_bands(result.band_names)
         return result
     
-    def _repr_html_(self) -> str:
-        return self.data._repr_html_()
 
     def to_netcdf(self, filename):
         self.data.attrs['proj4_string'] = self.crs.to_proj4()
@@ -378,8 +381,12 @@ class Image(object):
                 dst.write(band_data.values, idx)
                 dst.set_band_description(idx, band_name)
 
+
     def __str__(self) -> str:
         return f'Bands: {self.band_names} | Height: {self.height} | Width: {self.width}'
     
     def __repr__(self) -> str:
         return str(self)
+
+    def _repr_html_(self) -> str:
+        return self.data._repr_html_()
