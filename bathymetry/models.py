@@ -44,13 +44,6 @@ class LinearModel(object):
     
     def predict_and_evaluate(self, pseudomodel : np.ndarray, in_situ : np.ndarray) -> ValidationSummary:
         return ValidationSummary(self.predict(pseudomodel), in_situ)
-    
-    def to_csv(self, outname : str) -> None: # TODO
-        pass
-
-    def read_csv(self, filename : str) -> None: # TODO
-        pass
-
     def __str__(self) -> str:
         return f'R: {self.r_square:.4f} | y = {self.slope:.3f}x{self.intercept:+.3f}'
     
