@@ -11,14 +11,12 @@ import reader
 
 
 def get_projection(image):
+    projection = ccrs.Mercator()
+
     if hasattr(image.crs, 'to_dict') and 'proj' in image.crs.to_dict():
         proj_info = image.crs.to_dict()
         if proj_info['proj'] == 'utm':
             projection = ccrs.UTM(proj_info.get('zone', 30))
-        else:
-            projection = ccrs.Projection(image.crs)
-    else:
-        projection = ccrs.Mercator()
 
     return projection
 
@@ -28,21 +26,20 @@ def get_geofigure(image, nrows, ncols, figsize = (12, 6), **kwargs) -> tuple:
                         subplot_kw={'projection': get_projection(image)}, **kwargs)
 
 
-def plot_band(image, band : str, ax: Optional[mplaxes.Axes] = None, figsize: tuple = (12, 6), 
-              cmap: str = 'viridis', pcolormesh_kwargs = None) -> tuple:
-    
-    pcolormesh_kwargs = {} if pcolormesh_kwargs is None else pcolormesh_kwargs
-    
-    if ax is None:
-        fig, ax = get_geofigure(image, 1, 1, figsize)
-    else:
-        fig = ax.figure
-
+def plot_band(image, band : str, ax : Optional[mplaxes.Axes] = None, cmap : str = 'viridis', **kwargs) -> tuple:    
     data = image.select(band)
-    mappable = ax.pcolormesh(*image.xs_ys, data, cmap=cmap, **pcolormesh_kwargs)
-    
-    return fig, ax, mappable
+    mappable = ax.pcolormesh(*image.xs_ys, data, cmap=cmap, **kwargs)
+    return ax, mappable
 
+
+def plot_rgb(image, red : str, green : str, blue : str, ax : mplaxes.Axes, brightness : float = 1, **kwargs) -> tuple:
+    rgb = np.dstack(image.select([red, green, blue]))
+    limit = 1 if rgb.dtype != np.uint8 else 255
+
+    rgb = np.clip(rgb * brightness, 0, limit)
+
+    mappable = ax.pcolormesh(*image.xs_ys, rgb, **kwargs)    
+    return ax, mappable
 
 def add_basemap(ax, west, south, east, north, crs, source = providers.OpenStreetMap.Mapnik):
     temp_file = '_temp.tif'
