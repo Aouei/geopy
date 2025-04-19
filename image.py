@@ -118,70 +118,9 @@ class Image(object):
             right=float(self.data.x.max()), top=float(self.data.y.max())
         )
         
-        dst_x, _ = rasterio.transform.xy(dst_transform, np.zeros(dst_width), np.arange(dst_width))
-        _, dst_y = rasterio.transform.xy(dst_transform, np.arange(dst_height), np.zeros(dst_height))
-
-        # Preparar los metadatos para las nuevas coordenadas
+        self.__update_data(interpolation, dst_transform, dst_width, dst_height, self.crs, dst_crs)
         self.crs = dst_crs
-        x_meta, y_meta = self.crs.cs_to_cf()
         
-        if x_meta['standard_name'] == 'latitude':
-            x_meta, y_meta = y_meta, x_meta
-        
-        wkt_meta = self.crs.to_cf()
-        
-        # Crear las nuevas coordenadas para el dataset
-        coords = {
-            'x': xr.DataArray(
-                data=dst_x,
-                coords={'x': dst_x},
-                attrs=x_meta
-            ),
-            'y': xr.DataArray(
-                data=dst_y,
-                coords={'y': dst_y},
-                attrs=y_meta
-            ),
-            self.grid_mapping: xr.DataArray(
-                data=0,
-                attrs=wkt_meta
-            )
-        }
-        
-        # Crear un nuevo dataset con las variables reproyectadas
-        new_data_vars = {}
-        
-        for var_name, var_data in self.data.data_vars.items():
-            # Preparar el array de destino
-            dst_array = np.zeros((dst_height, dst_width), dtype=np.float32)
-            dst_array[:] = np.nan
-
-            # Realizar la reproyección
-            dst_array, _ = reproject(
-                source=var_data.values,
-                destination=dst_array,
-                src_transform=self.transform,
-                src_crs=src_crs,
-                dst_transform=dst_transform,
-                dst_crs=dst_crs,
-                dst_nodata = np.nan,
-                resampling=interpolation
-            )
-            
-            # Agregar la variable reproyectada al nuevo dataset
-            new_data_vars[var_name] = xr.DataArray(
-                data=dst_array,
-                dims=('y', 'x'),
-                coords={'y': coords['y'], 'x': coords['x']},
-                attrs={'grid_mapping': self.grid_mapping}
-            )
-        
-        # Actualizar el dataset con las nuevas coordenadas y datos reproyectados
-        self.data = xr.Dataset(
-            data_vars=new_data_vars,
-            coords=coords,
-            attrs = self.data.attrs
-        )
         return self
     
     def align(self, reference: Image, interpolation: Resampling = Resampling.nearest) -> Self:
@@ -248,9 +187,74 @@ class Image(object):
 
         return self
     
-    def resample(self, scale : float, interpolation : Resampling = Resampling.nearest, bands : List[str] = None) -> Self:
-        pass
+    def resample(self, scale : int, downscale : bool = True, interpolation : Resampling = Resampling.nearest) -> Self:        
+        if downscale:
+            scale = 1 / scale
 
+        dst_transform = self.transform * Affine.scale(1 / scale, 1 / scale)
+        dst_width = int(len(self.data.x) * scale)
+        dst_height = int(len(self.data.y) * scale)
+
+        self.__update_data(interpolation, dst_transform, dst_width, dst_height, self.crs, self.crs)
+        return self
+
+    def __update_data(self, interpolation, new_transform, dst_width, dst_height, src_crs, dst_crs):
+        dst_x, _ = rasterio.transform.xy(new_transform, np.zeros(dst_width), np.arange(dst_width))
+        _, dst_y = rasterio.transform.xy(new_transform, np.arange(dst_height), np.zeros(dst_height))
+        x_meta, y_meta = self.crs.cs_to_cf()
+        
+        if x_meta['standard_name'] == 'latitude':
+            x_meta, y_meta = y_meta, x_meta
+        
+        wkt_meta = dst_crs.to_cf()
+        
+        coords = {
+            'x': xr.DataArray(
+                data=dst_x,
+                coords={'x': dst_x},
+                attrs=x_meta
+            ),
+            'y': xr.DataArray(
+                data=dst_y,
+                coords={'y': dst_y},
+                attrs=y_meta
+            ),
+            self.grid_mapping: xr.DataArray(
+                data=0,
+                attrs=wkt_meta
+            )
+        }
+
+        new_data_vars = {}        
+        for band in self.band_names:
+            data = self.data[band].values
+            dst_shape = (len(dst_y), len(dst_x))
+            new_data = np.empty(dst_shape, dtype = data.dtype)
+
+            new_data, _ = reproject(
+                source = data,
+                destination = new_data,
+                src_transform = self.transform,
+                src_crs = src_crs,
+                dst_transform = new_transform,
+                dst_crs = dst_crs,
+                dst_nodata = np.nan,
+                resampling = interpolation
+            )
+
+            new_data_vars[band] = xr.DataArray(
+                data=new_data,
+                dims=('y', 'x'),
+                coords={'y': coords['y'], 'x': coords['x']},
+                attrs={'grid_mapping': self.grid_mapping}
+            )
+        
+        self.data = xr.Dataset(
+            data_vars=new_data_vars,
+            coords=coords,
+            attrs = self.data.attrs
+        )
+    
 
     def clip(self, geometries : List[BaseGeometry]) -> Self:
         inshape = rasterio.features.geometry_mask(geometries = geometries, out_shape = (self.height, self.width), 
