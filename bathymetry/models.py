@@ -3,13 +3,15 @@ import scipy
 
 from typing import Self
 from bathymetry.metrics import ValidationSummary
+from selector import argcomposite
+
 
 
 def stumpf_pseudomodel(blue : np.ndarray, other : np.ndarray, n : float = np.pi * 1_000):
     return np.log(blue * n) / np.log(other * n)
 
 def multi_image_pseudomodel(p_greens : np.ndarray, p_reds : np.ndarray) -> np.ndarray:
-    return np.nanmax(p_greens, axis = 0), np.nanmax(p_reds, axis = 0), np.argmax(p_greens, axis = 0)
+    return np.nanmax(p_greens, axis = 0), np.nanmax(p_reds, axis = 0), argcomposite(p_greens, np.nanargmax)
 
 
 def switching_model(green_model : np.ndarray, red_model : np.ndarray, green_coef : float = 3.5, red_coef : float = 2) -> np.ndarray:

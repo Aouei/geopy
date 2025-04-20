@@ -24,3 +24,10 @@ def composite(arrays : np.ndarray, method : Callable | np.ndarray = np.nanmax) -
     
     else:
         return method(arrays, axis = 0)
+    
+def argcomposite(arrays : np.ndarray, method : Callable) -> np.ndarray:
+    nans = np.isnan(arrays).all(axis = 0)
+    arrays[:, nans] = np.inf
+    indexes = method(arrays, axis = 0)
+    arrays[:, nans] = np.nan
+    return indexes
