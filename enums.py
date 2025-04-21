@@ -3,6 +3,8 @@ from typing import List
 
 
 class SENTINEL2_BANDS(Enum):
+    """Class to hold the wavelengths of the Sentinel-2 bands."""
+
     B1 : List[str] =  ['443', '442', '444']
     B2 : List[str] =  ['493', '492', '489']
     B3 : List[str] =  ['560', '559', '561']
@@ -18,6 +20,7 @@ class SENTINEL2_BANDS(Enum):
     B12 : List[str] = ['2202', '2186', '2191']
 
 class MICASENSE_BANDS(Enum):
+    """Class to hold the indexes of the Micasense-RedEdge bands."""
     BLUE : List[str] = ['1']
     GREEN : List[str] = ['2']
     RED : List[str] = ['3']
@@ -26,5 +29,7 @@ class MICASENSE_BANDS(Enum):
 
 
 class FILE_EXTENTIONS(Enum):
+    """Class to hold the file extentions that can be read."""
+
     TIF = ['tiff', 'tif']
     NETCDF = ['nc']
