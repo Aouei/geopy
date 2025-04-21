@@ -1,16 +1,30 @@
 import matplotlib.pyplot as plt
-import numpy as np
 import cartopy.crs as ccrs
-from typing import List, Optional
-import matplotlib.axes as mplaxes
-
 import contextily as cx
-from contextily import providers
+import numpy as np
+import pyproj
 import os
+
+from matplotlib.pyplot import Figure
+from typing import Tuple, List, Any
+from matplotlib.axes import Axes
+from contextily import providers
+
+
 import reader
+from image import Image
 
 
-def get_projection(image):
+def get_projection(image : Image) -> ccrs.Projection:
+    """Obtains the projection of the image for plotting.
+
+    Args:
+        image (Image): custom object containing crs data.
+
+    Returns:
+        ccrs.Projection: cartopy projection for plotting.
+    """
+    
     projection = ccrs.Mercator()
 
     if hasattr(image.crs, 'to_dict') and 'proj' in image.crs.to_dict():
@@ -21,27 +35,81 @@ def get_projection(image):
     return projection
 
 
-def get_geofigure(image, nrows, ncols, figsize = (12, 6), **kwargs) -> tuple:
+def get_geofigure(image : Image, nrows : int, ncols : int, figsize : tuple = (12, 6), **kwargs) -> Tuple[Figure, Axes | List[Axes]]:
+    """Generates a subplots with georeferenced axes.
+
+    Args:
+        image (Image): object with crs data.
+        nrows (int): number of rows for the subplots.
+        ncols (int): number of columns for the subplots.
+        figsize (tuple, optional): dimensions in inches of the figure. Defaults to (12, 6).
+
+    Returns:
+        Tuple[Figure, Axes | List[Axes]]: Figure and axes objects for plotting.
+    """
+
     return plt.subplots(ncols = ncols, nrows = nrows, figsize=figsize, 
                         subplot_kw={'projection': get_projection(image)}, **kwargs)
 
 
-def plot_band(image, band : str, ax : Optional[mplaxes.Axes] = None, cmap : str = 'viridis', **kwargs) -> tuple:    
+def plot_band(image : Image, band : str, ax : Axes, cmap : str = 'viridis', **kwargs) -> Tuple[Axes, Any]:
+    """Plots a band of the image object
+
+    Args:
+        image (Image): object with crs data and bands data.
+        band (str): band name to be plotted.
+        ax (Axes): axes where show the data.
+        cmap (str, optional): colomap to use. Defaults to 'viridis'.
+
+    Returns:
+        Tuple[Axes, Any]: axes with data plotted and mappable object for colorbar.
+    """
+
     data = image.select(band)
     mappable = ax.pcolormesh(*image.xs_ys, data, cmap=cmap, **kwargs)
     return ax, mappable
 
 
-def plot_rgb(image, red : str, green : str, blue : str, ax : mplaxes.Axes, brightness : float = 1, **kwargs) -> tuple:
+def plot_rgb(image : Image, red : str, green : str, blue : str, ax : Axes, brightness : float = 1, **kwargs) -> Axes:
+    """Plots a RGB image on the given axes based on the selected bands of the image object.
+
+    Args:
+        image (Image): object with crs data and bands data.
+        red (str): band name for red channel.
+        green (str): band name for green channel.
+        blue (str): band name for blue channel.
+        ax (Axes): axes where to plot.
+        brightness (float, optional): value to multiply the RGB. Defaults to 1.
+
+    Returns:
+        Axes: axes with the RGB image plotted.
+    """
+
     rgb = np.dstack(image.select([red, green, blue]))
     limit = 1 if rgb.dtype != np.uint8 else 255
 
     rgb = np.clip(rgb * brightness, 0, limit)
 
-    mappable = ax.pcolormesh(*image.xs_ys, rgb, **kwargs)    
-    return ax, mappable
+    ax.pcolormesh(*image.xs_ys, rgb, **kwargs)    
+    return ax
 
-def add_basemap(ax, west, south, east, north, crs, source = providers.OpenStreetMap.Mapnik):
+def add_basemap(ax : Axes, west : float, south : float, east : float, north : float, 
+                crs : pyproj.CRS, source : Any = providers.OpenStreetMap.Mapnik) -> Axes:
+    """Plots a RGB image on the given axes using contextily.
+
+    Args:
+        ax (Axes): axes where the image will be plotted.
+        west (float): min longitude of the image.
+        south (float): min latitude of the image.
+        east (float): max longitude of the image.
+        north (float): max latitude of the image.
+        crs (pyproj.CRS): CRS of the image.
+        source (Any, optional): basemap to use. Defaults to providers.OpenStreetMap.Mapnik.
+
+    Returns:
+        Axes: axes with the basemap plotted.
+    """
+
     temp_file = '_temp.tif'
 
     try:
