@@ -11,12 +11,28 @@ from image import Image
 
 
 class ImageReader:
+    """Base class for reading images from different formats.
+    """
+
     def read(self, filename: str) -> Image:
-        raise NotImplementedError("El método read debe ser implementado por las clases hijas")
+        raise NotImplementedError("This method must be implemented by subclasses")
 
 
 class NetCDFReader(ImageReader):
+    """Reader for NetCDF files.
+    This class reads a NetCDF file and extracts the image data, coordinates, and CRS information.
+    """
+
     def read(self, filename: str) -> Image:
+        """This method reads a NetCDF file and extracts the image data, coordinates, and CRS information.
+
+        Args:
+            filename (str): the path to the NetCDF file.
+
+        Returns:
+            Image: a custom Image object containing the data, coordinates, and CRS information.
+        """
+
         grid_mapping = 'projection'
         
         with xr.open_dataset(filename) as src:
@@ -61,7 +77,20 @@ class NetCDFReader(ImageReader):
 
 
 class GeoTIFFReader(ImageReader):
+    """Reader for GeoTIFF files.
+    This class reads a GeoTIFF file and extracts the image data, coordinates, and CRS information.
+    """
+
     def read(self, filename: str) -> Image:
+        """This method reads a GeoTIFF file and extracts the image data, coordinates, and CRS information.
+
+        Args:
+            filename (str): The path to the GeoTIFF file.
+
+        Returns:
+            Image: a custom Image object containing the data, coordinates, and CRS information.
+        """
+
         grid_mapping = 'projection'
         
         with rasterio.open(filename) as src:
@@ -97,7 +126,18 @@ class GeoTIFFReader(ImageReader):
             
             return Image(data=dataset, crs=crs)
     
-    def _prepare_coords(self, src, crs: pyproj.CRS, grid_mapping: str) -> Dict[str, xr.DataArray]:
+    def _prepare_coords(self, src : rasterio.DatasetReader, crs: pyproj.CRS, grid_mapping: str) -> Dict[str, xr.DataArray]:
+        """Generates the coordinates for the dataset based on the CRS and the source data.
+
+        Args:
+            src (rasterio.DatasetReader): rasterio object representing the source data.
+            crs (pyproj.CRS): CRS object representing the coordinate reference system.
+            grid_mapping (str): name of the projection variable.
+
+        Returns:
+            Dict[str, xr.DataArray]: Coordinates.
+        """
+
         x_meta, y_meta = crs.cs_to_cf()
         wkt_meta = crs.to_cf()
             
@@ -123,7 +163,18 @@ class GeoTIFFReader(ImageReader):
         
         return coords
     
-    def _prepare_vars(self, src, coords: Dict[str, xr.DataArray], grid_mapping: str) -> Dict[str, xr.DataArray]:
+    def _prepare_vars(self, src : rasterio.DatasetReader, coords: Dict[str, xr.DataArray], grid_mapping: str) -> Dict[str, xr.DataArray]:
+        """Generates the variables for the dataset based on the source data.
+
+        Args:
+            src (rasterio.DatasetReader): rasterio object representing the source data.
+            crs (pyproj.CRS): CRS object representing the coordinate reference system.
+            grid_mapping (str): name of the projection variable.
+
+        Returns:
+            Dict[str, xr.DataArray]: The variables or bands.
+        """
+
         band_names = src.descriptions if not None in src.descriptions else [f'Band {i}' for i in range(1, src.count + 1)]
         
         variables = {}
@@ -157,6 +208,18 @@ class GeoTIFFReader(ImageReader):
 
 
 def open(filename: str) -> Image:
+    """Factory function to open an image file.
+
+    Args:
+        filename (str): the path to the image file.
+
+    Raises:
+        ValueError: Error if the file format is not supported.
+
+    Returns:
+        Image: custom Image object containing the data, coordinates, and CRS information.
+    """
+
     extension = filename.split('.')[-1].lower()
     
     if extension in enums.FILE_EXTENTIONS.TIF.value:
