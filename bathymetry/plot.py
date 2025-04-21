@@ -2,10 +2,11 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from typing import Self, Tuple, List
-from scipy.stats import gaussian_kde
+from typing import List, Any, Tuple, Mapping
 from matplotlib.colors import Normalize 
 from scipy.interpolate import interpn
+from scipy.stats import gaussian_kde
+from matplotlib.axes import Axes
 
 
 from .metrics import ValidationSummary
@@ -13,16 +14,32 @@ from .models import LinearModel
 
 
 class CalibrationPlot(object):
+    """Class to plot Bathymetry calibration"""
 
     def __init__(self, title_font_size : int = 30, label_font_size : int = 20, tick_font_size : int = 15, 
                  legend_font_size : int = 20, font_family : str = 'Times New Roman'):
+        """Constructor with the size of the texts"""
+
         self.legend_font_size = legend_font_size
         self.label_font_size = label_font_size
         self.tick_font_size = tick_font_size
         self.title_font_size = title_font_size
         self.font_family = font_family
         
-    def add_calibration_scatter(self, model : LinearModel, x : np.ndarray, y : np.ndarray, ax, c : str = 'g', **kwargs) -> Self:
+    def add_calibration_scatter(self, model : LinearModel, x : np.ndarray, y : np.ndarray, ax : Axes, c : str = 'g', **kwargs) -> Axes:
+        """plots regression data
+
+        Args:
+            model (LinearModel): model with params.
+            x (np.ndarray): x-axis values.
+            y (np.ndarray): y-axis values.
+            ax (Axes): axes where plot.
+            c (str, optional): color. Defaults to 'g'.
+
+        Returns:
+            Axes: axes with data plot.
+        """
+
         ax.tick_params(axis='both', which='major', labelsize = self.tick_font_size)
         ax.tick_params(axis='both', which='minor', labelsize = self.tick_font_size)
 
@@ -33,16 +50,22 @@ class CalibrationPlot(object):
         ax.scatter(x, y, label = f'$y = {model.slope:.4f}x {model.intercept:+.4f}$', c = c, **kwargs)
         ax.scatter(x[0], y[0], label = f'$n = {x.size}$', alpha = 0)
         ax.grid()
-        return self
 
-    def add_legend(self, ax) -> Self:
+        return ax
+
+    def add_legend(self, ax : Axes) -> Axes:
+        """adds legend to axes"""
+
         legend = ax.legend(loc = 'upper left', handlelength = 0, handletextpad = 0, 
                            prop={'size' : self.legend_font_size, 'family' : self.font_family})
         for item in legend.legend_handles:
             item.set_visible(False)
-        return self
+
+        return ax
     
-    def add_labels(self, ax, title : str = None, xlabel : str = None, ylabel : str = None) -> Self:
+    def add_labels(self, ax : Axes, title : str = None, xlabel : str = None, ylabel : str = None) -> Axes:
+        """Adds labesl to axes"""
+        
         if title is not None:
             ax.set_title(title, fontdict={'size' : self.title_font_size, 'family' : self.font_family})
         if xlabel is not None:
@@ -50,19 +73,39 @@ class CalibrationPlot(object):
         if ylabel is not None:
             ax.set_ylabel(ylabel, fontdict={'size' : self.label_font_size, 'family' : self.font_family})
 
-        return self
+        return ax
 
 
 class ValidationPlot(object):
+    """Class to plot the perfomance of bathymetry model"""
+
     def __init__(self, title_font_size : int = 30, label_font_size : int = 20, tick_font_size : int = 15, 
                  legend_font_size : int = 20, font_family : str = 'Times New Roman'):
+        """Constructor with the size of the texts"""
+
         self.legend_font_size = legend_font_size
         self.label_font_size = label_font_size
         self.tick_font_size = tick_font_size
         self.title_font_size = title_font_size
         self.font_family = font_family
 
-    def add_densed_scatter(self, summary : ValidationSummary, ax, s = 5, cmap = 'viridis_r', vmin = None, vmax = None, density = None):
+    def add_densed_scatter(self, summary : ValidationSummary, ax : Axes, s : float = 5, cmap : str = 'viridis_r', 
+                           vmin : float = None, vmax : float = None, density : Mapping[str, Any] = None) -> Tuple[Axes, Any]:
+        """Plots a scatter with the density of each dot.
+
+        Args:
+            summary (ValidationSummary): Validation object with error metrics.
+            ax (Axes): axes to plot data.
+            s (float, optional): dot size. Defaults to 5.
+            cmap (str, optional): colormap. Defaults to 'viridis_r'.
+            vmin (float, optional): min value of colormap. Defaults to None.
+            vmax (float, optional): max value of colormap. Defaults to None.
+            density (Mapping[str, Any], optional): density settings. Defaults to None.
+
+        Returns:
+            Tuple[Axes, Any]: axes with data plot and mappable for colorbar.
+        """
+
         x, y, z, norm = self.__select_density_method(summary, density)
         
         mappable = ax.scatter(x, y, c = z, s = s, cmap = cmap, vmin = vmin, vmax = vmax, norm = norm)
@@ -78,7 +121,20 @@ class ValidationPlot(object):
 
         return ax, colorbar
 
-    def __select_density_method(self, summary, density):
+    def __select_density_method(self, summary : ValidationSummary, density : Mapping[str, Any]) -> Tuple[np.ndarray, np.ndarray, np.ndarray, Any]:
+        """Calculates the density of the scatterplot based con density argument.
+
+        Args:
+            summary (ValidationSummary): Validation object with error metrics.
+            density (Mapping[str, Any]): density settings. Defaults to None.
+
+        Raises:
+            ValueError: error if density method is Unknown.
+
+        Returns:
+            Tuple[np.ndarray, np.ndarray, np.ndarray, Any]: x/y-axes values for each dot with density and norm.
+        """
+
         if density is None:
             x, y, z, norm = self.__get_precise_density(summary.in_situ, summary.model)
         else:
@@ -88,9 +144,22 @@ class ValidationPlot(object):
                 x, y, z, norm = self.__get_approximate_density(summary.in_situ, summary.model, bins = density.get('bins', 10))
             else:
                 raise ValueError(f"Unknown density method: {density['method']}")
+            
         return x,y,z,norm
     
-    def add_residuals(self, summary : ValidationSummary, ax, x_lim : int = 5, metrics : List[str] = None, **hist_kwargs):
+    def add_residuals(self, summary : ValidationSummary, ax : Axes, x_lim : int = 5, metrics : List[str] = None, **hist_kwargs) -> Axes:
+        """adds an histogram with the error of a bathymetry model.
+
+        Args:
+            summary (ValidationSummary): Validation object with error metrics.
+            ax (Axes): axes to plot data.
+            x_lim (int, optional): x-axis symetric limit for histogram. Defaults to 5.
+            metrics (List[str], optional): list of metrics to add as a legend. Defaults to None.
+
+        Returns:
+            Axes: axes with data plotted
+        """
+
         if metrics is None:
             metrics = []
 
@@ -109,7 +178,9 @@ class ValidationPlot(object):
 
         return ax
     
-    def add_labels(self, ax, title : str = None, xlabel : str = None, ylabel : str = None) -> Self:
+    def add_labels(self, ax : Axes, title : str = None, xlabel : str = None, ylabel : str = None) -> Axes:
+        """Adds labesl to axes"""
+
         if title is not None:
             ax.set_title(title, fontdict={'size' : self.title_font_size, 'family' : self.font_family})
         if xlabel is not None:
@@ -117,9 +188,11 @@ class ValidationPlot(object):
         if ylabel is not None:
             ax.set_ylabel(ylabel, fontdict={'size' : self.label_font_size, 'family' : self.font_family})
 
-        return self
+        return ax
 
-    def __get_precise_density(self, X, y):
+    def __get_precise_density(self, X : np.ndarray, y : np.ndarray) -> Tuple[np.ndarray, np.ndarray, np.ndarray, Any]:
+        """Method for estimating the Gaussian density of each point in an accurate manner"""
+
         xy = np.vstack([X, y])
         density = gaussian_kde(xy)(xy)
 
@@ -130,7 +203,9 @@ class ValidationPlot(object):
         return X, y, density, norm
 
 
-    def __get_approximate_density(self, X, y, bins):
+    def __get_approximate_density(self, X : np.ndarray, y : np.ndarray, bins : int) -> Tuple[np.ndarray, np.ndarray, np.ndarray, Any]:
+        """Method for estimating the Gaussian density of each point in an approximate but rapid manner"""
+
         data , x_e, y_e = np.histogram2d(X, y, bins = bins, density = True )
         density = interpn( ( 0.5*(x_e[1:] + x_e[:-1]) , 0.5*(y_e[1:]+y_e[:-1]) ) , data , np.vstack([X, y]).T , method = "splinef2d", bounds_error = False)
 
@@ -141,4 +216,5 @@ class ValidationPlot(object):
         X, y, density = X[idx], y[idx], density[idx]
 
         norm = Normalize(vmin = np.min(density), vmax = np.max(density))
+
         return X, y, density, norm
