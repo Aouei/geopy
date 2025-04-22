@@ -127,3 +127,30 @@ def add_basemap(ax : Axes, west : float, south : float, east : float, north : fl
             os.remove(temp_file)
 
     return ax
+
+def add_gridlines(ax : Axes, **kwargs) -> Tuple[Axes, Any]:
+    """Add geographic gridlines to a cartopy axes.
+
+    Adds latitude/longitude gridlines to a cartopy axes with labels on bottom and left edges.
+    Labels on top and right edges are disabled by default.
+
+    Args:
+        ax (Axes): The cartopy axes to add gridlines to
+        **kwargs: Additional keyword arguments passed to ax.gridlines()
+
+    Returns:
+        Tuple[Axes, Any]: Tuple containing:
+            - The axes with added gridlines
+            - The gridlines object for further customization
+
+    Example:
+        >>> fig, ax = get_geofigure(image, 1, 1)
+        >>> ax, gl = add_gridlines(ax, linestyle='--')
+        >>> # Customize gridlines further if needed
+        >>> gl.xlabel_style = {'size': 15}
+    """
+    
+    gl = ax.gridlines(draw_labels = True, **kwargs)
+    gl.top_labels = gl.right_labels = False
+
+    return ax, gl
