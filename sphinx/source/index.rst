@@ -1,9 +1,16 @@
 Welcome to geopy's documentation!
-================================
+====================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: User Guide:
+
+   notebooks/preprocessing
+   notebooks/reading_images.ipynb
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Reference:
 
    modules/image
    modules/reader

@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.insert(0, os.path.abspath(r'C:\Users\sergi\Documents\repos\geopy'))
+sys.path.insert(0, os.path.abspath(r'C:\Users\sergi\Documents\repos\geopy\geopy'))
 
 project = 'geopy'
 copyright = '2025, Sergio Heredia'
@@ -12,7 +12,12 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    "nbsphinx",
+    'IPython.sphinxext.ipython_console_highlighting',
 ]
+
+nbsphinx_allow_errors = True
+nbsphinx_execute = 'never'
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
