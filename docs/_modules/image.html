@@ -42,6 +42,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/image.html">Image Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/reader.html">Reader Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/selector.html">Selector Module</a></li>
@@ -354,7 +355,7 @@
             <span class="n">right</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span> <span class="n">top</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
         <span class="p">)</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">__update_data</span><span class="p">(</span><span class="n">interpolation</span><span class="p">,</span> <span class="n">dst_transform</span><span class="p">,</span> <span class="n">dst_width</span><span class="p">,</span> <span class="n">dst_height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">dst_crs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__update_data</span><span class="p">(</span><span class="n">interpolation</span><span class="p">,</span> <span class="n">dst_transform</span><span class="p">,</span> <span class="n">dst_width</span><span class="p">,</span> <span class="n">dst_height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">dst_crs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">dst_crs</span>
         
         <span class="k">return</span> <span class="bp">self</span></div>

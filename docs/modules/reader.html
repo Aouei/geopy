@@ -17,6 +17,7 @@
       <script src="../_static/documentation_options.js?v=8d563738"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -98,7 +99,7 @@
 <p>The Reader module provides functionality for reading geospatial data from different file formats.</p>
 <dl class="py class" id="module-reader">
 <dt class="sig sig-object py" id="reader.GeoTIFFReader">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reader.</span></span><span class="sig-name descname"><span class="pre">GeoTIFFReader</span></span><a class="reference internal" href="../_modules/reader.html#GeoTIFFReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reader.GeoTIFFReader" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reader.</span></span><span class="sig-name descname"><span class="pre">GeoTIFFReader</span></span><a class="reference internal" href="../_modules/reader.html#GeoTIFFReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reader.GeoTIFFReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#reader.ImageReader" title="reader.ImageReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageReader</span></code></a></p>
 <p>Reader for GeoTIFF files.
 This class reads a GeoTIFF file and extracts the image data, coordinates, and CRS information.</p>
@@ -123,7 +124,7 @@ This class reads a GeoTIFF file and extracts the image data, coordinates, and CR
 
 <dl class="py class">
 <dt class="sig sig-object py" id="reader.ImageReader">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reader.</span></span><span class="sig-name descname"><span class="pre">ImageReader</span></span><a class="reference internal" href="../_modules/reader.html#ImageReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reader.ImageReader" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reader.</span></span><span class="sig-name descname"><span class="pre">ImageReader</span></span><a class="reference internal" href="../_modules/reader.html#ImageReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reader.ImageReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class for reading images from different formats.</p>
 <dl class="py method">
@@ -135,7 +136,7 @@ This class reads a GeoTIFF file and extracts the image data, coordinates, and CR
 
 <dl class="py class">
 <dt class="sig sig-object py" id="reader.NetCDFReader">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reader.</span></span><span class="sig-name descname"><span class="pre">NetCDFReader</span></span><a class="reference internal" href="../_modules/reader.html#NetCDFReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reader.NetCDFReader" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reader.</span></span><span class="sig-name descname"><span class="pre">NetCDFReader</span></span><a class="reference internal" href="../_modules/reader.html#NetCDFReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reader.NetCDFReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#reader.ImageReader" title="reader.ImageReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageReader</span></code></a></p>
 <p>Reader for NetCDF files.
 This class reads a NetCDF file and extracts the image data, coordinates, and CRS information.</p>
