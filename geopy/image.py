@@ -263,7 +263,7 @@ class Image(object):
             right=float(self.data.x.max()), top=float(self.data.y.max())
         )
         
-        self.__update_data(interpolation, dst_transform, dst_width, dst_height, self.crs, dst_crs)
+        self.data = self.__update_data(interpolation, dst_transform, dst_width, dst_height, self.crs, dst_crs)
         self.crs = dst_crs
         
         return self
