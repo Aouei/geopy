@@ -1,5 +1,5 @@
 import unittest
-import selector
+import geopy.selector as selector
 import numpy as np
 from itertools import pairwise
 
