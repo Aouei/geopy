@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bathymetry.models &mdash; geopy 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="canonical" href="https://aouei.github.io/geopy/_modules/bathymetry/models.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            geopy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/image.html">Image Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/reader.html">Reader Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/selector.html">Selector Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/masks.html">Masks Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/plot.html">Plot Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/bathymetry.html">Bathymetry Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/preprocessing.html">Preprocessing Package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">geopy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">bathymetry.models</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for bathymetry.models</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Self</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bathymetry.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationSummary</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selector</span><span class="w"> </span><span class="kn">import</span> <span class="n">argcomposite</span>
+
+
+
+<div class="viewcode-block" id="stumpf_pseudomodel">
+<a class="viewcode-back" href="../../modules/bathymetry.html#bathymetry.models.stumpf_pseudomodel">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">stumpf_pseudomodel</span><span class="p">(</span><span class="n">blue</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">n</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1_000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stumpf pseudomodel based on https://doi.org/10.4319/lo.2003.48.1_part_2.0547</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        blue (np.ndarray): blue band data to use as base reflectance.</span>
+<span class="sd">        other (np.ndarray): band such as green or red to compare with blue.</span>
+<span class="sd">        n (float, optional): constant to prevent negative values. Defaults to np.pi*1_000.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: pseudomodel.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">blue</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">other</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="multi_image_pseudomodel">
+<a class="viewcode-back" href="../../modules/bathymetry.html#bathymetry.models.multi_image_pseudomodel">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">multi_image_pseudomodel</span><span class="p">(</span><span class="n">p_greens</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">p_reds</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Multi-image method done by Isabel Caballero &amp; Richard Stumpf on https://doi.org/10.3390/rs12030451</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        p_greens (np.ndarray): list of green pseudomodels to compose.</span>
+<span class="sd">        p_reds (np.ndarray): list of red pseudomodels to compose.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: pseudomodel.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">p_greens</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">p_reds</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">),</span> <span class="n">argcomposite</span><span class="p">(</span><span class="n">p_greens</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="switching_model">
+<a class="viewcode-back" href="../../modules/bathymetry.html#bathymetry.models.switching_model">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">switching_model</span><span class="p">(</span><span class="n">green_model</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">red_model</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">green_coef</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.5</span><span class="p">,</span> <span class="n">red_coef</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Linear weighted model presented on https://doi.org/10.3390/rs12030451 that combines green and red models.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        green_model (np.ndarray): green model.</span>
+<span class="sd">        red_model (np.ndarray): red model.</span>
+<span class="sd">        green_coef (float, optional): min limit where start using green model. Defaults to 3.5.</span>
+<span class="sd">        red_coef (float, optional): max limite where use red model. Defaults to 2.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: combined model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">green_coef</span> <span class="o">-</span> <span class="n">red_model</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">green_coef</span> <span class="o">-</span> <span class="n">red_coef</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a</span>
+    <span class="n">switching_model</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">red_model</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">green_model</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">red_model</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">model</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">red_model</span> <span class="o">&lt;</span> <span class="n">red_coef</span><span class="p">,</span> <span class="n">red_model</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">red_model</span> <span class="o">&gt;</span> <span class="n">red_coef</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">green_model</span> <span class="o">&gt;</span> <span class="n">green_coef</span><span class="p">),</span> <span class="n">green_model</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">red_model</span> <span class="o">&gt;=</span> <span class="n">red_coef</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">green_model</span> <span class="o">&lt;=</span> <span class="n">green_coef</span><span class="p">),</span> <span class="n">switching_model</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+    <span class="n">model</span><span class="p">[</span><span class="n">model</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    
+    <span class="k">return</span> <span class="n">model</span></div>
+
+
+
+<div class="viewcode-block" id="LinearModel">
+<a class="viewcode-back" href="../../modules/bathymetry.html#bathymetry.models.LinearModel">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">LinearModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for apply a simple Linear regression&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="LinearModel.fit">
+<a class="viewcode-back" href="../../modules/bathymetry.html#bathymetry.models.LinearModel.fit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pseudomodel</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">in_situ</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;linear regression creation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            pseudomodel (np.ndarray): data to use as predictor.</span>
+<span class="sd">            in_situ (np.ndarray): data to predict.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Self: fitted object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_linear_regression</span><span class="p">(</span><span class="n">pseudomodel</span><span class="p">,</span> <span class="n">in_situ</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_linear_regression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method that creates the regression object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            X (np.ndarray): predictor data.</span>
+<span class="sd">            y (np.ndarray): objetive data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">slope</span> <span class="o">=</span> <span class="n">slope</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intercept</span> <span class="o">=</span> <span class="n">intercept</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r_square</span> <span class="o">=</span> <span class="n">r_value</span> <span class="o">**</span> <span class="mi">2</span>
+
+<div class="viewcode-block" id="LinearModel.predict">
+<a class="viewcode-back" href="../../modules/bathymetry.html#bathymetry.models.LinearModel.predict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pseudomodel</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Uses the regression created to predict new depths.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            pseudomodel (np.ndarray): data to use for prediction.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            np.ndarray: predicted data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">slope</span> <span class="o">*</span> <span class="n">pseudomodel</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">intercept</span></div>
+
+    
+<div class="viewcode-block" id="LinearModel.predict_and_evaluate">
+<a class="viewcode-back" href="../../modules/bathymetry.html#bathymetry.models.LinearModel.predict_and_evaluate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict_and_evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pseudomodel</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">in_situ</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ValidationSummary</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Predicts new depths and creates a ValidationSummary object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            pseudomodel (np.ndarray): data to use as predictor.</span>
+<span class="sd">            in_situ (np.ndarray): depths to predict.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ValidationSummary: ValidationSummary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">ValidationSummary</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pseudomodel</span><span class="p">),</span> <span class="n">in_situ</span><span class="p">)</span></div>
+
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;R: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">r_square</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> | y = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">slope</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">x</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">intercept</span><span class="si">:</span><span class="s1">+.3f</span><span class="si">}</span><span class="s1">&#39;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sergio Heredia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
