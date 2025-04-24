@@ -188,8 +188,8 @@ class Image(object):
             float: Left coordinate
         """
         
-        return float(self.data.x.min()) - abs(self.x_res / 2
-)
+        return float(self.data.x.min()) - abs(self.x_res / 2)
+
     @property
     def right(self) -> float:
         """Get max longitude coordinate of the image.
@@ -198,8 +198,8 @@ class Image(object):
             float: Right coordinate
         """
 
-        return float(self.data.x.max()) + abs(self.x_res / 2
-)
+        return float(self.data.x.max()) + abs(self.x_res / 2)
+    
     @property
     def top(self) -> float:
         """Get max latitude coordinate of the image.
@@ -767,6 +767,10 @@ class Image(object):
                 dst.write(band_data.values, idx)
                 dst.set_band_description(idx, band_name)
 
+    def copy(self) -> Image:
+        """Create a deep copy of the image."""
+
+        return deepcopy(self)
 
     def __str__(self) -> str:
         return f'Bands: {self.band_names} | Height: {self.height} | Width: {self.width}'
