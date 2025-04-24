@@ -1,5 +1,5 @@
 Preprocessing Package
-===================
+======================
 
 Module for image preprocessing operations.
 

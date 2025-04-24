@@ -9,6 +9,7 @@ Welcome to geopy's documentation!
    notebooks/deglinting
    notebooks/reading_tif
    notebooks/reading_netcdf
+   notebooks/SDB_stumpf
 
 .. toctree::
    :maxdepth: 2

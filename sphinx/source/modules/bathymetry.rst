@@ -1,10 +1,10 @@
 Bathymetry Package
-=================
+====================
 
 Module for satellite-derived bathymetry (SDB) estimation and validation.
 
 Models Module
-------------
+---------------
 
 .. automodule:: bathymetry.models
    :members:
@@ -12,7 +12,7 @@ Models Module
    :show-inheritance:
 
 Metrics Module
--------------
+----------------
 
 .. automodule:: bathymetry.metrics
    :members:
@@ -20,7 +20,7 @@ Metrics Module
    :show-inheritance:
 
 Plot Module
-----------
+--------------
 
 .. automodule:: bathymetry.plot
    :members:

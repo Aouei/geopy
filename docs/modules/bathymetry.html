@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/deglinting.html">Sunglint Removal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/reading_tif.html">Reading TIFF files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/reading_netcdf.html">Reading NetCDF files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/SDB_stumpf.html">Satellite Derived Bathymetry - Stumpf Method</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul class="current">
@@ -59,7 +60,7 @@
 <li class="toctree-l1"><a class="reference internal" href="masks.html">Masks Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot.html">Plot Module</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Bathymetry Package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#models-module">Models Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-bathymetry.models">Models Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bathymetry.models.LinearModel"><code class="docutils literal notranslate"><span class="pre">LinearModel</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bathymetry.models.LinearModel.fit"><code class="docutils literal notranslate"><span class="pre">LinearModel.fit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bathymetry.models.LinearModel.predict"><code class="docutils literal notranslate"><span class="pre">LinearModel.predict()</span></code></a></li>
@@ -71,7 +72,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#bathymetry.models.switching_model"><code class="docutils literal notranslate"><span class="pre">switching_model()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#metrics-module">Metrics Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-bathymetry.metrics">Metrics Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bathymetry.metrics.ValidationSummary"><code class="docutils literal notranslate"><span class="pre">ValidationSummary</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bathymetry.metrics.ValidationSummary.Abs_std"><code class="docutils literal notranslate"><span class="pre">ValidationSummary.Abs_std</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bathymetry.metrics.ValidationSummary.MAE"><code class="docutils literal notranslate"><span class="pre">ValidationSummary.MAE</span></code></a></li>
@@ -87,7 +88,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#plot-module">Plot Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-bathymetry.plot">Plot Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bathymetry.plot.CalibrationPlot"><code class="docutils literal notranslate"><span class="pre">CalibrationPlot</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bathymetry.plot.CalibrationPlot.add_calibration_scatter"><code class="docutils literal notranslate"><span class="pre">CalibrationPlot.add_calibration_scatter()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bathymetry.plot.CalibrationPlot.add_labels"><code class="docutils literal notranslate"><span class="pre">CalibrationPlot.add_labels()</span></code></a></li>
@@ -135,9 +136,9 @@
   <section id="bathymetry-package">
 <h1>Bathymetry Package<a class="headerlink" href="#bathymetry-package" title="Link to this heading"></a></h1>
 <p>Module for satellite-derived bathymetry (SDB) estimation and validation.</p>
-<section id="models-module">
-<h2>Models Module<a class="headerlink" href="#models-module" title="Link to this heading"></a></h2>
-<dl class="py class" id="module-bathymetry.models">
+<section id="module-bathymetry.models">
+<span id="models-module"></span><h2>Models Module<a class="headerlink" href="#module-bathymetry.models" title="Link to this heading"></a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="bathymetry.models.LinearModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bathymetry.models.</span></span><span class="sig-name descname"><span class="pre">LinearModel</span></span><a class="reference internal" href="../_modules/bathymetry/models.html#LinearModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bathymetry.models.LinearModel" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -265,9 +266,9 @@
 </dd></dl>
 
 </section>
-<section id="metrics-module">
-<h2>Metrics Module<a class="headerlink" href="#metrics-module" title="Link to this heading"></a></h2>
-<dl class="py class" id="module-bathymetry.metrics">
+<section id="module-bathymetry.metrics">
+<span id="metrics-module"></span><h2>Metrics Module<a class="headerlink" href="#module-bathymetry.metrics" title="Link to this heading"></a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="bathymetry.metrics.ValidationSummary">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bathymetry.metrics.</span></span><span class="sig-name descname"><span class="pre">ValidationSummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_situ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bathymetry/metrics.html#ValidationSummary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bathymetry.metrics.ValidationSummary" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -333,9 +334,9 @@
 </dd></dl>
 
 </section>
-<section id="plot-module">
-<h2>Plot Module<a class="headerlink" href="#plot-module" title="Link to this heading"></a></h2>
-<dl class="py class" id="module-bathymetry.plot">
+<section id="module-bathymetry.plot">
+<span id="plot-module"></span><h2>Plot Module<a class="headerlink" href="#module-bathymetry.plot" title="Link to this heading"></a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="bathymetry.plot.CalibrationPlot">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bathymetry.plot.</span></span><span class="sig-name descname"><span class="pre">CalibrationPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_family</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Times</span> <span class="pre">New</span> <span class="pre">Roman'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bathymetry/plot.html#CalibrationPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bathymetry.plot.CalibrationPlot" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>

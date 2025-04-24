@@ -1,5 +1,5 @@
 Image Module
-===========
+==============
 
 The Image module provides functionality for handling geospatial image data through the Image class.
 
