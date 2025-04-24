@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cleaning Outliers with IQR method &mdash; geopy 1.0.0 documentation</title>
+  <title>Cleaning Outliers &mdash; geopy 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Image Module" href="../modules/image.html" />
+    <link rel="next" title="Sunglint Removal" href="deglinting.html" />
     <link rel="prev" title="Welcome to geopy’s documentation!" href="../index.html" /> 
 </head>
 
@@ -49,7 +49,17 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cleaning Outliers with IQR method</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cleaning Outliers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Normal-Data">Normal Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#IQR-Method">IQR Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Z-Score-method">Z-Score method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Upper-percentile">Upper percentile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lower-percentile">Lower percentile</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deglinting.html">Sunglint Removal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reading_tif.html">Reading TIFF files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reading_netcdf.html">Reading NetCDF files</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -60,6 +70,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../modules/plot.html">Plot Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/bathymetry.html">Bathymetry Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/preprocessing.html">Preprocessing Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/enums.html">Enums Module</a></li>
 </ul>
 
         </div>
@@ -76,7 +87,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Cleaning Outliers with IQR method</li>
+      <li class="breadcrumb-item active">Cleaning Outliers</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/notebooks/preprocessing.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -86,8 +97,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Cleaning-Outliers-with-IQR-method">
-<h1>Cleaning Outliers with IQR method<a class="headerlink" href="#Cleaning-Outliers-with-IQR-method" title="Link to this heading"></a></h1>
+  <section id="Cleaning-Outliers">
+<h1>Cleaning Outliers<a class="headerlink" href="#Cleaning-Outliers" title="Link to this heading"></a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -98,10 +109,12 @@
 
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\sergi\Documents\repos\geopy\geopy&#39;</span><span class="p">)</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing.outliers</span><span class="w"> </span><span class="kn">import</span> <span class="n">IQR</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">preprocessing.outliers</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">outliers</span>
 </pre></div>
 </div>
 </div>
+<section id="Normal-Data">
+<h2>Normal Data<a class="headerlink" href="#Normal-Data" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -116,18 +129,21 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_preprocessing_2_0.png" src="../_images/notebooks_preprocessing_2_0.png" />
+<img alt="../_images/notebooks_preprocessing_3_0.png" src="../_images/notebooks_preprocessing_3_0.png" />
 </div>
 </div>
+</section>
+<section id="IQR-Method">
+<h2>IQR Method<a class="headerlink" href="#IQR-Method" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_normal_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_exponential</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">no_normal_data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data with Outliers&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">IQR</span><span class="p">(</span><span class="n">normal_data</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IQR applied d=1.5&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">IQR</span><span class="p">(</span><span class="n">normal_data</span><span class="p">,</span> <span class="n">distance</span> <span class="o">=</span> <span class="mi">3</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IQR applied d=3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_data</span> <span class="o">+</span> <span class="n">noise</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data with Outliers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">outliers</span><span class="o">.</span><span class="n">IQR</span><span class="p">(</span><span class="n">normal_data</span> <span class="o">+</span> <span class="n">noise</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IQR applied d=1.5&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">outliers</span><span class="o">.</span><span class="n">IQR</span><span class="p">(</span><span class="n">normal_data</span> <span class="o">+</span> <span class="n">noise</span><span class="p">,</span> <span class="n">distance</span> <span class="o">=</span> <span class="mi">3</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IQR applied d=3&#39;</span><span class="p">)</span>
 <span class="n">legend</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -136,9 +152,74 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_preprocessing_3_0.png" src="../_images/notebooks_preprocessing_3_0.png" />
+<img alt="../_images/notebooks_preprocessing_5_0.png" src="../_images/notebooks_preprocessing_5_0.png" />
 </div>
 </div>
+</section>
+<section id="Z-Score-method">
+<h2>Z-Score method<a class="headerlink" href="#Z-Score-method" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_data</span> <span class="o">+</span> <span class="n">noise</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data with Outliers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">outliers</span><span class="o">.</span><span class="n">Z_Score</span><span class="p">(</span><span class="n">normal_data</span> <span class="o">+</span> <span class="n">noise</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Z-Score applied&#39;</span><span class="p">)</span>
+<span class="n">legend</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_preprocessing_7_0.png" src="../_images/notebooks_preprocessing_7_0.png" />
+</div>
+</div>
+</section>
+<section id="Upper-percentile">
+<h2>Upper percentile<a class="headerlink" href="#Upper-percentile" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">hist</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normal Distribution&#39;</span><span class="p">)</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">outliers</span><span class="o">.</span><span class="n">upper_percentile</span><span class="p">(</span><span class="n">normal_data</span><span class="p">,</span> <span class="mi">75</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;75th Percentile&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_preprocessing_9_0.png" src="../_images/notebooks_preprocessing_9_0.png" />
+</div>
+</div>
+</section>
+<section id="Lower-percentile">
+<h2>Lower percentile<a class="headerlink" href="#Lower-percentile" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">hist</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normal Distribution&#39;</span><span class="p">)</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">outliers</span><span class="o">.</span><span class="n">lower_percentile</span><span class="p">(</span><span class="n">normal_data</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;25th Percentile&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_preprocessing_11_0.png" src="../_images/notebooks_preprocessing_11_0.png" />
+</div>
+</div>
+</section>
 </section>
 
 
@@ -146,7 +227,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to geopy’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../modules/image.html" class="btn btn-neutral float-right" title="Image Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="deglinting.html" class="btn btn-neutral float-right" title="Sunglint Removal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enums &mdash; geopy 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="canonical" href="https://aouei.github.io/geopy/_modules/enums.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            geopy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/preprocessing.html">Cleaning Outliers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/deglinting.html">Sunglint Removal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/reading_tif.html">Reading TIFF files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/reading_netcdf.html">Reading NetCDF files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/image.html">Image Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/reader.html">Reader Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/selector.html">Selector Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/masks.html">Masks Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/plot.html">Plot Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/bathymetry.html">Bathymetry Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/preprocessing.html">Preprocessing Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/enums.html">Enums Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">geopy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">enums</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for enums</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+
+
+<div class="viewcode-block" id="SENTINEL2_BANDS">
+<a class="viewcode-back" href="../modules/enums.html#enums.SENTINEL2_BANDS">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SENTINEL2_BANDS</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class to hold the wavelengths of the Sentinel-2 bands.&quot;&quot;&quot;</span>
+
+    <span class="n">B1</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;443&#39;</span><span class="p">,</span> <span class="s1">&#39;442&#39;</span><span class="p">,</span> <span class="s1">&#39;444&#39;</span><span class="p">]</span>
+    <span class="n">B2</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;493&#39;</span><span class="p">,</span> <span class="s1">&#39;492&#39;</span><span class="p">,</span> <span class="s1">&#39;489&#39;</span><span class="p">]</span>
+    <span class="n">B3</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;560&#39;</span><span class="p">,</span> <span class="s1">&#39;559&#39;</span><span class="p">,</span> <span class="s1">&#39;561&#39;</span><span class="p">]</span>
+    <span class="n">B4</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;665&#39;</span><span class="p">,</span> <span class="s1">&#39;665&#39;</span><span class="p">,</span> <span class="s1">&#39;667&#39;</span><span class="p">]</span>
+    <span class="n">B5</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;704&#39;</span><span class="p">,</span> <span class="s1">&#39;704&#39;</span><span class="p">,</span> <span class="s1">&#39;707&#39;</span><span class="p">]</span>
+    <span class="n">B6</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;740&#39;</span><span class="p">,</span> <span class="s1">&#39;739&#39;</span><span class="p">,</span> <span class="s1">&#39;741&#39;</span><span class="p">]</span>
+    <span class="n">B7</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;783&#39;</span><span class="p">,</span> <span class="s1">&#39;780&#39;</span><span class="p">,</span> <span class="s1">&#39;785&#39;</span><span class="p">]</span>
+    <span class="n">B8</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;833&#39;</span><span class="p">,</span> <span class="s1">&#39;833&#39;</span><span class="p">,</span> <span class="s1">&#39;835&#39;</span><span class="p">]</span>
+    <span class="n">B8A</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;865&#39;</span><span class="p">,</span> <span class="s1">&#39;864&#39;</span><span class="p">,</span> <span class="s1">&#39;866&#39;</span><span class="p">]</span>
+    <span class="n">B9</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;945&#39;</span><span class="p">,</span> <span class="s1">&#39;943&#39;</span><span class="p">,</span> <span class="s1">&#39;947&#39;</span><span class="p">]</span>
+    <span class="n">B10</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1373&#39;</span><span class="p">,</span> <span class="s1">&#39;1377&#39;</span><span class="p">,</span> <span class="s1">&#39;1372&#39;</span><span class="p">]</span>
+    <span class="n">B11</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1614&#39;</span><span class="p">,</span> <span class="s1">&#39;1610&#39;</span><span class="p">,</span> <span class="s1">&#39;1612&#39;</span><span class="p">]</span>
+    <span class="n">B12</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2202&#39;</span><span class="p">,</span> <span class="s1">&#39;2186&#39;</span><span class="p">,</span> <span class="s1">&#39;2191&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="MICASENSE_BANDS">
+<a class="viewcode-back" href="../modules/enums.html#enums.MICASENSE_BANDS">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MICASENSE_BANDS</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class to hold the indexes of the Micasense-RedEdge bands.&quot;&quot;&quot;</span>
+    <span class="n">BLUE</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">]</span>
+    <span class="n">GREEN</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2&#39;</span><span class="p">]</span>
+    <span class="n">RED</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]</span>
+    <span class="n">NIR</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;4&#39;</span><span class="p">]</span>
+    <span class="n">RED_EDGE</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="FILE_EXTENTIONS">
+<a class="viewcode-back" href="../modules/enums.html#enums.FILE_EXTENTIONS">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FILE_EXTENTIONS</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class to hold the file extentions that can be read.&quot;&quot;&quot;</span>
+
+    <span class="n">TIF</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tiff&#39;</span><span class="p">,</span> <span class="s1">&#39;tif&#39;</span><span class="p">]</span>
+    <span class="n">NETCDF</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nc&#39;</span><span class="p">]</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sergio Heredia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

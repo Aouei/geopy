@@ -12,7 +12,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
-    <link rel="canonical" href="https://aouei.github.io/geopy/notebooks/reading_images.html" />
+    <link rel="canonical" href="https://aouei.github.io/geopy/notebooks/reading_tif.html" />
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=8d563738"></script>
@@ -24,8 +24,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Image Module" href="../modules/image.html" />
-    <link rel="prev" title="Cleaning Outliers with IQR method" href="preprocessing.html" /> 
+    <link rel="next" title="Reading NetCDF files" href="reading_netcdf.html" />
+    <link rel="prev" title="Sunglint Removal" href="deglinting.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,7 +49,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Cleaning Outliers with IQR method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Cleaning Outliers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deglinting.html">Sunglint Removal</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Reading TIFF files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Access-properties">Access properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Raster-operations">Raster operations</a><ul>
@@ -70,6 +71,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="reading_netcdf.html">Reading NetCDF files</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -80,6 +82,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../modules/plot.html">Plot Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/bathymetry.html">Bathymetry Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/preprocessing.html">Preprocessing Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/enums.html">Enums Module</a></li>
 </ul>
 
         </div>
@@ -98,7 +101,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Reading TIFF files</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/notebooks/reading_images.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/notebooks/reading_tif.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -804,14 +807,14 @@ Name: geometry, dtype: geometry
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_19_0.png" src="../_images/notebooks_reading_images_19_0.png" />
+<img alt="../_images/notebooks_reading_tif_19_0.png" src="../_images/notebooks_reading_tif_19_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_19_1.png" src="../_images/notebooks_reading_images_19_1.png" />
+<img alt="../_images/notebooks_reading_tif_19_1.png" src="../_images/notebooks_reading_tif_19_1.png" />
 </div>
 </div>
 </section>
@@ -831,7 +834,7 @@ Name: geometry, dtype: geometry
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_21_0.png" src="../_images/notebooks_reading_images_21_0.png" />
+<img alt="../_images/notebooks_reading_tif_21_0.png" src="../_images/notebooks_reading_tif_21_0.png" />
 </div>
 </div>
 </section>
@@ -855,14 +858,14 @@ Name: geometry, dtype: geometry
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_23_0.png" src="../_images/notebooks_reading_images_23_0.png" />
+<img alt="../_images/notebooks_reading_tif_23_0.png" src="../_images/notebooks_reading_tif_23_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_23_1.png" src="../_images/notebooks_reading_images_23_1.png" />
+<img alt="../_images/notebooks_reading_tif_23_1.png" src="../_images/notebooks_reading_tif_23_1.png" />
 </div>
 </div>
 </section>
@@ -916,14 +919,14 @@ Name: geometry, dtype: geometry
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_28_0.png" src="../_images/notebooks_reading_images_28_0.png" />
+<img alt="../_images/notebooks_reading_tif_28_0.png" src="../_images/notebooks_reading_tif_28_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_28_1.png" src="../_images/notebooks_reading_images_28_1.png" />
+<img alt="../_images/notebooks_reading_tif_28_1.png" src="../_images/notebooks_reading_tif_28_1.png" />
 </div>
 </div>
 <p>Alignment</p>
@@ -960,14 +963,14 @@ Name: geometry, dtype: geometry
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_30_1.png" src="../_images/notebooks_reading_images_30_1.png" />
+<img alt="../_images/notebooks_reading_tif_30_1.png" src="../_images/notebooks_reading_tif_30_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_30_2.png" src="../_images/notebooks_reading_images_30_2.png" />
+<img alt="../_images/notebooks_reading_tif_30_2.png" src="../_images/notebooks_reading_tif_30_2.png" />
 </div>
 </div>
 </section>
@@ -995,7 +998,7 @@ Name: geometry, dtype: geometry
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_33_0.png" src="../_images/notebooks_reading_images_33_0.png" />
+<img alt="../_images/notebooks_reading_tif_33_0.png" src="../_images/notebooks_reading_tif_33_0.png" />
 </div>
 </div>
 </section>
@@ -1015,7 +1018,7 @@ Name: geometry, dtype: geometry
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_35_0.png" src="../_images/notebooks_reading_images_35_0.png" />
+<img alt="../_images/notebooks_reading_tif_35_0.png" src="../_images/notebooks_reading_tif_35_0.png" />
 </div>
 </div>
 </section>
@@ -1035,7 +1038,7 @@ Name: geometry, dtype: geometry
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_37_0.png" src="../_images/notebooks_reading_images_37_0.png" />
+<img alt="../_images/notebooks_reading_tif_37_0.png" src="../_images/notebooks_reading_tif_37_0.png" />
 </div>
 </div>
 </section>
@@ -1069,7 +1072,7 @@ Name: geometry, dtype: geometry
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_images_39_0.png" src="../_images/notebooks_reading_images_39_0.png" />
+<img alt="../_images/notebooks_reading_tif_39_0.png" src="../_images/notebooks_reading_tif_39_0.png" />
 </div>
 </div>
 </section>
@@ -1080,8 +1083,8 @@ Name: geometry, dtype: geometry
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="preprocessing.html" class="btn btn-neutral float-left" title="Cleaning Outliers with IQR method" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../modules/image.html" class="btn btn-neutral float-right" title="Image Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="deglinting.html" class="btn btn-neutral float-left" title="Sunglint Removal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reading_netcdf.html" class="btn btn-neutral float-right" title="Reading NetCDF files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

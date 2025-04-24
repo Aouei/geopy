@@ -43,8 +43,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/preprocessing.html">Cleaning Outliers with IQR method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/reading_images.html">Reading TIFF files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/preprocessing.html">Cleaning Outliers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/deglinting.html">Sunglint Removal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/reading_tif.html">Reading TIFF files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/reading_netcdf.html">Reading NetCDF files</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -55,6 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="modules/plot.html">Plot Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/bathymetry.html">Bathymetry Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/preprocessing.html">Preprocessing Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/enums.html">Enums Module</a></li>
 </ul>
 
         </div>
@@ -153,6 +156,34 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B1">B1 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B10">B10 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B11">B11 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B12">B12 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B2">B2 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B3">B3 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B4">B4 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B5">B5 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B6">B6 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B7">B7 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B8">B8 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B8A">B8A (enums.SENTINEL2_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS.B9">B9 (enums.SENTINEL2_BANDS attribute)</a>
+</li>
       <li><a href="modules/image.html#image.Image.band_names">band_names (image.Image property)</a>
 </li>
       <li>
@@ -169,8 +200,6 @@
         <li><a href="modules/bathymetry.html#module-bathymetry.models">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     bathymetry.plot
 
@@ -179,6 +208,8 @@
 </li>
       </ul></li>
       <li><a href="modules/image.html#image.Image.bbox">bbox (image.Image property)</a>
+</li>
+      <li><a href="modules/enums.html#enums.MICASENSE_BANDS.BLUE">BLUE (enums.MICASENSE_BANDS attribute)</a>
 </li>
       <li><a href="modules/image.html#image.Image.bottom">bottom (image.Image property)</a>
 </li>
@@ -218,6 +249,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/image.html#image.Image.empty_like">empty_like() (image.Image method)</a>
 </li>
+      <li>
+    enums
+
+      <ul>
+        <li><a href="modules/enums.html#module-enums">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/bathymetry.html#bathymetry.metrics.ValidationSummary.error">error (bathymetry.metrics.ValidationSummary property)</a>
@@ -229,6 +267,10 @@
 
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/enums.html#enums.FILE_EXTENTIONS">FILE_EXTENTIONS (class in enums)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/bathymetry.html#bathymetry.models.LinearModel.fit">fit() (bathymetry.models.LinearModel method)</a>
 </li>
@@ -242,11 +284,13 @@
 </li>
       <li><a href="modules/reader.html#reader.GeoTIFFReader">GeoTIFFReader (class in reader)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/plot.html#plot.get_geofigure">get_geofigure() (in module plot)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/plot.html#plot.get_projection">get_projection() (in module plot)</a>
+</li>
+      <li><a href="modules/enums.html#enums.MICASENSE_BANDS.GREEN">GREEN (enums.MICASENSE_BANDS attribute)</a>
 </li>
       <li><a href="modules/image.html#image.Image.grid_mapping">grid_mapping (image.Image attribute)</a>
 </li>
@@ -348,6 +392,8 @@
       </ul></li>
       <li><a href="modules/bathymetry.html#bathymetry.metrics.ValidationSummary.MedAE">MedAE (bathymetry.metrics.ValidationSummary property)</a>
 </li>
+      <li><a href="modules/enums.html#enums.MICASENSE_BANDS">MICASENSE_BANDS (class in enums)</a>
+</li>
       <li><a href="modules/bathymetry.html#bathymetry.metrics.ValidationSummary.model">model (bathymetry.metrics.ValidationSummary attribute)</a>
 </li>
       <li>
@@ -359,6 +405,8 @@
         <li><a href="modules/bathymetry.html#module-bathymetry.models">bathymetry.models</a>
 </li>
         <li><a href="modules/bathymetry.html#module-bathymetry.plot">bathymetry.plot</a>
+</li>
+        <li><a href="modules/enums.html#module-enums">enums</a>
 </li>
         <li><a href="modules/image.html#module-image">image</a>
 </li>
@@ -389,9 +437,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/bathymetry.html#bathymetry.metrics.ValidationSummary.N">N (bathymetry.metrics.ValidationSummary property)</a>
 </li>
+      <li><a href="modules/enums.html#enums.FILE_EXTENTIONS.NETCDF">NETCDF (enums.FILE_EXTENTIONS attribute)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/reader.html#reader.NetCDFReader">NetCDFReader (class in reader)</a>
+</li>
+      <li><a href="modules/enums.html#enums.MICASENSE_BANDS.NIR">NIR (enums.MICASENSE_BANDS attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -459,10 +511,14 @@
         <li><a href="modules/reader.html#module-reader">module</a>
 </li>
       </ul></li>
-      <li><a href="modules/image.html#image.Image.rename">rename() (image.Image method)</a>
+      <li><a href="modules/enums.html#enums.MICASENSE_BANDS.RED">RED (enums.MICASENSE_BANDS attribute)</a>
+</li>
+      <li><a href="modules/enums.html#enums.MICASENSE_BANDS.RED_EDGE">RED_EDGE (enums.MICASENSE_BANDS attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/image.html#image.Image.rename">rename() (image.Image method)</a>
+</li>
       <li><a href="modules/image.html#image.Image.rename_by_enum">rename_by_enum() (image.Image method)</a>
 </li>
       <li><a href="modules/image.html#image.Image.replace">replace() (image.Image method)</a>
@@ -494,6 +550,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/enums.html#enums.SENTINEL2_BANDS">SENTINEL2_BANDS (class in enums)</a>
+</li>
       <li><a href="modules/bathymetry.html#bathymetry.models.stumpf_pseudomodel">stumpf_pseudomodel() (in module bathymetry.models)</a>
 </li>
       <li><a href="modules/bathymetry.html#bathymetry.models.switching_model">switching_model() (in module bathymetry.models)</a>
@@ -504,12 +562,14 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/image.html#image.Image.to_netcdf">to_netcdf() (image.Image method)</a>
+      <li><a href="modules/enums.html#enums.FILE_EXTENTIONS.TIF">TIF (enums.FILE_EXTENTIONS attribute)</a>
 </li>
-      <li><a href="modules/image.html#image.Image.to_tif">to_tif() (image.Image method)</a>
+      <li><a href="modules/image.html#image.Image.to_netcdf">to_netcdf() (image.Image method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/image.html#image.Image.to_tif">to_tif() (image.Image method)</a>
+</li>
       <li><a href="modules/image.html#image.Image.top">top (image.Image property)</a>
 </li>
       <li><a href="modules/image.html#image.Image.transform">transform (image.Image property)</a>

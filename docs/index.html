@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cleaning Outliers with IQR method" href="notebooks/preprocessing.html" /> 
+    <link rel="next" title="Cleaning Outliers" href="notebooks/preprocessing.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,8 +47,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/preprocessing.html">Cleaning Outliers with IQR method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/reading_images.html">Reading TIFF files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/preprocessing.html">Cleaning Outliers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/deglinting.html">Sunglint Removal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/reading_tif.html">Reading TIFF files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/reading_netcdf.html">Reading NetCDF files</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -59,6 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="modules/plot.html">Plot Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/bathymetry.html">Bathymetry Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/preprocessing.html">Preprocessing Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/enums.html">Enums Module</a></li>
 </ul>
 
         </div>
@@ -90,13 +93,10 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/preprocessing.html">Cleaning Outliers with IQR method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/reading_images.html">Reading TIFF files</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/reading_images.html#Access-properties">Access properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/reading_images.html#Raster-operations">Raster operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/reading_images.html#Plots">Plots</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/preprocessing.html">Cleaning Outliers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/deglinting.html">Sunglint Removal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/reading_tif.html">Reading TIFF files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/reading_netcdf.html">Reading NetCDF files</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -150,6 +150,12 @@
 <li class="toctree-l2"><a class="reference internal" href="modules/preprocessing.html#outliers-module">Outliers Module</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="modules/enums.html">Enums Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/enums.html#enums.FILE_EXTENTIONS"><code class="docutils literal notranslate"><span class="pre">FILE_EXTENTIONS</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/enums.html#enums.MICASENSE_BANDS"><code class="docutils literal notranslate"><span class="pre">MICASENSE_BANDS</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/enums.html#enums.SENTINEL2_BANDS"><code class="docutils literal notranslate"><span class="pre">SENTINEL2_BANDS</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -165,7 +171,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="notebooks/preprocessing.html" class="btn btn-neutral float-right" title="Cleaning Outliers with IQR method" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="notebooks/preprocessing.html" class="btn btn-neutral float-right" title="Cleaning Outliers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -2,11 +2,13 @@ Welcome to geopy's documentation!
 ====================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: User Guide:
 
    notebooks/preprocessing
-   notebooks/reading_images.ipynb
+   notebooks/deglinting
+   notebooks/reading_tif
+   notebooks/reading_netcdf
 
 .. toctree::
    :maxdepth: 2
@@ -19,7 +21,9 @@ Welcome to geopy's documentation!
    modules/plot
    modules/bathymetry
    modules/preprocessing
-   
+   modules/enums
+
+
 Indices and tables
 ==================
 
