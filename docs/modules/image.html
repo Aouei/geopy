@@ -63,6 +63,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.bbox"><code class="docutils literal notranslate"><span class="pre">Image.bbox</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.bottom"><code class="docutils literal notranslate"><span class="pre">Image.bottom</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.clip"><code class="docutils literal notranslate"><span class="pre">Image.clip()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image.Image.copy"><code class="docutils literal notranslate"><span class="pre">Image.copy()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.count"><code class="docutils literal notranslate"><span class="pre">Image.count</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.drop_bands"><code class="docutils literal notranslate"><span class="pre">Image.drop_bands()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.dropna"><code class="docutils literal notranslate"><span class="pre">Image.dropna()</span></code></a></li>
@@ -74,6 +75,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.interval_choice"><code class="docutils literal notranslate"><span class="pre">Image.interval_choice()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.left"><code class="docutils literal notranslate"><span class="pre">Image.left</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.mask"><code class="docutils literal notranslate"><span class="pre">Image.mask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image.Image.normalized_diference"><code class="docutils literal notranslate"><span class="pre">Image.normalized_diference()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.rename"><code class="docutils literal notranslate"><span class="pre">Image.rename()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.rename_by_enum"><code class="docutils literal notranslate"><span class="pre">Image.rename_by_enum()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image.Image.replace"><code class="docutils literal notranslate"><span class="pre">Image.replace()</span></code></a></li>
@@ -280,6 +282,12 @@ clipped to the combined extent of all geometries.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># 1 1 0</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="image.Image.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#image.Image" title="image.Image"><span class="pre">Image</span></a></span></span><a class="reference internal" href="../_modules/image.html#Image.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.copy" title="Link to this definition"></a></dt>
+<dd><p>Create a deep copy of the image.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -490,6 +498,26 @@ to True.</p></li>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="image.Image.normalized_diference">
+<span class="sig-name descname"><span class="pre">normalized_diference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.normalized_diference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.normalized_diference" title="Link to this definition"></a></dt>
+<dd><p>Calculate normalized difference between two bands.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>band1</strong> (<em>str</em>) – First band name</p></li>
+<li><p><strong>band2</strong> (<em>str</em>) – Second band name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalized difference values</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
