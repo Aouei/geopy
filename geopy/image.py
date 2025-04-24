@@ -653,6 +653,23 @@ class Image(object):
         return self
 
 
+    def normalized_diference(self, band1 : str, band2 : str) -> np.ndarray:
+        """Calculate normalized difference between two bands.
+
+        Args:
+            band1 (str): First band name
+            band2 (str): Second band name
+
+        Returns:
+            np.ndarray: Normalized difference values
+        """
+        
+        b1 = self.data[band1].values.copy()
+        b2 = self.data[band2].values.copy()
+        
+        return (b1 - b2) / (b1 + b2)
+
+
     def extract_values(self, xs : np.ndarray, ys : np.ndarray, bands : List[str] = None, is_1D : bool = False) -> np.ndarray:
         """Extract values at specified coordinates.
 
@@ -727,6 +744,11 @@ class Image(object):
         result.drop_bands(result.band_names)
         return result
     
+    def copy(self) -> Image:
+        """Create a deep copy of the image."""
+
+        return deepcopy(self)
+    
 
     def to_netcdf(self, filename):
         """Save image to NetCDF file.
@@ -767,10 +789,6 @@ class Image(object):
                 dst.write(band_data.values, idx)
                 dst.set_band_description(idx, band_name)
 
-    def copy(self) -> Image:
-        """Create a deep copy of the image."""
-
-        return deepcopy(self)
 
     def __str__(self) -> str:
         return f'Bands: {self.band_names} | Height: {self.height} | Width: {self.width}'
