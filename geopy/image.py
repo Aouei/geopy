@@ -98,7 +98,7 @@ class Image(object):
             for wavelenght in band.value:
                 self.replace(wavelenght, band.name)
 
-        return selector
+        return self
 
     @property
     def band_names(self) -> List[str]:
