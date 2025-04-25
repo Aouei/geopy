@@ -11,6 +11,8 @@ A Python package for geospatial image processing and analysis.
 
 ## Installation
 
+Python >= 3.11 in required.
+
 ```bash
 # 1. Clone the repository from GitHub
 git clone https://github.com/Aouei/sensingpy.git
