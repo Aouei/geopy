@@ -386,10 +386,12 @@ document.write(`
     <span class="k">return</span> <span class="n">reader</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">plot_band</span><span class="p">(</span><span class="n">img</span> <span class="p">:</span> <span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">band_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_geofigure</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_geofigure</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">,</span> <span class="n">mappable</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_band</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">band_name</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">add_gridlines</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">gl</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">add_gridlines</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">mappable</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">band_name</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ax</span>
 </pre></div>
 </div>
 </div>
@@ -796,44 +798,44 @@ Attributes:
     _FillValue_band_4:   -32767.0
     _FillValue_band_5:   -32767.0
     tiff_AREA_OR_POINT:  Area
-    grid_mapping:        projection</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-7ae65a58-becd-49bb-aa40-e544160ea00a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7ae65a58-becd-49bb-aa40-e544160ea00a' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>y</span>: 2053</li><li><span class='xr-has-index'>x</span>: 2327</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-9b33ead9-edf4-480c-a0d3-95a8c138f24b' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9b33ead9-edf4-480c-a0d3-95a8c138f24b' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.825e+06 4.825e+06 ... 4.824e+06</div><input id='attrs-e65b2912-14ad-4351-85db-6baec440a23f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e65b2912-14ad-4351-85db-6baec440a23f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c3e98191-1047-48cb-b51d-4963505207bf' class='xr-var-data-in' type='checkbox'><label for='data-c3e98191-1047-48cb-b51d-4963505207bf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>Northing</dd><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>units :</span></dt><dd>metre</dd></dl></div><div class='xr-var-data'><pre>array([4824831.168769, 4824830.840096, 4824830.511423, ..., 4824157.389067,
-       4824157.060394, 4824156.731721], shape=(2053,))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>6.987e+05 6.987e+05 ... 6.995e+05</div><input id='attrs-75ae7d9c-2776-49ae-867b-288233bfeb9d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-75ae7d9c-2776-49ae-867b-288233bfeb9d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-35609fef-2993-47c7-b415-16998d1c9f2a' class='xr-var-data-in' type='checkbox'><label for='data-35609fef-2993-47c7-b415-16998d1c9f2a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>long_name :</span></dt><dd>Easting</dd><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>units :</span></dt><dd>metre</dd></dl></div><div class='xr-var-data'><pre>array([698703.589637, 698703.918359, 698704.247081, ..., 699467.539501,
-       699467.868223, 699468.196945], shape=(2327,))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>projection</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0</div><input id='attrs-990aebd5-38ec-487e-a915-48e48224c3e1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-990aebd5-38ec-487e-a915-48e48224c3e1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9b0cec1c-d31c-4de6-9337-30ed6899828c' class='xr-var-data-in' type='checkbox'><label for='data-9b0cec1c-d31c-4de6-9337-30ed6899828c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>crs_wkt :</span></dt><dd>BOUNDCRS[SOURCECRS[PROJCRS[&quot;unknown&quot;,BASEGEOGCRS[&quot;unknown&quot;,DATUM[&quot;Unknown based on GRS 1980 ellipsoid using towgs84=0,0,0,0,0,0,0&quot;,ELLIPSOID[&quot;GRS 1980&quot;,6378137,298.257222101,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,7019]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8901]]],CONVERSION[&quot;UTM zone 29N&quot;,METHOD[&quot;Transverse Mercator&quot;,ID[&quot;EPSG&quot;,9807]],PARAMETER[&quot;Latitude of natural origin&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,-9,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,SCALEUNIT[&quot;unity&quot;,1],ID[&quot;EPSG&quot;,8805]],PARAMETER[&quot;False easting&quot;,500000,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]],ID[&quot;EPSG&quot;,16029]],CS[Cartesian,2],AXIS[&quot;(E)&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1,ID[&quot;EPSG&quot;,9001]]],AXIS[&quot;(N)&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1,ID[&quot;EPSG&quot;,9001]]]]],TARGETCRS[GEOGCRS[&quot;WGS 84&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],CS[ellipsoidal,2],AXIS[&quot;latitude&quot;,north,ORDER[1],ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],AXIS[&quot;longitude&quot;,east,ORDER[2],ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],ID[&quot;EPSG&quot;,4326]]],ABRIDGEDTRANSFORMATION[&quot;Transformation from unknown to WGS84&quot;,METHOD[&quot;Position Vector transformation (geog2D domain)&quot;,ID[&quot;EPSG&quot;,9606]],PARAMETER[&quot;X-axis translation&quot;,0,ID[&quot;EPSG&quot;,8605]],PARAMETER[&quot;Y-axis translation&quot;,0,ID[&quot;EPSG&quot;,8606]],PARAMETER[&quot;Z-axis translation&quot;,0,ID[&quot;EPSG&quot;,8607]],PARAMETER[&quot;X-axis rotation&quot;,0,ID[&quot;EPSG&quot;,8608]],PARAMETER[&quot;Y-axis rotation&quot;,0,ID[&quot;EPSG&quot;,8609]],PARAMETER[&quot;Z-axis rotation&quot;,0,ID[&quot;EPSG&quot;,8610]],PARAMETER[&quot;Scale difference&quot;,1,ID[&quot;EPSG&quot;,8611]]]]</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314140356</dd><dt><span>inverse_flattening :</span></dt><dd>298.257222101</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>GRS 1980</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>geographic_crs_name :</span></dt><dd>unknown</dd><dt><span>horizontal_datum_name :</span></dt><dd>Unknown based on GRS 1980 ellipsoid using towgs84=0,0,0,0,0,0,0</dd><dt><span>projected_crs_name :</span></dt><dd>unknown</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>-9.0</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>towgs84 :</span></dt><dd>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</dd></dl></div><div class='xr-var-data'><pre>array(0)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f0bc2c2a-8c8f-4eab-9f66-b6996b898eeb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f0bc2c2a-8c8f-4eab-9f66-b6996b898eeb' class='xr-section-summary' >Data variables: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>Band 1</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-82ece255-cc6d-4b17-9371-4ac9eabba406' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-82ece255-cc6d-4b17-9371-4ac9eabba406' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6fbbdcbe-f237-4816-b7c6-741284c59292' class='xr-var-data-in' type='checkbox'><label for='data-6fbbdcbe-f237-4816-b7c6-741284c59292' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>projection</dd><dt><span>long_name :</span></dt><dd>Band 1</dd><dt><span>_FillValue :</span></dt><dd>-32767.0</dd></dl></div><div class='xr-var-data'><pre>array([[nan, nan, nan, ..., nan, nan, nan],
+    grid_mapping:        projection</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-ffe8c197-7d35-4357-84ce-367f2a38db82' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ffe8c197-7d35-4357-84ce-367f2a38db82' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>y</span>: 2053</li><li><span class='xr-has-index'>x</span>: 2327</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-98d6270c-9f5b-4eca-a0ec-fd5d8c4890b3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-98d6270c-9f5b-4eca-a0ec-fd5d8c4890b3' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>4.825e+06 4.825e+06 ... 4.824e+06</div><input id='attrs-3e34e9a7-9b55-4464-81df-5e03d4ca5a67' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3e34e9a7-9b55-4464-81df-5e03d4ca5a67' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-64d87dba-4d33-4380-bf04-bbe3bd64bb4d' class='xr-var-data-in' type='checkbox'><label for='data-64d87dba-4d33-4380-bf04-bbe3bd64bb4d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>Northing</dd><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>units :</span></dt><dd>metre</dd></dl></div><div class='xr-var-data'><pre>array([4824831.168769, 4824830.840096, 4824830.511423, ..., 4824157.389067,
+       4824157.060394, 4824156.731721], shape=(2053,))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>6.987e+05 6.987e+05 ... 6.995e+05</div><input id='attrs-b055d8b3-3bae-4c61-8ca7-971467654337' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b055d8b3-3bae-4c61-8ca7-971467654337' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1e18324e-1530-4ad6-9c1e-fc1e16c77530' class='xr-var-data-in' type='checkbox'><label for='data-1e18324e-1530-4ad6-9c1e-fc1e16c77530' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>long_name :</span></dt><dd>Easting</dd><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>units :</span></dt><dd>metre</dd></dl></div><div class='xr-var-data'><pre>array([698703.589637, 698703.918359, 698704.247081, ..., 699467.539501,
+       699467.868223, 699468.196945], shape=(2327,))</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>projection</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0</div><input id='attrs-9639a685-8dfa-47c1-8201-18db046ea937' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9639a685-8dfa-47c1-8201-18db046ea937' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-571fa4b6-f724-40ea-868b-79e5a8a1e046' class='xr-var-data-in' type='checkbox'><label for='data-571fa4b6-f724-40ea-868b-79e5a8a1e046' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>crs_wkt :</span></dt><dd>BOUNDCRS[SOURCECRS[PROJCRS[&quot;unknown&quot;,BASEGEOGCRS[&quot;unknown&quot;,DATUM[&quot;Unknown based on GRS 1980 ellipsoid using towgs84=0,0,0,0,0,0,0&quot;,ELLIPSOID[&quot;GRS 1980&quot;,6378137,298.257222101,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,7019]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8901]]],CONVERSION[&quot;UTM zone 29N&quot;,METHOD[&quot;Transverse Mercator&quot;,ID[&quot;EPSG&quot;,9807]],PARAMETER[&quot;Latitude of natural origin&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,-9,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,SCALEUNIT[&quot;unity&quot;,1],ID[&quot;EPSG&quot;,8805]],PARAMETER[&quot;False easting&quot;,500000,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]],ID[&quot;EPSG&quot;,16029]],CS[Cartesian,2],AXIS[&quot;(E)&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1,ID[&quot;EPSG&quot;,9001]]],AXIS[&quot;(N)&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1,ID[&quot;EPSG&quot;,9001]]]]],TARGETCRS[GEOGCRS[&quot;WGS 84&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],CS[ellipsoidal,2],AXIS[&quot;latitude&quot;,north,ORDER[1],ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],AXIS[&quot;longitude&quot;,east,ORDER[2],ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],ID[&quot;EPSG&quot;,4326]]],ABRIDGEDTRANSFORMATION[&quot;Transformation from unknown to WGS84&quot;,METHOD[&quot;Position Vector transformation (geog2D domain)&quot;,ID[&quot;EPSG&quot;,9606]],PARAMETER[&quot;X-axis translation&quot;,0,ID[&quot;EPSG&quot;,8605]],PARAMETER[&quot;Y-axis translation&quot;,0,ID[&quot;EPSG&quot;,8606]],PARAMETER[&quot;Z-axis translation&quot;,0,ID[&quot;EPSG&quot;,8607]],PARAMETER[&quot;X-axis rotation&quot;,0,ID[&quot;EPSG&quot;,8608]],PARAMETER[&quot;Y-axis rotation&quot;,0,ID[&quot;EPSG&quot;,8609]],PARAMETER[&quot;Z-axis rotation&quot;,0,ID[&quot;EPSG&quot;,8610]],PARAMETER[&quot;Scale difference&quot;,1,ID[&quot;EPSG&quot;,8611]]]]</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314140356</dd><dt><span>inverse_flattening :</span></dt><dd>298.257222101</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>GRS 1980</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>geographic_crs_name :</span></dt><dd>unknown</dd><dt><span>horizontal_datum_name :</span></dt><dd>Unknown based on GRS 1980 ellipsoid using towgs84=0,0,0,0,0,0,0</dd><dt><span>projected_crs_name :</span></dt><dd>unknown</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>longitude_of_central_meridian :</span></dt><dd>-9.0</dd><dt><span>false_easting :</span></dt><dd>500000.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>scale_factor_at_central_meridian :</span></dt><dd>0.9996</dd><dt><span>towgs84 :</span></dt><dd>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</dd></dl></div><div class='xr-var-data'><pre>array(0)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4385df90-e01a-45f0-a81a-d9125a2e8276' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4385df90-e01a-45f0-a81a-d9125a2e8276' class='xr-section-summary' >Data variables: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>Band 1</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-f776fff1-6e18-4f0e-b8f3-c1b60c4b4ecc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f776fff1-6e18-4f0e-b8f3-c1b60c4b4ecc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-51366573-101e-4506-be7d-37b142db88d1' class='xr-var-data-in' type='checkbox'><label for='data-51366573-101e-4506-be7d-37b142db88d1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>projection</dd><dt><span>long_name :</span></dt><dd>Band 1</dd><dt><span>_FillValue :</span></dt><dd>-32767.0</dd></dl></div><div class='xr-var-data'><pre>array([[nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        ...,
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan]],
-      shape=(2053, 2327), dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Band 2</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-e818ae7c-0a74-4029-9f69-3b93fa1942af' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e818ae7c-0a74-4029-9f69-3b93fa1942af' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-74d19a34-0d5b-4c0f-98ad-eb0427f8ce7b' class='xr-var-data-in' type='checkbox'><label for='data-74d19a34-0d5b-4c0f-98ad-eb0427f8ce7b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>projection</dd><dt><span>long_name :</span></dt><dd>Band 2</dd><dt><span>_FillValue :</span></dt><dd>-32767.0</dd></dl></div><div class='xr-var-data'><pre>array([[nan, nan, nan, ..., nan, nan, nan],
+      shape=(2053, 2327), dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Band 2</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-6de3695d-b5d4-4846-a239-b8eade8ca395' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6de3695d-b5d4-4846-a239-b8eade8ca395' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-056ff4de-6272-428f-bca5-3108330e4305' class='xr-var-data-in' type='checkbox'><label for='data-056ff4de-6272-428f-bca5-3108330e4305' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>projection</dd><dt><span>long_name :</span></dt><dd>Band 2</dd><dt><span>_FillValue :</span></dt><dd>-32767.0</dd></dl></div><div class='xr-var-data'><pre>array([[nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        ...,
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan]],
-      shape=(2053, 2327), dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Band 3</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-470a145f-74c9-434a-b6e9-9a262da04564' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-470a145f-74c9-434a-b6e9-9a262da04564' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c342c504-8643-44ab-b210-1072f644d514' class='xr-var-data-in' type='checkbox'><label for='data-c342c504-8643-44ab-b210-1072f644d514' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>projection</dd><dt><span>long_name :</span></dt><dd>Band 3</dd><dt><span>_FillValue :</span></dt><dd>-32767.0</dd></dl></div><div class='xr-var-data'><pre>array([[nan, nan, nan, ..., nan, nan, nan],
+      shape=(2053, 2327), dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Band 3</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-1d7ddf18-9da9-4676-acff-27e37903cbe5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1d7ddf18-9da9-4676-acff-27e37903cbe5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1435c7fc-3d4b-4ae6-bfea-0a1b80396a26' class='xr-var-data-in' type='checkbox'><label for='data-1435c7fc-3d4b-4ae6-bfea-0a1b80396a26' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>projection</dd><dt><span>long_name :</span></dt><dd>Band 3</dd><dt><span>_FillValue :</span></dt><dd>-32767.0</dd></dl></div><div class='xr-var-data'><pre>array([[nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        ...,
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan]],
-      shape=(2053, 2327), dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Band 4</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-d3ff5edd-2cc4-441e-9a6d-2c482494a569' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d3ff5edd-2cc4-441e-9a6d-2c482494a569' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0ae8ad02-a279-4bf3-8595-eb2b667d8c52' class='xr-var-data-in' type='checkbox'><label for='data-0ae8ad02-a279-4bf3-8595-eb2b667d8c52' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>projection</dd><dt><span>long_name :</span></dt><dd>Band 4</dd><dt><span>_FillValue :</span></dt><dd>-32767.0</dd></dl></div><div class='xr-var-data'><pre>array([[nan, nan, nan, ..., nan, nan, nan],
+      shape=(2053, 2327), dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Band 4</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-b4f9c18b-4027-4d9c-931d-34558ef815be' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b4f9c18b-4027-4d9c-931d-34558ef815be' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-595c3d6b-e86a-4b6d-83ad-efe026c86fd0' class='xr-var-data-in' type='checkbox'><label for='data-595c3d6b-e86a-4b6d-83ad-efe026c86fd0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>projection</dd><dt><span>long_name :</span></dt><dd>Band 4</dd><dt><span>_FillValue :</span></dt><dd>-32767.0</dd></dl></div><div class='xr-var-data'><pre>array([[nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        ...,
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan]],
-      shape=(2053, 2327), dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Band 5</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-ae2a6ba8-4796-4ea7-a5b6-3247e6c9cbb4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ae2a6ba8-4796-4ea7-a5b6-3247e6c9cbb4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4b08c924-be99-4be6-8b63-5543142074a6' class='xr-var-data-in' type='checkbox'><label for='data-4b08c924-be99-4be6-8b63-5543142074a6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>projection</dd><dt><span>long_name :</span></dt><dd>Band 5</dd><dt><span>_FillValue :</span></dt><dd>-32767.0</dd></dl></div><div class='xr-var-data'><pre>array([[nan, nan, nan, ..., nan, nan, nan],
+      shape=(2053, 2327), dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Band 5</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-764ccb01-de5f-4735-abfd-8a6726e7f0da' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-764ccb01-de5f-4735-abfd-8a6726e7f0da' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-75b68fc8-61c7-4a06-a599-64235f09867b' class='xr-var-data-in' type='checkbox'><label for='data-75b68fc8-61c7-4a06-a599-64235f09867b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>projection</dd><dt><span>long_name :</span></dt><dd>Band 5</dd><dt><span>_FillValue :</span></dt><dd>-32767.0</dd></dl></div><div class='xr-var-data'><pre>array([[nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        ...,
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan]],
-      shape=(2053, 2327), dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0c332e4b-d903-4769-b31f-1320f719a850' class='xr-section-summary-in' type='checkbox'  ><label for='section-0c332e4b-d903-4769-b31f-1320f719a850' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-5c7a36c5-1c07-452c-a235-0b7f57706eab' class='xr-index-data-in' type='checkbox'/><label for='index-5c7a36c5-1c07-452c-a235-0b7f57706eab' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 4824831.168768771,  4824830.840095746,  4824830.511422721,
+      shape=(2053, 2327), dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c754cced-e707-46fd-a865-dff1f525889f' class='xr-section-summary-in' type='checkbox'  ><label for='section-c754cced-e707-46fd-a865-dff1f525889f' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-daa4024c-36e5-4bd1-880f-1b513d0d935e' class='xr-index-data-in' type='checkbox'/><label for='index-daa4024c-36e5-4bd1-880f-1b513d0d935e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 4824831.168768771,  4824830.840095746,  4824830.511422721,
         4824830.182749696, 4824829.8540766705,  4824829.525403646,
          4824829.19673062,  4824828.868057596,   4824828.53938457,
         4824828.210711545,
@@ -842,7 +844,7 @@ Attributes:
         4824158.703759347, 4824158.3750863215,  4824158.046413297,
         4824157.717740271,  4824157.389067247,  4824157.060394221,
         4824156.731721196],
-      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=2053))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-bed54523-bb5f-4103-b8c4-63a46bef3c63' class='xr-index-data-in' type='checkbox'/><label for='index-bed54523-bb5f-4103-b8c4-63a46bef3c63' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([698703.5896371136, 698703.9183590862, 698704.2470810588,
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=2053))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-a9df36b9-0123-4864-b9f1-9bbd0ab6d02d' class='xr-index-data-in' type='checkbox'/><label for='index-a9df36b9-0123-4864-b9f1-9bbd0ab6d02d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([698703.5896371136, 698703.9183590862, 698704.2470810588,
        698704.5758030313, 698704.9045250039, 698705.2332469765,
         698705.561968949, 698705.8906909217, 698706.2194128942,
        698706.5481348669,
@@ -851,7 +853,7 @@ Attributes:
        699466.2246135055, 699466.5533354781, 699466.8820574507,
        699467.2107794232, 699467.5395013958, 699467.8682233684,
         699468.196945341],
-      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=2327))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e183681d-4105-427a-8588-f70d6b2d2e4e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e183681d-4105-427a-8588-f70d6b2d2e4e' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>_FillValue_band_1 :</span></dt><dd>-32767.0</dd><dt><span>_FillValue_band_2 :</span></dt><dd>-32767.0</dd><dt><span>_FillValue_band_3 :</span></dt><dd>-32767.0</dd><dt><span>_FillValue_band_4 :</span></dt><dd>-32767.0</dd><dt><span>_FillValue_band_5 :</span></dt><dd>-32767.0</dd><dt><span>tiff_AREA_OR_POINT :</span></dt><dd>Area</dd><dt><span>grid_mapping :</span></dt><dd>projection</dd></dl></div></li></ul></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=2327))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6310488c-5829-4326-9828-2c3702f2d6e6' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6310488c-5829-4326-9828-2c3702f2d6e6' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>_FillValue_band_1 :</span></dt><dd>-32767.0</dd><dt><span>_FillValue_band_2 :</span></dt><dd>-32767.0</dd><dt><span>_FillValue_band_3 :</span></dt><dd>-32767.0</dd><dt><span>_FillValue_band_4 :</span></dt><dd>-32767.0</dd><dt><span>_FillValue_band_5 :</span></dt><dd>-32767.0</dd><dt><span>tiff_AREA_OR_POINT :</span></dt><dd>Area</dd><dt><span>grid_mapping :</span></dt><dd>projection</dd></dl></div></li></ul></div></div></div>
 </div>
 <section id="Access-properties">
 <h2>Access properties<a class="headerlink" href="#Access-properties" title="Link to this heading">#</a></h2>
@@ -985,23 +987,39 @@ Affine(0.6574439450632781, 0.0, 698703.4252761274,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cartopy</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy.crs</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cartopy.crs</span>
+
+<span class="n">plot_band</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="s2">&quot;Band 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;UTM&#39;</span><span class="p">)</span>
 
 <span class="n">raster</span><span class="o">.</span><span class="n">reproject</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">Mercator</span><span class="p">())</span>
 <span class="n">raster</span><span class="o">.</span><span class="n">transform</span>
+
+<span class="n">plot_band</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="s2">&quot;Band 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Mercator&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Affine(0.9046506361337379, 0.0, -728073.9811391523,
-       0.0, -0.9046506360173225, 5366612.11440219)
+Text(0.5, 1.0, &#39;Mercator&#39;)
 </pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_reading_tif_16_1.png" src="../_images/notebooks_reading_tif_16_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_reading_tif_16_2.png" src="../_images/notebooks_reading_tif_16_2.png" />
+</div>
 </div>
 </section>
 <section id="Mask-using-geometries">
@@ -1042,17 +1060,26 @@ Name: geometry, dtype: geometry
 </div>
 </div>
 <div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;GeoAxes: &gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_tif_19_0.png" src="../_images/notebooks_reading_tif_19_0.png" />
+<img alt="../_images/notebooks_reading_tif_19_1.png" src="../_images/notebooks_reading_tif_19_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_tif_19_1.png" src="../_images/notebooks_reading_tif_19_1.png" />
+<img alt="../_images/notebooks_reading_tif_19_2.png" src="../_images/notebooks_reading_tif_19_2.png" />
 </div>
 </div>
 </section>
@@ -1068,11 +1095,20 @@ Name: geometry, dtype: geometry
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;GeoAxes: &gt;
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_tif_21_0.png" src="../_images/notebooks_reading_tif_21_0.png" />
+<img alt="../_images/notebooks_reading_tif_21_1.png" src="../_images/notebooks_reading_tif_21_1.png" />
 </div>
 </div>
 </section>
@@ -1088,22 +1124,32 @@ Name: geometry, dtype: geometry
 
 <span class="n">raster</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">shapes</span><span class="p">)</span>
 
-<span class="n">plot_band</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="s2">&quot;Band 1&quot;</span><span class="p">)</span>
+<span class="n">plot_band</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="s2">&quot;Band 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">(</span><span class="n">shapes</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+                                           <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">crs</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_projection</span><span class="p">(</span><span class="n">raster</span><span class="o">.</span><span class="n">crs</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x14552d93390&gt;
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_tif_23_0.png" src="../_images/notebooks_reading_tif_23_0.png" />
+<img alt="../_images/notebooks_reading_tif_23_1.png" src="../_images/notebooks_reading_tif_23_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_tif_23_1.png" src="../_images/notebooks_reading_tif_23_1.png" />
+<img alt="../_images/notebooks_reading_tif_23_2.png" src="../_images/notebooks_reading_tif_23_2.png" />
 </div>
 </div>
 </section>
@@ -1154,17 +1200,26 @@ Name: geometry, dtype: geometry
 </div>
 </div>
 <div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;GeoAxes: &gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_tif_28_0.png" src="../_images/notebooks_reading_tif_28_0.png" />
+<img alt="../_images/notebooks_reading_tif_28_1.png" src="../_images/notebooks_reading_tif_28_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_tif_28_1.png" src="../_images/notebooks_reading_tif_28_1.png" />
+<img alt="../_images/notebooks_reading_tif_28_2.png" src="../_images/notebooks_reading_tif_28_2.png" />
 </div>
 </div>
 <p>Alignment</p>
@@ -1198,17 +1253,26 @@ Name: geometry, dtype: geometry
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;GeoAxes: &gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_tif_30_1.png" src="../_images/notebooks_reading_tif_30_1.png" />
+<img alt="../_images/notebooks_reading_tif_30_2.png" src="../_images/notebooks_reading_tif_30_2.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_reading_tif_30_2.png" src="../_images/notebooks_reading_tif_30_2.png" />
+<img alt="../_images/notebooks_reading_tif_30_3.png" src="../_images/notebooks_reading_tif_30_3.png" />
 </div>
 </div>
 </section>
@@ -1224,7 +1288,7 @@ Name: geometry, dtype: geometry
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raster</span> <span class="p">:</span> <span class="n">image</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="n">load_image</span><span class="p">()</span>
 <span class="n">raster</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">downscale</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_geofigure</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">raster</span><span class="o">.</span><span class="n">band_names</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">raster</span><span class="o">.</span><span class="n">band_names</span><span class="p">)))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_geofigure</span><span class="p">(</span><span class="n">raster</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">raster</span><span class="o">.</span><span class="n">band_names</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">raster</span><span class="o">.</span><span class="n">band_names</span><span class="p">)))</span>
 
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">band_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">raster</span><span class="o">.</span><span class="n">band_names</span><span class="p">):</span>
     <span class="n">ax</span><span class="p">,</span> <span class="n">mappable</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_band</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="n">band_name</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
@@ -1246,7 +1310,7 @@ Name: geometry, dtype: geometry
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_geofigure</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_geofigure</span><span class="p">(</span><span class="n">raster</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_rgb</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="s1">&#39;Band 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Band 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Band 1&#39;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">add_gridlines</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
@@ -1266,7 +1330,7 @@ Name: geometry, dtype: geometry
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_geofigure</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_geofigure</span><span class="p">(</span><span class="n">raster</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_rgb</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="s1">&#39;Band 4&#39;</span><span class="p">,</span> <span class="s1">&#39;Band 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Band 2&#39;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">add_gridlines</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
@@ -1286,7 +1350,7 @@ Name: geometry, dtype: geometry
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_geofigure</span><span class="p">(</span><span class="n">raster_1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">get_geofigure</span><span class="p">(</span><span class="n">raster_1</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_rgb</span><span class="p">(</span><span class="n">raster_1</span><span class="p">,</span> <span class="s1">&#39;Band 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Band 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Band 1&#39;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_rgb</span><span class="p">(</span><span class="n">raster_2</span><span class="p">,</span> <span class="s1">&#39;Band 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Band 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Band 1&#39;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
