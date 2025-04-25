@@ -15,31 +15,36 @@ import reader
 from image import Image
 
 
-def get_projection(image : Image) -> ccrs.Projection:
-    """Obtains the projection of the image for plotting.
+def get_projection(crs : pyproj.CRS) -> ccrs.Projection:
+    """Obtains the projection of the crs for plotting.
 
     Args:
-        image (Image): custom object containing crs data.
+        crs (pyproj.CRS): custom object containing crs data.
 
     Returns:
         ccrs.Projection: cartopy projection for plotting.
+
+    Raises:
+        ValueError: If the CRS object is not valid or not supported.
     """
     
     projection = ccrs.Mercator()
 
-    if hasattr(image.crs, 'to_dict') and 'proj' in image.crs.to_dict():
-        proj_info = image.crs.to_dict()
+    if hasattr(crs, 'to_dict') and 'proj' in crs.to_dict():
+        proj_info = crs.to_dict()
         if proj_info['proj'] == 'utm':
-            projection = ccrs.UTM(proj_info.get('zone', 30))
-
+            projection = ccrs.UTM(proj_info['zone'])
+    else:
+        raise ValueError("Invalid CRS object. Expected a pyproj CRS object or similar.")
+        
     return projection
 
 
-def get_geofigure(image : Image, nrows : int, ncols : int, figsize : tuple = (12, 6), **kwargs) -> Tuple[Figure, Axes | List[Axes]]:
+def get_geofigure(crs : pyproj.CRS, nrows : int, ncols : int, figsize : tuple = (12, 6), **kwargs) -> Tuple[Figure, Axes | List[Axes]]:
     """Generates a subplots with georeferenced axes.
 
     Args:
-        image (Image): object with crs data.
+        crs (pyproj): crs
         nrows (int): number of rows for the subplots.
         ncols (int): number of columns for the subplots.
         figsize (tuple, optional): dimensions in inches of the figure. Defaults to (12, 6).
@@ -49,7 +54,7 @@ def get_geofigure(image : Image, nrows : int, ncols : int, figsize : tuple = (12
     """
 
     return plt.subplots(ncols = ncols, nrows = nrows, figsize=figsize, 
-                        subplot_kw={'projection': get_projection(image)}, **kwargs)
+                        subplot_kw={'projection': get_projection(crs)}, **kwargs)
 
 
 def plot_band(image : Image, band : str, ax : Axes, cmap : str = 'viridis', **kwargs) -> Tuple[Axes, Any]:
