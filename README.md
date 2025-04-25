@@ -12,4 +12,15 @@ A Python package for geospatial image processing and analysis.
 ## Installation
 
 ```bash
-pip install geopy
+# 1. Clone the repository from GitHub
+git clone https://github.com/Aouei/sensingpy.git
+
+# 2. Install the package from the local path
+pip install ./sensingpy
+```
+
+You can also install directly from the repository URL:
+
+```bash
+pip install git+https://github.com/Aouei/sensingpy.git
+```
