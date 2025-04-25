@@ -1,5 +1,5 @@
 import unittest
-import geopy.selector as selector
+import sensingpy.selector as selector
 import numpy as np
 from itertools import pairwise
 

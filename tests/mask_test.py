@@ -1,5 +1,5 @@
 import unittest
-import geopy.masks as masks
+import sensingpy.masks as masks
 import numpy as np
 
 
