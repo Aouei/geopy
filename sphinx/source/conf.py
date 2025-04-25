@@ -1,8 +1,7 @@
-import os
 import sys
-sys.path.insert(0, os.path.abspath(r'C:\Users\sergi\Documents\repos\geopy\geopy'))
+sys.path.insert(0, r'C:\Users\sergi\Documents\repos\sensingpy\sensingpy')
 
-project = 'geopy'
+project = 'sensingpy'
 copyright = '2025, Sergio Heredia'
 author = 'Sergio Heredia'
 release = '1.0.0'

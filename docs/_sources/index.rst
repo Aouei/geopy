@@ -1,4 +1,4 @@
-Welcome to geopy's documentation!
+Welcome to sensingpy's documentation!
 ====================================
 
 .. toctree::
