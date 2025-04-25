@@ -1,101 +1,166 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Module &mdash; geopy 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Image Module &#8212; geopy 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=f9c1cefe"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/image';</script>
     <link rel="canonical" href="https://aouei.github.io/geopy/modules/image.html" />
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Reader Module" href="reader.html" />
-    <link rel="prev" title="Satellite Derived Bathymetry - Stumpf Method" href="../notebooks/SDB_stumpf.html" /> 
-</head>
+    <link rel="prev" title="Satellite Derived Bathymetry - Stumpf Method" href="../notebooks/SDB_stumpf.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            geopy
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
-<ul>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">geopy 1.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/preprocessing.html">Cleaning Outliers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/deglinting.html">Sunglint Removal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/reading_tif.html">Reading TIFF files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/reading_netcdf.html">Reading NetCDF files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/SDB_stumpf.html">Satellite Derived Bathymetry - Stumpf Method</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Image Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#image.Image"><code class="docutils literal notranslate"><span class="pre">Image</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.add_band"><code class="docutils literal notranslate"><span class="pre">Image.add_band()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.align"><code class="docutils literal notranslate"><span class="pre">Image.align()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.arginterval_choice"><code class="docutils literal notranslate"><span class="pre">Image.arginterval_choice()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.band_names"><code class="docutils literal notranslate"><span class="pre">Image.band_names</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.bbox"><code class="docutils literal notranslate"><span class="pre">Image.bbox</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.bottom"><code class="docutils literal notranslate"><span class="pre">Image.bottom</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.clip"><code class="docutils literal notranslate"><span class="pre">Image.clip()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.copy"><code class="docutils literal notranslate"><span class="pre">Image.copy()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.count"><code class="docutils literal notranslate"><span class="pre">Image.count</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.drop_bands"><code class="docutils literal notranslate"><span class="pre">Image.drop_bands()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.dropna"><code class="docutils literal notranslate"><span class="pre">Image.dropna()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.empty_like"><code class="docutils literal notranslate"><span class="pre">Image.empty_like()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.extract_values"><code class="docutils literal notranslate"><span class="pre">Image.extract_values()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.geometry_mask"><code class="docutils literal notranslate"><span class="pre">Image.geometry_mask()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.grid_mapping"><code class="docutils literal notranslate"><span class="pre">Image.grid_mapping</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.height"><code class="docutils literal notranslate"><span class="pre">Image.height</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.interval_choice"><code class="docutils literal notranslate"><span class="pre">Image.interval_choice()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.left"><code class="docutils literal notranslate"><span class="pre">Image.left</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.mask"><code class="docutils literal notranslate"><span class="pre">Image.mask()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.normalized_diference"><code class="docutils literal notranslate"><span class="pre">Image.normalized_diference()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.rename"><code class="docutils literal notranslate"><span class="pre">Image.rename()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.rename_by_enum"><code class="docutils literal notranslate"><span class="pre">Image.rename_by_enum()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.replace"><code class="docutils literal notranslate"><span class="pre">Image.replace()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.reproject"><code class="docutils literal notranslate"><span class="pre">Image.reproject()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.resample"><code class="docutils literal notranslate"><span class="pre">Image.resample()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.right"><code class="docutils literal notranslate"><span class="pre">Image.right</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.select"><code class="docutils literal notranslate"><span class="pre">Image.select()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.to_netcdf"><code class="docutils literal notranslate"><span class="pre">Image.to_netcdf()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.to_tif"><code class="docutils literal notranslate"><span class="pre">Image.to_tif()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.top"><code class="docutils literal notranslate"><span class="pre">Image.top</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.transform"><code class="docutils literal notranslate"><span class="pre">Image.transform</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.values"><code class="docutils literal notranslate"><span class="pre">Image.values</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.width"><code class="docutils literal notranslate"><span class="pre">Image.width</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.x_res"><code class="docutils literal notranslate"><span class="pre">Image.x_res</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.xs_ys"><code class="docutils literal notranslate"><span class="pre">Image.xs_ys</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image.Image.y_res"><code class="docutils literal notranslate"><span class="pre">Image.y_res</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Image Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reader.html">Reader Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="selector.html">Selector Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="masks.html">Masks Module</a></li>
@@ -105,40 +170,212 @@
 <li class="toctree-l1"><a class="reference internal" href="enums.html">Enums Module</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">geopy</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Image Module</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/modules/image.rst.txt" rel="nofollow"> View page source</a>
-      </li>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/modules/image.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Image Module</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image"><code class="docutils literal notranslate"><span class="pre">Image</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.add_band"><code class="docutils literal notranslate"><span class="pre">Image.add_band()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.align"><code class="docutils literal notranslate"><span class="pre">Image.align()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.arginterval_choice"><code class="docutils literal notranslate"><span class="pre">Image.arginterval_choice()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.band_names"><code class="docutils literal notranslate"><span class="pre">Image.band_names</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.bbox"><code class="docutils literal notranslate"><span class="pre">Image.bbox</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.bottom"><code class="docutils literal notranslate"><span class="pre">Image.bottom</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.clip"><code class="docutils literal notranslate"><span class="pre">Image.clip()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.copy"><code class="docutils literal notranslate"><span class="pre">Image.copy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.count"><code class="docutils literal notranslate"><span class="pre">Image.count</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.drop_bands"><code class="docutils literal notranslate"><span class="pre">Image.drop_bands()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.dropna"><code class="docutils literal notranslate"><span class="pre">Image.dropna()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.empty_like"><code class="docutils literal notranslate"><span class="pre">Image.empty_like()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.extract_values"><code class="docutils literal notranslate"><span class="pre">Image.extract_values()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.geometry_mask"><code class="docutils literal notranslate"><span class="pre">Image.geometry_mask()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.grid_mapping"><code class="docutils literal notranslate"><span class="pre">Image.grid_mapping</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.height"><code class="docutils literal notranslate"><span class="pre">Image.height</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.interval_choice"><code class="docutils literal notranslate"><span class="pre">Image.interval_choice()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.left"><code class="docutils literal notranslate"><span class="pre">Image.left</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.mask"><code class="docutils literal notranslate"><span class="pre">Image.mask()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.normalized_diference"><code class="docutils literal notranslate"><span class="pre">Image.normalized_diference()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.rename"><code class="docutils literal notranslate"><span class="pre">Image.rename()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.rename_by_enum"><code class="docutils literal notranslate"><span class="pre">Image.rename_by_enum()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.replace"><code class="docutils literal notranslate"><span class="pre">Image.replace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.reproject"><code class="docutils literal notranslate"><span class="pre">Image.reproject()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.resample"><code class="docutils literal notranslate"><span class="pre">Image.resample()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.right"><code class="docutils literal notranslate"><span class="pre">Image.right</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.select"><code class="docutils literal notranslate"><span class="pre">Image.select()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.to_netcdf"><code class="docutils literal notranslate"><span class="pre">Image.to_netcdf()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.to_tif"><code class="docutils literal notranslate"><span class="pre">Image.to_tif()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.top"><code class="docutils literal notranslate"><span class="pre">Image.top</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.transform"><code class="docutils literal notranslate"><span class="pre">Image.transform</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.values"><code class="docutils literal notranslate"><span class="pre">Image.values</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.width"><code class="docutils literal notranslate"><span class="pre">Image.width</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.x_res"><code class="docutils literal notranslate"><span class="pre">Image.x_res</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.xs_ys"><code class="docutils literal notranslate"><span class="pre">Image.xs_ys</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.y_res"><code class="docutils literal notranslate"><span class="pre">Image.y_res</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="image-module">
-<h1>Image Module<a class="headerlink" href="#image-module" title="Link to this heading"></a></h1>
+<h1>Image Module<a class="headerlink" href="#image-module" title="Link to this heading">#</a></h1>
 <p>The Image module provides functionality for handling geospatial image data through the Image class.</p>
 <dl class="py class" id="module-image">
 <dt class="sig sig-object py" id="image.Image">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">image.</span></span><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/image.html#Image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">image.</span></span><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/image.html#Image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.add_band">
-<span class="sig-name descname"><span class="pre">add_band</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataArray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.add_band"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.add_band" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_band</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataArray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.add_band"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.add_band" title="Link to this definition">#</a></dt>
 <dd><p>Add a new band to the image or update an existing band.</p>
 <p>Adds a new band with the specified name and data to the image. If a band with the
 given name already exists, its data will be updated with the new values.</p>
@@ -168,7 +405,7 @@ dimensions of existing bands</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.align">
-<span class="sig-name descname"><span class="pre">align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#image.Image" title="image.Image"><span class="pre">Image</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.align"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.align" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#image.Image" title="image.Image"><span class="pre">Image</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.align"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.align" title="Link to this definition">#</a></dt>
 <dd><p>Align image to match reference image’s CRS, resolution and extent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -188,7 +425,7 @@ dimensions of existing bands</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.arginterval_choice">
-<span class="sig-name descname"><span class="pre">arginterval_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.arginterval_choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.arginterval_choice" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">arginterval_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.arginterval_choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.arginterval_choice" title="Link to this definition">#</a></dt>
 <dd><p>Choose random indices from intervals in specified band.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -210,7 +447,7 @@ dimensions of existing bands</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.band_names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">band_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#image.Image.band_names" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">band_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#image.Image.band_names" title="Link to this definition">#</a></dt>
 <dd><p>Get list of band names in the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -224,7 +461,7 @@ dimensions of existing bands</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.bbox">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bbox</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Polygon</span></em><a class="headerlink" href="#image.Image.bbox" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bbox</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Polygon</span></em><a class="headerlink" href="#image.Image.bbox" title="Link to this definition">#</a></dt>
 <dd><p>Get bounding box polygon of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -238,7 +475,7 @@ dimensions of existing bands</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.bottom">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bottom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.bottom" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bottom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.bottom" title="Link to this definition">#</a></dt>
 <dd><p>Get min latitude coordinate of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -252,7 +489,7 @@ dimensions of existing bands</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.clip">
-<span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseGeometry</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.clip" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseGeometry</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.clip" title="Link to this definition">#</a></dt>
 <dd><p>Clip image to given geometries.</p>
 <p>Creates a mask from the input geometries and trims the image extent to the minimum
 bounding box that contains all non-zero values. The new extent is calculated by:
@@ -286,13 +523,13 @@ clipped to the combined extent of all geometries.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#image.Image" title="image.Image"><span class="pre">Image</span></a></span></span><a class="reference internal" href="../_modules/image.html#Image.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.copy" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#image.Image" title="image.Image"><span class="pre">Image</span></a></span></span><a class="reference internal" href="../_modules/image.html#Image.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.copy" title="Link to this definition">#</a></dt>
 <dd><p>Create a deep copy of the image.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.count">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.count" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.count" title="Link to this definition">#</a></dt>
 <dd><p>Get number of bands in the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -306,7 +543,7 @@ clipped to the combined extent of all geometries.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.drop_bands">
-<span class="sig-name descname"><span class="pre">drop_bands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.drop_bands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.drop_bands" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">drop_bands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.drop_bands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.drop_bands" title="Link to this definition">#</a></dt>
 <dd><p>Remove specified bands from the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -323,7 +560,7 @@ clipped to the combined extent of all geometries.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.dropna">
-<span class="sig-name descname"><span class="pre">dropna</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.dropna"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.dropna" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dropna</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.dropna"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.dropna" title="Link to this definition">#</a></dt>
 <dd><p>Remove rows and columns that contain all NaN values only when adjacent rows/columns also contain all NaN values.</p>
 <p>The method preserves rows/columns with all NaN values if they are between rows/columns containing valid values.
 For example, if row 1 has values, row 2 is all NaN, and row 3 has values, row 2 will be preserved.</p>
@@ -357,7 +594,7 @@ For example, if row 1 has values, row 2 is all NaN, and row 3 has values, row 2 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.empty_like">
-<span class="sig-name descname"><span class="pre">empty_like</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#image.Image" title="image.Image"><span class="pre">Image</span></a></span></span><a class="reference internal" href="../_modules/image.html#Image.empty_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.empty_like" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">empty_like</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#image.Image" title="image.Image"><span class="pre">Image</span></a></span></span><a class="reference internal" href="../_modules/image.html#Image.empty_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.empty_like" title="Link to this definition">#</a></dt>
 <dd><p>Create empty image with same metadata and coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -371,7 +608,7 @@ For example, if row 1 has values, row 2 is all NaN, and row 3 has values, row 2 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.extract_values">
-<span class="sig-name descname"><span class="pre">extract_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_1D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.extract_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.extract_values" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">extract_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_1D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.extract_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.extract_values" title="Link to this definition">#</a></dt>
 <dd><p>Extract values at specified coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -393,7 +630,7 @@ For example, if row 1 has values, row 2 is all NaN, and row 3 has values, row 2 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.geometry_mask">
-<span class="sig-name descname"><span class="pre">geometry_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseGeometry</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.geometry_mask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.geometry_mask" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">geometry_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseGeometry</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.geometry_mask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.geometry_mask" title="Link to this definition">#</a></dt>
 <dd><p>Mask image using geometries.</p>
 <p>Creates a binary mask from the input geometries and sets values to NaN either inside
 or outside the geometries depending on the mask_out parameter.</p>
@@ -429,12 +666,12 @@ to True.</p></li>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="image.Image.grid_mapping">
-<span class="sig-name descname"><span class="pre">grid_mapping</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'projection'</span></em><a class="headerlink" href="#image.Image.grid_mapping" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">grid_mapping</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'projection'</span></em><a class="headerlink" href="#image.Image.grid_mapping" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.height">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.height" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.height" title="Link to this definition">#</a></dt>
 <dd><p>Get height of the image in pixels.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -448,7 +685,7 @@ to True.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.interval_choice">
-<span class="sig-name descname"><span class="pre">interval_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.interval_choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.interval_choice" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">interval_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.interval_choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.interval_choice" title="Link to this definition">#</a></dt>
 <dd><p>Choose random values from intervals in specified band.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -470,7 +707,7 @@ to True.</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.left">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.left" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.left" title="Link to this definition">#</a></dt>
 <dd><p>Get min longitude coordinate of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -484,7 +721,7 @@ to True.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.mask">
-<span class="sig-name descname"><span class="pre">mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.mask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.mask" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.mask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.mask" title="Link to this definition">#</a></dt>
 <dd><p>Mask image bands using condition array.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -504,7 +741,7 @@ to True.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.normalized_diference">
-<span class="sig-name descname"><span class="pre">normalized_diference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.normalized_diference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.normalized_diference" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">normalized_diference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.normalized_diference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.normalized_diference" title="Link to this definition">#</a></dt>
 <dd><p>Calculate normalized difference between two bands.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -524,7 +761,7 @@ to True.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.rename">
-<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_names</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.rename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.rename" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_names</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.rename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.rename" title="Link to this definition">#</a></dt>
 <dd><p>Rename band names using a dictionary mapping.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -541,7 +778,7 @@ to True.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.rename_by_enum">
-<span class="sig-name descname"><span class="pre">rename_by_enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.rename_by_enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.rename_by_enum" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">rename_by_enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.rename_by_enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.rename_by_enum" title="Link to this definition">#</a></dt>
 <dd><p>Rename bands using an enumeration mapping.</p>
 <p>Renames image bands using a mapping defined in an enumeration class. The enumeration
 should contain band name mappings where each enum value is a list of possible wavelength
@@ -573,7 +810,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.replace">
-<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.replace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.replace" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.replace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.replace" title="Link to this definition">#</a></dt>
 <dd><p>Replace occurrences of a substring in all band names with a new substring.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -597,7 +834,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.reproject">
-<span class="sig-name descname"><span class="pre">reproject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.reproject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.reproject" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reproject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.reproject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.reproject" title="Link to this definition">#</a></dt>
 <dd><p>Reproject image to new coordinate reference system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -617,7 +854,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.resample">
-<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">downscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.resample" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">downscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.resample" title="Link to this definition">#</a></dt>
 <dd><p>Resample image by scaling factor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -638,7 +875,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.right">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.right" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.right" title="Link to this definition">#</a></dt>
 <dd><p>Get max longitude coordinate of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -652,7 +889,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.select">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataArray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.select" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataArray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.select" title="Link to this definition">#</a></dt>
 <dd><p>Select specific bands from the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -672,7 +909,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.to_netcdf">
-<span class="sig-name descname"><span class="pre">to_netcdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/image.html#Image.to_netcdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.to_netcdf" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_netcdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/image.html#Image.to_netcdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.to_netcdf" title="Link to this definition">#</a></dt>
 <dd><p>Save image to NetCDF file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -683,7 +920,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="image.Image.to_tif">
-<span class="sig-name descname"><span class="pre">to_tif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/image.html#Image.to_tif"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.to_tif" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_tif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/image.html#Image.to_tif"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.to_tif" title="Link to this definition">#</a></dt>
 <dd><p>Save image to GeoTIFF file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -694,7 +931,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.top">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">top</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.top" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">top</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.top" title="Link to this definition">#</a></dt>
 <dd><p>Get max latitude coordinate of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -708,7 +945,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.transform">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Affine</span></em><a class="headerlink" href="#image.Image.transform" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Affine</span></em><a class="headerlink" href="#image.Image.transform" title="Link to this definition">#</a></dt>
 <dd><p>Get affine transform for the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -722,7 +959,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.values">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#image.Image.values" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#image.Image.values" title="Link to this definition">#</a></dt>
 <dd><p>Get array of all band values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -736,7 +973,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.width">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.width" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.width" title="Link to this definition">#</a></dt>
 <dd><p>Get width of the image in pixels.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -750,7 +987,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.x_res">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x_res</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.x_res" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x_res</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.x_res" title="Link to this definition">#</a></dt>
 <dd><p>Get pixel resolution in x direction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -764,7 +1001,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.xs_ys">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xs_ys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#image.Image.xs_ys" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xs_ys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#image.Image.xs_ys" title="Link to this definition">#</a></dt>
 <dd><p>Get meshgrid of x and y coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -778,7 +1015,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="image.Image.y_res">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y_res</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.y_res" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y_res</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.y_res" title="Link to this definition">#</a></dt>
 <dd><p>Get pixel resolution in y direction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -795,34 +1032,141 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../notebooks/SDB_stumpf.html" class="btn btn-neutral float-left" title="Satellite Derived Bathymetry - Stumpf Method" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="reader.html" class="btn btn-neutral float-right" title="Reader Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2025, Sergio Heredia.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../notebooks/SDB_stumpf.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Satellite Derived Bathymetry - Stumpf Method</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="reader.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reader Module</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image"><code class="docutils literal notranslate"><span class="pre">Image</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.add_band"><code class="docutils literal notranslate"><span class="pre">Image.add_band()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.align"><code class="docutils literal notranslate"><span class="pre">Image.align()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.arginterval_choice"><code class="docutils literal notranslate"><span class="pre">Image.arginterval_choice()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.band_names"><code class="docutils literal notranslate"><span class="pre">Image.band_names</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.bbox"><code class="docutils literal notranslate"><span class="pre">Image.bbox</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.bottom"><code class="docutils literal notranslate"><span class="pre">Image.bottom</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.clip"><code class="docutils literal notranslate"><span class="pre">Image.clip()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.copy"><code class="docutils literal notranslate"><span class="pre">Image.copy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.count"><code class="docutils literal notranslate"><span class="pre">Image.count</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.drop_bands"><code class="docutils literal notranslate"><span class="pre">Image.drop_bands()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.dropna"><code class="docutils literal notranslate"><span class="pre">Image.dropna()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.empty_like"><code class="docutils literal notranslate"><span class="pre">Image.empty_like()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.extract_values"><code class="docutils literal notranslate"><span class="pre">Image.extract_values()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.geometry_mask"><code class="docutils literal notranslate"><span class="pre">Image.geometry_mask()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.grid_mapping"><code class="docutils literal notranslate"><span class="pre">Image.grid_mapping</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.height"><code class="docutils literal notranslate"><span class="pre">Image.height</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.interval_choice"><code class="docutils literal notranslate"><span class="pre">Image.interval_choice()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.left"><code class="docutils literal notranslate"><span class="pre">Image.left</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.mask"><code class="docutils literal notranslate"><span class="pre">Image.mask()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.normalized_diference"><code class="docutils literal notranslate"><span class="pre">Image.normalized_diference()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.rename"><code class="docutils literal notranslate"><span class="pre">Image.rename()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.rename_by_enum"><code class="docutils literal notranslate"><span class="pre">Image.rename_by_enum()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.replace"><code class="docutils literal notranslate"><span class="pre">Image.replace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.reproject"><code class="docutils literal notranslate"><span class="pre">Image.reproject()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.resample"><code class="docutils literal notranslate"><span class="pre">Image.resample()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.right"><code class="docutils literal notranslate"><span class="pre">Image.right</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.select"><code class="docutils literal notranslate"><span class="pre">Image.select()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.to_netcdf"><code class="docutils literal notranslate"><span class="pre">Image.to_netcdf()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.to_tif"><code class="docutils literal notranslate"><span class="pre">Image.to_tif()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.top"><code class="docutils literal notranslate"><span class="pre">Image.top</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.transform"><code class="docutils literal notranslate"><span class="pre">Image.transform</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.values"><code class="docutils literal notranslate"><span class="pre">Image.values</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.width"><code class="docutils literal notranslate"><span class="pre">Image.width</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.x_res"><code class="docutils literal notranslate"><span class="pre">Image.x_res</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.xs_ys"><code class="docutils literal notranslate"><span class="pre">Image.xs_ys</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.y_res"><code class="docutils literal notranslate"><span class="pre">Image.y_res</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sergio Heredia
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Sergio Heredia.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

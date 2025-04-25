@@ -1,80 +1,168 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reading NetCDF files &mdash; geopy 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Reading NetCDF files &#8212; geopy 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=f9c1cefe"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/reading_netcdf';</script>
     <link rel="canonical" href="https://aouei.github.io/geopy/notebooks/reading_netcdf.html" />
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Satellite Derived Bathymetry - Stumpf Method" href="SDB_stumpf.html" />
-    <link rel="prev" title="Reading TIFF files" href="reading_tif.html" /> 
-</head>
+    <link rel="prev" title="Reading TIFF files" href="reading_tif.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            geopy
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
-<ul class="current">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">geopy 1.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Cleaning Outliers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deglinting.html">Sunglint Removal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reading_tif.html">Reading TIFF files</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Reading NetCDF files</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Access-properties">Access properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Data-manipulation">Data manipulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Raster-operations">Raster operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Resample">Resample</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Change-de-CRS">Change de CRS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Mask-using-geometries">Mask using geometries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Delete-empty-rows-&amp;-cols">Delete empty rows &amp; cols</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Clip-by-geometry">Clip by geometry</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Plots">Plots</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Single-Band">Single Band</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#RGB-(True-color)">RGB (True color)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#False-composite">False composite</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reading NetCDF files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SDB_stumpf.html">Satellite Derived Bathymetry - Stumpf Method</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../modules/image.html">Image Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/reader.html">Reader Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/selector.html">Selector Module</a></li>
@@ -85,32 +173,181 @@
 <li class="toctree-l1"><a class="reference internal" href="../modules/enums.html">Enums Module</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">geopy</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Reading NetCDF files</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/notebooks/reading_netcdf.ipynb.txt" rel="nofollow"> View page source</a>
-      </li>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/reading_netcdf.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reading NetCDF files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Access-properties">Access properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-manipulation">Data manipulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Raster-operations">Raster operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Resample">Resample</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Change-de-CRS">Change de CRS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Mask-using-geometries">Mask using geometries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Delete-empty-rows-&amp;-cols">Delete empty rows &amp; cols</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Clip-by-geometry">Clip by geometry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Plots">Plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single-Band">Single Band</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RGB-(True-color)">RGB (True color)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#False-composite">False composite</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="Reading-NetCDF-files">
-<h1>Reading NetCDF files<a class="headerlink" href="#Reading-NetCDF-files" title="Link to this heading"></a></h1>
+<h1>Reading NetCDF files<a class="headerlink" href="#Reading-NetCDF-files" title="Link to this heading">#</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -590,7 +827,7 @@ Attributes: (12/382)
       dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=707))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8723a7cb-be64-437d-9c6c-8e73c60c103e' class='xr-section-summary-in' type='checkbox'  ><label for='section-8723a7cb-be64-437d-9c6c-8e73c60c103e' class='xr-section-summary' >Attributes: <span>(382)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>generated_by :</span></dt><dd>ACOLITE</dd><dt><span>generated_on :</span></dt><dd>2025-02-13 16:13:18 Hora estándar romance</dd><dt><span>contact :</span></dt><dd>Quinten Vanhellemont</dd><dt><span>product_type :</span></dt><dd>NetCDF</dd><dt><span>metadata_profile :</span></dt><dd>beam</dd><dt><span>metadata_version :</span></dt><dd>0.5</dd><dt><span>auto_grouping :</span></dt><dd>rhot:rhorc:rhos:rhow:Rrs:Lt</dd><dt><span>Conventions :</span></dt><dd>CF-1.7</dd><dt><span>sensor :</span></dt><dd>S2B_MSI</dd><dt><span>isodate :</span></dt><dd>2018-09-12T11:30:59.911103+00:00</dd><dt><span>global_dims :</span></dt><dd>[10980. 10980.]</dd><dt><span>sza :</span></dt><dd>34.7692722621067</dd><dt><span>vza :</span></dt><dd>9.458866923076922</dd><dt><span>raa :</span></dt><dd>129.91969748444504</dd><dt><span>vaa :</span></dt><dd>285.66341268556005</dd><dt><span>saa :</span></dt><dd>155.743715201115</dd><dt><span>se_distance :</span></dt><dd>1.0065338017843517</dd><dt><span>mus :</span></dt><dd>0.8214551648297376</dd><dt><span>granule :</span></dt><dd>L1C_T29SPA_A007928_20180912T112723</dd><dt><span>mgrs_tile :</span></dt><dd>T29SPA</dd><dt><span>acolite_file_type :</span></dt><dd>L2R</dd><dt><span>tile_code :</span></dt><dd>T29SPA</dd><dt><span>oname :</span></dt><dd>S2B_MSI_2018_09_12_11_30_59_T29SPA</dd><dt><span>ofile :</span></dt><dd>D:\NRT-Sentinel2\outputs\acolite\20231023.0\29SPA\20180912_S2B/S2B_MSI_2018_09_12_11_30_59_T29SPA_L2W.nc</dd><dt><span>1_wave :</span></dt><dd>442.2268873676285</dd><dt><span>1_name :</span></dt><dd>442</dd><dt><span>1_f0 :</span></dt><dd>18958.659866568174</dd><dt><span>2_wave :</span></dt><dd>492.1312076358212</dd><dt><span>2_name :</span></dt><dd>492</dd><dt><span>2_f0 :</span></dt><dd>19817.21391936778</dd><dt><span>3_wave :</span></dt><dd>558.9485225820658</dd><dt><span>3_name :</span></dt><dd>559</dd><dt><span>3_f0 :</span></dt><dd>18725.0602347875</dd><dt><span>4_wave :</span></dt><dd>664.9371126425883</dd><dt><span>4_name :</span></dt><dd>665</dd><dt><span>4_f0 :</span></dt><dd>15333.947701291803</dd><dt><span>5_wave :</span></dt><dd>703.8284790416832</dd><dt><span>5_name :</span></dt><dd>704</dd><dt><span>5_f0 :</span></dt><dd>14133.995632664853</dd><dt><span>6_wave :</span></dt><dd>739.1242749868096</dd><dt><span>6_name :</span></dt><dd>739</dd><dt><span>6_f0 :</span></dt><dd>12921.836308074091</dd><dt><span>7_wave :</span></dt><dd>779.7217635019592</dd><dt><span>7_name :</span></dt><dd>780</dd><dt><span>7_f0 :</span></dt><dd>11860.417297894413</dd><dt><span>8_wave :</span></dt><dd>832.945233111933</dd><dt><span>8_name :</span></dt><dd>833</dd><dt><span>8_f0 :</span></dt><dd>10442.493340977871</dd><dt><span>8A_wave :</span></dt><dd>863.979199468408</dd><dt><span>8A_name :</span></dt><dd>864</dd><dt><span>8A_f0 :</span></dt><dd>9496.60569243243</dd><dt><span>9_wave :</span></dt><dd>943.1753228991563</dd><dt><span>9_name :</span></dt><dd>943</dd><dt><span>9_f0 :</span></dt><dd>8171.050501352669</dd><dt><span>10_wave :</span></dt><dd>1376.8832042361112</dd><dt><span>10_name :</span></dt><dd>1377</dd><dt><span>10_f0 :</span></dt><dd>3564.578395768598</dd><dt><span>11_wave :</span></dt><dd>1610.4190770296186</dd><dt><span>11_name :</span></dt><dd>1610</dd><dt><span>11_f0 :</span></dt><dd>2381.9359182920984</dd><dt><span>12_wave :</span></dt><dd>2185.6987650320148</dd><dt><span>12_name :</span></dt><dd>2186</dd><dt><span>12_f0 :</span></dt><dd>835.2047532903119</dd><dt><span>scene_xrange :</span></dt><dd>[600000. 709800.]</dd><dt><span>scene_yrange :</span></dt><dd>[4100040. 3990240.]</dd><dt><span>scene_proj4_string :</span></dt><dd>+proj=utm +zone=29 +datum=WGS84 +units=m +no_defs </dd><dt><span>scene_pixel_size :</span></dt><dd>[ 10. -10.]</dd><dt><span>scene_dims :</span></dt><dd>[10980 10980]</dd><dt><span>xrange :</span></dt><dd>[600000. 709800.]</dd><dt><span>yrange :</span></dt><dd>[4100040. 3990240.]</dd><dt><span>proj4_string :</span></dt><dd>+proj=utm +zone=29 +datum=WGS84 +units=m +no_defs </dd><dt><span>pixel_size :</span></dt><dd>[ 10. -10.]</dd><dt><span>projection_key :</span></dt><dd>transverse_mercator</dd><dt><span>data_dimensions :</span></dt><dd>[10980 10980]</dd><dt><span>data_elements :</span></dt><dd>120560400</dd><dt><span>uoz :</span></dt><dd>0.29926638039173714</dd><dt><span>uwv :</span></dt><dd>2.407993479184749</dd><dt><span>wind :</span></dt><dd>3.903547330373293</dd><dt><span>pressure :</span></dt><dd>1020.6814809325361</dd><dt><span>acolite_version :</span></dt><dd>Generic GitHub Clone</dd><dt><span>copy_datasets :</span></dt><dd>[&#x27;lon&#x27;, &#x27;lat&#x27;, &#x27;sza&#x27;, &#x27;vza&#x27;, &#x27;raa&#x27;, &#x27;rhot_*&#x27;]</dd><dt><span>s2_write_vaa :</span></dt><dd>False</dd><dt><span>s2_write_saa :</span></dt><dd>False</dd><dt><span>dsf_aot_estimate :</span></dt><dd>tiled</dd><dt><span>dsf_spectrum_option :</span></dt><dd>intercept</dd><dt><span>dsf_wave_range :</span></dt><dd>[400 900]</dd><dt><span>s2_target_res :</span></dt><dd>10</dd><dt><span>resolved_geometry :</span></dt><dd>True</dd><dt><span>gains_toa :</span></dt><dd>[1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]</dd><dt><span>offsets_toa :</span></dt><dd>[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]</dd><dt><span>dsf_intercept_pixels :</span></dt><dd>200</dd><dt><span>dsf_tile_dimensions :</span></dt><dd>[600 600]</dd><dt><span>geometry_per_band :</span></dt><dd>False</dd><dt><span>geometry_fixed_footprint :</span></dt><dd>False</dd><dt><span>luts_reduce_dimensions :</span></dt><dd>True</dd><dt><span>region_name :</span></dt><dd></dd><dt><span>polygon_limit :</span></dt><dd>True</dd><dt><span>polylakes :</span></dt><dd>False</dd><dt><span>polylakes_database :</span></dt><dd>worldlakes</dd><dt><span>merge_tiles :</span></dt><dd>False</dd><dt><span>merge_zones :</span></dt><dd>True</dd><dt><span>extend_region :</span></dt><dd>False</dd><dt><span>l1r_crop :</span></dt><dd>False</dd><dt><span>output :</span></dt><dd>D:\NRT-Sentinel2\outputs\acolite\20231023.0\29SPA\20180912_S2B</dd><dt><span>output_geolocation :</span></dt><dd>True</dd><dt><span>output_xy :</span></dt><dd>False</dd><dt><span>output_geometry :</span></dt><dd>True</dd><dt><span>output_rhorc :</span></dt><dd>False</dd><dt><span>add_band_name :</span></dt><dd>False</dd><dt><span>compute_contrabands :</span></dt><dd>False</dd><dt><span>netcdf_projection :</span></dt><dd>True</dd><dt><span>netcdf_compression :</span></dt><dd>False</dd><dt><span>netcdf_compression_level :</span></dt><dd>4</dd><dt><span>netcdf_discretisation :</span></dt><dd>False</dd><dt><span>landsat_qa_bands :</span></dt><dd>[&#x27;PIXEL&#x27;, &#x27;RADSAT&#x27;, &#x27;SATURATION&#x27;]</dd><dt><span>landsat_qa_output :</span></dt><dd>False</dd><dt><span>s2_include_auxillary :</span></dt><dd>False</dd><dt><span>s2_project_auxillary :</span></dt><dd>True</dd><dt><span>s2_write_dfoo :</span></dt><dd>False</dd><dt><span>s2_dilate_blackfill :</span></dt><dd>False</dd><dt><span>s2_dilate_blackfill_iterations :</span></dt><dd>2</dd><dt><span>geometry_type :</span></dt><dd>grids_footprint</dd><dt><span>geometry_res :</span></dt><dd>60</dd><dt><span>geometry_override :</span></dt><dd>False</dd><dt><span>smile_correction :</span></dt><dd>True</dd><dt><span>smile_correction_tgas :</span></dt><dd>True</dd><dt><span>use_tpg :</span></dt><dd>True</dd><dt><span>use_supplied_ancillary :</span></dt><dd>True</dd><dt><span>worldview_reproject :</span></dt><dd>False</dd><dt><span>worldview_reproject_resolution :</span></dt><dd>2.0</dd><dt><span>worldview_reproject_method :</span></dt><dd>nearest</dd><dt><span>planet_store_sr :</span></dt><dd>False</dd><dt><span>pleiades_skip_pan :</span></dt><dd>False</dd><dt><span>prisma_rhot_per_pixel_sza :</span></dt><dd>True</dd><dt><span>prisma_store_l2c :</span></dt><dd>False</dd><dt><span>prisma_store_l2c_separate_file :</span></dt><dd>True</dd><dt><span>prisma_output_pan :</span></dt><dd>False</dd><dt><span>chris_interband_calibration :</span></dt><dd>False</dd><dt><span>chris_noise_reduction :</span></dt><dd>True</dd><dt><span>desis_mask_ql :</span></dt><dd>True</dd><dt><span>clear_scratch :</span></dt><dd>True</dd><dt><span>gf_reproject_to_utm :</span></dt><dd>False</dd><dt><span>viirs_option :</span></dt><dd>img+mod</dd><dt><span>viirs_scanline_projection :</span></dt><dd>True</dd><dt><span>viirs_scanline_width :</span></dt><dd>32</dd><dt><span>viirs_quality_flags :</span></dt><dd>[   4    8  512 1024 2048 4096]</dd><dt><span>viirs_output_tir :</span></dt><dd>True</dd><dt><span>viirs_output_tir_lt :</span></dt><dd>False</dd><dt><span>viirs_mask_mband :</span></dt><dd>True</dd><dt><span>viirs_mask_immixed :</span></dt><dd>True</dd><dt><span>viirs_mask_immixed_rat :</span></dt><dd>False</dd><dt><span>viirs_mask_immixed_dif :</span></dt><dd>True</dd><dt><span>viirs_mask_immixed_bands :</span></dt><dd>I03/M10</dd><dt><span>viirs_mask_immixed_maxrat :</span></dt><dd>0.2</dd><dt><span>viirs_mask_immixed_maxdif :</span></dt><dd>0.002</dd><dt><span>tact_run :</span></dt><dd>False</dd><dt><span>tact_profile_source :</span></dt><dd>era5</dd><dt><span>tact_reptran :</span></dt><dd>medium</dd><dt><span>tact_emissivity :</span></dt><dd>water</dd><dt><span>tact_output_atmosphere :</span></dt><dd>False</dd><dt><span>tact_output_intermediate :</span></dt><dd>False</dd><dt><span>tact_map :</span></dt><dd>True</dd><dt><span>ged_fill :</span></dt><dd>True</dd><dt><span>tact_range :</span></dt><dd>[ 3.5 14. ]</dd><dt><span>eminet_water_fill :</span></dt><dd>True</dd><dt><span>eminet_water_threshold :</span></dt><dd>0.0215</dd><dt><span>eminet_model_version :</span></dt><dd>20220809</dd><dt><span>eminet_netname :</span></dt><dd>Net2</dd><dt><span>eminet_fill :</span></dt><dd>True</dd><dt><span>eminet_fill_dilate :</span></dt><dd>False</dd><dt><span>verbosity :</span></dt><dd>5</dd><dt><span>output_lt :</span></dt><dd>False</dd><dt><span>solar_irradiance_reference :</span></dt><dd>Coddington2021_1_0nm</dd><dt><span>blackfill_skip :</span></dt><dd>True</dd><dt><span>blackfill_max :</span></dt><dd>1.0</dd><dt><span>blackfill_wave :</span></dt><dd>1600</dd><dt><span>output_bt :</span></dt><dd>False</dd><dt><span>l2w_parameters :</span></dt><dd>[&#x27;Rrs_*&#x27;, &#x27;spm_nechad2016&#x27;, &#x27;spm_nechad2016_704&#x27;, &#x27;spm_nechad2016_740&#x27;, &#x27;tur_nechad2016&#x27;, &#x27;tur_nechad2016_704&#x27;, &#x27;tur_nechad2016_740&#x27;, &#x27;chl_oc2&#x27;, &#x27;chl_oc3&#x27;, &#x27;chl_re_gons&#x27;, &#x27;chl_re_gons740&#x27;, &#x27;chl_re_mishra&#x27;, &#x27;chl_re_moses3b&#x27;, &#x27;chl_re_moses3b740&#x27;, &#x27;ndci&#x27;, &#x27;fai&#x27;, &#x27;fait&#x27;]</dd><dt><span>l2w_mask :</span></dt><dd>True</dd><dt><span>l2w_mask_wave :</span></dt><dd>1600</dd><dt><span>l2w_mask_threshold :</span></dt><dd>0.05</dd><dt><span>l2w_mask_water_parameters :</span></dt><dd>True</dd><dt><span>l2w_mask_negative_rhow :</span></dt><dd>True</dd><dt><span>l2w_mask_negative_wave_range :</span></dt><dd>[400 900]</dd><dt><span>l2w_mask_cirrus :</span></dt><dd>True</dd><dt><span>l2w_mask_cirrus_threshold :</span></dt><dd>0.005</dd><dt><span>l2w_mask_cirrus_wave :</span></dt><dd>1373</dd><dt><span>l2w_mask_high_toa :</span></dt><dd>True</dd><dt><span>l2w_mask_high_toa_threshold :</span></dt><dd>0.3</dd><dt><span>l2w_mask_high_toa_wave_range :</span></dt><dd>[ 400 2500]</dd><dt><span>l2w_mask_mixed :</span></dt><dd>True</dd><dt><span>l2w_data_in_memory :</span></dt><dd>False</dd><dt><span>nechad_range :</span></dt><dd>[600 900]</dd><dt><span>nechad_max_rhow_C_factor :</span></dt><dd>0.5</dd><dt><span>l2w_mask_smooth :</span></dt><dd>True</dd><dt><span>l2w_mask_smooth_sigma :</span></dt><dd>3</dd><dt><span>flag_exponent_swir :</span></dt><dd>0</dd><dt><span>flag_exponent_cirrus :</span></dt><dd>1</dd><dt><span>flag_exponent_toa :</span></dt><dd>2</dd><dt><span>flag_exponent_negative :</span></dt><dd>3</dd><dt><span>flag_exponent_outofscene :</span></dt><dd>4</dd><dt><span>flag_exponent_mixed :</span></dt><dd>5</dd><dt><span>atmospheric_correction :</span></dt><dd>True</dd><dt><span>aerosol_correction :</span></dt><dd>dark_spectrum</dd><dt><span>min_tgas_aot :</span></dt><dd>0.85</dd><dt><span>min_tgas_rho :</span></dt><dd>0.7</dd><dt><span>sza_limit_replace :</span></dt><dd>False</dd><dt><span>sza_limit :</span></dt><dd>79.999</dd><dt><span>vza_limit_replace :</span></dt><dd>False</dd><dt><span>vza_limit :</span></dt><dd>71.999</dd><dt><span>cirrus_correction :</span></dt><dd>False</dd><dt><span>cirrus_range :</span></dt><dd>[1350. 1390.]</dd><dt><span>cirrus_g_vnir :</span></dt><dd>1.0</dd><dt><span>cirrus_g_swir :</span></dt><dd>0.5</dd><dt><span>ancillary_data :</span></dt><dd>True</dd><dt><span>ancillary_type :</span></dt><dd>GMAO_MERRA2_MET</dd><dt><span>uoz_default :</span></dt><dd>0.3</dd><dt><span>uwv_default :</span></dt><dd>1.5</dd><dt><span>pressure_default :</span></dt><dd>1013.25</dd><dt><span>dem_pressure :</span></dt><dd>False</dd><dt><span>dem_pressure_resolved :</span></dt><dd>True</dd><dt><span>dem_pressure_percentile :</span></dt><dd>25.0</dd><dt><span>dem_pressure_write :</span></dt><dd>False</dd><dt><span>dem_source :</span></dt><dd>copernicus30</dd><dt><span>dsf_interface_reflectance :</span></dt><dd>False</dd><dt><span>dsf_interface_option :</span></dt><dd>default</dd><dt><span>dsf_interface_lut :</span></dt><dd>ACOLITE-RSKY-202102-82W</dd><dt><span>wind_default :</span></dt><dd>2.0</dd><dt><span>dsf_residual_glint_correction :</span></dt><dd>True</dd><dt><span>dsf_residual_glint_correction_method :</span></dt><dd>default</dd><dt><span>dsf_residual_glint_wave_range :</span></dt><dd>[1500 2400]</dd><dt><span>glint_mask_rhos_wave :</span></dt><dd>1600</dd><dt><span>glint_mask_rhos_threshold :</span></dt><dd>0.05</dd><dt><span>glint_write_rhog_ref :</span></dt><dd>False</dd><dt><span>glint_write_rhog_all :</span></dt><dd>False</dd><dt><span>adjacency_correction :</span></dt><dd>False</dd><dt><span>adjacency_method :</span></dt><dd>acstar3</dd><dt><span>acstar3_method :</span></dt><dd>iter</dd><dt><span>acstar3_psf_raster :</span></dt><dd>False</dd><dt><span>acstar3_max_wavelength :</span></dt><dd>720.0</dd><dt><span>acstar3_fit_all_bands :</span></dt><dd>True</dd><dt><span>acstar3_write_rhosu :</span></dt><dd>True</dd><dt><span>acstar3_write_rhoa :</span></dt><dd>True</dd><dt><span>acstar3_write_rhoe :</span></dt><dd>True</dd><dt><span>acstar3_ex :</span></dt><dd>3</dd><dt><span>acstar3_mask_edges :</span></dt><dd>True</dd><dt><span>radcor_initial_aot :</span></dt><dd>0.3</dd><dt><span>radcor_psf_radius :</span></dt><dd>3.5</dd><dt><span>radcor_psf_rescale :</span></dt><dd>False</dd><dt><span>radcor_psf_complete_method :</span></dt><dd>neighborhood</dd><dt><span>radcor_expand_edge :</span></dt><dd>True</dd><dt><span>radcor_expand_method :</span></dt><dd>mirror</dd><dt><span>radcor_mask_edges :</span></dt><dd>True</dd><dt><span>radcor_fft_stack :</span></dt><dd>False</dd><dt><span>radcor_write_rhot :</span></dt><dd>True</dd><dt><span>radcor_write_rhoe :</span></dt><dd>True</dd><dt><span>radcor_bratio_option :</span></dt><dd>percentile</dd><dt><span>radcor_bratio_percentile :</span></dt><dd>1.0</dd><dt><span>dsf_nbands :</span></dt><dd>2</dd><dt><span>dsf_nbands_fit :</span></dt><dd>2</dd><dt><span>dsf_aot_compute :</span></dt><dd>min</dd><dt><span>dsf_percentile :</span></dt><dd>1.0</dd><dt><span>dsf_minimum_segment_size :</span></dt><dd>1</dd><dt><span>dsf_allow_lut_boundaries :</span></dt><dd>False</dd><dt><span>dsf_filter_rhot :</span></dt><dd>False</dd><dt><span>dsf_filter_percentile :</span></dt><dd>50.0</dd><dt><span>dsf_filter_box :</span></dt><dd>[10 10]</dd><dt><span>dsf_filter_aot :</span></dt><dd>False</dd><dt><span>dsf_smooth_aot :</span></dt><dd>False</dd><dt><span>dsf_smooth_box :</span></dt><dd>[10 10]</dd><dt><span>dsf_aot_fillnan :</span></dt><dd>True</dd><dt><span>dsf_aot_most_common_model :</span></dt><dd>True</dd><dt><span>dsf_model_selection :</span></dt><dd>min_drmsd</dd><dt><span>dsf_min_tile_cover :</span></dt><dd>0.1</dd><dt><span>dsf_min_tile_aot :</span></dt><dd>0.01</dd><dt><span>dsf_max_tile_aot :</span></dt><dd>1.2</dd><dt><span>dsf_write_tiled_parameters :</span></dt><dd>False</dd><dt><span>dsf_exclude_bands :</span></dt><dd>[]</dd><dt><span>dsf_write_aot_550 :</span></dt><dd>False</dd><dt><span>dsf_fixed_lut :</span></dt><dd>ACOLITE-LUT-202110-MOD2</dd><dt><span>dsf_tile_smoothing :</span></dt><dd>True</dd><dt><span>dsf_tile_smoothing_kernel_size :</span></dt><dd>3</dd><dt><span>dsf_tile_interp_method :</span></dt><dd>linear</dd><dt><span>exp_swir_threshold :</span></dt><dd>0.0215</dd><dt><span>exp_fixed_epsilon :</span></dt><dd>True</dd><dt><span>exp_fixed_epsilon_percentile :</span></dt><dd>50.0</dd><dt><span>exp_fixed_aerosol_reflectance :</span></dt><dd>True</dd><dt><span>exp_fixed_aerosol_reflectance_percentile :</span></dt><dd>5.0</dd><dt><span>exp_wave1 :</span></dt><dd>1600</dd><dt><span>exp_wave2 :</span></dt><dd>2200</dd><dt><span>exp_alpha_weighted :</span></dt><dd>True</dd><dt><span>exp_output_intermediate :</span></dt><dd>False</dd><dt><span>gains :</span></dt><dd>False</dd><dt><span>gains_parameter :</span></dt><dd>radiance</dd><dt><span>offsets :</span></dt><dd>False</dd><dt><span>rgb_rhot :</span></dt><dd>False</dd><dt><span>rgb_rhos :</span></dt><dd>False</dd><dt><span>rgb_rhorc :</span></dt><dd>False</dd><dt><span>rgb_rhow :</span></dt><dd>False</dd><dt><span>map_l2w :</span></dt><dd>False</dd><dt><span>map_title :</span></dt><dd>True</dd><dt><span>map_fontname :</span></dt><dd>sans-serif</dd><dt><span>map_fontsize :</span></dt><dd>12</dd><dt><span>map_usetex :</span></dt><dd>False</dd><dt><span>map_dpi :</span></dt><dd>300</dd><dt><span>map_ext :</span></dt><dd>png</dd><dt><span>map_scalebar :</span></dt><dd>False</dd><dt><span>map_scalebar_position :</span></dt><dd>UL</dd><dt><span>map_scalebar_color :</span></dt><dd>Black</dd><dt><span>map_scalebar_max_fraction :</span></dt><dd>0.33</dd><dt><span>map_colorbar :</span></dt><dd>True</dd><dt><span>map_colorbar_orientation :</span></dt><dd>vertical</dd><dt><span>map_auto_range :</span></dt><dd>False</dd><dt><span>map_auto_range_percentiles :</span></dt><dd>[ 1. 99.]</dd><dt><span>map_fill_outrange :</span></dt><dd>False</dd><dt><span>map_fill_color :</span></dt><dd>LightGrey</dd><dt><span>map_default_colormap :</span></dt><dd>viridis</dd><dt><span>rgb_red_wl :</span></dt><dd>650</dd><dt><span>rgb_green_wl :</span></dt><dd>560</dd><dt><span>rgb_blue_wl :</span></dt><dd>480</dd><dt><span>rgb_min :</span></dt><dd>[0. 0. 0.]</dd><dt><span>rgb_max :</span></dt><dd>[0.15 0.15 0.15]</dd><dt><span>rgb_gamma :</span></dt><dd>[1. 1. 1.]</dd><dt><span>rgb_autoscale :</span></dt><dd>False</dd><dt><span>rgb_autoscale_percentiles :</span></dt><dd>[ 5. 95.]</dd><dt><span>rgb_stretch :</span></dt><dd>linear</dd><dt><span>pans :</span></dt><dd>False</dd><dt><span>pans_method :</span></dt><dd>panr</dd><dt><span>pans_output :</span></dt><dd>rgb</dd><dt><span>pans_bgr :</span></dt><dd>[&#x27;480&#x27;, &#x27;560&#x27;, &#x27;655&#x27;]</dd><dt><span>pans_rgb_rhot :</span></dt><dd>True</dd><dt><span>pans_rgb_rhos :</span></dt><dd>True</dd><dt><span>pans_export_geotiff_rgb :</span></dt><dd>False</dd><dt><span>pans_sensors :</span></dt><dd>[&#x27;L7_ETM&#x27;, &#x27;L8_OLI&#x27;, &#x27;L9_OLI&#x27;]</dd><dt><span>map_projected :</span></dt><dd>False</dd><dt><span>map_raster :</span></dt><dd>False</dd><dt><span>map_pcolormesh :</span></dt><dd>False</dd><dt><span>map_cartopy :</span></dt><dd>False</dd><dt><span>map_mask :</span></dt><dd>True</dd><dt><span>map_xtick_rotation :</span></dt><dd>0.0</dd><dt><span>map_ytick_rotation :</span></dt><dd>0.0</dd><dt><span>map_gridline_color :</span></dt><dd>white</dd><dt><span>l1r_export_geotiff :</span></dt><dd>False</dd><dt><span>l2t_export_geotiff :</span></dt><dd>False</dd><dt><span>l2r_export_geotiff :</span></dt><dd>False</dd><dt><span>l2w_export_geotiff :</span></dt><dd>False</dd><dt><span>export_geotiff_coordinates :</span></dt><dd>False</dd><dt><span>export_cloud_optimized_geotiff :</span></dt><dd>False</dd><dt><span>l1r_export_geotiff_rgb :</span></dt><dd>False</dd><dt><span>l2r_export_geotiff_rgb :</span></dt><dd>False</dd><dt><span>use_gdal_merge_import :</span></dt><dd>False</dd><dt><span>l1r_delete_netcdf :</span></dt><dd>False</dd><dt><span>l2t_delete_netcdf :</span></dt><dd>False</dd><dt><span>l2r_delete_netcdf :</span></dt><dd>False</dd><dt><span>l2r_pans_delete_netcdf :</span></dt><dd>False</dd><dt><span>l2w_delete_netcdf :</span></dt><dd>False</dd><dt><span>delete_acolite_run_text_files :</span></dt><dd>False</dd><dt><span>delete_acolite_output_directory :</span></dt><dd>False</dd><dt><span>delete_extracted_input :</span></dt><dd>False</dd><dt><span>reproject_outputs :</span></dt><dd>[&#x27;L1R&#x27;, &#x27;L2R&#x27;, &#x27;L2W&#x27;]</dd><dt><span>reproject_before_ac :</span></dt><dd>False</dd><dt><span>output_projection :</span></dt><dd>False</dd><dt><span>output_projection_metres :</span></dt><dd>False</dd><dt><span>output_projection_resolution_align :</span></dt><dd>True</dd><dt><span>output_projection_resampling_method :</span></dt><dd>bilinear</dd><dt><span>output_projection_fillnans :</span></dt><dd>False</dd><dt><span>output_projection_filldistance :</span></dt><dd>1</dd><dt><span>output_projection_radius :</span></dt><dd>3.0</dd><dt><span>output_projection_epsilon :</span></dt><dd>0.0</dd><dt><span>output_projection_neighbours :</span></dt><dd>32</dd><dt><span>reproject_inputfile :</span></dt><dd>False</dd><dt><span>reproject_inputfile_force :</span></dt><dd>False</dd><dt><span>reproject_inputfile_dem :</span></dt><dd>False</dd><dt><span>luts :</span></dt><dd>[&#x27;ACOLITE-LUT-202110-MOD1&#x27;, &#x27;ACOLITE-LUT-202110-MOD2&#x27;]</dd><dt><span>luts_pressures :</span></dt><dd>[ 500  750 1013 1100]</dd><dt><span>slicing :</span></dt><dd>False</dd><dt><span>scene_download :</span></dt><dd>False</dd><dt><span>EARTHDATA_u :</span></dt><dd>icman</dd><dt><span>EARTHDATA_p :</span></dt><dd>Icman_2022</dd><dt><span>runid :</span></dt><dd>20250213_161225</dd><dt><span>inputfile :</span></dt><dd>D:\NRT-Sentinel2\outputs\raw\SENTINEL-2\29SPA\S2B_MSIL1C_20180912T112109_N0500_R037_T29SPA_20230802T093115.SAFE</dd><dt><span>grid_mapping :</span></dt><dd>transverse_mercator</dd></dl></div></li></ul></div></div></div>
 </div>
 <section id="Access-properties">
-<h2>Access properties<a class="headerlink" href="#Access-properties" title="Link to this heading"></a></h2>
+<h2>Access properties<a class="headerlink" href="#Access-properties" title="Link to this heading">#</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -691,7 +928,7 @@ Datum: World Geodetic System 1984
 </div>
 </section>
 <section id="Data-manipulation">
-<h2>Data manipulation<a class="headerlink" href="#Data-manipulation" title="Link to this heading"></a></h2>
+<h2>Data manipulation<a class="headerlink" href="#Data-manipulation" title="Link to this heading">#</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -712,9 +949,9 @@ Datum: World Geodetic System 1984
 </div>
 </section>
 <section id="Raster-operations">
-<h2>Raster operations<a class="headerlink" href="#Raster-operations" title="Link to this heading"></a></h2>
+<h2>Raster operations<a class="headerlink" href="#Raster-operations" title="Link to this heading">#</a></h2>
 <section id="Resample">
-<h3>Resample<a class="headerlink" href="#Resample" title="Link to this heading"></a></h3>
+<h3>Resample<a class="headerlink" href="#Resample" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -736,7 +973,7 @@ Affine(20.0, 0.0, 602330.0,
 </div>
 </section>
 <section id="Change-de-CRS">
-<h3>Change de CRS<a class="headerlink" href="#Change-de-CRS" title="Link to this heading"></a></h3>
+<h3>Change de CRS<a class="headerlink" href="#Change-de-CRS" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -761,7 +998,7 @@ Affine(24.96727671881672, 0.0, -873888.0193230037,
 </div>
 </section>
 <section id="Mask-using-geometries">
-<h3>Mask using geometries<a class="headerlink" href="#Mask-using-geometries" title="Link to this heading"></a></h3>
+<h3>Mask using geometries<a class="headerlink" href="#Mask-using-geometries" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -813,7 +1050,7 @@ Name: geometry, dtype: geometry
 </div>
 </section>
 <section id="Delete-empty-rows-&amp;-cols">
-<h3>Delete empty rows &amp; cols<a class="headerlink" href="#Delete-empty-rows-&-cols" title="Link to this heading"></a></h3>
+<h3>Delete empty rows &amp; cols<a class="headerlink" href="#Delete-empty-rows-&-cols" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -833,7 +1070,7 @@ Name: geometry, dtype: geometry
 </div>
 </section>
 <section id="Clip-by-geometry">
-<h3>Clip by geometry<a class="headerlink" href="#Clip-by-geometry" title="Link to this heading"></a></h3>
+<h3>Clip by geometry<a class="headerlink" href="#Clip-by-geometry" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -866,9 +1103,9 @@ Name: geometry, dtype: geometry
 </section>
 </section>
 <section id="Plots">
-<h2>Plots<a class="headerlink" href="#Plots" title="Link to this heading"></a></h2>
+<h2>Plots<a class="headerlink" href="#Plots" title="Link to this heading">#</a></h2>
 <section id="Single-Band">
-<h3>Single Band<a class="headerlink" href="#Single-Band" title="Link to this heading"></a></h3>
+<h3>Single Band<a class="headerlink" href="#Single-Band" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
@@ -894,7 +1131,7 @@ Name: geometry, dtype: geometry
 </div>
 </section>
 <section id="RGB-(True-color)">
-<h3>RGB (True color)<a class="headerlink" href="#RGB-(True-color)" title="Link to this heading"></a></h3>
+<h3>RGB (True color)<a class="headerlink" href="#RGB-(True-color)" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
@@ -914,7 +1151,7 @@ Name: geometry, dtype: geometry
 </div>
 </section>
 <section id="False-composite">
-<h3>False composite<a class="headerlink" href="#False-composite" title="Link to this heading"></a></h3>
+<h3>False composite<a class="headerlink" href="#False-composite" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -937,34 +1174,118 @@ Name: geometry, dtype: geometry
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="reading_tif.html" class="btn btn-neutral float-left" title="Reading TIFF files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="SDB_stumpf.html" class="btn btn-neutral float-right" title="Satellite Derived Bathymetry - Stumpf Method" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2025, Sergio Heredia.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reading_tif.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Reading TIFF files</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="SDB_stumpf.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Satellite Derived Bathymetry - Stumpf Method</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Access-properties">Access properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Data-manipulation">Data manipulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Raster-operations">Raster operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Resample">Resample</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Change-de-CRS">Change de CRS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Mask-using-geometries">Mask using geometries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Delete-empty-rows-&amp;-cols">Delete empty rows &amp; cols</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Clip-by-geometry">Clip by geometry</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Plots">Plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single-Band">Single Band</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RGB-(True-color)">RGB (True color)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#False-composite">False composite</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sergio Heredia
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Sergio Heredia.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>
