@@ -24,4 +24,4 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = 'sphinx_book_theme'
 html_static_path = ['_static']
 html_extra_path = ['.nojekyll']
-html_baseurl = 'https://aouei.github.io/geopy/'
+html_baseurl = 'https://aouei.github.io/sensingpy/'
