@@ -9,8 +9,8 @@ from scipy.stats import gaussian_kde
 from matplotlib.axes import Axes
 
 
-from .metrics import ValidationSummary
-from .models import LinearModel
+from sensingpy.bathymetry.metrics import ValidationSummary
+from sensingpy.bathymetry.models import LinearModel
 
 
 class CalibrationPlot(object):

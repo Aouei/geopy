@@ -4,10 +4,10 @@ import xarray as xr
 import numpy as np
 import rasterio
 import pyproj
-import enums
-from typing import Dict
+import sensingpy.enums as enums
 
-from image import Image
+from typing import Dict
+from sensingpy.image import Image
 
 
 class ImageReader:

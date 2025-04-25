@@ -4,9 +4,9 @@ import rasterio.features
 import xarray as xr
 import numpy as np
 import rasterio
-import selector
+import sensingpy.selector as selector
 import pyproj
-import enums
+import sensingpy.enums as enums
 
 
 from rasterio.warp import reproject, Resampling, calculate_default_transform

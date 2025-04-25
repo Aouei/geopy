@@ -11,8 +11,8 @@ from matplotlib.axes import Axes
 from contextily import providers
 
 
-import reader
-from image import Image
+import sensingpy.reader as reader
+from sensingpy.image import Image
 
 
 def get_projection(crs : pyproj.CRS) -> ccrs.Projection:

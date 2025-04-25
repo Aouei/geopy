@@ -2,8 +2,8 @@ import numpy as np
 import scipy
 
 from typing import Self
-from bathymetry.metrics import ValidationSummary
-from selector import argcomposite
+from sensingpy.bathymetry.metrics import ValidationSummary
+from sensingpy.selector import argcomposite
 
 
 
