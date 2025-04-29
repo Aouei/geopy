@@ -10,6 +10,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
+    'sphinx.ext.autosummary',
     'sphinx.ext.githubpages',
     "nbsphinx",
     'IPython.sphinxext.ipython_console_highlighting',

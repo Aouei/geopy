@@ -5,14 +5,15 @@ Welcome to sensingpy's documentation!
    :maxdepth: 1
    :caption: User Guide:
 
-   notebooks/preprocessing
-   notebooks/deglinting
    notebooks/reading_tif
    notebooks/reading_netcdf
+   notebooks/preprocessing
+   notebooks/deglinting
+   notebooks/remote_sensing_water
    notebooks/SDB_stumpf
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: API Reference:
 
    modules/image
