@@ -1,6 +1,13 @@
 Bathymetry Package
 ====================
 
+Module for satellite-derived bathymetry (SDB) estimation and validation.
+
+.. currentmodule:: sensingpy.bathymetry
+
+Package Overview
+---------------
+
 The Bathymetry package provides tools for estimating water depth from satellite imagery and evaluating the accuracy of those estimates.
 
 Module Documentation
