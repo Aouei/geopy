@@ -45,7 +45,7 @@
     <link rel="canonical" href="https://aouei.github.io/sensingpy/modules/image.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Reader Module" href="reader.html" />
+    <link rel="next" title="sensingpy.image.Image.width" href="generated/sensingpy.image.Image.width.html" />
     <link rel="prev" title="Satellite Derived Bathymetry - Stumpf Method" href="../notebooks/SDB_stumpf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -152,15 +152,53 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/preprocessing.html">Cleaning Outliers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/deglinting.html">Sunglint Removal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/reading_tif.html">Reading TIFF files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/reading_netcdf.html">Reading NetCDF files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/preprocessing.html">Cleaning Outliers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/deglinting.html">Sunglint Removal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/remote_sensing_water.html">Remote Sensing for Water Bodies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/SDB_stumpf.html">Satellite Derived Bathymetry - Stumpf Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Image Module</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Image Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.width.html">sensingpy.image.Image.width</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.height.html">sensingpy.image.Image.height</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.transform.html">sensingpy.image.Image.transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.x_res.html">sensingpy.image.Image.x_res</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.y_res.html">sensingpy.image.Image.y_res</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.left.html">sensingpy.image.Image.left</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.right.html">sensingpy.image.Image.right</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.top.html">sensingpy.image.Image.top</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.bottom.html">sensingpy.image.Image.bottom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.bbox.html">sensingpy.image.Image.bbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.band_names.html">sensingpy.image.Image.band_names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.count.html">sensingpy.image.Image.count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.values.html">sensingpy.image.Image.values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.xs_ys.html">sensingpy.image.Image.xs_ys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.add_band.html">sensingpy.image.Image.add_band</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.drop_bands.html">sensingpy.image.Image.drop_bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.select.html">sensingpy.image.Image.select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.rename.html">sensingpy.image.Image.rename</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.replace.html">sensingpy.image.Image.replace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.rename_by_enum.html">sensingpy.image.Image.rename_by_enum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.reproject.html">sensingpy.image.Image.reproject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.align.html">sensingpy.image.Image.align</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.resample.html">sensingpy.image.Image.resample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.clip.html">sensingpy.image.Image.clip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.mask.html">sensingpy.image.Image.mask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.geometry_mask.html">sensingpy.image.Image.geometry_mask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.dropna.html">sensingpy.image.Image.dropna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.normalized_diference.html">sensingpy.image.Image.normalized_diference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.extract_values.html">sensingpy.image.Image.extract_values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.interval_choice.html">sensingpy.image.Image.interval_choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.arginterval_choice.html">sensingpy.image.Image.arginterval_choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.empty_like.html">sensingpy.image.Image.empty_like</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.copy.html">sensingpy.image.Image.copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.to_netcdf.html">sensingpy.image.Image.to_netcdf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.to_tif.html">sensingpy.image.Image.to_tif</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="reader.html">Reader Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="selector.html">Selector Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="masks.html">Masks Module</a></li>
@@ -316,43 +354,55 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image"><code class="docutils literal notranslate"><span class="pre">Image</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.add_band"><code class="docutils literal notranslate"><span class="pre">Image.add_band()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.align"><code class="docutils literal notranslate"><span class="pre">Image.align()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.arginterval_choice"><code class="docutils literal notranslate"><span class="pre">Image.arginterval_choice()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.band_names"><code class="docutils literal notranslate"><span class="pre">Image.band_names</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.bbox"><code class="docutils literal notranslate"><span class="pre">Image.bbox</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.bottom"><code class="docutils literal notranslate"><span class="pre">Image.bottom</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.clip"><code class="docutils literal notranslate"><span class="pre">Image.clip()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.copy"><code class="docutils literal notranslate"><span class="pre">Image.copy()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.count"><code class="docutils literal notranslate"><span class="pre">Image.count</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.drop_bands"><code class="docutils literal notranslate"><span class="pre">Image.drop_bands()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.dropna"><code class="docutils literal notranslate"><span class="pre">Image.dropna()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.empty_like"><code class="docutils literal notranslate"><span class="pre">Image.empty_like()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.extract_values"><code class="docutils literal notranslate"><span class="pre">Image.extract_values()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.geometry_mask"><code class="docutils literal notranslate"><span class="pre">Image.geometry_mask()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.grid_mapping"><code class="docutils literal notranslate"><span class="pre">Image.grid_mapping</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.height"><code class="docutils literal notranslate"><span class="pre">Image.height</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.interval_choice"><code class="docutils literal notranslate"><span class="pre">Image.interval_choice()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.left"><code class="docutils literal notranslate"><span class="pre">Image.left</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.mask"><code class="docutils literal notranslate"><span class="pre">Image.mask()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.normalized_diference"><code class="docutils literal notranslate"><span class="pre">Image.normalized_diference()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.rename"><code class="docutils literal notranslate"><span class="pre">Image.rename()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.rename_by_enum"><code class="docutils literal notranslate"><span class="pre">Image.rename_by_enum()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.replace"><code class="docutils literal notranslate"><span class="pre">Image.replace()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.reproject"><code class="docutils literal notranslate"><span class="pre">Image.reproject()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.resample"><code class="docutils literal notranslate"><span class="pre">Image.resample()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.right"><code class="docutils literal notranslate"><span class="pre">Image.right</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.select"><code class="docutils literal notranslate"><span class="pre">Image.select()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.to_netcdf"><code class="docutils literal notranslate"><span class="pre">Image.to_netcdf()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.to_tif"><code class="docutils literal notranslate"><span class="pre">Image.to_tif()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.top"><code class="docutils literal notranslate"><span class="pre">Image.top</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.transform"><code class="docutils literal notranslate"><span class="pre">Image.transform</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.values"><code class="docutils literal notranslate"><span class="pre">Image.values</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.width"><code class="docutils literal notranslate"><span class="pre">Image.width</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.x_res"><code class="docutils literal notranslate"><span class="pre">Image.x_res</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.xs_ys"><code class="docutils literal notranslate"><span class="pre">Image.xs_ys</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.y_res"><code class="docutils literal notranslate"><span class="pre">Image.y_res</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-overview">Class Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image"><code class="docutils literal notranslate"><span class="pre">Image</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-methods">Core Methods</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-class-documentation">Full Class Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">Image</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.add_band"><code class="docutils literal notranslate"><span class="pre">Image.add_band()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.align"><code class="docutils literal notranslate"><span class="pre">Image.align()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.arginterval_choice"><code class="docutils literal notranslate"><span class="pre">Image.arginterval_choice()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.band_names"><code class="docutils literal notranslate"><span class="pre">Image.band_names</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.bbox"><code class="docutils literal notranslate"><span class="pre">Image.bbox</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.bottom"><code class="docutils literal notranslate"><span class="pre">Image.bottom</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.clip"><code class="docutils literal notranslate"><span class="pre">Image.clip()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.copy"><code class="docutils literal notranslate"><span class="pre">Image.copy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.count"><code class="docutils literal notranslate"><span class="pre">Image.count</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.drop_bands"><code class="docutils literal notranslate"><span class="pre">Image.drop_bands()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.dropna"><code class="docutils literal notranslate"><span class="pre">Image.dropna()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.empty_like"><code class="docutils literal notranslate"><span class="pre">Image.empty_like()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.extract_values"><code class="docutils literal notranslate"><span class="pre">Image.extract_values()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.geometry_mask"><code class="docutils literal notranslate"><span class="pre">Image.geometry_mask()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.height"><code class="docutils literal notranslate"><span class="pre">Image.height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.interval_choice"><code class="docutils literal notranslate"><span class="pre">Image.interval_choice()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.left"><code class="docutils literal notranslate"><span class="pre">Image.left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.mask"><code class="docutils literal notranslate"><span class="pre">Image.mask()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.normalized_diference"><code class="docutils literal notranslate"><span class="pre">Image.normalized_diference()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.rename"><code class="docutils literal notranslate"><span class="pre">Image.rename()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.rename_by_enum"><code class="docutils literal notranslate"><span class="pre">Image.rename_by_enum()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.replace"><code class="docutils literal notranslate"><span class="pre">Image.replace()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.reproject"><code class="docutils literal notranslate"><span class="pre">Image.reproject()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.resample"><code class="docutils literal notranslate"><span class="pre">Image.resample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.right"><code class="docutils literal notranslate"><span class="pre">Image.right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.select"><code class="docutils literal notranslate"><span class="pre">Image.select()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.to_netcdf"><code class="docutils literal notranslate"><span class="pre">Image.to_netcdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.to_tif"><code class="docutils literal notranslate"><span class="pre">Image.to_tif()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.top"><code class="docutils literal notranslate"><span class="pre">Image.top</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.transform"><code class="docutils literal notranslate"><span class="pre">Image.transform</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.values"><code class="docutils literal notranslate"><span class="pre">Image.values</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.width"><code class="docutils literal notranslate"><span class="pre">Image.width</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.x_res"><code class="docutils literal notranslate"><span class="pre">Image.x_res</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.xs_ys"><code class="docutils literal notranslate"><span class="pre">Image.xs_ys</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.y_res"><code class="docutils literal notranslate"><span class="pre">Image.y_res</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -369,13 +419,170 @@ document.write(`
   <section id="image-module">
 <h1>Image Module<a class="headerlink" href="#image-module" title="Link to this heading">#</a></h1>
 <p>The Image module provides functionality for handling geospatial image data through the Image class.</p>
-<dl class="py class" id="module-image">
-<dt class="sig sig-object py" id="image.Image">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">image.</span></span><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/image.html#Image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image" title="Link to this definition">#</a></dt>
+<section id="class-overview">
+<h2>Class Overview<a class="headerlink" href="#class-overview" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sensingpy.image.Image">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sensingpy.image.</span></span><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensingpy/image.html#Image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">#</a></h2>
+<p class="rubric">Spatial Properties</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.width" title="sensingpy.image.Image.width"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.width</span></code></a></p></td>
+<td><p>Get width of the image in pixels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.height" title="sensingpy.image.Image.height"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.height</span></code></a></p></td>
+<td><p>Get height of the image in pixels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.transform" title="sensingpy.image.Image.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.transform</span></code></a></p></td>
+<td><p>Get affine transform for the image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.x_res" title="sensingpy.image.Image.x_res"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.x_res</span></code></a></p></td>
+<td><p>Get pixel resolution in x direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.y_res" title="sensingpy.image.Image.y_res"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.y_res</span></code></a></p></td>
+<td><p>Get pixel resolution in y direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.left" title="sensingpy.image.Image.left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.left</span></code></a></p></td>
+<td><p>Get min longitude coordinate of the image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.right" title="sensingpy.image.Image.right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.right</span></code></a></p></td>
+<td><p>Get max longitude coordinate of the image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.top" title="sensingpy.image.Image.top"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.top</span></code></a></p></td>
+<td><p>Get max latitude coordinate of the image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.bottom" title="sensingpy.image.Image.bottom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.bottom</span></code></a></p></td>
+<td><p>Get min latitude coordinate of the image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.bbox" title="sensingpy.image.Image.bbox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.bbox</span></code></a></p></td>
+<td><p>Get bounding box polygon of the image.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Data Properties</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.band_names" title="sensingpy.image.Image.band_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.band_names</span></code></a></p></td>
+<td><p>Get list of band names in the image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.count" title="sensingpy.image.Image.count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.count</span></code></a></p></td>
+<td><p>Get number of bands in the image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.values" title="sensingpy.image.Image.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.values</span></code></a></p></td>
+<td><p>Get array of all band values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.xs_ys" title="sensingpy.image.Image.xs_ys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.xs_ys</span></code></a></p></td>
+<td><p>Get meshgrid of x and y coordinates.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="core-methods">
+<h2>Core Methods<a class="headerlink" href="#core-methods" title="Link to this heading">#</a></h2>
+<p class="rubric">Data Manipulation</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.add_band" title="sensingpy.image.Image.add_band"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.add_band</span></code></a></p></td>
+<td><p>Add a new band to the image or update an existing band.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.drop_bands" title="sensingpy.image.Image.drop_bands"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.drop_bands</span></code></a></p></td>
+<td><p>Remove specified bands from the image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.select" title="sensingpy.image.Image.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.select</span></code></a></p></td>
+<td><p>Select specific bands from the image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.rename" title="sensingpy.image.Image.rename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.rename</span></code></a></p></td>
+<td><p>Rename band names using a dictionary mapping.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.replace" title="sensingpy.image.Image.replace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.replace</span></code></a></p></td>
+<td><p>Replace occurrences of a substring in all band names with a new substring.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.rename_by_enum" title="sensingpy.image.Image.rename_by_enum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.rename_by_enum</span></code></a></p></td>
+<td><p>Rename bands using an enumeration mapping.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Spatial Operations</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.reproject" title="sensingpy.image.Image.reproject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.reproject</span></code></a></p></td>
+<td><p>Reproject image to new coordinate reference system.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.align" title="sensingpy.image.Image.align"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.align</span></code></a></p></td>
+<td><p>Align image to match reference image's CRS, resolution and extent.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.resample" title="sensingpy.image.Image.resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.resample</span></code></a></p></td>
+<td><p>Resample image by scaling factor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.clip" title="sensingpy.image.Image.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.clip</span></code></a></p></td>
+<td><p>Clip image to given geometries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.mask" title="sensingpy.image.Image.mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.mask</span></code></a></p></td>
+<td><p>Mask image bands using condition array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.geometry_mask" title="sensingpy.image.Image.geometry_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.geometry_mask</span></code></a></p></td>
+<td><p>Mask image using geometries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.dropna" title="sensingpy.image.Image.dropna"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.dropna</span></code></a></p></td>
+<td><p>Remove rows and columns that contain all NaN values only when adjacent rows/columns also contain all NaN values.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Analysis</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.normalized_diference" title="sensingpy.image.Image.normalized_diference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.normalized_diference</span></code></a></p></td>
+<td><p>Calculate normalized difference between two bands.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.extract_values" title="sensingpy.image.Image.extract_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.extract_values</span></code></a></p></td>
+<td><p>Extract values at specified coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.interval_choice" title="sensingpy.image.Image.interval_choice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.interval_choice</span></code></a></p></td>
+<td><p>Choose random values from intervals in specified band.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.arginterval_choice" title="sensingpy.image.Image.arginterval_choice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.arginterval_choice</span></code></a></p></td>
+<td><p>Choose random indices from intervals in specified band.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Utility Methods</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.empty_like" title="sensingpy.image.Image.empty_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.empty_like</span></code></a></p></td>
+<td><p>Create empty image with same metadata and coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.copy" title="sensingpy.image.Image.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.copy</span></code></a></p></td>
+<td><p>Create a deep copy of the image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sensingpy.image.Image.to_netcdf" title="sensingpy.image.Image.to_netcdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.to_netcdf</span></code></a></p></td>
+<td><p>Save image to NetCDF file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sensingpy.image.Image.to_tif" title="sensingpy.image.Image.to_tif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image.to_tif</span></code></a></p></td>
+<td><p>Save image to GeoTIFF file.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="full-class-documentation">
+<h2>Full Class Documentation<a class="headerlink" href="#full-class-documentation" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sensingpy.image.</span></span><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensingpy/image.html#Image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.add_band">
-<span class="sig-name descname"><span class="pre">add_band</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataArray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.add_band"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.add_band" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.add_band">
+<span class="sig-name descname"><span class="pre">add_band</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataArray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.add_band"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.add_band" title="Link to this definition">#</a></dt>
 <dd><p>Add a new band to the image or update an existing band.</p>
 <p>Adds a new band with the specified name and data to the image. If a band with the
 given name already exists, its data will be updated with the new values.</p>
@@ -404,13 +611,13 @@ dimensions of existing bands</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.align">
-<span class="sig-name descname"><span class="pre">align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#image.Image" title="image.Image"><span class="pre">Image</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.align"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.align" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.align">
+<span class="sig-name descname"><span class="pre">align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#id0" title="sensingpy.image.Image"><span class="pre">Image</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.align"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.align" title="Link to this definition">#</a></dt>
 <dd><p>Align image to match reference image’s CRS, resolution and extent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reference</strong> (<a class="reference internal" href="#image.Image" title="image.Image"><em>Image</em></a>) – Reference image to align to</p></li>
+<li><p><strong>reference</strong> (<a class="reference internal" href="#id0" title="sensingpy.image.Image"><em>Image</em></a>) – Reference image to align to</p></li>
 <li><p><strong>interpolation</strong> (<em>Resampling</em>) – Resampling method to use</p></li>
 </ul>
 </dd>
@@ -424,8 +631,8 @@ dimensions of existing bands</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.arginterval_choice">
-<span class="sig-name descname"><span class="pre">arginterval_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.arginterval_choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.arginterval_choice" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.arginterval_choice">
+<span class="sig-name descname"><span class="pre">arginterval_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.arginterval_choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.arginterval_choice" title="Link to this definition">#</a></dt>
 <dd><p>Choose random indices from intervals in specified band.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -446,8 +653,8 @@ dimensions of existing bands</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.band_names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">band_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#image.Image.band_names" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.band_names">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">band_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sensingpy.image.Image.band_names" title="Link to this definition">#</a></dt>
 <dd><p>Get list of band names in the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -460,8 +667,8 @@ dimensions of existing bands</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.bbox">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bbox</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Polygon</span></em><a class="headerlink" href="#image.Image.bbox" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.bbox">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bbox</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Polygon</span></em><a class="headerlink" href="#sensingpy.image.Image.bbox" title="Link to this definition">#</a></dt>
 <dd><p>Get bounding box polygon of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -474,8 +681,8 @@ dimensions of existing bands</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.bottom">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bottom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.bottom" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.bottom">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bottom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#sensingpy.image.Image.bottom" title="Link to this definition">#</a></dt>
 <dd><p>Get min latitude coordinate of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -488,8 +695,8 @@ dimensions of existing bands</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.clip">
-<span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseGeometry</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.clip" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.clip">
+<span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseGeometry</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.clip" title="Link to this definition">#</a></dt>
 <dd><p>Clip image to given geometries.</p>
 <p>Creates a mask from the input geometries and trims the image extent to the minimum
 bounding box that contains all non-zero values. The new extent is calculated by:
@@ -522,14 +729,14 @@ clipped to the combined extent of all geometries.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#image.Image" title="image.Image"><span class="pre">Image</span></a></span></span><a class="reference internal" href="../_modules/image.html#Image.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.copy" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#id0" title="sensingpy.image.Image"><span class="pre">Image</span></a></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.copy" title="Link to this definition">#</a></dt>
 <dd><p>Create a deep copy of the image.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.count">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.count" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sensingpy.image.Image.count" title="Link to this definition">#</a></dt>
 <dd><p>Get number of bands in the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -542,8 +749,8 @@ clipped to the combined extent of all geometries.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.drop_bands">
-<span class="sig-name descname"><span class="pre">drop_bands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.drop_bands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.drop_bands" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.drop_bands">
+<span class="sig-name descname"><span class="pre">drop_bands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.drop_bands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.drop_bands" title="Link to this definition">#</a></dt>
 <dd><p>Remove specified bands from the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -559,8 +766,8 @@ clipped to the combined extent of all geometries.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.dropna">
-<span class="sig-name descname"><span class="pre">dropna</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.dropna"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.dropna" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.dropna">
+<span class="sig-name descname"><span class="pre">dropna</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.dropna"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.dropna" title="Link to this definition">#</a></dt>
 <dd><p>Remove rows and columns that contain all NaN values only when adjacent rows/columns also contain all NaN values.</p>
 <p>The method preserves rows/columns with all NaN values if they are between rows/columns containing valid values.
 For example, if row 1 has values, row 2 is all NaN, and row 3 has values, row 2 will be preserved.</p>
@@ -593,22 +800,22 @@ For example, if row 1 has values, row 2 is all NaN, and row 3 has values, row 2 
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.empty_like">
-<span class="sig-name descname"><span class="pre">empty_like</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#image.Image" title="image.Image"><span class="pre">Image</span></a></span></span><a class="reference internal" href="../_modules/image.html#Image.empty_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.empty_like" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.empty_like">
+<span class="sig-name descname"><span class="pre">empty_like</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#id0" title="sensingpy.image.Image"><span class="pre">Image</span></a></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.empty_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.empty_like" title="Link to this definition">#</a></dt>
 <dd><p>Create empty image with same metadata and coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>New empty image</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#image.Image" title="image.Image">Image</a></p>
+<dd class="field-even"><p><a class="reference internal" href="#id0" title="sensingpy.image.Image">Image</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.extract_values">
-<span class="sig-name descname"><span class="pre">extract_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_1D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.extract_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.extract_values" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.extract_values">
+<span class="sig-name descname"><span class="pre">extract_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_1D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.extract_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.extract_values" title="Link to this definition">#</a></dt>
 <dd><p>Extract values at specified coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -629,8 +836,8 @@ For example, if row 1 has values, row 2 is all NaN, and row 3 has values, row 2 
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.geometry_mask">
-<span class="sig-name descname"><span class="pre">geometry_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseGeometry</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.geometry_mask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.geometry_mask" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.geometry_mask">
+<span class="sig-name descname"><span class="pre">geometry_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseGeometry</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.geometry_mask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.geometry_mask" title="Link to this definition">#</a></dt>
 <dd><p>Mask image using geometries.</p>
 <p>Creates a binary mask from the input geometries and sets values to NaN either inside
 or outside the geometries depending on the mask_out parameter.</p>
@@ -664,14 +871,9 @@ to True.</p></li>
 </div>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="image.Image.grid_mapping">
-<span class="sig-name descname"><span class="pre">grid_mapping</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'projection'</span></em><a class="headerlink" href="#image.Image.grid_mapping" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.height">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.height" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.height">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sensingpy.image.Image.height" title="Link to this definition">#</a></dt>
 <dd><p>Get height of the image in pixels.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -684,8 +886,8 @@ to True.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.interval_choice">
-<span class="sig-name descname"><span class="pre">interval_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.interval_choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.interval_choice" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.interval_choice">
+<span class="sig-name descname"><span class="pre">interval_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.interval_choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.interval_choice" title="Link to this definition">#</a></dt>
 <dd><p>Choose random values from intervals in specified band.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -706,8 +908,8 @@ to True.</p></li>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.left">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.left" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.left">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#sensingpy.image.Image.left" title="Link to this definition">#</a></dt>
 <dd><p>Get min longitude coordinate of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -720,8 +922,8 @@ to True.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.mask">
-<span class="sig-name descname"><span class="pre">mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.mask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.mask" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.mask">
+<span class="sig-name descname"><span class="pre">mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.mask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.mask" title="Link to this definition">#</a></dt>
 <dd><p>Mask image bands using condition array.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -740,8 +942,8 @@ to True.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.normalized_diference">
-<span class="sig-name descname"><span class="pre">normalized_diference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.normalized_diference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.normalized_diference" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.normalized_diference">
+<span class="sig-name descname"><span class="pre">normalized_diference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.normalized_diference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.normalized_diference" title="Link to this definition">#</a></dt>
 <dd><p>Calculate normalized difference between two bands.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -760,8 +962,8 @@ to True.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.rename">
-<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_names</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.rename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.rename" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.rename">
+<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_names</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.rename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.rename" title="Link to this definition">#</a></dt>
 <dd><p>Rename band names using a dictionary mapping.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -777,8 +979,8 @@ to True.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.rename_by_enum">
-<span class="sig-name descname"><span class="pre">rename_by_enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.rename_by_enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.rename_by_enum" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.rename_by_enum">
+<span class="sig-name descname"><span class="pre">rename_by_enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.rename_by_enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.rename_by_enum" title="Link to this definition">#</a></dt>
 <dd><p>Rename bands using an enumeration mapping.</p>
 <p>Renames image bands using a mapping defined in an enumeration class. The enumeration
 should contain band name mappings where each enum value is a list of possible wavelength
@@ -809,8 +1011,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.replace">
-<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.replace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.replace" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.replace">
+<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.replace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.replace" title="Link to this definition">#</a></dt>
 <dd><p>Replace occurrences of a substring in all band names with a new substring.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -833,8 +1035,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.reproject">
-<span class="sig-name descname"><span class="pre">reproject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.reproject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.reproject" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.reproject">
+<span class="sig-name descname"><span class="pre">reproject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.reproject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.reproject" title="Link to this definition">#</a></dt>
 <dd><p>Reproject image to new coordinate reference system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -853,8 +1055,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.resample">
-<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">downscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/image.html#Image.resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.resample" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.resample">
+<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">downscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Resampling</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resampling.nearest</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.resample" title="Link to this definition">#</a></dt>
 <dd><p>Resample image by scaling factor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -874,8 +1076,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.right">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.right" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.right">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#sensingpy.image.Image.right" title="Link to this definition">#</a></dt>
 <dd><p>Get max longitude coordinate of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -888,8 +1090,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.select">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataArray</span></span></span><a class="reference internal" href="../_modules/image.html#Image.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.select" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.select">
+<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataArray</span></span></span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.select" title="Link to this definition">#</a></dt>
 <dd><p>Select specific bands from the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -908,8 +1110,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.to_netcdf">
-<span class="sig-name descname"><span class="pre">to_netcdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/image.html#Image.to_netcdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.to_netcdf" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.to_netcdf">
+<span class="sig-name descname"><span class="pre">to_netcdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.to_netcdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.to_netcdf" title="Link to this definition">#</a></dt>
 <dd><p>Save image to NetCDF file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -919,8 +1121,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="image.Image.to_tif">
-<span class="sig-name descname"><span class="pre">to_tif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/image.html#Image.to_tif"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#image.Image.to_tif" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.to_tif">
+<span class="sig-name descname"><span class="pre">to_tif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sensingpy/image.html#Image.to_tif"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.image.Image.to_tif" title="Link to this definition">#</a></dt>
 <dd><p>Save image to GeoTIFF file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -930,8 +1132,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.top">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">top</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#image.Image.top" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.top">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">top</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#sensingpy.image.Image.top" title="Link to this definition">#</a></dt>
 <dd><p>Get max latitude coordinate of the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -944,8 +1146,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.transform">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Affine</span></em><a class="headerlink" href="#image.Image.transform" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.transform">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Affine</span></em><a class="headerlink" href="#sensingpy.image.Image.transform" title="Link to this definition">#</a></dt>
 <dd><p>Get affine transform for the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -958,8 +1160,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.values">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#image.Image.values" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.values">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#sensingpy.image.Image.values" title="Link to this definition">#</a></dt>
 <dd><p>Get array of all band values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -972,8 +1174,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.width">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.width" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.width">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sensingpy.image.Image.width" title="Link to this definition">#</a></dt>
 <dd><p>Get width of the image in pixels.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -986,8 +1188,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.x_res">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x_res</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.x_res" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.x_res">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x_res</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sensingpy.image.Image.x_res" title="Link to this definition">#</a></dt>
 <dd><p>Get pixel resolution in x direction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1000,8 +1202,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.xs_ys">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xs_ys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#image.Image.xs_ys" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.xs_ys">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xs_ys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sensingpy.image.Image.xs_ys" title="Link to this definition">#</a></dt>
 <dd><p>Get meshgrid of x and y coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1014,8 +1216,8 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="image.Image.y_res">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y_res</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#image.Image.y_res" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sensingpy.image.Image.y_res">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y_res</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sensingpy.image.Image.y_res" title="Link to this definition">#</a></dt>
 <dd><p>Get pixel resolution in y direction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1029,6 +1231,7 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
 
 </dd></dl>
 
+</section>
 </section>
 
 
@@ -1052,11 +1255,11 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
       </div>
     </a>
     <a class="right-next"
-       href="reader.html"
+       href="generated/sensingpy.image.Image.width.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Reader Module</p>
+        <p class="prev-next-title">sensingpy.image.Image.width</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1076,43 +1279,55 @@ enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image"><code class="docutils literal notranslate"><span class="pre">Image</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.add_band"><code class="docutils literal notranslate"><span class="pre">Image.add_band()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.align"><code class="docutils literal notranslate"><span class="pre">Image.align()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.arginterval_choice"><code class="docutils literal notranslate"><span class="pre">Image.arginterval_choice()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.band_names"><code class="docutils literal notranslate"><span class="pre">Image.band_names</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.bbox"><code class="docutils literal notranslate"><span class="pre">Image.bbox</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.bottom"><code class="docutils literal notranslate"><span class="pre">Image.bottom</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.clip"><code class="docutils literal notranslate"><span class="pre">Image.clip()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.copy"><code class="docutils literal notranslate"><span class="pre">Image.copy()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.count"><code class="docutils literal notranslate"><span class="pre">Image.count</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.drop_bands"><code class="docutils literal notranslate"><span class="pre">Image.drop_bands()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.dropna"><code class="docutils literal notranslate"><span class="pre">Image.dropna()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.empty_like"><code class="docutils literal notranslate"><span class="pre">Image.empty_like()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.extract_values"><code class="docutils literal notranslate"><span class="pre">Image.extract_values()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.geometry_mask"><code class="docutils literal notranslate"><span class="pre">Image.geometry_mask()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.grid_mapping"><code class="docutils literal notranslate"><span class="pre">Image.grid_mapping</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.height"><code class="docutils literal notranslate"><span class="pre">Image.height</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.interval_choice"><code class="docutils literal notranslate"><span class="pre">Image.interval_choice()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.left"><code class="docutils literal notranslate"><span class="pre">Image.left</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.mask"><code class="docutils literal notranslate"><span class="pre">Image.mask()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.normalized_diference"><code class="docutils literal notranslate"><span class="pre">Image.normalized_diference()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.rename"><code class="docutils literal notranslate"><span class="pre">Image.rename()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.rename_by_enum"><code class="docutils literal notranslate"><span class="pre">Image.rename_by_enum()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.replace"><code class="docutils literal notranslate"><span class="pre">Image.replace()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.reproject"><code class="docutils literal notranslate"><span class="pre">Image.reproject()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.resample"><code class="docutils literal notranslate"><span class="pre">Image.resample()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.right"><code class="docutils literal notranslate"><span class="pre">Image.right</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.select"><code class="docutils literal notranslate"><span class="pre">Image.select()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.to_netcdf"><code class="docutils literal notranslate"><span class="pre">Image.to_netcdf()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.to_tif"><code class="docutils literal notranslate"><span class="pre">Image.to_tif()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.top"><code class="docutils literal notranslate"><span class="pre">Image.top</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.transform"><code class="docutils literal notranslate"><span class="pre">Image.transform</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.values"><code class="docutils literal notranslate"><span class="pre">Image.values</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.width"><code class="docutils literal notranslate"><span class="pre">Image.width</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.x_res"><code class="docutils literal notranslate"><span class="pre">Image.x_res</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.xs_ys"><code class="docutils literal notranslate"><span class="pre">Image.xs_ys</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image.Image.y_res"><code class="docutils literal notranslate"><span class="pre">Image.y_res</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-overview">Class Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image"><code class="docutils literal notranslate"><span class="pre">Image</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-methods">Core Methods</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-class-documentation">Full Class Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">Image</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.add_band"><code class="docutils literal notranslate"><span class="pre">Image.add_band()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.align"><code class="docutils literal notranslate"><span class="pre">Image.align()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.arginterval_choice"><code class="docutils literal notranslate"><span class="pre">Image.arginterval_choice()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.band_names"><code class="docutils literal notranslate"><span class="pre">Image.band_names</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.bbox"><code class="docutils literal notranslate"><span class="pre">Image.bbox</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.bottom"><code class="docutils literal notranslate"><span class="pre">Image.bottom</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.clip"><code class="docutils literal notranslate"><span class="pre">Image.clip()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.copy"><code class="docutils literal notranslate"><span class="pre">Image.copy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.count"><code class="docutils literal notranslate"><span class="pre">Image.count</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.drop_bands"><code class="docutils literal notranslate"><span class="pre">Image.drop_bands()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.dropna"><code class="docutils literal notranslate"><span class="pre">Image.dropna()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.empty_like"><code class="docutils literal notranslate"><span class="pre">Image.empty_like()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.extract_values"><code class="docutils literal notranslate"><span class="pre">Image.extract_values()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.geometry_mask"><code class="docutils literal notranslate"><span class="pre">Image.geometry_mask()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.height"><code class="docutils literal notranslate"><span class="pre">Image.height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.interval_choice"><code class="docutils literal notranslate"><span class="pre">Image.interval_choice()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.left"><code class="docutils literal notranslate"><span class="pre">Image.left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.mask"><code class="docutils literal notranslate"><span class="pre">Image.mask()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.normalized_diference"><code class="docutils literal notranslate"><span class="pre">Image.normalized_diference()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.rename"><code class="docutils literal notranslate"><span class="pre">Image.rename()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.rename_by_enum"><code class="docutils literal notranslate"><span class="pre">Image.rename_by_enum()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.replace"><code class="docutils literal notranslate"><span class="pre">Image.replace()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.reproject"><code class="docutils literal notranslate"><span class="pre">Image.reproject()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.resample"><code class="docutils literal notranslate"><span class="pre">Image.resample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.right"><code class="docutils literal notranslate"><span class="pre">Image.right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.select"><code class="docutils literal notranslate"><span class="pre">Image.select()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.to_netcdf"><code class="docutils literal notranslate"><span class="pre">Image.to_netcdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.to_tif"><code class="docutils literal notranslate"><span class="pre">Image.to_tif()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.top"><code class="docutils literal notranslate"><span class="pre">Image.top</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.transform"><code class="docutils literal notranslate"><span class="pre">Image.transform</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.values"><code class="docutils literal notranslate"><span class="pre">Image.values</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.width"><code class="docutils literal notranslate"><span class="pre">Image.width</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.x_res"><code class="docutils literal notranslate"><span class="pre">Image.x_res</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.xs_ys"><code class="docutils literal notranslate"><span class="pre">Image.xs_ys</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.image.Image.y_res"><code class="docutils literal notranslate"><span class="pre">Image.y_res</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

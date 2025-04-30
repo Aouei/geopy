@@ -41,7 +41,7 @@
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/image';</script>
-    <link rel="canonical" href="https://aouei.github.io/geopy/_modules/image.html" />
+    <link rel="canonical" href="https://aouei.github.io/sensingpy/_modules/image.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -151,15 +151,53 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/preprocessing.html">Cleaning Outliers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/deglinting.html">Sunglint Removal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/reading_tif.html">Reading TIFF files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/reading_netcdf.html">Reading NetCDF files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/preprocessing.html">Cleaning Outliers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/deglinting.html">Sunglint Removal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/remote_sensing_water.html">Remote Sensing for Water Bodies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/SDB_stumpf.html">Satellite Derived Bathymetry - Stumpf Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../modules/image.html">Image Module</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/image.html">Image Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.width.html">sensingpy.image.Image.width</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.height.html">sensingpy.image.Image.height</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.transform.html">sensingpy.image.Image.transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.x_res.html">sensingpy.image.Image.x_res</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.y_res.html">sensingpy.image.Image.y_res</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.left.html">sensingpy.image.Image.left</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.right.html">sensingpy.image.Image.right</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.top.html">sensingpy.image.Image.top</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.bottom.html">sensingpy.image.Image.bottom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.bbox.html">sensingpy.image.Image.bbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.band_names.html">sensingpy.image.Image.band_names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.count.html">sensingpy.image.Image.count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.values.html">sensingpy.image.Image.values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.xs_ys.html">sensingpy.image.Image.xs_ys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.add_band.html">sensingpy.image.Image.add_band</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.drop_bands.html">sensingpy.image.Image.drop_bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.select.html">sensingpy.image.Image.select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.rename.html">sensingpy.image.Image.rename</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.replace.html">sensingpy.image.Image.replace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.rename_by_enum.html">sensingpy.image.Image.rename_by_enum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.reproject.html">sensingpy.image.Image.reproject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.align.html">sensingpy.image.Image.align</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.resample.html">sensingpy.image.Image.resample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.clip.html">sensingpy.image.Image.clip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.mask.html">sensingpy.image.Image.mask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.geometry_mask.html">sensingpy.image.Image.geometry_mask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.dropna.html">sensingpy.image.Image.dropna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.normalized_diference.html">sensingpy.image.Image.normalized_diference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.extract_values.html">sensingpy.image.Image.extract_values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.interval_choice.html">sensingpy.image.Image.interval_choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.arginterval_choice.html">sensingpy.image.Image.arginterval_choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.empty_like.html">sensingpy.image.Image.empty_like</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.copy.html">sensingpy.image.Image.copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.to_netcdf.html">sensingpy.image.Image.to_netcdf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/generated/sensingpy.image.Image.to_tif.html">sensingpy.image.Image.to_tif</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/reader.html">Reader Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/selector.html">Selector Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/masks.html">Masks Module</a></li>
@@ -292,38 +330,82 @@ document.write(`
 
 
 <div class="viewcode-block" id="Image">
-<a class="viewcode-back" href="../modules/image.html#image.Image">[docs]</a>
+<a class="viewcode-back" href="../modules/generated/image.Image.html#image.Image">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Image</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A geospatial image processing class for remote sensing operations.</span>
+<span class="sd">    </span>
+<span class="sd">    This class provides tools for working with geospatial image data in Python.</span>
+<span class="sd">    It wraps xarray Datasets with geospatial metadata and provides methods for</span>
+<span class="sd">    common remote sensing operations including reprojection, band manipulation,</span>
+<span class="sd">    spatial analysis, and more.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : xr.Dataset</span>
+<span class="sd">        xarray Dataset containing image bands and coordinates</span>
+<span class="sd">    crs : pyproj.CRS</span>
+<span class="sd">        Coordinate reference system of the image</span>
+<span class="sd">        </span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : xr.Dataset</span>
+<span class="sd">        xarray Dataset containing image bands and coordinates</span>
+<span class="sd">    crs : pyproj.CRS</span>
+<span class="sd">        Coordinate reference system of the image</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Optional name identifier for the image</span>
+<span class="sd">    grid_mapping : str</span>
+<span class="sd">        Name of the grid mapping variable in the Dataset</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The Image class is designed to maintain spatial reference information throughout</span>
+<span class="sd">    operations. Most methods modify the image in-place and return self for method chaining.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">grid_mapping</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;projection&#39;</span>
 
+<div class="viewcode-block" id="Image.__init__">
+<a class="viewcode-back" href="../modules/generated/image.Image.html#image.Image.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">crs</span><span class="p">:</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize an Image object with geospatial data and coordinate reference system.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize an Image object with geospatial data and coordinate reference system.</span>
 <span class="sd">        </span>
-<span class="sd">        Args:</span>
-<span class="sd">            data (xr.Dataset): The xarray Dataset containing the image data with dimensions</span>
-<span class="sd">                and variables representing different bands/channels</span>
-<span class="sd">            crs (pyproj.CRS): The coordinate reference system defining the spatial reference</span>
-<span class="sd">                of the image data</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : xr.Dataset</span>
+<span class="sd">            The xarray Dataset containing the image data with dimensions</span>
+<span class="sd">            and variables representing different bands/channels</span>
+<span class="sd">        crs : pyproj.CRS</span>
+<span class="sd">            The coordinate reference system defining the spatial reference</span>
+<span class="sd">            of the image data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">:</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span> <span class="o">=</span> <span class="n">crs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span> <span class="o">=</span> <span class="n">data</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span></div>
 
-<div class="viewcode-block" id="Image.replace">
-<a class="viewcode-back" href="../modules/image.html#image.Image.replace">[docs]</a>
+
     <span class="k">def</span><span class="w"> </span><span class="nf">replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span> <span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Replace occurrences of a substring in all band names with a new substring.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace occurrences of a substring in all band names with a new substring.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            old (str): The substring to be replaced in band names</span>
-<span class="sd">            new (str): The substring to replace with</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        old : str</span>
+<span class="sd">            The substring to be replaced in band names</span>
+<span class="sd">        new : str</span>
+<span class="sd">            The substring to replace with</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
 <span class="sd">            </span>
-<span class="sd">        Example:</span>
-<span class="sd">            &gt;&gt;&gt; image.replace(&#39;B01&#39;, &#39;blue&#39;)  # Renames band &#39;B01&#39; to &#39;blue&#39;</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; image.replace(&#39;B01&#39;, &#39;blue&#39;)  # Renames band &#39;B01&#39; to &#39;blue&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">new_names</span> <span class="o">=</span> <span class="p">{</span>
@@ -331,210 +413,283 @@ document.write(`
         <span class="p">}</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">new_names</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span></div>
+        <span class="k">return</span> <span class="bp">self</span>
 
-
-<div class="viewcode-block" id="Image.rename">
-<a class="viewcode-back" href="../modules/image.html#image.Image.rename">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">rename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_names</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rename band names using a dictionary mapping.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Rename band names using a dictionary mapping.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            new_names (dict): Dictionary mapping old band names to new band names</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        new_names : dict</span>
+<span class="sd">            Dictionary mapping old band names to new band names</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">new_names</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span></div>
-
+        <span class="k">return</span> <span class="bp">self</span>
     
-<div class="viewcode-block" id="Image.rename_by_enum">
-<a class="viewcode-back" href="../modules/image.html#image.Image.rename_by_enum">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">rename_by_enum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enum</span> <span class="p">:</span> <span class="n">enums</span><span class="o">.</span><span class="n">Enum</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rename bands using an enumeration mapping.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Rename bands using an enumeration mapping.</span>
 
-<span class="sd">        Renames image bands using a mapping defined in an enumeration class. The enumeration</span>
-<span class="sd">        should contain band name mappings where each enum value is a list of possible wavelength</span>
-<span class="sd">        strings and the enum name is the new band name.</span>
+<span class="sd">        Renames image bands using a mapping defined in an enumeration class.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            enum (enums.Enum): Enumeration class containing band name mappings. Each enum value</span>
-<span class="sd">                should be a List[str] of wavelength strings that map to the enum name.</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        enum : enums.Enum</span>
+<span class="sd">            Enumeration class containing band name mappings. Each enum value</span>
+<span class="sd">            should be a List[str] of wavelength strings that map to the enum name.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
 <span class="sd">            </span>
-<span class="sd">        Example:</span>
-<span class="sd">            &gt;&gt;&gt; # Using SENTINEL2_BANDS enum to rename bands</span>
-<span class="sd">            &gt;&gt;&gt; image.rename_by_enum(SENTINEL2_BANDS)</span>
-<span class="sd">            &gt;&gt;&gt; # Renames bands like &#39;443&#39; to &#39;B1&#39;, &#39;493&#39; to &#39;B2&#39;, etc.</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Using SENTINEL2_BANDS enum to rename bands</span>
+<span class="sd">        &gt;&gt;&gt; image.rename_by_enum(SENTINEL2_BANDS)</span>
+<span class="sd">        &gt;&gt;&gt; # Renames bands like &#39;443&#39; to &#39;B1&#39;, &#39;493&#39; to &#39;B2&#39;, etc.</span>
 <span class="sd">            </span>
-<span class="sd">        See Also:</span>
-<span class="sd">            enums.SENTINEL2_BANDS: Enum for Sentinel-2 band mappings</span>
-<span class="sd">            enums.MICASENSE_BANDS: Enum for MicaSense RedEdge band mappings</span>
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        enums.SENTINEL2_BANDS : Enum for Sentinel-2 band mappings</span>
+<span class="sd">        enums.MICASENSE_BANDS : Enum for MicaSense RedEdge band mappings</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">enum</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">wavelenght</span> <span class="ow">in</span> <span class="n">band</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">wavelenght</span><span class="p">,</span> <span class="n">band</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">self</span></div>
-
+        <span class="k">return</span> <span class="bp">self</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">band_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get list of band names in the image.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get list of band names in the image.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            List[str]: List of band names</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[str]</span>
+<span class="sd">            List of band names</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">data_vars</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
     
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">width</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get width of the image in pixels.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get width of the image in pixels.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            int: Image width</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            Image width</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
     
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">height</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get height of the image in pixels.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get height of the image in pixels.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            int: Image height </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            Image height </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
     
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get number of bands in the image.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get number of bands in the image.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            int: Number of bands</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            Number of bands</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">data_vars</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">x_res</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get pixel resolution in x direction.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get pixel resolution in x direction.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            float|int: X resolution</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float or int</span>
+<span class="sd">            X resolution</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">y_res</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get pixel resolution in y direction.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get pixel resolution in y direction.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            float|int: Y resolution</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float or int</span>
+<span class="sd">            Y resolution</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
     
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Affine</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get affine transform for the image.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Affine: Affine transform object</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get affine transform for the image.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Affine</span>
+<span class="sd">            Affine transform object representing the spatial relationship</span>
+<span class="sd">            between pixel coordinates and CRS coordinates</span>
 <span class="sd">        &quot;&quot;&quot;</span>
          
         <span class="k">return</span> <span class="n">from_origin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_res</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_res</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">xs_ys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get meshgrid of x and y coordinates.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get meshgrid of x and y coordinates.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Tuple[np.ndarray, np.ndarray]: X and Y coordinate arrays</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Tuple[np.ndarray, np.ndarray]</span>
+<span class="sd">            X and Y coordinate arrays</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">left</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get min longitude coordinate of the image.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get min longitude coordinate of the image.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            float: Left coordinate</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            Left coordinate</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_res</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">right</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get max longitude coordinate of the image.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get max longitude coordinate of the image.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            float: Right coordinate</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            Right coordinate</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_res</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
     
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get max latitude coordinate of the image.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get max latitude coordinate of the image.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            float: Top coordinate</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            Top coordinate</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y_res</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">bottom</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get min latitude coordinate of the image.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get min latitude coordinate of the image.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            float: Bottom coordinate</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            Bottom coordinate</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y_res</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Polygon</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get bounding box polygon of the image.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get bounding box polygon of the image.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Polygon: Shapely polygon representing image bounds</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Polygon</span>
+<span class="sd">            Shapely polygon representing image bounds</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">return</span> <span class="n">box</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get array of all band values.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get array of all band values.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            np.ndarray: Array containing band values</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            Array containing band values</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">band</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">band_names</span><span class="p">]</span> <span class="p">)</span>
 
 
-<div class="viewcode-block" id="Image.reproject">
-<a class="viewcode-back" href="../modules/image.html#image.Image.reproject">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">reproject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_crs</span><span class="p">:</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="p">,</span> <span class="n">interpolation</span> <span class="p">:</span> <span class="n">Resampling</span> <span class="o">=</span> <span class="n">Resampling</span><span class="o">.</span><span class="n">nearest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>        
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reproject image to new coordinate reference system.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reproject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_crs</span><span class="p">:</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="p">,</span> <span class="n">interpolation</span><span class="p">:</span> <span class="n">Resampling</span> <span class="o">=</span> <span class="n">Resampling</span><span class="o">.</span><span class="n">nearest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>        
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reproject image to new coordinate reference system.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            new_crs (pyproj.CRS): Target coordinate reference system</span>
-<span class="sd">            interpolation (Resampling): Resampling method to use</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        new_crs : pyproj.CRS</span>
+<span class="sd">            Target coordinate reference system</span>
+<span class="sd">        interpolation : Resampling, optional</span>
+<span class="sd">            Resampling method to use during reprojection, by default Resampling.nearest.</span>
+<span class="sd">            Available options from rasterio.warp.Resampling include:</span>
+<span class="sd">            - nearest: Nearest neighbor (default, preserves exact values)</span>
+<span class="sd">            - bilinear: Bilinear interpolation (smooth, better for continuous data)</span>
+<span class="sd">            - cubic: Cubic interpolation (smoother than bilinear)</span>
+<span class="sd">            - cubic_spline: Cubic spline interpolation (smoothest)</span>
+<span class="sd">            - lanczos: Lanczos windowed sinc interpolation (sharp edges)</span>
+<span class="sd">            - average: Average of all contributing pixels</span>
+<span class="sd">            - mode: Mode of all contributing pixels</span>
+<span class="sd">            - max: Maximum value of all contributing pixels</span>
+<span class="sd">            - min: Minimum value of all contributing pixels</span>
+<span class="sd">            - med: Median of all contributing pixels</span>
+<span class="sd">            - q1: First quartile of all contributing pixels</span>
+<span class="sd">            - q3: Third quartile of all contributing pixels</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Reproject to UTM Zone 10N</span>
+<span class="sd">        &gt;&gt;&gt; utm_crs = pyproj.CRS.from_epsg(32610)</span>
+<span class="sd">        &gt;&gt;&gt; image.reproject(utm_crs, interpolation=Resampling.bilinear)</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Reproject to Web Mercator for web mapping</span>
+<span class="sd">        &gt;&gt;&gt; webmerc_crs = pyproj.CRS.from_epsg(3857)</span>
+<span class="sd">        &gt;&gt;&gt; image.reproject(webmerc_crs)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">src_crs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span>
@@ -551,20 +706,46 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__update_data</span><span class="p">(</span><span class="n">interpolation</span><span class="p">,</span> <span class="n">dst_transform</span><span class="p">,</span> <span class="n">dst_width</span><span class="p">,</span> <span class="n">dst_height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">dst_crs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">dst_crs</span>
         
-        <span class="k">return</span> <span class="bp">self</span></div>
-
+        <span class="k">return</span> <span class="bp">self</span>
     
-<div class="viewcode-block" id="Image.align">
-<a class="viewcode-back" href="../modules/image.html#image.Image.align">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">align</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reference</span><span class="p">:</span> <span class="n">Image</span><span class="p">,</span> <span class="n">interpolation</span><span class="p">:</span> <span class="n">Resampling</span> <span class="o">=</span> <span class="n">Resampling</span><span class="o">.</span><span class="n">nearest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Align image to match reference image&#39;s CRS, resolution and extent.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            reference (Image): Reference image to align to</span>
-<span class="sd">            interpolation (Resampling): Resampling method to use</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Align image to match reference image&#39;s CRS, resolution and extent.</span>
+<span class="sd">        </span>
+<span class="sd">        Transforms this image to match the coordinate reference system (CRS), spatial resolution,</span>
+<span class="sd">        and geographic extent of a reference image.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        reference : Image</span>
+<span class="sd">            Reference image to align to. This image will be used as the</span>
+<span class="sd">            template for CRS, resolution, and extent.</span>
+<span class="sd">        interpolation : Resampling, optional</span>
+<span class="sd">            Resampling method from rasterio.warp.Resampling to use</span>
+<span class="sd">            during transformation, by default Resampling.nearest. Options include:</span>
+<span class="sd">            - nearest: Nearest neighbor (preserves original values, best for categorical data)</span>
+<span class="sd">            - bilinear: Bilinear interpolation (smooth, better for continuous data)</span>
+<span class="sd">            - cubic: Cubic interpolation (smoother than bilinear)</span>
+<span class="sd">            - lanczos: Lanczos windowed sinc interpolation (sharp edges)</span>
+<span class="sd">                </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the modified Image object for method chaining</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Align a Landsat image to match a Sentinel-2 reference image</span>
+<span class="sd">        &gt;&gt;&gt; landsat_img.align(sentinel2_img, interpolation=Resampling.bilinear)</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Check that the images now have the same dimensions</span>
+<span class="sd">        &gt;&gt;&gt; assert landsat_img.width == sentinel2_img.width</span>
+<span class="sd">        &gt;&gt;&gt; assert landsat_img.height == sentinel2_img.height</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This operation modifies the original image in-place. Use the copy() method first</span>
+<span class="sd">        if you want to preserve the original image.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="o">!=</span> <span class="n">reference</span><span class="o">.</span><span class="n">crs</span><span class="p">:</span>
@@ -612,21 +793,53 @@ document.write(`
         
         <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">reference</span><span class="o">.</span><span class="n">crs</span>
 
-        <span class="k">return</span> <span class="bp">self</span></div>
-
+        <span class="k">return</span> <span class="bp">self</span>
     
-<div class="viewcode-block" id="Image.resample">
-<a class="viewcode-back" href="../modules/image.html#image.Image.resample">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">downscale</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">interpolation</span> <span class="p">:</span> <span class="n">Resampling</span> <span class="o">=</span> <span class="n">Resampling</span><span class="o">.</span><span class="n">nearest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>        
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Resample image by scaling factor.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            scale (int): Scale factor</span>
-<span class="sd">            downscale (bool): If True, downscale by factor, if False upscale</span>
-<span class="sd">            interpolation (Resampling): Resampling method to use</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">downscale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">interpolation</span><span class="p">:</span> <span class="n">Resampling</span> <span class="o">=</span> <span class="n">Resampling</span><span class="o">.</span><span class="n">nearest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>        
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Resample image by scaling factor to change spatial resolution.</span>
+<span class="sd">        </span>
+<span class="sd">        Changes the spatial resolution of the image by either increasing or decreasing the number</span>
+<span class="sd">        of pixels while maintaining the same geographic extent.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        scale : int</span>
+<span class="sd">            Scale factor to apply. For example, a scale factor of 2 with downscale=True</span>
+<span class="sd">            will reduce the image dimensions by half, while with downscale=False it will </span>
+<span class="sd">            double the image dimensions.</span>
+<span class="sd">        downscale : bool, optional</span>
+<span class="sd">            Direction of scaling operation, by default True:</span>
+<span class="sd">            - True: Reduce resolution by dividing dimensions by scale factor</span>
+<span class="sd">            - False: Increase resolution by multiplying dimensions by scale factor</span>
+<span class="sd">        interpolation : Resampling, optional</span>
+<span class="sd">            Resampling method from rasterio.warp.Resampling to use, by default Resampling.nearest:</span>
+<span class="sd">            - nearest: Nearest neighbor (preserves exact values, best for categorical data)</span>
+<span class="sd">            - bilinear: Bilinear interpolation (smooth, better for continuous data)</span>
+<span class="sd">            - cubic: Cubic interpolation (smoother than bilinear)</span>
+<span class="sd">            - lanczos: Lanczos windowed sinc interpolation (preserves sharp edges)</span>
+<span class="sd">            - average: Averages all pixels that contribute to the output pixel</span>
+<span class="sd">                </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Reduce image resolution by half (4x smaller area)</span>
+<span class="sd">        &gt;&gt;&gt; image.resample(scale=2, downscale=True)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;New dimensions: {image.width}x{image.height}&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Double the image resolution (4x larger area)</span>
+<span class="sd">        &gt;&gt;&gt; image.resample(scale=2, downscale=False, interpolation=Resampling.bilinear)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;New dimensions: {image.width}x{image.height}&quot;)</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        When downscaling, higher values of scale mean coarser resolution.</span>
+<span class="sd">        When upscaling, higher values of scale mean finer resolution.</span>
+<span class="sd">        This operation modifies the image in-place.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">if</span> <span class="n">downscale</span><span class="p">:</span>
@@ -637,36 +850,48 @@ document.write(`
         <span class="n">dst_height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__update_data</span><span class="p">(</span><span class="n">interpolation</span><span class="p">,</span> <span class="n">dst_transform</span><span class="p">,</span> <span class="n">dst_width</span><span class="p">,</span> <span class="n">dst_height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span></div>
-
+        <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__update_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interpolation</span> <span class="p">:</span> <span class="n">Resampling</span><span class="p">,</span> <span class="n">new_transform</span> <span class="p">:</span> <span class="n">Affine</span><span class="p">,</span> <span class="n">dst_width</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dst_height</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">src_crs</span> <span class="p">:</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="p">,</span> <span class="n">dst_crs</span> <span class="p">:</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update image data using new spatial parameters and coordinate reference system.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update image data using new spatial parameters and coordinate reference system.</span>
 
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        interpolation : Resampling</span>
+<span class="sd">            Resampling method to use when transforming data</span>
+<span class="sd">        new_transform : Affine</span>
+<span class="sd">            New affine transform matrix</span>
+<span class="sd">        dst_width : int</span>
+<span class="sd">            Width of destination image in pixels</span>
+<span class="sd">        dst_height : int</span>
+<span class="sd">            Height of destination image in pixels</span>
+<span class="sd">        src_crs : pyproj.CRS</span>
+<span class="sd">            Source coordinate reference system</span>
+<span class="sd">        dst_crs : pyproj.CRS</span>
+<span class="sd">            Destination coordinate reference system</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        xr.Dataset</span>
+<span class="sd">            New dataset with updated spatial parameters</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
 <span class="sd">        Internal method used by reproject() and resample() to update the image data with new</span>
 <span class="sd">        spatial parameters. Performs resampling and coordinate transformation for all bands.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            interpolation (Resampling): Resampling method to use when transforming data</span>
-<span class="sd">            new_transform (Affine): New affine transform matrix</span>
-<span class="sd">            dst_width (int): Width of destination image in pixels</span>
-<span class="sd">            dst_height (int): Height of destination image in pixels</span>
-<span class="sd">            src_crs (pyproj.CRS): Source coordinate reference system</span>
-<span class="sd">            dst_crs (pyproj.CRS): Destination coordinate reference system</span>
-<span class="sd">        </span>
-<span class="sd">        Returns:</span>
-<span class="sd">            Dataset: New dataset.</span>
-
-<span class="sd">        Example:</span>
-<span class="sd">            &gt;&gt;&gt; # Used internally by reproject():</span>
-<span class="sd">            &gt;&gt;&gt; self.__update_data(</span>
-<span class="sd">            ...     Resampling.nearest,</span>
-<span class="sd">            ...     dst_transform,</span>
-<span class="sd">            ...     dst_width,</span>
-<span class="sd">            ...     dst_height, </span>
-<span class="sd">            ...     self.crs,</span>
-<span class="sd">            ...     new_crs</span>
-<span class="sd">            ... )</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Used internally by reproject():</span>
+<span class="sd">        &gt;&gt;&gt; self.__update_data(</span>
+<span class="sd">        ...     Resampling.nearest,</span>
+<span class="sd">        ...     dst_transform,</span>
+<span class="sd">        ...     dst_width,</span>
+<span class="sd">        ...     dst_height, </span>
+<span class="sd">        ...     self.crs,</span>
+<span class="sd">        ...     new_crs</span>
+<span class="sd">        ... )</span>
 <span class="sd">        &quot;&quot;&quot;</span>
             
         <span class="n">dst_x</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">xy</span><span class="p">(</span><span class="n">new_transform</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">dst_width</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">dst_width</span><span class="p">))</span>
@@ -726,33 +951,41 @@ document.write(`
         <span class="p">)</span>
     
 
-<div class="viewcode-block" id="Image.clip">
-<a class="viewcode-back" href="../modules/image.html#image.Image.clip">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geometries</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">BaseGeometry</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clip image to given geometries.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clip image to given geometries.</span>
 
 <span class="sd">        Creates a mask from the input geometries and trims the image extent to the minimum </span>
-<span class="sd">        bounding box that contains all non-zero values. The new extent is calculated by:</span>
+<span class="sd">        bounding box that contains all non-zero values.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        geometries : List[BaseGeometry]</span>
+<span class="sd">            List of geometries to clip to. The image will be</span>
+<span class="sd">            clipped to the combined extent of all geometries.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The new extent is calculated by:</span>
 <span class="sd">        1. Finding the first and last rows that contain any values</span>
 <span class="sd">        2. Finding the first and last columns that contain any values</span>
 <span class="sd">        3. Keeping only the data within these bounds</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            geometries (List[BaseGeometry]): List of geometries to clip to. The image will be</span>
-<span class="sd">                clipped to the combined extent of all geometries.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
-
-<span class="sd">        Example:</span>
-<span class="sd">            &gt;&gt;&gt; # If an image has this pattern (where 0=outside geometry, 1=inside):</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 0 0 0</span>
-<span class="sd">            &gt;&gt;&gt; # 0 1 1 0 0  &lt;- First row with values</span>
-<span class="sd">            &gt;&gt;&gt; # 0 1 1 0 0</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 0 0 0  &lt;- Last row with values</span>
-<span class="sd">            &gt;&gt;&gt; # The result will be trimmed to:</span>
-<span class="sd">            &gt;&gt;&gt; # 1 1 0  &lt;- Columns 1-3 only</span>
-<span class="sd">            &gt;&gt;&gt; # 1 1 0</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # If an image has this pattern (where 0=outside geometry, 1=inside):</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 0 0 0</span>
+<span class="sd">        &gt;&gt;&gt; # 0 1 1 0 0  &lt;- First row with values</span>
+<span class="sd">        &gt;&gt;&gt; # 0 1 1 1 0</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 0 0 0  &lt;- Last row with values</span>
+<span class="sd">        &gt;&gt;&gt; # The result will be trimmed to:</span>
+<span class="sd">        &gt;&gt;&gt; # 1 1 0  &lt;- Columns 1-3 only</span>
+<span class="sd">        &gt;&gt;&gt; # 1 1 1</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">inshape</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">geometry_mask</span><span class="p">(</span><span class="n">geometries</span> <span class="o">=</span> <span class="n">geometries</span><span class="p">,</span> <span class="n">out_shape</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">),</span> 
@@ -760,91 +993,99 @@ document.write(`
             
         <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__find_empty_borders</span><span class="p">(</span><span class="n">inshape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">({</span><span class="s1">&#39;y&#39;</span> <span class="p">:</span> <span class="n">rows</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span> <span class="p">:</span> <span class="n">cols</span><span class="p">})</span>
-        <span class="k">return</span> <span class="bp">self</span></div>
-
+        <span class="k">return</span> <span class="bp">self</span>
     
-<div class="viewcode-block" id="Image.mask">
-<a class="viewcode-back" href="../modules/image.html#image.Image.mask">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">bands</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>     
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Mask image bands using condition array.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Mask image bands using condition array.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            condition (np.ndarray): Boolean mask array</span>
-<span class="sd">            bands (str|List[str]): Band(s) to apply mask to</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        condition : np.ndarray</span>
+<span class="sd">            Boolean mask array</span>
+<span class="sd">        bands : str or List[str], optional</span>
+<span class="sd">            Band(s) to apply mask to, by default None which applies to all bands</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">if</span> <span class="n">bands</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">bands</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">bands</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">condition</span><span class="p">,</span> <span class="n">dims</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">))</span> <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">condition</span><span class="p">,</span> <span class="n">dims</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">))</span> <span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span></div>
-
+        <span class="k">return</span> <span class="bp">self</span>
     
-<div class="viewcode-block" id="Image.geometry_mask">
-<a class="viewcode-back" href="../modules/image.html#image.Image.geometry_mask">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">geometry_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geometries</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">BaseGeometry</span><span class="p">],</span> <span class="n">mask_out</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>  <span class="n">bands</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Mask image using geometries.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Mask image using geometries.</span>
 
 <span class="sd">        Creates a binary mask from the input geometries and sets values to NaN either inside</span>
 <span class="sd">        or outside the geometries depending on the mask_out parameter.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            geometries (List[BaseGeometry]): List of geometries for masking. Values outside</span>
-<span class="sd">                these geometries will be set to NaN if mask_out is True.</span>
-<span class="sd">            mask_out (bool): If True mask outside geometries, if False mask inside. Defaults</span>
-<span class="sd">                to True.</span>
-<span class="sd">            bands (str|List[str]): Band(s) to apply mask to. If None, applies to all bands.</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        geometries : List[BaseGeometry]</span>
+<span class="sd">            List of geometries for masking</span>
+<span class="sd">        mask_out : bool, optional</span>
+<span class="sd">            If True mask outside geometries, if False mask inside, by default True</span>
+<span class="sd">        bands : str or List[str], optional</span>
+<span class="sd">            Band(s) to apply mask to, by default None which applies to all bands</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
 
-<span class="sd">        Example:</span>
-<span class="sd">            &gt;&gt;&gt; # If mask_out=True with this pattern (where 1=inside geometry, 0=outside):</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 1 0 0</span>
-<span class="sd">            &gt;&gt;&gt; # 0 1 1 1 0</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 1 0 0</span>
-<span class="sd">            &gt;&gt;&gt; # The result will be:</span>
-<span class="sd">            &gt;&gt;&gt; # N N 5 N N  (where N=NaN, 5=original value)</span>
-<span class="sd">            &gt;&gt;&gt; # N 3 4 2 N</span>
-<span class="sd">            &gt;&gt;&gt; # N N 1 N N</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # If mask_out=True with this pattern (where 1=inside geometry, 0=outside):</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 1 0 0</span>
+<span class="sd">        &gt;&gt;&gt; # 0 1 1 1 0</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 1 0 0</span>
+<span class="sd">        &gt;&gt;&gt; # The result will be:</span>
+<span class="sd">        &gt;&gt;&gt; # N N 5 N N  (where N=NaN, 5=original value)</span>
+<span class="sd">        &gt;&gt;&gt; # N 3 4 2 N</span>
+<span class="sd">        &gt;&gt;&gt; # N N 1 N N</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">condition</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">geometry_mask</span><span class="p">(</span><span class="n">geometries</span> <span class="o">=</span> <span class="n">geometries</span><span class="p">,</span> <span class="n">out_shape</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">),</span> 
                                                     <span class="n">transform</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span> <span class="n">invert</span> <span class="o">=</span> <span class="n">mask_out</span><span class="p">)</span>
             
         <span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">bands</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span></div>
+        <span class="k">return</span> <span class="bp">self</span>
 
-
-<div class="viewcode-block" id="Image.dropna">
-<a class="viewcode-back" href="../modules/image.html#image.Image.dropna">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">dropna</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove rows and columns that contain all NaN values only when adjacent rows/columns also contain all NaN values.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove rows and columns that contain all NaN values only when adjacent rows/columns also contain all NaN values.</span>
 <span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
 <span class="sd">        The method preserves rows/columns with all NaN values if they are between rows/columns containing valid values.</span>
 <span class="sd">        For example, if row 1 has values, row 2 is all NaN, and row 3 has values, row 2 will be preserved.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # If an image has this pattern (where 0=value, N=NaN):</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 N N N</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 N N N </span>
+<span class="sd">        &gt;&gt;&gt; # N N N N N  &lt;- This row will be dropped</span>
+<span class="sd">        &gt;&gt;&gt; # N N N N N  &lt;- This row will be dropped</span>
+<span class="sd">        &gt;&gt;&gt; # The rightmost 3 columns will also be dropped</span>
 
-<span class="sd">        Example:</span>
-<span class="sd">            &gt;&gt;&gt; # If an image has this pattern (where 0=value, N=NaN):</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 N N N</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 N N N </span>
-<span class="sd">            &gt;&gt;&gt; # N N N N N  &lt;- This row will be dropped</span>
-<span class="sd">            &gt;&gt;&gt; # N N N N N  &lt;- This row will be dropped</span>
-<span class="sd">            &gt;&gt;&gt; # The rightmost 3 columns will also be dropped</span>
-
-<span class="sd">        Example:</span>
-<span class="sd">            &gt;&gt;&gt; # If an image has this pattern (where 0=value, N=NaN):</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 N 0 N</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 N 0 N </span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 N 0 N</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 N 0 N</span>
-<span class="sd">            &gt;&gt;&gt; # Only the last column will be dropped</span>
+<span class="sd">        &gt;&gt;&gt; # If an image has this pattern (where 0=value, N=NaN):</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 N 0 N</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 N 0 N </span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 N 0 N</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 N 0 N</span>
+<span class="sd">        &gt;&gt;&gt; # Only the last column will be dropped</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">))</span>
@@ -853,32 +1094,39 @@ document.write(`
             
         <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__find_empty_borders</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">({</span><span class="s1">&#39;y&#39;</span> <span class="p">:</span> <span class="n">rows</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span> <span class="p">:</span> <span class="n">cols</span><span class="p">})</span>
-        <span class="k">return</span> <span class="bp">self</span></div>
-
+        <span class="k">return</span> <span class="bp">self</span>
     
     <span class="k">def</span><span class="w"> </span><span class="nf">__find_empty_borders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find non-empty row and column ranges in a binary array.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find non-empty row and column ranges in a binary array.</span>
 
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        array : np.ndarray</span>
+<span class="sd">            Binary array where True/non-zero values indicate data to keep</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Tuple[np.ndarray, np.ndarray]</span>
+<span class="sd">            Two arrays containing:</span>
+<span class="sd">            - Row indices spanning first to last non-empty rows</span>
+<span class="sd">            - Column indices spanning first to last non-empty columns</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
 <span class="sd">        Finds the minimum spanning range of rows and columns that contain non-zero values.</span>
 <span class="sd">        Used internally by clip() and dropna() methods to trim image extents.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            array (np.ndarray): Binary array where True/non-zero values indicate data to keep</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Tuple[np.ndarray, np.ndarray]: Two arrays containing:</span>
-<span class="sd">                - Row indices spanning first to last non-empty rows</span>
-<span class="sd">                - Column indices spanning first to last non-empty columns</span>
-
-<span class="sd">        Example:</span>
-<span class="sd">            &gt;&gt;&gt; # For input array:</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 0 0 0</span>
-<span class="sd">            &gt;&gt;&gt; # 0 1 1 0 0</span>
-<span class="sd">            &gt;&gt;&gt; # 0 1 1 0 0</span>
-<span class="sd">            &gt;&gt;&gt; # 0 0 0 0 0</span>
-<span class="sd">            &gt;&gt;&gt; rows, cols = __find_empty_borders(array)</span>
-<span class="sd">            &gt;&gt;&gt; # rows = [1, 2]  # Indices of rows with data</span>
-<span class="sd">            &gt;&gt;&gt; # cols = [1, 2]  # Indices of columns with data</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # For input array:</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 0 0 0</span>
+<span class="sd">        &gt;&gt;&gt; # 0 1 1 0 0</span>
+<span class="sd">        &gt;&gt;&gt; # 0 1 1 0 0</span>
+<span class="sd">        &gt;&gt;&gt; # 0 0 0 0 0</span>
+<span class="sd">        &gt;&gt;&gt; rows, cols = __find_empty_borders(array)</span>
+<span class="sd">        &gt;&gt;&gt; # rows = [1, 2]  # Indices of rows with data</span>
+<span class="sd">        &gt;&gt;&gt; # cols = [1, 2]  # Indices of columns with data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
@@ -890,17 +1138,21 @@ document.write(`
         <span class="k">return</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span>
     
 
-<div class="viewcode-block" id="Image.select">
-<a class="viewcode-back" href="../modules/image.html#image.Image.select">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">only_values</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Select specific bands from the image.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Select specific bands from the image.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            bands (str|List[str]): Band(s) to select</span>
-<span class="sd">            only_values (bool): If True return array of values, if False return DataArray</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        bands : str or List[str]</span>
+<span class="sd">            Band(s) to select</span>
+<span class="sd">        only_values : bool, optional</span>
+<span class="sd">            If True return array of values, if False return DataArray, by default True</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            np.ndarray|xr.DataArray: Selected band data</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray or xr.DataArray</span>
+<span class="sd">            Selected band data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
@@ -913,30 +1165,30 @@ document.write(`
         <span class="k">else</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">bands</span><span class="p">])</span>
     
-        <span class="k">return</span> <span class="n">result</span></div>
-
+        <span class="k">return</span> <span class="n">result</span>
     
-<div class="viewcode-block" id="Image.add_band">
-<a class="viewcode-back" href="../modules/image.html#image.Image.add_band">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">add_band</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">band_name</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a new band to the image or update an existing band.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a new band to the image or update an existing band.</span>
 
-<span class="sd">        Adds a new band with the specified name and data to the image. If a band with the</span>
-<span class="sd">        given name already exists, its data will be updated with the new values.</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        band_name : str</span>
+<span class="sd">            Name of the band to add or update</span>
+<span class="sd">        data : np.ndarray or xr.DataArray</span>
+<span class="sd">            Band data to add. Must match the spatial dimensions of existing bands</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            band_name (str): Name of the band to add or update</span>
-<span class="sd">            data (np.ndarray|xr.DataArray): Band data to add. Must match the spatial </span>
-<span class="sd">                dimensions of existing bands</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
-
-<span class="sd">        Example:</span>
-<span class="sd">            &gt;&gt;&gt; # Add new band</span>
-<span class="sd">            &gt;&gt;&gt; image.add_band(&#39;ndvi&#39;, ndvi_data)</span>
-<span class="sd">            &gt;&gt;&gt; # Update existing band</span>
-<span class="sd">            &gt;&gt;&gt; image.add_band(&#39;blue&#39;, new_blue_data)</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Add new band</span>
+<span class="sd">        &gt;&gt;&gt; image.add_band(&#39;ndvi&#39;, ndvi_data)</span>
+<span class="sd">        &gt;&gt;&gt; # Update existing band</span>
+<span class="sd">        &gt;&gt;&gt; image.add_band(&#39;blue&#39;, new_blue_data)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
@@ -946,59 +1198,122 @@ document.write(`
                 <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">band_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">data</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">band_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
-        <span class="k">return</span> <span class="bp">self</span></div>
-
+        <span class="k">return</span> <span class="bp">self</span>
     
-<div class="viewcode-block" id="Image.drop_bands">
-<a class="viewcode-back" href="../modules/image.html#image.Image.drop_bands">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">drop_bands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove specified bands from the image.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove specified bands from the image.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            bands (str|List[str]): Band(s) to remove</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        bands : str or List[str]</span>
+<span class="sd">            Band(s) to remove</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Self: Returns the Image object for method chaining</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Self</span>
+<span class="sd">            Returns the Image object for method chaining</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span></div>
+        <span class="k">return</span> <span class="bp">self</span>
 
 
-
-<div class="viewcode-block" id="Image.normalized_diference">
-<a class="viewcode-back" href="../modules/image.html#image.Image.normalized_diference">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">normalized_diference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">band1</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">band2</span> <span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate normalized difference between two bands.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            band1 (str): First band name</span>
-<span class="sd">            band2 (str): Second band name</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            np.ndarray: Normalized difference values</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">normalized_diference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">band1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">band2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate normalized difference between two bands.</span>
+<span class="sd">        </span>
+<span class="sd">        Computes the normalized difference index between two bands using the formula:</span>
+<span class="sd">        (band1 - band2) / (band1 + band2)</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        band1 : str</span>
+<span class="sd">            Name of the first band in the calculation (numerator)</span>
+<span class="sd">        band2 : str</span>
+<span class="sd">            Name of the second band in the calculation (denominator)</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            2D array containing the normalized difference values ranging from -1 to 1.</span>
+<span class="sd">            Areas where both bands have zero values will result in NaN values.</span>
+<span class="sd">        </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This is a common operation in remote sensing used to create various spectral indices</span>
+<span class="sd">        such as NDVI (Normalized Difference Vegetation Index), NDWI (Normalized Difference</span>
+<span class="sd">        Water Index), etc.</span>
+<span class="sd">        </span>
+<span class="sd">        Values outside the -1 to 1 range can occur if negative values are present</span>
+<span class="sd">        in the input bands.</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Calculate NDVI using NIR and Red bands</span>
+<span class="sd">        &gt;&gt;&gt; ndvi = image.normalized_diference(&#39;nir&#39;, &#39;red&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; image.add_band(&#39;ndvi&#39;, ndvi)</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Calculate NDWI using Green and NIR bands</span>
+<span class="sd">        &gt;&gt;&gt; ndwi = image.normalized_diference(&#39;green&#39;, &#39;nir&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; image.add_band(&#39;ndwi&#39;, ndwi)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">b1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">band1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">b2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">band2</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         
-        <span class="k">return</span> <span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="n">b2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="n">b2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span><span class="p">)</span>
 
 
-
-<div class="viewcode-block" id="Image.extract_values">
-<a class="viewcode-back" href="../modules/image.html#image.Image.extract_values">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">extract_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xs</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">ys</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">bands</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_1D</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract values at specified coordinates.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            xs (np.ndarray): X coordinates</span>
-<span class="sd">            ys (np.ndarray): Y coordinates</span>
-<span class="sd">            bands (List[str]): Bands to extract from</span>
-<span class="sd">            is_1D (bool): If True treat coordinates as 1D arrays</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            np.ndarray: Extracted values</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">extract_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">ys</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">bands</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_1D</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract values at specified coordinates from the image.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        xs : np.ndarray</span>
+<span class="sd">            X coordinates (longitude/easting) in the image&#39;s CRS</span>
+<span class="sd">        ys : np.ndarray</span>
+<span class="sd">            Y coordinates (latitude/northing) in the image&#39;s CRS</span>
+<span class="sd">        bands : List[str], optional</span>
+<span class="sd">            List of band names to extract values from.</span>
+<span class="sd">            If None, extracts from all bands, by default None</span>
+<span class="sd">        is_1D : bool, optional</span>
+<span class="sd">            If True, treats xs and ys as paired 1D arrays of points.</span>
+<span class="sd">            If False, treats xs and ys as meshgrid arrays, by default False</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            Array of extracted values with shape:</span>
+<span class="sd">            - If is_1D=True: (n_bands, n_points)</span>
+<span class="sd">            - If is_1D=False: (n_bands, xs.shape[0], xs.shape[1])</span>
+<span class="sd">        </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This method uses xarray&#39;s &#39;nearest&#39; method for coordinate selection, which</span>
+<span class="sd">        finds the closest pixel to each requested coordinate.</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Extract values at specific points</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; from rasterio.transform import xy</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Create sample points (e.g., along a transect)</span>
+<span class="sd">        &gt;&gt;&gt; row_indices = np.array([100, 120, 140, 160, 180])</span>
+<span class="sd">        &gt;&gt;&gt; col_indices = np.array([200, 210, 220, 230, 240])</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Convert pixel coordinates to CRS coordinates</span>
+<span class="sd">        &gt;&gt;&gt; xs, ys = xy(image.transform, row_indices, col_indices)</span>
+<span class="sd">        &gt;&gt;&gt; xs = np.array(xs)</span>
+<span class="sd">        &gt;&gt;&gt; ys = np.array(ys)</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Extract values from &#39;red&#39; and &#39;nir&#39; bands</span>
+<span class="sd">        &gt;&gt;&gt; values = image.extract_values(xs, ys, bands=[&#39;red&#39;, &#39;nir&#39;], is_1D=True)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Shape of extracted values: {values.shape}&quot;)  # (2, 5)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Red values: {values[0]}&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;NIR values: {values[1]}&quot;)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">bands</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">band_names</span> <span class="k">if</span> <span class="n">bands</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">bands</span>
@@ -1008,22 +1323,27 @@ document.write(`
         <span class="k">if</span> <span class="n">xs</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="n">ys</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">and</span> <span class="n">is_1D</span><span class="p">:</span>
             <span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">))]</span>
             
-        <span class="k">return</span> <span class="n">values</span></div>
+        <span class="k">return</span> <span class="n">values</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">interval_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">band</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">intervals</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">replace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Choose random values from intervals in specified band.</span>
 
-<div class="viewcode-block" id="Image.interval_choice">
-<a class="viewcode-back" href="../modules/image.html#image.Image.interval_choice">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">interval_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">band</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">size</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">intervals</span> <span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">replace</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Choose random values from intervals in specified band.</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        band : str</span>
+<span class="sd">            Band to sample from</span>
+<span class="sd">        size : int</span>
+<span class="sd">            Number of samples</span>
+<span class="sd">        intervals : Iterable</span>
+<span class="sd">            Value intervals to sample from</span>
+<span class="sd">        replace : bool, optional</span>
+<span class="sd">            Sample with replacement if True, by default True</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            band (str): Band to sample from</span>
-<span class="sd">            size (int): Number of samples</span>
-<span class="sd">            intervals (Iterable): Value intervals to sample from</span>
-<span class="sd">            replace (bool): Sample with replacement if True</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            np.ndarray: Selected values</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            Selected values</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -1031,22 +1351,27 @@ document.write(`
 
 
         <span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">band</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>        
-        <span class="k">return</span> <span class="n">selector</span><span class="o">.</span><span class="n">interval_choice</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">intervals</span><span class="p">,</span> <span class="n">replace</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">selector</span><span class="o">.</span><span class="n">interval_choice</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">intervals</span><span class="p">,</span> <span class="n">replace</span><span class="p">)</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">arginterval_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">band</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">intervals</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">replace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Choose random indices from intervals in specified band.</span>
 
-<div class="viewcode-block" id="Image.arginterval_choice">
-<a class="viewcode-back" href="../modules/image.html#image.Image.arginterval_choice">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">arginterval_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">band</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">size</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">intervals</span> <span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">replace</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Choose random indices from intervals in specified band.</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        band : str</span>
+<span class="sd">            Band to sample from</span>
+<span class="sd">        size : int</span>
+<span class="sd">            Number of samples</span>
+<span class="sd">        intervals : Iterable</span>
+<span class="sd">            Value intervals to sample from</span>
+<span class="sd">        replace : bool, optional</span>
+<span class="sd">            Sample with replacement if True, by default True</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            band (str): Band to sample from</span>
-<span class="sd">            size (int): Number of samples</span>
-<span class="sd">            intervals (Iterable): Value intervals to sample from</span>
-<span class="sd">            replace (bool): Sample with replacement if True</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            np.ndarray: Selected indices</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            Selected indices</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -1054,55 +1379,59 @@ document.write(`
 
 
         <span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">band</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>        
-        <span class="k">return</span> <span class="n">selector</span><span class="o">.</span><span class="n">arginterval_choice</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">intervals</span><span class="p">,</span> <span class="n">replace</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">selector</span><span class="o">.</span><span class="n">arginterval_choice</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">intervals</span><span class="p">,</span> <span class="n">replace</span><span class="p">)</span>
 
 
-
-<div class="viewcode-block" id="Image.empty_like">
-<a class="viewcode-back" href="../modules/image.html#image.Image.empty_like">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">empty_like</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create empty image with same metadata and coordinates.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create empty image with same metadata and coordinates.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Image: New empty image</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Image</span>
+<span class="sd">            New empty image</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">result</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">),</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">))</span>
         <span class="n">result</span><span class="o">.</span><span class="n">drop_bands</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">band_names</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span></div>
-
+        <span class="k">return</span> <span class="n">result</span>
     
-<div class="viewcode-block" id="Image.copy">
-<a class="viewcode-back" href="../modules/image.html#image.Image.copy">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a deep copy of the image.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a deep copy of the image.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Image</span>
+<span class="sd">            Deep copy of the image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
-
+        <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     
 
-<div class="viewcode-block" id="Image.to_netcdf">
-<a class="viewcode-back" href="../modules/image.html#image.Image.to_netcdf">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">to_netcdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save image to NetCDF file.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save image to NetCDF file.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            filename (str): Output filename</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            Output filename</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;proj4_string&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">to_proj4</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;crs_wkt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">to_wkt</span><span class="p">()</span>
         
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
-
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     
-<div class="viewcode-block" id="Image.to_tif">
-<a class="viewcode-back" href="../modules/image.html#image.Image.to_tif">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">to_tif</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save image to GeoTIFF file.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save image to GeoTIFF file.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            filename (str): Output filename</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            Output filename</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
@@ -1123,8 +1452,7 @@ document.write(`
             <span class="c1"># Write each band</span>
             <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">band_name</span><span class="p">,</span> <span class="n">band_data</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">data_vars</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
                 <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">band_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
-                <span class="n">dst</span><span class="o">.</span><span class="n">set_band_description</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">band_name</span><span class="p">)</span></div>
-
+                <span class="n">dst</span><span class="o">.</span><span class="n">set_band_description</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">band_name</span><span class="p">)</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
