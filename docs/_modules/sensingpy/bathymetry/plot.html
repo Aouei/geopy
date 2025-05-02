@@ -162,6 +162,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../modules/image.html">Image Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../modules/generated/sensingpy.image.Image.html">sensingpy.image.Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/generated/sensingpy.image.compose.html">sensingpy.image.compose</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../modules/reader.html">Reader Module</a></li>
@@ -356,7 +357,26 @@ document.write(`
 <div class="viewcode-block" id="CalibrationPlot">
 <a class="viewcode-back" href="../../../modules/generated/sensingpy.bathymetry.plot.CalibrationPlot.html#sensingpy.bathymetry.plot.CalibrationPlot">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">CalibrationPlot</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class to plot Bathymetry calibration&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for creating standardized bathymetry calibration plots.</span>
+<span class="sd">    </span>
+<span class="sd">    This class provides methods for plotting calibration data for satellite-derived</span>
+<span class="sd">    bathymetry models, including regression lines, scatterplots, and statistics.</span>
+<span class="sd">    It handles consistent styling and formatting across plots.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    title_font_size : int, optional</span>
+<span class="sd">        Font size for plot titles, by default 30</span>
+<span class="sd">    label_font_size : int, optional</span>
+<span class="sd">        Font size for axis labels, by default 20</span>
+<span class="sd">    tick_font_size : int, optional</span>
+<span class="sd">        Font size for axis ticks, by default 15</span>
+<span class="sd">    legend_font_size : int, optional</span>
+<span class="sd">        Font size for legend text, by default 20</span>
+<span class="sd">    font_family : str, optional</span>
+<span class="sd">        Font family for all text elements, by default &#39;Times New Roman&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="CalibrationPlot.__init__">
 <a class="viewcode-back" href="../../../modules/generated/sensingpy.bathymetry.plot.CalibrationPlot.html#sensingpy.bathymetry.plot.CalibrationPlot.__init__">[docs]</a>
@@ -373,18 +393,34 @@ document.write(`
         
 <div class="viewcode-block" id="CalibrationPlot.add_calibration_scatter">
 <a class="viewcode-back" href="../../../modules/bathymetry.plot.html#sensingpy.bathymetry.plot.CalibrationPlot.add_calibration_scatter">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">add_calibration_scatter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span> <span class="p">:</span> <span class="n">LinearModel</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">ax</span> <span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">c</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Axes</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;plots regression data</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            model (LinearModel): model with params.</span>
-<span class="sd">            x (np.ndarray): x-axis values.</span>
-<span class="sd">            y (np.ndarray): y-axis values.</span>
-<span class="sd">            ax (Axes): axes where plot.</span>
-<span class="sd">            c (str, optional): color. Defaults to &#39;g&#39;.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Axes: axes with data plot.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_calibration_scatter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">LinearModel</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Axes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plot regression data with model fit line and statistics.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model : LinearModel</span>
+<span class="sd">            Calibrated linear model with slope, intercept and R² values</span>
+<span class="sd">        x : np.ndarray</span>
+<span class="sd">            x-axis values (predictor variables)</span>
+<span class="sd">        y : np.ndarray</span>
+<span class="sd">            y-axis values (observed depths)</span>
+<span class="sd">        ax : Axes</span>
+<span class="sd">            Matplotlib axes on which to plot</span>
+<span class="sd">        c : str, optional</span>
+<span class="sd">            Color for scatter points, by default &#39;g&#39;</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments passed to scatter()</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Axes</span>
+<span class="sd">            Matplotlib axes with plotted data</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The plot includes the best-fit line, R² value, linear equation,</span>
+<span class="sd">        and sample size in the legend.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tick_font_size</span><span class="p">)</span>
@@ -403,8 +439,25 @@ document.write(`
 
 <div class="viewcode-block" id="CalibrationPlot.add_legend">
 <a class="viewcode-back" href="../../../modules/bathymetry.plot.html#sensingpy.bathymetry.plot.CalibrationPlot.add_legend">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">add_legend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span> <span class="p">:</span> <span class="n">Axes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Axes</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;adds legend to axes&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_legend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">Axes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Axes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add formatted legend to axes.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ax : Axes</span>
+<span class="sd">            Matplotlib axes to which legend will be added</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Axes</span>
+<span class="sd">            Matplotlib axes with legend</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The legend is formatted according to the font settings specified</span>
+<span class="sd">        during class initialization, with handles hidden.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">handlelength</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">handletextpad</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> 
                            <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">legend_font_size</span><span class="p">,</span> <span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">font_family</span><span class="p">})</span>
@@ -416,8 +469,31 @@ document.write(`
     
 <div class="viewcode-block" id="CalibrationPlot.add_labels">
 <a class="viewcode-back" href="../../../modules/bathymetry.plot.html#sensingpy.bathymetry.plot.CalibrationPlot.add_labels">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">add_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span> <span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">title</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">xlabel</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ylabel</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Axes</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds labesl to axes&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Axes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add formatted title and axis labels to plot.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ax : Axes</span>
+<span class="sd">            Matplotlib axes to which labels will be added</span>
+<span class="sd">        title : str, optional</span>
+<span class="sd">            Plot title, by default None</span>
+<span class="sd">        xlabel : str, optional</span>
+<span class="sd">            x-axis label, by default None</span>
+<span class="sd">        ylabel : str, optional</span>
+<span class="sd">            y-axis label, by default None</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Axes</span>
+<span class="sd">            Matplotlib axes with labels</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Labels are formatted according to the font settings specified</span>
+<span class="sd">        during class initialization.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">title_font_size</span><span class="p">,</span> <span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">font_family</span><span class="p">})</span>
@@ -434,7 +510,26 @@ document.write(`
 <div class="viewcode-block" id="ValidationPlot">
 <a class="viewcode-back" href="../../../modules/generated/sensingpy.bathymetry.plot.ValidationPlot.html#sensingpy.bathymetry.plot.ValidationPlot">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ValidationPlot</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class to plot the perfomance of bathymetry model&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for creating standardized bathymetry validation plots.</span>
+<span class="sd">    </span>
+<span class="sd">    This class provides methods for visualizing and evaluating the performance</span>
+<span class="sd">    of satellite-derived bathymetry models, including density scatter plots</span>
+<span class="sd">    and error histograms with statistical metrics.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    title_font_size : int, optional</span>
+<span class="sd">        Font size for plot titles, by default 30</span>
+<span class="sd">    label_font_size : int, optional</span>
+<span class="sd">        Font size for axis labels, by default 20</span>
+<span class="sd">    tick_font_size : int, optional</span>
+<span class="sd">        Font size for axis ticks, by default 15</span>
+<span class="sd">    legend_font_size : int, optional</span>
+<span class="sd">        Font size for legend text, by default 20</span>
+<span class="sd">    font_family : str, optional</span>
+<span class="sd">        Font family for all text elements, by default &#39;Times New Roman&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="ValidationPlot.__init__">
 <a class="viewcode-back" href="../../../modules/generated/sensingpy.bathymetry.plot.ValidationPlot.html#sensingpy.bathymetry.plot.ValidationPlot.__init__">[docs]</a>
@@ -451,21 +546,40 @@ document.write(`
 
 <div class="viewcode-block" id="ValidationPlot.add_densed_scatter">
 <a class="viewcode-back" href="../../../modules/bathymetry.plot.html#sensingpy.bathymetry.plot.ValidationPlot.add_densed_scatter">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">add_densed_scatter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary</span> <span class="p">:</span> <span class="n">ValidationSummary</span><span class="p">,</span> <span class="n">ax</span> <span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">s</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">cmap</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;viridis_r&#39;</span><span class="p">,</span> 
-                           <span class="n">vmin</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">density</span> <span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Axes</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Plots a scatter with the density of each dot.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            summary (ValidationSummary): Validation object with error metrics.</span>
-<span class="sd">            ax (Axes): axes to plot data.</span>
-<span class="sd">            s (float, optional): dot size. Defaults to 5.</span>
-<span class="sd">            cmap (str, optional): colormap. Defaults to &#39;viridis_r&#39;.</span>
-<span class="sd">            vmin (float, optional): min value of colormap. Defaults to None.</span>
-<span class="sd">            vmax (float, optional): max value of colormap. Defaults to None.</span>
-<span class="sd">            density (Mapping[str, Any], optional): density settings. Defaults to None.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Tuple[Axes, Any]: axes with data plot and mappable for colorbar.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_densed_scatter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary</span><span class="p">:</span> <span class="n">ValidationSummary</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
+                          <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;viridis_r&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                          <span class="n">density</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Axes</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a density-colored scatter plot comparing modeled vs. in-situ depths.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        summary : ValidationSummary</span>
+<span class="sd">            Validation summary object containing model predictions and ground truth</span>
+<span class="sd">        ax : Axes</span>
+<span class="sd">            Matplotlib axes on which to plot</span>
+<span class="sd">        s : float, optional</span>
+<span class="sd">            Point size for scatter plot, by default 5</span>
+<span class="sd">        cmap : str, optional</span>
+<span class="sd">            Matplotlib colormap for density representation, by default &#39;viridis_r&#39;</span>
+<span class="sd">        vmin : float, optional</span>
+<span class="sd">            Minimum value for colormap normalization, by default None</span>
+<span class="sd">        vmax : float, optional</span>
+<span class="sd">            Maximum value for colormap normalization, by default None</span>
+<span class="sd">        density : Mapping[str, Any], optional</span>
+<span class="sd">            Settings for density calculation, by default None.</span>
+<span class="sd">            Format: {&#39;method&#39;: &#39;precise&#39;|&#39;approximate&#39;, &#39;bins&#39;: int}</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Tuple[Axes, Any]</span>
+<span class="sd">            Matplotlib axes with plot and the colorbar mappable object</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Point color represents data density, helping visualize the distribution</span>
+<span class="sd">        of points in crowded scatter plots. A 1:1 line is added to show perfect</span>
+<span class="sd">        agreement between model and observations.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__select_density_method</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">density</span><span class="p">)</span>
@@ -484,18 +598,32 @@ document.write(`
         <span class="k">return</span> <span class="n">ax</span><span class="p">,</span> <span class="n">colorbar</span></div>
 
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">__select_density_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary</span> <span class="p">:</span> <span class="n">ValidationSummary</span><span class="p">,</span> <span class="n">density</span> <span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates the density of the scatterplot based con density argument.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            summary (ValidationSummary): Validation object with error metrics.</span>
-<span class="sd">            density (Mapping[str, Any]): density settings. Defaults to None.</span>
-
-<span class="sd">        Raises:</span>
-<span class="sd">            ValueError: error if density method is Unknown.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Tuple[np.ndarray, np.ndarray, np.ndarray, Any]: x/y-axes values for each dot with density and norm.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__select_density_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary</span><span class="p">:</span> <span class="n">ValidationSummary</span><span class="p">,</span> <span class="n">density</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Select and apply appropriate density calculation method.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        summary : ValidationSummary</span>
+<span class="sd">            Validation summary object containing model predictions and ground truth</span>
+<span class="sd">        density : Mapping[str, Any]</span>
+<span class="sd">            Settings for density calculation</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Tuple[np.ndarray, np.ndarray, np.ndarray, Any]</span>
+<span class="sd">            x-values, y-values, density values, and colormap normalization</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If an unknown density method is specified</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Two density calculation methods are supported:</span>
+<span class="sd">        - &#39;precise&#39;: Uses Gaussian KDE for accurate but slower density estimation</span>
+<span class="sd">        - &#39;approximate&#39;: Uses 2D histogram and interpolation for faster but less accurate results</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">density</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -512,17 +640,34 @@ document.write(`
     
 <div class="viewcode-block" id="ValidationPlot.add_residuals">
 <a class="viewcode-back" href="../../../modules/bathymetry.plot.html#sensingpy.bathymetry.plot.ValidationPlot.add_residuals">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">add_residuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary</span> <span class="p">:</span> <span class="n">ValidationSummary</span><span class="p">,</span> <span class="n">ax</span> <span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">x_lim</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">metrics</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">hist_kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Axes</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;adds an histogram with the error of a bathymetry model.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            summary (ValidationSummary): Validation object with error metrics.</span>
-<span class="sd">            ax (Axes): axes to plot data.</span>
-<span class="sd">            x_lim (int, optional): x-axis symetric limit for histogram. Defaults to 5.</span>
-<span class="sd">            metrics (List[str], optional): list of metrics to add as a legend. Defaults to None.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Axes: axes with data plotted</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_residuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary</span><span class="p">:</span> <span class="n">ValidationSummary</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">x_lim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
+                     <span class="n">metrics</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">hist_kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Axes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a histogram of model residuals with statistical metrics.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        summary : ValidationSummary</span>
+<span class="sd">            Validation summary object containing error statistics</span>
+<span class="sd">        ax : Axes</span>
+<span class="sd">            Matplotlib axes on which to plot</span>
+<span class="sd">        x_lim : int, optional</span>
+<span class="sd">            Symmetric x-axis limit for histogram, by default 5</span>
+<span class="sd">        metrics : List[str], optional</span>
+<span class="sd">            List of metric names to display in legend, by default None</span>
+<span class="sd">        **hist_kwargs</span>
+<span class="sd">            Additional keyword arguments passed to seaborn&#39;s histplot()</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Axes</span>
+<span class="sd">            Matplotlib axes with plotted histogram</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The histogram shows the distribution of residual errors (in-situ minus </span>
+<span class="sd">        model predictions), with a kernel density estimate overlay. Statistical</span>
+<span class="sd">        metrics are shown in a text box on the plot.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">metrics</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -546,8 +691,31 @@ document.write(`
     
 <div class="viewcode-block" id="ValidationPlot.add_labels">
 <a class="viewcode-back" href="../../../modules/bathymetry.plot.html#sensingpy.bathymetry.plot.ValidationPlot.add_labels">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">add_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span> <span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">title</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">xlabel</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ylabel</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Axes</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds labesl to axes&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Axes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add formatted title and axis labels to plot.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ax : Axes</span>
+<span class="sd">            Matplotlib axes to which labels will be added</span>
+<span class="sd">        title : str, optional</span>
+<span class="sd">            Plot title, by default None</span>
+<span class="sd">        xlabel : str, optional</span>
+<span class="sd">            x-axis label, by default None</span>
+<span class="sd">        ylabel : str, optional</span>
+<span class="sd">            y-axis label, by default None</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Axes</span>
+<span class="sd">            Matplotlib axes with labels</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Labels are formatted according to the font settings specified</span>
+<span class="sd">        during class initialization.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">title_font_size</span><span class="p">,</span> <span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">font_family</span><span class="p">})</span>
@@ -559,8 +727,28 @@ document.write(`
         <span class="k">return</span> <span class="n">ax</span></div>
 
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">__get_precise_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method for estimating the Gaussian density of each point in an accurate manner&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__get_precise_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate accurate point density using Gaussian kernel density estimation.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : np.ndarray</span>
+<span class="sd">            x-coordinates (in-situ depth values)</span>
+<span class="sd">        y : np.ndarray</span>
+<span class="sd">            y-coordinates (modeled depth values)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Tuple[np.ndarray, np.ndarray, np.ndarray, Any]</span>
+<span class="sd">            x-values, y-values, density values, and colormap normalization</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This method uses scipy&#39;s gaussian_kde for accurate kernel density</span>
+<span class="sd">        estimation. It provides smooth density estimates but can be computationally</span>
+<span class="sd">        intensive for large datasets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
         <span class="n">density</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">xy</span><span class="p">)(</span><span class="n">xy</span><span class="p">)</span>
@@ -572,8 +760,30 @@ document.write(`
         <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="n">norm</span>
 
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">__get_approximate_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">bins</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method for estimating the Gaussian density of each point in an approximate but rapid manner&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__get_approximate_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate approximate point density using 2D histogram and interpolation.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : np.ndarray</span>
+<span class="sd">            x-coordinates (in-situ depth values)</span>
+<span class="sd">        y : np.ndarray</span>
+<span class="sd">            y-coordinates (modeled depth values)</span>
+<span class="sd">        bins : int</span>
+<span class="sd">            Number of bins for the 2D histogram</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Tuple[np.ndarray, np.ndarray, np.ndarray, Any]</span>
+<span class="sd">            x-values, y-values, density values, and colormap normalization</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This method uses numpy&#39;s histogram2d and scipy&#39;s interpn for faster but</span>
+<span class="sd">        less accurate density estimation. It&#39;s more suitable for large datasets</span>
+<span class="sd">        where performance is a concern.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">data</span> <span class="p">,</span> <span class="n">x_e</span><span class="p">,</span> <span class="n">y_e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
         <span class="n">density</span> <span class="o">=</span> <span class="n">interpn</span><span class="p">(</span> <span class="p">(</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x_e</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">x_e</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">y_e</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">y_e</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="p">)</span> <span class="p">,</span> <span class="n">data</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;splinef2d&quot;</span><span class="p">,</span> <span class="n">bounds_error</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>

@@ -163,6 +163,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../image.html">Image Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="sensingpy.image.Image.html">sensingpy.image.Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensingpy.image.compose.html">sensingpy.image.compose</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../reader.html">Reader Module</a></li>
@@ -404,7 +405,21 @@ document.write(`
 <dl class="py class">
 <dt class="sig sig-object py" id="sensingpy.bathymetry.plot.ValidationPlot">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sensingpy.bathymetry.plot.</span></span><span class="sig-name descname"><span class="pre">ValidationPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_family</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Times</span> <span class="pre">New</span> <span class="pre">Roman'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensingpy/bathymetry/plot.html#ValidationPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.bathymetry.plot.ValidationPlot" title="Link to this definition">#</a></dt>
-<dd><p>Class to plot the perfomance of bathymetry model</p>
+<dd><p>Class for creating standardized bathymetry validation plots.</p>
+<p>This class provides methods for visualizing and evaluating the performance
+of satellite-derived bathymetry models, including density scatter plots
+and error histograms with statistical metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title_font_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Font size for plot titles, by default 30</p></li>
+<li><p><strong>label_font_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Font size for axis labels, by default 20</p></li>
+<li><p><strong>tick_font_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Font size for axis ticks, by default 15</p></li>
+<li><p><strong>legend_font_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Font size for legend text, by default 20</p></li>
+<li><p><strong>font_family</strong> (<em>str</em><em>, </em><em>optional</em>) – Font family for all text elements, by default ‘Times New Roman’</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="sensingpy.bathymetry.plot.ValidationPlot.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_family</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Times</span> <span class="pre">New</span> <span class="pre">Roman'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensingpy/bathymetry/plot.html#ValidationPlot.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.bathymetry.plot.ValidationPlot.__init__" title="Link to this definition">#</a></dt>
@@ -418,13 +433,13 @@ document.write(`
 <td><p>Constructor with the size of the texts</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../bathymetry.plot.html#sensingpy.bathymetry.plot.ValidationPlot.add_densed_scatter" title="sensingpy.bathymetry.plot.ValidationPlot.add_densed_scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_densed_scatter</span></code></a>(summary, ax[, s, cmap, ...])</p></td>
-<td><p>Plots a scatter with the density of each dot.</p></td>
+<td><p>Create a density-colored scatter plot comparing modeled vs.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../bathymetry.plot.html#sensingpy.bathymetry.plot.ValidationPlot.add_labels" title="sensingpy.bathymetry.plot.ValidationPlot.add_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_labels</span></code></a>(ax[, title, xlabel, ylabel])</p></td>
-<td><p>Adds labesl to axes</p></td>
+<td><p>Add formatted title and axis labels to plot.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../bathymetry.plot.html#sensingpy.bathymetry.plot.ValidationPlot.add_residuals" title="sensingpy.bathymetry.plot.ValidationPlot.add_residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_residuals</span></code></a>(summary, ax[, x_lim, metrics])</p></td>
-<td><p>adds an histogram with the error of a bathymetry model.</p></td>
+<td><p>Create a histogram of model residuals with statistical metrics.</p></td>
 </tr>
 </tbody>
 </table>

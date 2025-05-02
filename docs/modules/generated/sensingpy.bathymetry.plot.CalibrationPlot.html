@@ -163,6 +163,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../image.html">Image Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="sensingpy.image.Image.html">sensingpy.image.Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensingpy.image.compose.html">sensingpy.image.compose</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../reader.html">Reader Module</a></li>
@@ -404,7 +405,21 @@ document.write(`
 <dl class="py class">
 <dt class="sig sig-object py" id="sensingpy.bathymetry.plot.CalibrationPlot">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sensingpy.bathymetry.plot.</span></span><span class="sig-name descname"><span class="pre">CalibrationPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_family</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Times</span> <span class="pre">New</span> <span class="pre">Roman'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensingpy/bathymetry/plot.html#CalibrationPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.bathymetry.plot.CalibrationPlot" title="Link to this definition">#</a></dt>
-<dd><p>Class to plot Bathymetry calibration</p>
+<dd><p>Class for creating standardized bathymetry calibration plots.</p>
+<p>This class provides methods for plotting calibration data for satellite-derived
+bathymetry models, including regression lines, scatterplots, and statistics.
+It handles consistent styling and formatting across plots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title_font_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Font size for plot titles, by default 30</p></li>
+<li><p><strong>label_font_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Font size for axis labels, by default 20</p></li>
+<li><p><strong>tick_font_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Font size for axis ticks, by default 15</p></li>
+<li><p><strong>legend_font_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Font size for legend text, by default 20</p></li>
+<li><p><strong>font_family</strong> (<em>str</em><em>, </em><em>optional</em>) – Font family for all text elements, by default ‘Times New Roman’</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="sensingpy.bathymetry.plot.CalibrationPlot.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_family</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Times</span> <span class="pre">New</span> <span class="pre">Roman'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sensingpy/bathymetry/plot.html#CalibrationPlot.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.bathymetry.plot.CalibrationPlot.__init__" title="Link to this definition">#</a></dt>
@@ -418,13 +433,13 @@ document.write(`
 <td><p>Constructor with the size of the texts</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../bathymetry.plot.html#sensingpy.bathymetry.plot.CalibrationPlot.add_calibration_scatter" title="sensingpy.bathymetry.plot.CalibrationPlot.add_calibration_scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_calibration_scatter</span></code></a>(model, x, y, ax[, c])</p></td>
-<td><p>plots regression data</p></td>
+<td><p>Plot regression data with model fit line and statistics.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../bathymetry.plot.html#sensingpy.bathymetry.plot.CalibrationPlot.add_labels" title="sensingpy.bathymetry.plot.CalibrationPlot.add_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_labels</span></code></a>(ax[, title, xlabel, ylabel])</p></td>
-<td><p>Adds labesl to axes</p></td>
+<td><p>Add formatted title and axis labels to plot.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../bathymetry.plot.html#sensingpy.bathymetry.plot.CalibrationPlot.add_legend" title="sensingpy.bathymetry.plot.CalibrationPlot.add_legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_legend</span></code></a>(ax)</p></td>
-<td><p>adds legend to axes</p></td>
+<td><p>Add formatted legend to axes.</p></td>
 </tr>
 </tbody>
 </table>
