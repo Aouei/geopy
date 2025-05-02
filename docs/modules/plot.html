@@ -45,8 +45,8 @@
     <link rel="canonical" href="https://aouei.github.io/sensingpy/modules/plot.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bathymetry Package" href="bathymetry.html" />
-    <link rel="prev" title="Masks Module" href="masks.html" />
+    <link rel="next" title="sensingpy.plot.get_projection" href="generated/sensingpy.plot.get_projection.html" />
+    <link rel="prev" title="sensingpy.masks.is_in_range" href="generated/sensingpy.masks.is_in_range.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,10 +166,37 @@
 <li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.compose.html">sensingpy.image.compose</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="reader.html">Reader Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selector.html">Selector Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="masks.html">Masks Module</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plot Module</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reader.html">Reader Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.reader.ImageReader.html">sensingpy.reader.ImageReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.reader.GeoTIFFReader.html">sensingpy.reader.GeoTIFFReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.reader.NetCDFReader.html">sensingpy.reader.NetCDFReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.reader.open.html">sensingpy.reader.open</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="selector.html">Selector Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.selector.composite.html">sensingpy.selector.composite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.selector.argcomposite.html">sensingpy.selector.argcomposite</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="masks.html">Masks Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.masks.is_valid.html">sensingpy.masks.is_valid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.masks.is_lt.html">sensingpy.masks.is_lt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.masks.is_eq.html">sensingpy.masks.is_eq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.masks.is_gt.html">sensingpy.masks.is_gt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.masks.is_lte.html">sensingpy.masks.is_lte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.masks.is_gte.html">sensingpy.masks.is_gte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.masks.is_in_range.html">sensingpy.masks.is_in_range</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Plot Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.plot.get_projection.html">sensingpy.plot.get_projection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.plot.get_geofigure.html">sensingpy.plot.get_geofigure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.plot.plot_band.html">sensingpy.plot.plot_band</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.plot.plot_rgb.html">sensingpy.plot.plot_rgb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.plot.add_basemap.html">sensingpy.plot.add_basemap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.plot.add_gridlines.html">sensingpy.plot.add_gridlines</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bathymetry.html">Bathymetry Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="bathymetry.metrics.html">Metrics Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.metrics.ValidationSummary.html">sensingpy.bathymetry.metrics.ValidationSummary</a></li>
@@ -236,7 +263,12 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="enums.html">Enums Module</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="enums.html">Enums Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.enums.SENTINEL2_BANDS.html">sensingpy.enums.SENTINEL2_BANDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.enums.MICASENSE_BANDS.html">sensingpy.enums.MICASENSE_BANDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.enums.FILE_EXTENTIONS.html">sensingpy.enums.FILE_EXTENTIONS</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -385,12 +417,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.add_basemap"><code class="docutils literal notranslate"><span class="pre">add_basemap()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.add_gridlines"><code class="docutils literal notranslate"><span class="pre">add_gridlines()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.get_geofigure"><code class="docutils literal notranslate"><span class="pre">get_geofigure()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.get_projection"><code class="docutils literal notranslate"><span class="pre">get_projection()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.plot_band"><code class="docutils literal notranslate"><span class="pre">plot_band()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.plot_rgb"><code class="docutils literal notranslate"><span class="pre">plot_rgb()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-documentation">Function Documentation</a></li>
 </ul>
             </nav>
         </div>
@@ -405,155 +433,214 @@ document.write(`
   <section id="plot-module">
 <h1>Plot Module<a class="headerlink" href="#plot-module" title="Link to this heading">#</a></h1>
 <p>The Plot module provides visualization functionality for geospatial images.</p>
-<dl class="py function" id="module-sensingpy.plot">
-<dt class="sig sig-object py" id="sensingpy.plot.add_basemap">
-<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">add_basemap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">west</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">south</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">east</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">north</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{'attribution':</span> <span class="pre">'(C)</span> <span class="pre">OpenStreetMap</span> <span class="pre">contributors',</span> <span class="pre">'html_attribution':</span> <span class="pre">'&amp;copy;</span> <span class="pre">&lt;a</span> <span class="pre">href=&quot;https://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;</span> <span class="pre">contributors',</span> <span class="pre">'max_zoom':</span> <span class="pre">19,</span> <span class="pre">'name':</span> <span class="pre">'OpenStreetMap.Mapnik',</span> <span class="pre">'url':</span> <span class="pre">'https://tile.openstreetmap.org/{z}/{x}/{y}.png'}</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Axes</span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#add_basemap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.plot.add_basemap" title="Link to this definition">#</a></dt>
-<dd><p>Plots a RGB image on the given axes using contextily.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ax</strong> (<em>Axes</em>) – axes where the image will be plotted.</p></li>
-<li><p><strong>west</strong> (<em>float</em>) – min longitude of the image.</p></li>
-<li><p><strong>south</strong> (<em>float</em>) – min latitude of the image.</p></li>
-<li><p><strong>east</strong> (<em>float</em>) – max longitude of the image.</p></li>
-<li><p><strong>north</strong> (<em>float</em>) – max latitude of the image.</p></li>
-<li><p><strong>crs</strong> (<em>pyproj.CRS</em>) – CRS of the image.</p></li>
-<li><p><strong>source</strong> (<em>Any</em><em>, </em><em>optional</em>) – basemap to use. Defaults to providers.OpenStreetMap.Mapnik.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>axes with the basemap plotted.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Axes</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="sensingpy.plot.add_gridlines">
-<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">add_gridlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Axes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#add_gridlines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.plot.add_gridlines" title="Link to this definition">#</a></dt>
-<dd><p>Add geographic gridlines to a cartopy axes.</p>
-<p>Adds latitude/longitude gridlines to a cartopy axes with labels on bottom and left edges.
-Labels on top and right edges are disabled by default.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ax</strong> (<em>Axes</em>) – The cartopy axes to add gridlines to</p></li>
-<li><p><strong>**kwargs</strong> – Additional keyword arguments passed to ax.gridlines()</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>Tuple containing:</dt><dd><ul class="simple">
-<li><p>The axes with added gridlines</p></li>
-<li><p>The gridlines object for further customization</p></li>
-</ul>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple[Axes, Any]</p>
-</dd>
-</dl>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_geofigure</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">,</span> <span class="n">gl</span> <span class="o">=</span> <span class="n">add_gridlines</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Customize gridlines further if needed</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gl</span><span class="o">.</span><span class="n">xlabel_style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
-</pre></div>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/sensingpy.plot.get_projection.html#sensingpy.plot.get_projection" title="sensingpy.plot.get_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_projection</span></code></a></p></td>
+<td><p>Obtain cartopy projection from a CRS object for plotting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/sensingpy.plot.get_geofigure.html#sensingpy.plot.get_geofigure" title="sensingpy.plot.get_geofigure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_geofigure</span></code></a></p></td>
+<td><p>Generate matplotlib figure and axes with georeferenced projections.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/sensingpy.plot.plot_band.html#sensingpy.plot.plot_band" title="sensingpy.plot.plot_band"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_band</span></code></a></p></td>
+<td><p>Plot a single band of an Image object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/sensingpy.plot.plot_rgb.html#sensingpy.plot.plot_rgb" title="sensingpy.plot.plot_rgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_rgb</span></code></a></p></td>
+<td><p>Create an RGB visualization from three bands of an Image object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/sensingpy.plot.add_basemap.html#sensingpy.plot.add_basemap" title="sensingpy.plot.add_basemap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_basemap</span></code></a></p></td>
+<td><p>Add a basemap to a cartopy axes using contextily.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/sensingpy.plot.add_gridlines.html#sensingpy.plot.add_gridlines" title="sensingpy.plot.add_gridlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_gridlines</span></code></a></p></td>
+<td><p>Add geographic gridlines to a cartopy axes.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-</dd></dl>
-
+</section>
+<section id="function-documentation">
+<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Link to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="sensingpy.plot.get_geofigure">
-<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">get_geofigure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(12,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Figure</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Axes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#get_geofigure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.plot.get_geofigure" title="Link to this definition">#</a></dt>
-<dd><p>Generates a subplots with georeferenced axes.</p>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">get_projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Projection</span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#get_projection"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Obtain cartopy projection from a CRS object for plotting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>crs</strong> (<em>pyproj</em>) – crs</p></li>
-<li><p><strong>nrows</strong> (<em>int</em>) – number of rows for the subplots.</p></li>
-<li><p><strong>ncols</strong> (<em>int</em>) – number of columns for the subplots.</p></li>
-<li><p><strong>figsize</strong> (<em>tuple</em><em>, </em><em>optional</em>) – dimensions in inches of the figure. Defaults to (12, 6).</p></li>
-</ul>
+<dd class="field-odd"><p><strong>crs</strong> (<em>pyproj.CRS</em>) – Custom object containing coordinate reference system data</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Figure and axes objects for plotting.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple[Figure, Axes | List[Axes]]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="sensingpy.plot.get_projection">
-<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">get_projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Projection</span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#get_projection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.plot.get_projection" title="Link to this definition">#</a></dt>
-<dd><p>Obtains the projection of the crs for plotting.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>crs</strong> (<em>pyproj.CRS</em>) – custom object containing crs data.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>cartopy projection for plotting.</p>
+<dd class="field-even"><p>Cartopy projection object suitable for plotting</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ccrs.Projection</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the CRS object is not valid or not supported.</p>
+<dd class="field-even"><p><strong>ValueError</strong> – If the CRS object is not valid or not supported</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Currently supports UTM projections explicitly. Defaults to Mercator
+for other projection types.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="sensingpy.plot.plot_band">
-<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_band</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="image.html#sensingpy.image.Image" title="sensingpy.image.Image"><span class="pre">Image</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Axes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#plot_band"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.plot.plot_band" title="Link to this definition">#</a></dt>
-<dd><p>Plots a band of the image object</p>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">get_geofigure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(12,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Figure</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Axes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#get_geofigure"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Generate matplotlib figure and axes with georeferenced projections.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>image</strong> (<a class="reference internal" href="image.html#sensingpy.image.Image" title="sensingpy.image.Image"><em>Image</em></a>) – object with crs data and bands data.</p></li>
-<li><p><strong>band</strong> (<em>str</em>) – band name to be plotted.</p></li>
-<li><p><strong>ax</strong> (<em>Axes</em>) – axes where show the data.</p></li>
-<li><p><strong>cmap</strong> (<em>str</em><em>, </em><em>optional</em>) – colomap to use. Defaults to ‘viridis’.</p></li>
+<li><p><strong>crs</strong> (<em>pyproj.CRS</em>) – Coordinate reference system for the plot</p></li>
+<li><p><strong>nrows</strong> (<em>int</em>) – Number of rows for the subplots</p></li>
+<li><p><strong>ncols</strong> (<em>int</em>) – Number of columns for the subplots</p></li>
+<li><p><strong>figsize</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Dimensions in inches of the figure, by default (12, 6)</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments passed to plt.subplots()</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>axes with data plotted and mappable object for colorbar.</p>
+<dd class="field-even"><p>Figure object and either a single Axes object (if nrows=ncols=1)
+or a list of Axes objects</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[Figure, Axes | List[Axes]]</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Creates a figure with axes that use the appropriate cartopy projection
+based on the provided CRS.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_band</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="image.html#sensingpy.image.Image" title="sensingpy.image.Image"><span class="pre">Image</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Axes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#plot_band"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Plot a single band of an Image object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<a class="reference internal" href="image.html#sensingpy.image.Image" title="sensingpy.image.Image"><em>Image</em></a>) – Image object containing bands data and coordinate reference system</p></li>
+<li><p><strong>band</strong> (<em>str</em>) – Band name to be plotted</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – Matplotlib axes on which to plot the data</p></li>
+<li><p><strong>cmap</strong> (<em>str</em><em>, </em><em>optional</em>) – Colormap to use for visualization, by default ‘viridis’</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments passed to ax.pcolormesh()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Axes with the plotted data and the mappable object for creating a colorbar</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Tuple[Axes, Any]</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_geofigure</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">,</span> <span class="n">mappable</span> <span class="o">=</span> <span class="n">plot_band</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="s1">&#39;nir&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">mappable</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NIR Reflectance&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="sensingpy.plot.plot_rgb">
-<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="image.html#sensingpy.image.Image" title="sensingpy.image.Image"><span class="pre">Image</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brightness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Axes</span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#plot_rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.plot.plot_rgb" title="Link to this definition">#</a></dt>
-<dd><p>Plots a RGB image on the given axes based on the selected bands of the image object.</p>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="image.html#sensingpy.image.Image" title="sensingpy.image.Image"><span class="pre">Image</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brightness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Axes</span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#plot_rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Create an RGB visualization from three bands of an Image object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>image</strong> (<a class="reference internal" href="image.html#sensingpy.image.Image" title="sensingpy.image.Image"><em>Image</em></a>) – object with crs data and bands data.</p></li>
-<li><p><strong>red</strong> (<em>str</em>) – band name for red channel.</p></li>
-<li><p><strong>green</strong> (<em>str</em>) – band name for green channel.</p></li>
-<li><p><strong>blue</strong> (<em>str</em>) – band name for blue channel.</p></li>
-<li><p><strong>ax</strong> (<em>Axes</em>) – axes where to plot.</p></li>
-<li><p><strong>brightness</strong> (<em>float</em><em>, </em><em>optional</em>) – value to multiply the RGB. Defaults to 1.</p></li>
+<li><p><strong>image</strong> (<a class="reference internal" href="image.html#sensingpy.image.Image" title="sensingpy.image.Image"><em>Image</em></a>) – Image object containing bands data and coordinate reference system</p></li>
+<li><p><strong>red</strong> (<em>str</em>) – Band name to use for the red channel</p></li>
+<li><p><strong>green</strong> (<em>str</em>) – Band name to use for the green channel</p></li>
+<li><p><strong>blue</strong> (<em>str</em>) – Band name to use for the blue channel</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – Matplotlib axes on which to plot the RGB image</p></li>
+<li><p><strong>brightness</strong> (<em>float</em><em>, </em><em>optional</em>) – Value to multiply the RGB values to adjust brightness, by default 1</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments passed to ax.pcolormesh()</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>axes with the RGB image plotted.</p>
+<dd class="field-even"><p>Axes with the RGB image plotted</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Axes</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>This function handles both float (0-1) and uint8 (0-255) data types.
+Values are clipped to valid range after brightness adjustment.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_geofigure</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plot_rgb</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">brightness</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;True Color Composite&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">add_basemap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">west</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">south</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">east</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">north</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CRS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{'attribution':</span> <span class="pre">'(C)</span> <span class="pre">OpenStreetMap</span> <span class="pre">contributors',</span> <span class="pre">'html_attribution':</span> <span class="pre">'&amp;copy;</span> <span class="pre">&lt;a</span> <span class="pre">href=&quot;https://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;</span> <span class="pre">contributors',</span> <span class="pre">'max_zoom':</span> <span class="pre">19,</span> <span class="pre">'name':</span> <span class="pre">'OpenStreetMap.Mapnik',</span> <span class="pre">'url':</span> <span class="pre">'https://tile.openstreetmap.org/{z}/{x}/{y}.png'}</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Axes</span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#add_basemap"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Add a basemap to a cartopy axes using contextily.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>Axes</em>) – Cartopy axes on which to plot the basemap</p></li>
+<li><p><strong>west</strong> (<em>float</em>) – Western longitude boundary</p></li>
+<li><p><strong>south</strong> (<em>float</em>) – Southern latitude boundary</p></li>
+<li><p><strong>east</strong> (<em>float</em>) – Eastern longitude boundary</p></li>
+<li><p><strong>north</strong> (<em>float</em>) – Northern latitude boundary</p></li>
+<li><p><strong>crs</strong> (<em>pyproj.CRS</em>) – Coordinate reference system for the plot</p></li>
+<li><p><strong>source</strong> (<em>Any</em><em>, </em><em>optional</em>) – Contextily basemap provider, by default providers.OpenStreetMap.Mapnik</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Axes with the basemap added</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Axes</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This function downloads tile data from the specified provider and displays it
+on the map. It creates a temporary GeoTIFF file that is removed after plotting.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_geofigure</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">bottom</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">top</span><span class="p">,</span>
+<span class="gp">... </span>                <span class="n">image</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">providers</span><span class="o">.</span><span class="n">Stamen</span><span class="o">.</span><span class="n">Terrain</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">plot_rgb</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sensingpy.plot.</span></span><span class="sig-name descname"><span class="pre">add_gridlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Axes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/sensingpy/plot.html#add_gridlines"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Add geographic gridlines to a cartopy axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>Axes</em>) – Cartopy axes to which gridlines will be added</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments passed to ax.gridlines()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Axes with added gridlines and the gridlines object for further customization</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[Axes, Any]</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Labels on top and right edges are disabled by default.
+The returned gridlines object can be used for additional customization.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_geofigure</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">,</span> <span class="n">gl</span> <span class="o">=</span> <span class="n">add_gridlines</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Customize gridlines further if needed</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gl</span><span class="o">.</span><span class="n">xlabel_style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gl</span><span class="o">.</span><span class="n">ylabel_style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;gray&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
 </section>
 
 
@@ -568,20 +655,20 @@ Labels on top and right edges are disabled by default.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="masks.html"
+       href="generated/sensingpy.masks.is_in_range.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Masks Module</p>
+        <p class="prev-next-title">sensingpy.masks.is_in_range</p>
       </div>
     </a>
     <a class="right-next"
-       href="bathymetry.html"
+       href="generated/sensingpy.plot.get_projection.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bathymetry Package</p>
+        <p class="prev-next-title">sensingpy.plot.get_projection</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -601,12 +688,8 @@ Labels on top and right edges are disabled by default.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.add_basemap"><code class="docutils literal notranslate"><span class="pre">add_basemap()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.add_gridlines"><code class="docutils literal notranslate"><span class="pre">add_gridlines()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.get_geofigure"><code class="docutils literal notranslate"><span class="pre">get_geofigure()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.get_projection"><code class="docutils literal notranslate"><span class="pre">get_projection()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.plot_band"><code class="docutils literal notranslate"><span class="pre">plot_band()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensingpy.plot.plot_rgb"><code class="docutils literal notranslate"><span class="pre">plot_rgb()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-documentation">Function Documentation</a></li>
 </ul>
   </nav></div>
 

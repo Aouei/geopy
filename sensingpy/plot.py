@@ -15,19 +15,30 @@ import sensingpy.reader as reader
 from sensingpy.image import Image
 
 
-def get_projection(crs : pyproj.CRS) -> ccrs.Projection:
-    """Obtains the projection of the crs for plotting.
-
-    Args:
-        crs (pyproj.CRS): custom object containing crs data.
-
-    Returns:
-        ccrs.Projection: cartopy projection for plotting.
-
-    Raises:
-        ValueError: If the CRS object is not valid or not supported.
+def get_projection(crs: pyproj.CRS) -> ccrs.Projection:
     """
+    Obtain cartopy projection from a CRS object for plotting.
     
+    Parameters
+    ----------
+    crs : pyproj.CRS
+        Custom object containing coordinate reference system data
+        
+    Returns
+    -------
+    ccrs.Projection
+        Cartopy projection object suitable for plotting
+        
+    Raises
+    ------
+    ValueError
+        If the CRS object is not valid or not supported
+        
+    Notes
+    -----
+    Currently supports UTM projections explicitly. Defaults to Mercator
+    for other projection types.
+    """
     projection = ccrs.Mercator()
 
     if hasattr(crs, 'to_dict') and 'proj' in crs.to_dict():
@@ -40,56 +51,111 @@ def get_projection(crs : pyproj.CRS) -> ccrs.Projection:
     return projection
 
 
-def get_geofigure(crs : pyproj.CRS, nrows : int, ncols : int, figsize : tuple = (12, 6), **kwargs) -> Tuple[Figure, Axes | List[Axes]]:
-    """Generates a subplots with georeferenced axes.
-
-    Args:
-        crs (pyproj): crs
-        nrows (int): number of rows for the subplots.
-        ncols (int): number of columns for the subplots.
-        figsize (tuple, optional): dimensions in inches of the figure. Defaults to (12, 6).
-
-    Returns:
-        Tuple[Figure, Axes | List[Axes]]: Figure and axes objects for plotting.
+def get_geofigure(crs: pyproj.CRS, nrows: int, ncols: int, 
+                 figsize: tuple = (12, 6), **kwargs) -> Tuple[Figure, Axes | List[Axes]]:
     """
-
-    return plt.subplots(ncols = ncols, nrows = nrows, figsize=figsize, 
+    Generate matplotlib figure and axes with georeferenced projections.
+    
+    Parameters
+    ----------
+    crs : pyproj.CRS
+        Coordinate reference system for the plot
+    nrows : int
+        Number of rows for the subplots
+    ncols : int
+        Number of columns for the subplots
+    figsize : tuple, optional
+        Dimensions in inches of the figure, by default (12, 6)
+    **kwargs
+        Additional keyword arguments passed to plt.subplots()
+        
+    Returns
+    -------
+    Tuple[Figure, Axes | List[Axes]]
+        Figure object and either a single Axes object (if nrows=ncols=1)
+        or a list of Axes objects
+        
+    Notes
+    -----
+    Creates a figure with axes that use the appropriate cartopy projection
+    based on the provided CRS.
+    """
+    return plt.subplots(ncols=ncols, nrows=nrows, figsize=figsize, 
                         subplot_kw={'projection': get_projection(crs)}, **kwargs)
 
 
-def plot_band(image : Image, band : str, ax : Axes, cmap : str = 'viridis', **kwargs) -> Tuple[Axes, Any]:
-    """Plots a band of the image object
-
-    Args:
-        image (Image): object with crs data and bands data.
-        band (str): band name to be plotted.
-        ax (Axes): axes where show the data.
-        cmap (str, optional): colomap to use. Defaults to 'viridis'.
-
-    Returns:
-        Tuple[Axes, Any]: axes with data plotted and mappable object for colorbar.
+def plot_band(image: Image, band: str, ax: Axes, 
+             cmap: str = 'viridis', **kwargs) -> Tuple[Axes, Any]:
     """
-
+    Plot a single band of an Image object.
+    
+    Parameters
+    ----------
+    image : Image
+        Image object containing bands data and coordinate reference system
+    band : str
+        Band name to be plotted
+    ax : Axes
+        Matplotlib axes on which to plot the data
+    cmap : str, optional
+        Colormap to use for visualization, by default 'viridis'
+    **kwargs
+        Additional keyword arguments passed to ax.pcolormesh()
+        
+    Returns
+    -------
+    Tuple[Axes, Any]
+        Axes with the plotted data and the mappable object for creating a colorbar
+        
+    Examples
+    --------
+    >>> fig, ax = get_geofigure(image.crs, 1, 1)
+    >>> ax, mappable = plot_band(image, 'nir', ax, cmap='inferno')
+    >>> plt.colorbar(mappable, ax=ax, label='NIR Reflectance')
+    """
     data = image.select(band)
     mappable = ax.pcolormesh(*image.xs_ys, data, cmap=cmap, **kwargs)
     return ax, mappable
 
 
-def plot_rgb(image : Image, red : str, green : str, blue : str, ax : Axes, brightness : float = 1, **kwargs) -> Axes:
-    """Plots a RGB image on the given axes based on the selected bands of the image object.
-
-    Args:
-        image (Image): object with crs data and bands data.
-        red (str): band name for red channel.
-        green (str): band name for green channel.
-        blue (str): band name for blue channel.
-        ax (Axes): axes where to plot.
-        brightness (float, optional): value to multiply the RGB. Defaults to 1.
-
-    Returns:
-        Axes: axes with the RGB image plotted.
+def plot_rgb(image: Image, red: str, green: str, blue: str, ax: Axes, 
+            brightness: float = 1, **kwargs) -> Axes:
     """
-
+    Create an RGB visualization from three bands of an Image object.
+    
+    Parameters
+    ----------
+    image : Image
+        Image object containing bands data and coordinate reference system
+    red : str
+        Band name to use for the red channel
+    green : str
+        Band name to use for the green channel
+    blue : str
+        Band name to use for the blue channel
+    ax : Axes
+        Matplotlib axes on which to plot the RGB image
+    brightness : float, optional
+        Value to multiply the RGB values to adjust brightness, by default 1
+    **kwargs
+        Additional keyword arguments passed to ax.pcolormesh()
+        
+    Returns
+    -------
+    Axes
+        Axes with the RGB image plotted
+        
+    Notes
+    -----
+    This function handles both float (0-1) and uint8 (0-255) data types.
+    Values are clipped to valid range after brightness adjustment.
+    
+    Examples
+    --------
+    >>> fig, ax = get_geofigure(image.crs, 1, 1)
+    >>> ax = plot_rgb(image, 'red', 'green', 'blue', ax, brightness=1.5)
+    >>> plt.title('True Color Composite')
+    """
     rgb = np.dstack(image.select([red, green, blue]))
     limit = 1 if rgb.dtype != np.uint8 else 255
 
@@ -98,27 +164,50 @@ def plot_rgb(image : Image, red : str, green : str, blue : str, ax : Axes, brigh
     ax.pcolormesh(*image.xs_ys, rgb, **kwargs)    
     return ax
 
-def add_basemap(ax : Axes, west : float, south : float, east : float, north : float, 
-                crs : pyproj.CRS, source : Any = providers.OpenStreetMap.Mapnik) -> Axes:
-    """Plots a RGB image on the given axes using contextily.
 
-    Args:
-        ax (Axes): axes where the image will be plotted.
-        west (float): min longitude of the image.
-        south (float): min latitude of the image.
-        east (float): max longitude of the image.
-        north (float): max latitude of the image.
-        crs (pyproj.CRS): CRS of the image.
-        source (Any, optional): basemap to use. Defaults to providers.OpenStreetMap.Mapnik.
-
-    Returns:
-        Axes: axes with the basemap plotted.
+def add_basemap(ax: Axes, west: float, south: float, east: float, north: float, 
+               crs: pyproj.CRS, source: Any = providers.OpenStreetMap.Mapnik) -> Axes:
     """
-
+    Add a basemap to a cartopy axes using contextily.
+    
+    Parameters
+    ----------
+    ax : Axes
+        Cartopy axes on which to plot the basemap
+    west : float
+        Western longitude boundary
+    south : float
+        Southern latitude boundary
+    east : float
+        Eastern longitude boundary
+    north : float
+        Northern latitude boundary
+    crs : pyproj.CRS
+        Coordinate reference system for the plot
+    source : Any, optional
+        Contextily basemap provider, by default providers.OpenStreetMap.Mapnik
+        
+    Returns
+    -------
+    Axes
+        Axes with the basemap added
+        
+    Notes
+    -----
+    This function downloads tile data from the specified provider and displays it
+    on the map. It creates a temporary GeoTIFF file that is removed after plotting.
+    
+    Examples
+    --------
+    >>> fig, ax = get_geofigure(image.crs, 1, 1)
+    >>> ax = add_basemap(ax, image.left, image.bottom, image.right, image.top, 
+    ...                 image.crs, providers.Stamen.Terrain)
+    >>> ax = plot_rgb(image, 'red', 'green', 'blue', ax, alpha=0.7)
+    """
     temp_file = '_temp.tif'
 
     try:
-        cx.bounds2raster(west, south, east, north, path = temp_file, ll = True, source = source)
+        cx.bounds2raster(west, south, east, north, path=temp_file, ll=True, source=source)
         image = reader.open(temp_file)            
         image.reproject(crs)
 
@@ -133,29 +222,37 @@ def add_basemap(ax : Axes, west : float, south : float, east : float, north : fl
 
     return ax
 
-def add_gridlines(ax : Axes, **kwargs) -> Tuple[Axes, Any]:
-    """Add geographic gridlines to a cartopy axes.
 
-    Adds latitude/longitude gridlines to a cartopy axes with labels on bottom and left edges.
-    Labels on top and right edges are disabled by default.
-
-    Args:
-        ax (Axes): The cartopy axes to add gridlines to
-        **kwargs: Additional keyword arguments passed to ax.gridlines()
-
-    Returns:
-        Tuple[Axes, Any]: Tuple containing:
-            - The axes with added gridlines
-            - The gridlines object for further customization
-
-    Example:
-        >>> fig, ax = get_geofigure(image, 1, 1)
-        >>> ax, gl = add_gridlines(ax, linestyle='--')
-        >>> # Customize gridlines further if needed
-        >>> gl.xlabel_style = {'size': 15}
+def add_gridlines(ax: Axes, **kwargs) -> Tuple[Axes, Any]:
     """
+    Add geographic gridlines to a cartopy axes.
     
-    gl = ax.gridlines(draw_labels = True, **kwargs)
+    Parameters
+    ----------
+    ax : Axes
+        Cartopy axes to which gridlines will be added
+    **kwargs
+        Additional keyword arguments passed to ax.gridlines()
+        
+    Returns
+    -------
+    Tuple[Axes, Any]
+        Axes with added gridlines and the gridlines object for further customization
+        
+    Notes
+    -----
+    Labels on top and right edges are disabled by default.
+    The returned gridlines object can be used for additional customization.
+    
+    Examples
+    --------
+    >>> fig, ax = get_geofigure(image.crs, 1, 1)
+    >>> ax, gl = add_gridlines(ax, linestyle='--')
+    >>> # Customize gridlines further if needed
+    >>> gl.xlabel_style = {'size': 15}
+    >>> gl.ylabel_style = {'color': 'gray'}
+    """
+    gl = ax.gridlines(draw_labels=True, **kwargs)
     gl.top_labels = gl.right_labels = False
 
     return ax, gl

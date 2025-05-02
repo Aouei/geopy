@@ -62,7 +62,7 @@ Image Class
       ~Image.replace
       ~Image.rename_by_enum
    
-   .. rubric:: Spatial Operations
+   .. rubric:: Spatial Methods
    
    .. autosummary::
       :nosignatures:
