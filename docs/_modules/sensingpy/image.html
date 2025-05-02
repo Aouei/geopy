@@ -162,6 +162,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../modules/image.html">Image Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../modules/generated/sensingpy.image.Image.html">sensingpy.image.Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/generated/sensingpy.image.compose.html">sensingpy.image.compose</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/reader.html">Reader Module</a></li>
@@ -353,7 +354,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseGeometry</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.transform</span><span class="w"> </span><span class="kn">import</span> <span class="n">from_origin</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">box</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Self</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Self</span><span class="p">,</span> <span class="n">Callable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">affine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Affine</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
 
@@ -1556,6 +1557,64 @@ document.write(`
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_repr_html_</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">_repr_html_</span><span class="p">()</span></div>
+
+    
+
+<div class="viewcode-block" id="compose">
+<a class="viewcode-back" href="../../modules/image.html#sensingpy.image.compose">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compose</span><span class="p">(</span><span class="n">images</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Image</span><span class="p">],</span> <span class="n">method</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">bands</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compose multiple images into one using a composition method.</span>
+<span class="sd">    </span>
+<span class="sd">    This function combines multiple images by applying a composition method to </span>
+<span class="sd">    corresponding pixels across all input images. Common uses include creating </span>
+<span class="sd">    cloud-free composites, calculating statistics across time series, or </span>
+<span class="sd">    selecting optimal pixels based on quality metrics.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    images : List[Image]</span>
+<span class="sd">        List of Image objects to compose. All images should have compatible</span>
+<span class="sd">        dimensions and coordinate reference systems.</span>
+<span class="sd">    method : Callable or np.ndarray</span>
+<span class="sd">        Method to use for composition. Can be either:</span>
+<span class="sd">        - A callable function that takes an array of values across images and</span>
+<span class="sd">          returns a single value (e.g., np.nanmean, np.nanmax)</span>
+<span class="sd">        - An array of indices specifying which image to select for each pixel</span>
+<span class="sd">    bands : List[str], optional</span>
+<span class="sd">        List of band names to include in the composition, by default None which</span>
+<span class="sd">        uses all bands from the first image</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Image</span>
+<span class="sd">        New Image object containing the composition result</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The output image retains the spatial metadata (CRS, transform) from the first</span>
+<span class="sd">    image in the list, but contains new pixel values based on the composition method.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # Create a mean composite from multiple images</span>
+<span class="sd">    &gt;&gt;&gt; mean_composite = compose(image_list, np.nanmean)</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # Create a maximum NDVI composite</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; ndvi_values = np.array([img.normalized_diference(&#39;nir&#39;, &#39;red&#39;) for img in image_list])</span>
+<span class="sd">    &gt;&gt;&gt; best_indices = np.nanargmax(ndvi_values, axis=0)</span>
+<span class="sd">    &gt;&gt;&gt; max_ndvi_composite = compose(image_list, best_indices)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">bands</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">bands</span> <span class="o">=</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">band_names</span>
+
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">empty_like</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">bands</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">add_band</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">selector</span><span class="o">.</span><span class="n">composite</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">image</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">band</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">]),</span> <span class="n">method</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">result</span></div>
 
 </pre></div>
 

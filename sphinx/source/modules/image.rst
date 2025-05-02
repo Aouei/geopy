@@ -5,17 +5,18 @@ The Image module provides functionality for handling geospatial image data throu
 
 .. currentmodule:: sensingpy.image
 
-Classes
--------
+Classes and Functions
+-------------------
 
 .. autosummary::
    :toctree: generated/
    :nosignatures:
    
    Image
+   compose
 
-Image
------
+Image Class
+----------
 
 .. autoclass:: Image
    :members:
@@ -93,3 +94,8 @@ Image
       ~Image.copy
       ~Image.to_netcdf
       ~Image.to_tif
+
+Module Functions
+--------------
+
+.. autofunction:: compose
