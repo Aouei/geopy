@@ -36,3 +36,5 @@ wheels/
 docs/build/
 docs/source/_build/
 .doctrees/
+
+*docs_tests*

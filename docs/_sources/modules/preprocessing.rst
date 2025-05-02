@@ -1,20 +1,26 @@
 Preprocessing Package
-======================
+====================
 
-Module for image preprocessing operations.
+Package for preprocessing remote sensing imagery, including deglinting and outlier removal.
 
-Deglinting Module
----------------
+.. currentmodule:: sensingpy.preprocessing
 
-.. automodule:: preprocessing.deglinting
-   :members:
-   :undoc-members:
-   :show-inheritance:
+Submodules
+----------
 
-Outliers Module
--------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: preprocessing.outliers
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   preprocessing.deglinting
+   preprocessing.outliers
+
+Module Contents
+--------------
+
+.. autosummary::
+   :toctree: generated/
+   :recursive:
+   :template: custom-module-template.rst
+   
+   deglinting
+   outliers

@@ -45,8 +45,8 @@
     <link rel="canonical" href="https://aouei.github.io/sensingpy/modules/preprocessing.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Enums Module" href="enums.html" />
-    <link rel="prev" title="Bathymetry Package" href="bathymetry.html" />
+    <link rel="next" title="Deglinting Module" href="preprocessing.deglinting.html" />
+    <link rel="prev" title="sensingpy.bathymetry.plot" href="generated/sensingpy.bathymetry.plot.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -162,49 +162,79 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="image.html">Image Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.width.html">sensingpy.image.Image.width</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.height.html">sensingpy.image.Image.height</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.transform.html">sensingpy.image.Image.transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.x_res.html">sensingpy.image.Image.x_res</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.y_res.html">sensingpy.image.Image.y_res</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.left.html">sensingpy.image.Image.left</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.right.html">sensingpy.image.Image.right</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.top.html">sensingpy.image.Image.top</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.bottom.html">sensingpy.image.Image.bottom</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.bbox.html">sensingpy.image.Image.bbox</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.band_names.html">sensingpy.image.Image.band_names</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.count.html">sensingpy.image.Image.count</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.values.html">sensingpy.image.Image.values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.xs_ys.html">sensingpy.image.Image.xs_ys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.add_band.html">sensingpy.image.Image.add_band</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.drop_bands.html">sensingpy.image.Image.drop_bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.select.html">sensingpy.image.Image.select</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.rename.html">sensingpy.image.Image.rename</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.replace.html">sensingpy.image.Image.replace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.rename_by_enum.html">sensingpy.image.Image.rename_by_enum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.reproject.html">sensingpy.image.Image.reproject</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.align.html">sensingpy.image.Image.align</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.resample.html">sensingpy.image.Image.resample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.clip.html">sensingpy.image.Image.clip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.mask.html">sensingpy.image.Image.mask</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.geometry_mask.html">sensingpy.image.Image.geometry_mask</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.dropna.html">sensingpy.image.Image.dropna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.normalized_diference.html">sensingpy.image.Image.normalized_diference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.extract_values.html">sensingpy.image.Image.extract_values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.interval_choice.html">sensingpy.image.Image.interval_choice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.arginterval_choice.html">sensingpy.image.Image.arginterval_choice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.empty_like.html">sensingpy.image.Image.empty_like</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.copy.html">sensingpy.image.Image.copy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.to_netcdf.html">sensingpy.image.Image.to_netcdf</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.to_tif.html">sensingpy.image.Image.to_tif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/sensingpy.image.Image.html">sensingpy.image.Image</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="reader.html">Reader Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="selector.html">Selector Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="masks.html">Masks Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot.html">Plot Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bathymetry.html">Bathymetry Package</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Preprocessing Package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bathymetry.html">Bathymetry Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bathymetry.metrics.html">Metrics Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.metrics.ValidationSummary.html">sensingpy.bathymetry.metrics.ValidationSummary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bathymetry.models.html">Models Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.models.stumpf_pseudomodel.html">sensingpy.bathymetry.models.stumpf_pseudomodel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.models.multi_image_pseudomodel.html">sensingpy.bathymetry.models.multi_image_pseudomodel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.models.switching_model.html">sensingpy.bathymetry.models.switching_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.models.optical_deep_water_model.html">sensingpy.bathymetry.models.optical_deep_water_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.models.LinearModel.html">sensingpy.bathymetry.models.LinearModel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bathymetry.plot.html">Plot Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.plot.CalibrationPlot.html">sensingpy.bathymetry.plot.CalibrationPlot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.plot.ValidationPlot.html">sensingpy.bathymetry.plot.ValidationPlot</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="generated/sensingpy.bathymetry.metrics.html">sensingpy.bathymetry.metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.metrics.ValidationSummary.html">sensingpy.bathymetry.metrics.ValidationSummary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="generated/sensingpy.bathymetry.models.html">sensingpy.bathymetry.models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.models.LinearModel.html">sensingpy.bathymetry.models.LinearModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.models.multi_image_pseudomodel.html">sensingpy.bathymetry.models.multi_image_pseudomodel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.models.optical_deep_water_model.html">sensingpy.bathymetry.models.optical_deep_water_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.models.stumpf_pseudomodel.html">sensingpy.bathymetry.models.stumpf_pseudomodel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.models.switching_model.html">sensingpy.bathymetry.models.switching_model</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="generated/sensingpy.bathymetry.plot.html">sensingpy.bathymetry.plot</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.plot.CalibrationPlot.html">sensingpy.bathymetry.plot.CalibrationPlot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.bathymetry.plot.ValidationPlot.html">sensingpy.bathymetry.plot.ValidationPlot</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Preprocessing Package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="preprocessing.deglinting.html">Deglinting Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.deglinting.hedley.html">sensingpy.preprocessing.deglinting.hedley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.deglinting.lyzenga.html">sensingpy.preprocessing.deglinting.lyzenga</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.deglinting.joyce.html">sensingpy.preprocessing.deglinting.joyce</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="preprocessing.outliers.html">Outliers Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.outliers.IQR.html">sensingpy.preprocessing.outliers.IQR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.outliers.Z_Score.html">sensingpy.preprocessing.outliers.Z_Score</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.outliers.upper_percentile.html">sensingpy.preprocessing.outliers.upper_percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.outliers.lower_percentile.html">sensingpy.preprocessing.outliers.lower_percentile</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="generated/sensingpy.preprocessing.deglinting.html">sensingpy.preprocessing.deglinting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.deglinting.hedley.html">sensingpy.preprocessing.deglinting.hedley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.deglinting.joyce.html">sensingpy.preprocessing.deglinting.joyce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.deglinting.lyzenga.html">sensingpy.preprocessing.deglinting.lyzenga</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="generated/sensingpy.preprocessing.outliers.html">sensingpy.preprocessing.outliers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.outliers.IQR.html">sensingpy.preprocessing.outliers.IQR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.outliers.Z_Score.html">sensingpy.preprocessing.outliers.Z_Score</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.outliers.lower_percentile.html">sensingpy.preprocessing.outliers.lower_percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/sensingpy.preprocessing.outliers.upper_percentile.html">sensingpy.preprocessing.outliers.upper_percentile</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="enums.html">Enums Module</a></li>
 </ul>
 
@@ -354,19 +384,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deglinting-module">Deglinting Module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.deglinting.hedley"><code class="docutils literal notranslate"><span class="pre">hedley()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.deglinting.joyce"><code class="docutils literal notranslate"><span class="pre">joyce()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.deglinting.lyzenga"><code class="docutils literal notranslate"><span class="pre">lyzenga()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-module">Outliers Module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.outliers.IQR"><code class="docutils literal notranslate"><span class="pre">IQR()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.outliers.Z_Score"><code class="docutils literal notranslate"><span class="pre">Z_Score()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.outliers.lower_percentile"><code class="docutils literal notranslate"><span class="pre">lower_percentile()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.outliers.upper_percentile"><code class="docutils literal notranslate"><span class="pre">upper_percentile()</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a></li>
 </ul>
             </nav>
         </div>
@@ -380,152 +399,37 @@ document.write(`
                   
   <section id="preprocessing-package">
 <h1>Preprocessing Package<a class="headerlink" href="#preprocessing-package" title="Link to this heading">#</a></h1>
-<p>Module for image preprocessing operations.</p>
-<section id="deglinting-module">
-<h2>Deglinting Module<a class="headerlink" href="#deglinting-module" title="Link to this heading">#</a></h2>
-<dl class="py function" id="module-preprocessing.deglinting">
-<dt class="sig sig-object py" id="preprocessing.deglinting.hedley">
-<span class="sig-prename descclassname"><span class="pre">preprocessing.deglinting.</span></span><span class="sig-name descname"><span class="pre">hedley</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep_area_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_correct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/preprocessing/deglinting.html#hedley"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#preprocessing.deglinting.hedley" title="Link to this definition">#</a></dt>
-<dd><p>Hedley method for deglinting.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>deep_area</strong> (<em>np.ndarray</em>) – Area to use for correction</p></li>
-<li><p><strong>to_correct</strong> (<em>np.ndarray</em>) – bands to correct</p></li>
-<li><p><strong>nir</strong> (<em>np.ndarray</em>) – nir band values</p></li>
+<p>Package for preprocessing remote sensing imagery, including deglinting and outlier removal.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preprocessing.deglinting.html">Deglinting Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.deglinting.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.deglinting.html#function-documentation">Function Documentation</a></li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>to_correct with deglinting applied</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="preprocessing.deglinting.joyce">
-<span class="sig-prename descclassname"><span class="pre">preprocessing.deglinting.</span></span><span class="sig-name descname"><span class="pre">joyce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep_area_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_correct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/preprocessing/deglinting.html#joyce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#preprocessing.deglinting.joyce" title="Link to this definition">#</a></dt>
-<dd><p>Joyce method for deglinting.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>deep_area_mask</strong> (<em>np.ndarray</em>) – Area to use for correction</p></li>
-<li><p><strong>to_correct</strong> (<em>np.ndarray</em>) – bands to correct</p></li>
-<li><p><strong>nir</strong> (<em>np.ndarray</em>) – nir band values</p></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preprocessing.outliers.html">Outliers Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.outliers.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.outliers.html#function-documentation">Function Documentation</a></li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>to_correct with deglinting applied</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="preprocessing.deglinting.lyzenga">
-<span class="sig-prename descclassname"><span class="pre">preprocessing.deglinting.</span></span><span class="sig-name descname"><span class="pre">lyzenga</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep_area_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_correct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/preprocessing/deglinting.html#lyzenga"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#preprocessing.deglinting.lyzenga" title="Link to this definition">#</a></dt>
-<dd><p>Lyzenga method for deglinting.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>deep_area_mask</strong> (<em>np.ndarray</em>) – Area to use for correction</p></li>
-<li><p><strong>to_correct</strong> (<em>np.ndarray</em>) – bands to correct</p></li>
-<li><p><strong>nir</strong> (<em>np.ndarray</em>) – nir band values</p></li>
+</li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>to_correct with deglinting applied</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
+</div>
 </section>
-<section id="outliers-module">
-<h2>Outliers Module<a class="headerlink" href="#outliers-module" title="Link to this heading">#</a></h2>
-<dl class="py function" id="module-preprocessing.outliers">
-<dt class="sig sig-object py" id="preprocessing.outliers.IQR">
-<span class="sig-prename descclassname"><span class="pre">preprocessing.outliers.</span></span><span class="sig-name descname"><span class="pre">IQR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.5</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/preprocessing/outliers.html#IQR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#preprocessing.outliers.IQR" title="Link to this definition">#</a></dt>
-<dd><p>Interquartile Range (IQR) method for outlier masking.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>np.ndarray</em>) – array to be masked.</p></li>
-<li><p><strong>distance</strong> (<em>float</em><em>, </em><em>optional</em>) – distance to consider a value an outlier. Defaults to 1.5.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>array with outliers masked as NaN.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="preprocessing.outliers.Z_Score">
-<span class="sig-prename descclassname"><span class="pre">preprocessing.outliers.</span></span><span class="sig-name descname"><span class="pre">Z_Score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/preprocessing/outliers.html#Z_Score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#preprocessing.outliers.Z_Score" title="Link to this definition">#</a></dt>
-<dd><p>Z-Score method for outlier masking.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>np.ndarray</em>) – array to be masked.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>array with outliers masked as NaN.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="preprocessing.outliers.lower_percentile">
-<span class="sig-prename descclassname"><span class="pre">preprocessing.outliers.</span></span><span class="sig-name descname"><span class="pre">lower_percentile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/preprocessing/outliers.html#lower_percentile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#preprocessing.outliers.lower_percentile" title="Link to this definition">#</a></dt>
-<dd><p>Masks values below a certain percentile.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>np.ndarray</em>) – array to be masked.</p></li>
-<li><p><strong>percentile</strong> (<em>float</em>) – limit for lower percentile.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>array with outliers masked as NaN.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="preprocessing.outliers.upper_percentile">
-<span class="sig-prename descclassname"><span class="pre">preprocessing.outliers.</span></span><span class="sig-name descname"><span class="pre">upper_percentile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/preprocessing/outliers.html#upper_percentile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#preprocessing.outliers.upper_percentile" title="Link to this definition">#</a></dt>
-<dd><p>Masks values above a certain percentile.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>np.ndarray</em>) – array to be masked.</p></li>
-<li><p><strong>percentile</strong> (<em>float</em>) – limit for upper percentile.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>array with outliers masked as NaN.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/sensingpy.preprocessing.deglinting.html#module-sensingpy.preprocessing.deglinting" title="sensingpy.preprocessing.deglinting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deglinting</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/sensingpy.preprocessing.outliers.html#module-sensingpy.preprocessing.outliers" title="sensingpy.preprocessing.outliers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">outliers</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 
@@ -541,20 +445,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bathymetry.html"
+       href="generated/sensingpy.bathymetry.plot.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Bathymetry Package</p>
+        <p class="prev-next-title">sensingpy.bathymetry.plot</p>
       </div>
     </a>
     <a class="right-next"
-       href="enums.html"
+       href="preprocessing.deglinting.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Enums Module</p>
+        <p class="prev-next-title">Deglinting Module</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -574,19 +478,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deglinting-module">Deglinting Module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.deglinting.hedley"><code class="docutils literal notranslate"><span class="pre">hedley()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.deglinting.joyce"><code class="docutils literal notranslate"><span class="pre">joyce()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.deglinting.lyzenga"><code class="docutils literal notranslate"><span class="pre">lyzenga()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-module">Outliers Module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.outliers.IQR"><code class="docutils literal notranslate"><span class="pre">IQR()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.outliers.Z_Score"><code class="docutils literal notranslate"><span class="pre">Z_Score()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.outliers.lower_percentile"><code class="docutils literal notranslate"><span class="pre">lower_percentile()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing.outliers.upper_percentile"><code class="docutils literal notranslate"><span class="pre">upper_percentile()</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a></li>
 </ul>
   </nav></div>
 

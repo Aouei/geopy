@@ -1,5 +1,5 @@
 Welcome to sensingpy's documentation!
-====================================
+==========================================
 
 .. toctree::
    :maxdepth: 1

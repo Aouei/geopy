@@ -1,5 +1,7 @@
 import sys
-sys.path.insert(0, r'C:\Users\sergi\Documents\repos\sensingpy\sensingpy')
+import os
+
+sys.path.insert(0, os.path.abspath('../..'))
 
 project = 'sensingpy'
 copyright = '2025, Sergio Heredia'
