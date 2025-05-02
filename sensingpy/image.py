@@ -13,7 +13,7 @@ from rasterio.warp import reproject, Resampling, calculate_default_transform
 from shapely.geometry.base import BaseGeometry
 from rasterio.transform import from_origin
 from shapely.geometry import Polygon, box
-from typing import Tuple, List, Iterable, Self
+from typing import Tuple, List, Iterable, Self, Callable
 from affine import Affine
 from copy import deepcopy
 
@@ -1148,3 +1148,58 @@ class Image(object):
 
     def _repr_html_(self) -> str:
         return self.data._repr_html_()
+    
+
+def compose(images: List[Image], method: Callable | np.ndarray, bands: List[str] = None) -> Image:
+    """
+    Compose multiple images into one using a composition method.
+    
+    This function combines multiple images by applying a composition method to 
+    corresponding pixels across all input images. Common uses include creating 
+    cloud-free composites, calculating statistics across time series, or 
+    selecting optimal pixels based on quality metrics.
+    
+    Parameters
+    ----------
+    images : List[Image]
+        List of Image objects to compose. All images should have compatible
+        dimensions and coordinate reference systems.
+    method : Callable or np.ndarray
+        Method to use for composition. Can be either:
+        - A callable function that takes an array of values across images and
+          returns a single value (e.g., np.nanmean, np.nanmax)
+        - An array of indices specifying which image to select for each pixel
+    bands : List[str], optional
+        List of band names to include in the composition, by default None which
+        uses all bands from the first image
+        
+    Returns
+    -------
+    Image
+        New Image object containing the composition result
+    
+    Notes
+    -----
+    The output image retains the spatial metadata (CRS, transform) from the first
+    image in the list, but contains new pixel values based on the composition method.
+    
+    Examples
+    --------
+    >>> # Create a mean composite from multiple images
+    >>> mean_composite = compose(image_list, np.nanmean)
+    >>> 
+    >>> # Create a maximum NDVI composite
+    >>> import numpy as np
+    >>> ndvi_values = np.array([img.normalized_diference('nir', 'red') for img in image_list])
+    >>> best_indices = np.nanargmax(ndvi_values, axis=0)
+    >>> max_ndvi_composite = compose(image_list, best_indices)
+    """
+    if bands is None:
+        bands = images[0].band_names
+
+    
+    result = images[0].empty_like()
+    for band in bands:
+        result.add_band(band, selector.composite(np.array([image.data[band].values for image in images]), method))
+    
+    return result
