@@ -402,21 +402,36 @@ document.write(`
 <dt class="sig sig-object py" id="sensingpy.preprocessing.deglinting.joyce">
 <span class="sig-prename descclassname"><span class="pre">sensingpy.preprocessing.deglinting.</span></span><span class="sig-name descname"><span class="pre">joyce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep_area_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_correct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../../_modules/sensingpy/preprocessing/deglinting.html#joyce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.preprocessing.deglinting.joyce" title="Link to this definition">#</a></dt>
 <dd><p>Joyce method for deglinting.</p>
+<p>This method corrects sun glint by using the statistical mode of NIR values
+in deep water as the reference point. It combines aspects of both Hedley and
+Hochberg approaches to glint removal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>deep_area_mask</strong> (<em>np.ndarray</em>) – Area to use for correction</p></li>
-<li><p><strong>to_correct</strong> (<em>np.ndarray</em>) – bands to correct</p></li>
-<li><p><strong>nir</strong> (<em>np.ndarray</em>) – nir band values</p></li>
+<li><p><strong>deep_area_mask</strong> (<em>np.ndarray</em>) – Boolean mask identifying optically deep water areas to use for correction</p></li>
+<li><p><strong>to_correct</strong> (<em>np.ndarray</em>) – Array of bands to correct for sun glint</p></li>
+<li><p><strong>nir</strong> (<em>np.ndarray</em>) – Near-infrared band values used as the glint predictor</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>to_correct with deglinting applied</p>
+<dd class="field-even"><p>Array of bands with sun glint correction applied</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>The algorithm uses the slope of the linear regression between each visible
+band and the NIR band over deep water, similar to Hedley’s method. However,
+it uses the mode of NIR values as the reference point rather than the minimum.
+Values &lt; 0 after correction are set to NaN.</p>
+<p class="rubric">References</p>
+<p>Joyce, K. E. (2004). A method for mapping live coral cover using remote sensing.
+PhD Thesis, University of Queensland, Brisbane, Australia.</p>
+<p>Kay, S., Hedley, J. D., &amp; Lavender, S. (2009). Sun glint correction of high
+and low spatial resolution images of aquatic scenes: a review of methods for
+visible and near-infrared wavelengths. Remote Sensing, 1(4), 697-730.
+<a class="reference external" href="https://doi.org/10.3390/rs1040697">https://doi.org/10.3390/rs1040697</a></p>
 </dd></dl>
 
 </section>

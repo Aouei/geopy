@@ -402,21 +402,34 @@ document.write(`
 <dt class="sig sig-object py" id="sensingpy.preprocessing.deglinting.lyzenga">
 <span class="sig-prename descclassname"><span class="pre">sensingpy.preprocessing.deglinting.</span></span><span class="sig-name descname"><span class="pre">lyzenga</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep_area_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_correct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../../_modules/sensingpy/preprocessing/deglinting.html#lyzenga"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sensingpy.preprocessing.deglinting.lyzenga" title="Link to this definition">#</a></dt>
 <dd><p>Lyzenga method for deglinting.</p>
+<p>This method corrects sun glint in visible bands using covariance between
+NIR and visible bands over optically deep water areas. It is based on the
+statistical relationship between NIR brightness and glint intensity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>deep_area_mask</strong> (<em>np.ndarray</em>) – Area to use for correction</p></li>
-<li><p><strong>to_correct</strong> (<em>np.ndarray</em>) – bands to correct</p></li>
-<li><p><strong>nir</strong> (<em>np.ndarray</em>) – nir band values</p></li>
+<li><p><strong>deep_area_mask</strong> (<em>np.ndarray</em>) – Boolean mask identifying optically deep water areas to use for correction</p></li>
+<li><p><strong>to_correct</strong> (<em>np.ndarray</em>) – Array of bands to correct for sun glint</p></li>
+<li><p><strong>nir</strong> (<em>np.ndarray</em>) – Near-infrared band values used as the glint predictor</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>to_correct with deglinting applied</p>
+<dd class="field-even"><p>Array of bands with sun glint correction applied</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>This implementation uses the covariance between each visible band and
+the NIR band over deep water to determine the correction factor. The method
+uses mean NIR rather than minimum NIR as the reference point. Values &lt; 0
+after correction are set to NaN.</p>
+<p class="rubric">References</p>
+<p>Lyzenga, D. R., Malinas, N. P., &amp; Tanis, F. J. (2006). Multispectral
+bathymetry using a simple physically based algorithm. IEEE Transactions on
+Geoscience and Remote Sensing, 44(8), 2251-2259.
+<a class="reference external" href="https://doi.org/10.1109/TGRS.2006.872909">https://doi.org/10.1109/TGRS.2006.872909</a></p>
 </dd></dl>
 
 </section>

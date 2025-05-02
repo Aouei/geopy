@@ -346,15 +346,39 @@ document.write(`
 <div class="viewcode-block" id="hedley">
 <a class="viewcode-back" href="../../../modules/preprocessing.deglinting.html#sensingpy.preprocessing.deglinting.hedley">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">hedley</span><span class="p">(</span><span class="n">deep_area_mask</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">to_correct</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">nir</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Hedley method for deglinting.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        deep_area (np.ndarray): Area to use for correction</span>
-<span class="sd">        to_correct (np.ndarray): bands to correct</span>
-<span class="sd">        nir (np.ndarray): nir band values</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        np.ndarray: to_correct with deglinting applied</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Hedley method for deglinting.</span>
+<span class="sd">    </span>
+<span class="sd">    This method corrects sun glint in visible bands using a linear regression </span>
+<span class="sd">    between NIR and visible bands over optically deep water areas. It assumes a </span>
+<span class="sd">    linear relationship between sun glint in NIR and visible bands.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    deep_area_mask : np.ndarray</span>
+<span class="sd">        Boolean mask identifying optically deep water areas to use for correction</span>
+<span class="sd">    to_correct : np.ndarray</span>
+<span class="sd">        Array of bands to correct for sun glint</span>
+<span class="sd">    nir : np.ndarray</span>
+<span class="sd">        Near-infrared band values used as the glint predictor</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of bands with sun glint correction applied</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The algorithm uses the slope of the linear regression between each visible </span>
+<span class="sd">    band and the NIR band over deep water to determine the correction factor.</span>
+<span class="sd">    Values &lt; 0 after correction are set to NaN.</span>
+<span class="sd">    </span>
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Hedley, J. D., Harborne, A. R., &amp; Mumby, P. J. (2005). Simple and robust </span>
+<span class="sd">    removal of sun glint for mapping shallow-water benthos. International Journal </span>
+<span class="sd">    of Remote Sensing, 26(10), 2107-2112.</span>
+<span class="sd">    https://doi.org/10.1080/01431160500034086</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">to_correct</span><span class="p">)):</span>
@@ -373,15 +397,40 @@ document.write(`
 <div class="viewcode-block" id="lyzenga">
 <a class="viewcode-back" href="../../../modules/preprocessing.deglinting.html#sensingpy.preprocessing.deglinting.lyzenga">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">lyzenga</span><span class="p">(</span><span class="n">deep_area_mask</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">to_correct</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">nir</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Lyzenga method for deglinting.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        deep_area_mask (np.ndarray): Area to use for correction</span>
-<span class="sd">        to_correct (np.ndarray): bands to correct</span>
-<span class="sd">        nir (np.ndarray): nir band values</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        np.ndarray: to_correct with deglinting applied</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lyzenga method for deglinting.</span>
+<span class="sd">    </span>
+<span class="sd">    This method corrects sun glint in visible bands using covariance between </span>
+<span class="sd">    NIR and visible bands over optically deep water areas. It is based on the </span>
+<span class="sd">    statistical relationship between NIR brightness and glint intensity.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    deep_area_mask : np.ndarray</span>
+<span class="sd">        Boolean mask identifying optically deep water areas to use for correction</span>
+<span class="sd">    to_correct : np.ndarray</span>
+<span class="sd">        Array of bands to correct for sun glint</span>
+<span class="sd">    nir : np.ndarray</span>
+<span class="sd">        Near-infrared band values used as the glint predictor</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of bands with sun glint correction applied</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This implementation uses the covariance between each visible band and </span>
+<span class="sd">    the NIR band over deep water to determine the correction factor. The method </span>
+<span class="sd">    uses mean NIR rather than minimum NIR as the reference point. Values &lt; 0</span>
+<span class="sd">    after correction are set to NaN.</span>
+<span class="sd">    </span>
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Lyzenga, D. R., Malinas, N. P., &amp; Tanis, F. J. (2006). Multispectral </span>
+<span class="sd">    bathymetry using a simple physically based algorithm. IEEE Transactions on </span>
+<span class="sd">    Geoscience and Remote Sensing, 44(8), 2251-2259.</span>
+<span class="sd">    https://doi.org/10.1109/TGRS.2006.872909</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">to_correct</span><span class="p">)):</span>
@@ -400,15 +449,43 @@ document.write(`
 <div class="viewcode-block" id="joyce">
 <a class="viewcode-back" href="../../../modules/preprocessing.deglinting.html#sensingpy.preprocessing.deglinting.joyce">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">joyce</span><span class="p">(</span><span class="n">deep_area_mask</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">to_correct</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">nir</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Joyce method for deglinting.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        deep_area_mask (np.ndarray): Area to use for correction</span>
-<span class="sd">        to_correct (np.ndarray): bands to correct</span>
-<span class="sd">        nir (np.ndarray): nir band values</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        np.ndarray: to_correct with deglinting applied</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Joyce method for deglinting.</span>
+<span class="sd">    </span>
+<span class="sd">    This method corrects sun glint by using the statistical mode of NIR values </span>
+<span class="sd">    in deep water as the reference point. It combines aspects of both Hedley and</span>
+<span class="sd">    Hochberg approaches to glint removal.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    deep_area_mask : np.ndarray</span>
+<span class="sd">        Boolean mask identifying optically deep water areas to use for correction</span>
+<span class="sd">    to_correct : np.ndarray</span>
+<span class="sd">        Array of bands to correct for sun glint</span>
+<span class="sd">    nir : np.ndarray</span>
+<span class="sd">        Near-infrared band values used as the glint predictor</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of bands with sun glint correction applied</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The algorithm uses the slope of the linear regression between each visible </span>
+<span class="sd">    band and the NIR band over deep water, similar to Hedley&#39;s method. However,</span>
+<span class="sd">    it uses the mode of NIR values as the reference point rather than the minimum.</span>
+<span class="sd">    Values &lt; 0 after correction are set to NaN.</span>
+<span class="sd">    </span>
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Joyce, K. E. (2004). A method for mapping live coral cover using remote sensing.</span>
+<span class="sd">    PhD Thesis, University of Queensland, Brisbane, Australia.</span>
+<span class="sd">    </span>
+<span class="sd">    Kay, S., Hedley, J. D., &amp; Lavender, S. (2009). Sun glint correction of high </span>
+<span class="sd">    and low spatial resolution images of aquatic scenes: a review of methods for </span>
+<span class="sd">    visible and near-infrared wavelengths. Remote Sensing, 1(4), 697-730.</span>
+<span class="sd">    https://doi.org/10.3390/rs1040697</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">to_correct</span><span class="p">)):</span>
